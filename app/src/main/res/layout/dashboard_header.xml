@@ -31,7 +31,7 @@
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+android:visibility="gone"
             android:layout_marginLeft="@dimen/dim20"
             android:layout_marginTop="@dimen/dim20"
             android:contentDescription="@string/todo"
@@ -44,7 +44,7 @@
             android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+android:visibility="gone"
             android:layout_gravity="center"
             android:contentDescription="@string/todo"
             android:scaleType="fitXY"
@@ -65,7 +65,7 @@
         android:text="Sign Up"
         android:textColor="@color/white"
         android:textSize="20sp"
-
+android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

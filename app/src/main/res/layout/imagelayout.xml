@@ -4,26 +4,202 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white">
 
-    android:background="@android:color/white"
-    android:fitsSystemWindows="true">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <include
+        android:id="@+id/include_layout"
+        layout="@layout/view_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/top_bg" />
+         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dim100"
+            android:layout_marginStart="@dimen/dim20"
+            android:layout_marginEnd="@dimen/dim20"
+         >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:layout_marginTop="@dimen/dim10"
+                android:text="@string/sign_in"
+                android:textColor="#0F0F0F"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+
+            <TextView
+                android:id="@+id/tv_email_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim20"
+                android:fontFamily="@font/light"
+                android:text="@string/email_username"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dim_14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <EditText
+                android:id="@+id/et_email_username"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/dim7"
+                android:background="@drawable/shape_border_and_background_login"
+                android:fontFamily="@font/light"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dim_16sp"
+
+                android:paddingLeft="@dimen/dim10"
+                android:paddingTop="@dimen/dim10"
+                android:paddingRight="@dimen/dim40"
+                android:paddingBottom="@dimen/dim10"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_email_username"
+                tools:text="abc@gmail.com" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="0.05dp"
+                android:visibility="gone"
+                android:background="@color/colorBlack1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_email_username" />
+
+
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim15"
+                android:fontFamily="@font/light"
+                android:text="@string/password"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dim_14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+            <include
+                android:id="@+id/rel_password"
+                layout="@layout/view_edit_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim44"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_password" />
+
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+               android:visibility="gone"
+                android:layout_height="0.05dp"
+                android:background="@color/colorBlack1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rel_password" />
+
+
+            <TextView
+                android:id="@+id/tv_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim10"
+                android:fontFamily="@font/light"
+                android:gravity="center_vertical"
+                android:text="@string/forgot_password"
+                android:textColor="@color/red"
+                android:textSize="@dimen/dim_14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view1" />
+            <include
+                android:id="@+id/include_layout"
+                layout="@layout/view_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btn_create_account"
+                app:layout_constraintBottom_toBottomOf="@id/tv_forgot_password"/>
+
+
+            <Button
+                android:id="@+id/btn_create_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/ic_disabled_button_gray"
+                android:fontFamily="@font/light"
+                android:text="@string/sign_in"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dim_15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintStart_toStartOf="parent">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:contentDescription="@string/todo"
+
+            android:scaleType="fitXY"
+
+            app:srcCompat="@drawable/bottom_bg" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim20"
+            android:fontFamily="@font/light"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/register_here"
+            android:textColor="#146FF8"
+            android:textSize="@dimen/dim_14sp"
+
+            app:layout_constraintTop_toBottomOf="@+id/view1" />
+
+
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

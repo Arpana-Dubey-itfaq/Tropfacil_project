@@ -1,7 +1,8 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdk 31
@@ -40,4 +41,73 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // View Model
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+
+    // Google maps
+    implementation "com.google.android.gms:play-services-location:$google_maps"
+    implementation "com.google.android.gms:play-services-maps:$google_maps"
+    implementation 'com.google.android.gms:play-services-basement:17.5.0'
+
+
+    // Firebase
+    implementation "com.google.firebase:firebase-messaging:$cloudMessaging"
+    implementation "com.google.firebase:firebase-analytics:$analytics"
+    implementation platform('com.google.firebase:firebase-bom:26.4.0')
+
+    // Gson
+    implementation "com.google.code.gson:gson:$gson"
+
+
+    // Preference
+    implementation "androidx.preference:preference:$preference"
+
+    // Kotlin Android Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$coroutines_adapter"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_logging"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    // Kodein
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodein"
+    implementation "org.kodein.di:kodein-di-framework-android-x:$kodein"
+
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide"
+    kapt "com.github.bumptech.glide:compiler:$glide"
+
+    // looping view pager for home slider
+    implementation "com.asksira.android:loopingviewpager:$looping_viewpager"
+
+    // circular imageview
+    implementation "com.mikhaellopez:circularimageview:$circular_imageview"
+    implementation "com.google.android.gms:play-services-location:$location"
+    implementation "com.github.jkwiecien:EasyImage:$easy_image"
+    implementation "com.karumi:dexter:$dexer"
+    implementation "com.github.chnouman:AwesomeDialog:$dialog"
+
+    implementation "org.greenrobot:eventbus:$event_bus"
+    implementation "io.paperdb:paperdb:$paper_db"
+
+    //page indicator
+    implementation "com.github.zhpanvip:viewpagerindicator:$page_indicator"
+
+    implementation "com.github.skydoves:balloon:1.3.6"
+
+
 }
