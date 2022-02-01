@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.tropfacil.R
+import com.tropfacil.base.BaseActivity
 import com.tropfacil.databinding.ActivityHomeBinding
 import com.tropfacil.home.view.HomeFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener
 
-class MainActivity : AppCompatActivity(), HomeOptionsListener {
+class MainActivity : BaseActivity(), HomeOptionsListener {
     lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

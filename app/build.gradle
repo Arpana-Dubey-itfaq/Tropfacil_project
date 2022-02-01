@@ -53,7 +53,12 @@ dependencies {
 
     //rounded imageview
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //Lottie
+    implementation "com.airbnb.android:lottie:$AIR_BNB_LOTTIE"
 
-
+    implementation "androidx.lifecycle:lifecycle-extensions:$ANDROIDX_LIFECYCLE"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$KTX_LIFECYCLE"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$KTX_LIFECYCLE"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$KTX_LIFECYCLE"
 
 }

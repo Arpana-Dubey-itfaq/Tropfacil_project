@@ -4,8 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/actiivty_home.xml" value="0.18" />
-        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/fragment_home.xml" value="0.11367753623188406" />
-        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_topbar.xml" value="0.11367753623188406" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_home.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/custom_tab_recommeded_exercise.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/fragment_tab_recommeded_exercise.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_left_course.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_level_info.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_topbar.xml" value="0.17" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_home_page_course.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_home_page_course_list.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_tab_recommeded_exercise.xml" value="0.1213768115942029" />
       </map>
     </option>
   </component>

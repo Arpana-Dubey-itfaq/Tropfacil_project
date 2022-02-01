@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Tropfacil_project</string>
+    <string name="ok">OK</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="french">French:</string>
+    <string name="viewall">ViewAll</string>
+    <string name="recommened_exercise">Recommened Exercise</string>
+    <string name="your_schedule_courses">Your Schedule courses</string>
 </resources>
