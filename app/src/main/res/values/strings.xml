@@ -1,60 +1,9 @@
 <resources>
     <string name="app_name">Tropfacil_project</string>
-    <string name="todo">TODO</string>
-    <string name="todo1">TODO</string>
-
-
-    <!--Welcome back!-->
-    <string name="welcome_back">Ravis de vous revoir !</string>
-    <!--Login to continue.-->
-    <!--Veuillez-vous connecter pour continuer.-->
-    <string name="login_to_continue">Sign in.</string>
-    <!--Email or Username-->
-    <string name="email_username">Email address</string>
-    <!--Password-->
-    <string name="password">Mot de passe</string>
-    <!--Show-->
-    <string name="show">Show</string>
-    <!--Hide-->
-    <string name="hide">Cacher</string>
-    <!--Forgot Password?-->
-    <string name="forgot_password">Username or Password is incorrect.</string>
-    <!--Sign In-->
-    <string name="sign_in">Sign in</string>
-    <!--Create account-->
-    <string name="create_account">Créer un compte</string>
-    <!--Sign Up-->
-    <string name="sign_up">S\'inscrire</string>
-    <string name="stay_login">Stay login</string>
-    <string name="forgot_passwordhint">Forgot Password?</string>
-    <string name="register_here">Don\'t have an account? Register here</string>
-    <string name="txt_your_password">Enter the email associated with your account and we\'ll send an email with a link to reset your password.</string>
-    <string name="new_password">New password</string>
-    <string name="confirm_password">Confirm password</string>
-    <string name="txt_reset_passwords">Your new password must be different from your previous used passwords.</string>
-    <string name="failure">Oups</string>
-    <string name="success">Success</string>
-    <string name="confirmer">Confirmer</string>
-
-    <string name="sunday">Dimanche</string>
-    <!--Monday-->
-    <string name="monday">Lundi</string>
-    <!--Tuesday-->
-    <string name="tuesday">Mardi</string>
-    <!--Wednesday-->
-    <string name="wednesday">Mercredi</string>
-    <!--Thursday-->
-    <string name="thursday">Jeudi</string>
-    <!--Friday-->
-    <string name="friday">Vendredi</string>
-    <!--Saturday-->
-    <string name="saturday">Samedi</string>
-
-
-    <!--Today-->
-    <string name="today">Aujourd\'hui</string>
-    <!--Tomorrow-->
-    <string name="tomorrow">Demain</string>
-    <string name="session_expired_logout">Session expired</string>
-    <!--Open In Map-->
+    <string name="ok">OK</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="french">French:</string>
+    <string name="viewall">ViewAll</string>
+    <string name="recommened_exercise">Recommened Exercise</string>
+    <string name="your_schedule_courses">Your Schedule courses</string>
 </resources>
