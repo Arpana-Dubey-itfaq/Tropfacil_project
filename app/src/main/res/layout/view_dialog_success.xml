@@ -23,6 +23,7 @@
             android:layout_marginTop="@dimen/dim20"
             android:fontFamily="@font/robotoregular"
             android:text="@string/success"
+            android:visibility="gone"
             android:textColor="@color/colorBlack1"
             android:textSize="@dimen/dim_20sp"
             android:textStyle="bold" />

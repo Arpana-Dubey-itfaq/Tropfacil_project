@@ -35,4 +35,26 @@
     <string name="failure">Oups</string>
     <string name="success">Success</string>
     <string name="confirmer">Confirmer</string>
+
+    <string name="sunday">Dimanche</string>
+    <!--Monday-->
+    <string name="monday">Lundi</string>
+    <!--Tuesday-->
+    <string name="tuesday">Mardi</string>
+    <!--Wednesday-->
+    <string name="wednesday">Mercredi</string>
+    <!--Thursday-->
+    <string name="thursday">Jeudi</string>
+    <!--Friday-->
+    <string name="friday">Vendredi</string>
+    <!--Saturday-->
+    <string name="saturday">Samedi</string>
+
+
+    <!--Today-->
+    <string name="today">Aujourd\'hui</string>
+    <!--Tomorrow-->
+    <string name="tomorrow">Demain</string>
+    <string name="session_expired_logout">Session expired</string>
+    <!--Open In Map-->
 </resources>

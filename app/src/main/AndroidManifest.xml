@@ -3,6 +3,7 @@
     package="com.tropfacil" >
 
     <application
+        android:name=".Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tropfacil_project" >
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.allusertypes.auth.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".Sign_up_Screen"
@@ -22,7 +23,7 @@
             android:name=".Forget_password"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.allusertypes.auth.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
             <intent-filter>

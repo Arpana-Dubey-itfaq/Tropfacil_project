@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "384285803454",
+    "project_id": "pharmamoov-e6b77",
+    "storage_bucket": "pharmamoov-e6b77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384285803454:android:455d2507dd43f08b44afef",
+        "android_client_info": {
+          "package_name": "com.tropfacil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384285803454-jedh1npls4b96dlhe1brq24alih0btra.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tropfacil",
+            "certificate_hash": "626bdcd7818bad64e341b0b2a1588197673fcf5c"
+          }
+        },
+        {
+          "client_id": "384285803454-m213eoqccrls707k0fvn3pgvt0e0da0g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tropfacil",
+            "certificate_hash": "cc71f1055fcddc731019b175c6223a84949843f8"
+          }
+        },
+        {
+          "client_id": "384285803454-dvi4o1fo0us8j95sst4bru0125e2gcqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg_TIzYIA4M8XPxG8O7wJXXVY0M26OxPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384285803454-dvi4o1fo0us8j95sst4bru0125e2gcqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
