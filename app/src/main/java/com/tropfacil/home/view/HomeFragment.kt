@@ -2,6 +2,7 @@ package com.tropfacil.home.view
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,15 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
 import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
 import com.tropfacil.databinding.ItemTabRecommededExerciseBinding
+import androidx.core.widget.NestedScrollView
+import android.graphics.PorterDuff
+
+
+
+import androidx.core.content.ContextCompat
+
+
+
 
 
 class HomeFragment : BaseFragment() {
@@ -42,14 +52,8 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    fun setData() {
-        homeCourseAdapter = HomeCourseAdapter()
-        binding.relCourse.adapter = homeCourseAdapter
-        viewPagerExcerAdapter = ViewPagerAdapter(requireActivity(),5)
-        viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(),3)
+    fun setTabLayout() {
 
-        binding.viewPagerExercise.adapter = viewPagerExcerAdapter
-        binding.viewPagerscheduleCourse.adapter = viewPagerSchudeleCourseAdapter
 
         TabLayoutMediator(binding.tabLayoutExercise, binding.viewPagerExercise) { tab, position ->
             /* val tabView = LayoutInflater.from(this.context)
@@ -109,6 +113,18 @@ class HomeFragment : BaseFragment() {
         }.attach()
     }
 
+    fun setData() {
+        homeCourseAdapter = HomeCourseAdapter()
+        binding.relCourse.adapter = homeCourseAdapter
+        viewPagerExcerAdapter = ViewPagerAdapter(requireActivity(), 5)
+        viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 3)
+
+        binding.viewPagerExercise.adapter = viewPagerExcerAdapter
+        binding.viewPagerscheduleCourse.adapter = viewPagerSchudeleCourseAdapter
+
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -122,11 +138,31 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         setListner()
         setData()
+        setTabLayout()
     }
 
     fun setListner() {
         binding.topbar.imgUser.setOnClickListener {
             homeOptionsListener.onClickMenu()
         }
+
+        binding.nestedscrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if (scrollY > oldScrollY) {
+                binding.view1.visibility = View.GONE
+
+                Log.i(TAG, "Scroll DOWN")
+            }
+            if (scrollY < oldScrollY) {
+
+                Log.i(TAG, "Scroll UP")
+            }
+            if (scrollY == 0) {
+                binding.view1.visibility = View.VISIBLE
+                Log.i(TAG, "TOP SCROLL")
+            }
+            if (scrollY == v.measuredHeight - v.getChildAt(0).measuredHeight) {
+                Log.i(TAG, "BOTTOM SCROLL")
+            }
+        })
     }
 }

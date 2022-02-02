@@ -24,7 +24,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/_70sdp"
         android:fillViewport="true"
-
+android:id="@+id/nestedscrollview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -229,7 +229,7 @@
                 android:background="@color/grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/lbl_recommend_excrcise"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_recommend_excrcise"
                 app:tabGravity="start"
                 app:tabIndicator="@null"
                 app:tabMode="scrollable"
@@ -253,35 +253,55 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewPager_exercise" />
 
-          <!--  <androidx.cardview.widget.CardView
-                android:id="@+id/card_schedule_course"
+            <!--  <androidx.cardview.widget.CardView
+                  android:id="@+id/card_schedule_course"
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/_70sdp"
+                  android:layout_margin="@dimen/_15sdp"
+                  android:background="@color/white"
+                  android:elevation="@dimen/_10sdp"
+                  app:cardCornerRadius="@dimen/_10sdp"
+                  app:cardUseCompatPadding="true"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/lblcourse">-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_schedule"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_15sdp"
-                android:background="@color/white"
-                android:elevation="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
                 app:cardUseCompatPadding="true"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lblcourse">-->
+                app:layout_constraintTop_toBottomOf="@+id/lblcourse">
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabschedule_course"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    app:tabGravity="fill"
-                    app:tabMode="fixed"
-                    android:layout_margin="@dimen/_15sdp"
-
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lblcourse"
-                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget" />
-<!--
+                    app:tabGravity="fill"
+                    app:tabIndicatorColor="@color/goolden"
+                    app:tabIndicatorHeight="@dimen/_3sdp"
+                    app:tabMode="fixed"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                    app:tabTextColor="@color/black" />
             </androidx.cardview.widget.CardView>
--->
+
+
+            <!--
+                        </androidx.cardview.widget.CardView>
+            -->
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPagerschedule_course"
@@ -290,7 +310,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tabschedule_course" />
+                app:layout_constraintTop_toBottomOf="@+id/card_schedule" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
