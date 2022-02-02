@@ -6,4 +6,13 @@
     <string name="viewall">ViewAll</string>
     <string name="recommened_exercise">Recommened Exercise</string>
     <string name="your_schedule_courses">Your Schedule courses</string>
+    <string name="course">Courses</string>
+    <string name="exercise">Exercise</string>
+
+    <string name="today">Today</string>
+    <string name="new_keyword">New</string>
+    <string name="notifiation">Notification</string>
+    <string name="write_a_message">Write a message</string>
+    <string name="message">Message</string>
+
 </resources>

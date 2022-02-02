@@ -12,8 +12,8 @@
         android:layout_height="@dimen/_35sdp"
         android:layout_margin="@dimen/_15sdp"
         android:src="@drawable/user_men_74"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp"
+        app:civ_border_color="@color/goolden"
+        app:civ_border_width="@dimen/_2sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,7 +40,7 @@
 
 
     <ImageView
-        android:id="@+id/imgbell"
+        android:id="@+id/imgNotification"
         style="@style/imgHeader"
 
         android:src="@drawable/notification"
@@ -54,7 +54,7 @@
         android:scaleType="fitXY"
 
         android:src="@drawable/message"
-        app:layout_constraintRight_toLeftOf="@+id/imgbell"
+        app:layout_constraintRight_toLeftOf="@+id/imgNotification"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

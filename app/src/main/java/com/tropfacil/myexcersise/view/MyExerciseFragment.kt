@@ -1,4 +1,4 @@
-package com.tropfacil.home.view
+package com.tropfacil.myexcersise.view
 
 import android.content.Context
 import android.content.Intent
@@ -30,26 +30,19 @@ import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 
 
-class HomeFragment : BaseFragment() {
+class MyExerciseFragment : BaseFragment() {
     lateinit var binding: FragmentHomeBinding
     lateinit var homeOptionsListener: HomeOptionsListener
-    lateinit var homeCourseAdapter: HomeCourseAdapter
     lateinit var viewPagerExcerAdapter: ViewPagerAdapter
-    lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapter
+
 
     companion object {
-        const val TAG = "HomeFragment"
+        const val TAG = "MyExerciseFragment"
 
         @JvmStatic
-        fun newInstance() = HomeFragment().apply {
+        fun newInstance() = MyExerciseFragment().apply {
 
         }
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        homeOptionsListener = requireActivity() as HomeOptionsListener
-
     }
 
     fun setTabLayout() {
@@ -86,42 +79,31 @@ class HomeFragment : BaseFragment() {
             }
         }.attach()
 
-        TabLayoutMediator(
-            binding.tabscheduleCourse,
-            binding.viewPagerscheduleCourse
-        ) { tab, position ->
-            /* val tabView = LayoutInflater.from(this.context)
-                 .inflate(R.layout.custom_tab_recommeded_exercise, binding.tabLayoutExercise, false)
-*/
-            // tab.setCustomView(R.layout.custom_tab_recommeded_exercise);
 
-
-            when (position) {
-                0 -> {
-                    tab.text = "Today"
-                    // tabview.imgIcon.setImageResource(R.drawable.menu_home)
-                    // tabview.tvExerciseName.text = "hfgdsghf"
-                    // you can set your tab text and color here for tab1
-                }
-                1 -> {
-                    tab.text = "This week"
-                }
-                2 -> {
-                    tab.text = "This Month"
-                }
-            }
-        }.attach()
     }
 
-    fun setData() {
-        homeCourseAdapter = HomeCourseAdapter()
-        binding.relCourse.adapter = homeCourseAdapter
-        viewPagerExcerAdapter = ViewPagerAdapter(requireActivity(), 5)
-        viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 3)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        homeOptionsListener = requireActivity() as HomeOptionsListener
 
+    }
+
+
+    fun setData() {
+        viewPagerExcerAdapter = ViewPagerAdapter(requireActivity(), 5)
         binding.viewPagerExercise.adapter = viewPagerExcerAdapter
-        binding.viewPagerscheduleCourse.adapter = viewPagerSchudeleCourseAdapter
+
+
         binding.incCountine.cardPlay.visibility = View.VISIBLE
+        binding.incLevelInfo.cardLevel.visibility = View.GONE
+        binding.lblconutine.visibility = View.GONE
+        binding.incCountine.cardCountine.visibility = View.GONE
+        binding.relCourse.visibility = View.GONE
+        binding.lblRecommendExcrcise.text = "My Exercise"
+
+        binding.lblcourse.visibility = View.GONE
+        binding.cardSchedule.visibility = View.GONE
+        binding.viewPagerscheduleCourse.visibility = View.GONE
 
     }
 

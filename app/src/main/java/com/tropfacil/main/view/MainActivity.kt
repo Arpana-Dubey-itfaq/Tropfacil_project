@@ -8,6 +8,8 @@ import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.databinding.ActivityHomeBinding
 import com.tropfacil.home.view.HomeFragment
+import com.tropfacil.mycourses.view.MyCourseFragment
+import com.tropfacil.myexcersise.view.MyExerciseFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener
 
 class MainActivity : BaseActivity(), HomeOptionsListener {
@@ -17,7 +19,7 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        navigateToHomeScreen()
+        navigateToMyExerciseScreen()
 
     }
 
@@ -44,6 +46,15 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
             .replace(R.id.fragment_container, HomeFragment.newInstance(), HomeFragment.TAG).commit()
 
     }
+     fun navigateToMyCoursesScreen() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, MyCourseFragment.newInstance(), MyCourseFragment.TAG).commit()
 
+    }
+    fun navigateToMyExerciseScreen() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, MyExerciseFragment.newInstance(), MyExerciseFragment.TAG).commit()
+
+    }
 
 }

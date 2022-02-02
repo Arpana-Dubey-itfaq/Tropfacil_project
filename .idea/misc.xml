@@ -5,14 +5,23 @@
       <map>
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/actiivty_home.xml" value="0.18" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_home.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_message.xml" value="0.10511651469098278" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_notifications.xml" value="0.10144927536231885" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_search.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/custom_tab_recommeded_exercise.xml" value="0.1213768115942029" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/fragment_tab_recommeded_exercise.xml" value="0.1213768115942029" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_left_course.xml" value="0.1213768115942029" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_level_info.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_normal_topbar.xml" value="0.1" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_notification.xml" value="0.10144927536231885" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_topbar.xml" value="0.17" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_chat_date_time.xml" value="0.1" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_chat_receiver.xml" value="0.1" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_chat_sender.xml" value="0.10511651469098278" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_home_page_course.xml" value="0.1213768115942029" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_home_page_course_list.xml" value="0.1213768115942029" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_notification.xml" value="0.18" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_rating.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_tab_recommeded_exercise.xml" value="0.1213768115942029" />
       </map>

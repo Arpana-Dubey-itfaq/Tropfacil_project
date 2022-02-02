@@ -20,11 +20,11 @@
         layout="@layout/include_topbar" />
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedscrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/_70sdp"
         android:fillViewport="true"
-android:id="@+id/nestedscrollview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -48,7 +48,7 @@ android:id="@+id/nestedscrollview"
                 tools:ignore="MissingConstraints" />
 
             <include
-
+                android:id="@+id/incCountine"
                 layout="@layout/item_tab_recommeded_exercise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -208,7 +208,7 @@ android:id="@+id/nestedscrollview"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_countine"
+                app:layout_constraintTop_toBottomOf="@+id/incCountine"
                 tools:listitem="@layout/item_home_page_course" />
 
             <TextView

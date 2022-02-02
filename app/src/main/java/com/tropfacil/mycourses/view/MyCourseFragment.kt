@@ -1,4 +1,4 @@
-package com.tropfacil.home.view
+package com.tropfacil.mycourses.view
 
 import android.content.Context
 import android.content.Intent
@@ -30,18 +30,17 @@ import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 
 
-class HomeFragment : BaseFragment() {
+class MyCourseFragment : BaseFragment() {
     lateinit var binding: FragmentHomeBinding
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var homeCourseAdapter: HomeCourseAdapter
-    lateinit var viewPagerExcerAdapter: ViewPagerAdapter
-    lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapter
+
 
     companion object {
-        const val TAG = "HomeFragment"
+        const val TAG = "MyCourseFragment"
 
         @JvmStatic
-        fun newInstance() = HomeFragment().apply {
+        fun newInstance() = MyCourseFragment().apply {
 
         }
     }
@@ -52,76 +51,21 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    fun setTabLayout() {
-
-
-        TabLayoutMediator(binding.tabLayoutExercise, binding.viewPagerExercise) { tab, position ->
-            /* val tabView = LayoutInflater.from(this.context)
-                 .inflate(R.layout.custom_tab_recommeded_exercise, binding.tabLayoutExercise, false)
-*/
-            // tab.setCustomView(R.layout.custom_tab_recommeded_exercise);
-            var tabview = CustomTabRecommededExerciseBinding.inflate(
-                layoutInflater,
-                binding.tabLayoutExercise,
-                false
-            )
-            tab.setCustomView(tabview.root)
-
-            when (position) {
-                0 -> {
-                    // tabview.imgIcon.setImageResource(R.drawable.menu_home)
-                    // tabview.tvExerciseName.text = "hfgdsghf"
-                    // you can set your tab text and color here for tab1
-                }
-                1 -> {
-                    //   tabview.tvExerciseName.text = "hfgdsghf"
-
-                    // you can set your tab text and color here for tab2
-                }
-                2 -> {
-                    // tabview.tvExerciseName.text = "hfgdsghf"
-
-                    // you can set your tab text and color here for tab3
-                }
-            }
-        }.attach()
-
-        TabLayoutMediator(
-            binding.tabscheduleCourse,
-            binding.viewPagerscheduleCourse
-        ) { tab, position ->
-            /* val tabView = LayoutInflater.from(this.context)
-                 .inflate(R.layout.custom_tab_recommeded_exercise, binding.tabLayoutExercise, false)
-*/
-            // tab.setCustomView(R.layout.custom_tab_recommeded_exercise);
-
-
-            when (position) {
-                0 -> {
-                    tab.text = "Today"
-                    // tabview.imgIcon.setImageResource(R.drawable.menu_home)
-                    // tabview.tvExerciseName.text = "hfgdsghf"
-                    // you can set your tab text and color here for tab1
-                }
-                1 -> {
-                    tab.text = "This week"
-                }
-                2 -> {
-                    tab.text = "This Month"
-                }
-            }
-        }.attach()
-    }
 
     fun setData() {
         homeCourseAdapter = HomeCourseAdapter()
         binding.relCourse.adapter = homeCourseAdapter
-        viewPagerExcerAdapter = ViewPagerAdapter(requireActivity(), 5)
-        viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 3)
 
-        binding.viewPagerExercise.adapter = viewPagerExcerAdapter
-        binding.viewPagerscheduleCourse.adapter = viewPagerSchudeleCourseAdapter
         binding.incCountine.cardPlay.visibility = View.VISIBLE
+        binding.incLevelInfo.cardLevel.visibility = View.GONE
+        binding.lblconutine.visibility = View.GONE
+        binding.incCountine.cardCountine.visibility = View.GONE
+        binding.lblRecommendExcrcise.visibility = View.GONE
+        binding.tabLayoutExercise.visibility = View.GONE
+        binding.viewPagerExercise.visibility = View.GONE
+        binding.lblcourse.visibility = View.GONE
+        binding.cardSchedule.visibility = View.GONE
+        binding.viewPagerscheduleCourse.visibility = View.GONE
 
     }
 
@@ -138,7 +82,6 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         setListner()
         setData()
-        setTabLayout()
     }
 
     fun setListner() {
