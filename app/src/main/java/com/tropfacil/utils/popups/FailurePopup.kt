@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.fragment.app.DialogFragment
 import com.tropfacil.R
-import kotlinx.android.synthetic.main.view_dialog_success.*
+
 
 
 class FailurePopup : DialogFragment() {
@@ -33,17 +33,7 @@ class FailurePopup : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         dialog?.setCanceledOnTouchOutside(options.cancellable)
         isCancelable = false
-        tv_title.text = getString(R.string.failure)
 
-        tv_title.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorRed))
-        tv_message.text = options.message
-        options.actionButtonText?.let {
-            btn_confirm.text = it
-        }
-        btn_confirm.setOnClickListener {
-            options.onConfirm?.invoke()
-            dismiss()
-        }
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

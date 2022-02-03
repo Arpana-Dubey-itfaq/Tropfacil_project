@@ -6,4 +6,60 @@
     <string name="viewall">ViewAll</string>
     <string name="recommened_exercise">Recommened Exercise</string>
     <string name="your_schedule_courses">Your Schedule courses</string>
+    <string name="todo">todo</string>
+    <!--Login Screen-->
+    <!--Welcome back!-->
+    <string name="welcome_back">Ravis de vous revoir !</string>
+    <!--Login to continue.-->
+    <!--Veuillez-vous connecter pour continuer.-->
+    <string name="login_to_continue">Sign in.</string>
+    <!--Email or Username-->
+    <string name="email_username">Email ou nom d\'utilisateur</string>
+    <!--Password-->
+    <string name="password">Mot de passe</string>
+    <!--Show-->
+    <string name="show">Show</string>
+    <!--Hide-->
+    <string name="hide">Cacher</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <!--Forgot Password?-->
+    <string name="forgot_password">Mot de passe oublié?</string>
+    <!--Sign In-->
+    <string name="sign_in">Sign in</string>
+    <!--Create account-->
+    <string name="create_account">Créer un compte</string>
+    <!--Sunday-->
+    <string name="sunday">Dimanche</string>
+    <!--Monday-->
+    <string name="monday">Lundi</string>
+    <!--Tuesday-->
+    <string name="tuesday">Mardi</string>
+    <!--Wednesday-->
+    <string name="wednesday">Mercredi</string>
+    <!--Thursday-->
+    <string name="thursday">Jeudi</string>
+    <!--Friday-->
+    <string name="friday">Vendredi</string>
+    <!--Saturday-->
+    <string name="saturday">Samedi</string>
+    <!--Sign Up-->
+    <string name="sign_up">S\'inscrire</string>
+    <string name="txt_reset_passwords">Reset password</string>
+    <string name="register_here">Don\'t have an account? Register here</string>
+    <string name="txt_your_password">Enter the email associated with your account and we\'ll send an email with a link to reset your password.</string>
+    <string name="stay_login">Stay login</string>
+    <string name="forgot_passwordhint">Forgot Password?</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="success">Sucess</string>
+    <string name="confirmer">confirm</string>
+    <string name="la_meilleure_cole_en_ligne">La meilleure école en ligne</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="button">Next</string>
+    <string name="textview">Skip</string>
+    <string name="session_expired_logout">Session ecpire</string>
+    <string name="today">today</string>
+    <string name="tomorrow">tomorrow</string>
+    <string name="msg_password">Username or Password is incorrect.</string>
 </resources>

@@ -5,13 +5,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextWatcher
+import android.text.method.PasswordTransformationMethod
 import android.view.Window
 import android.view.WindowManager
+import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.closestKodein
-import org.kodein.di.generic.instance
+import com.tropfacil.main.view.MainActivity
+import com.tropfacil.ui.allusertypes.auth.Register
+import kotlinx.android.synthetic.main.activity_login.*
+
 
 class LoginActivity : BaseActivity() {
 
@@ -28,8 +32,21 @@ class LoginActivity : BaseActivity() {
         hideStatusBar()
         setContentView(R.layout.activity_login)
         actionBar?.isHideOnContentScrollEnabled
+        initViewClickListeners()
+        // get reference to button
 
     }
 
+    private fun initViewClickListeners() {
 
+        btn_sign_in.setOnClickListener {
+            MainActivity.start(this)
+        }
+        signup_txt.setOnClickListener {
+            val intent = Intent(this, Register::class.java)
+            // start your next activity
+            startActivity(intent)
+        }
+
+    }
 }

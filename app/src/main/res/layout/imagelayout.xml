@@ -8,7 +8,7 @@
 
 
     <include
-        android:id="@+id/include_layout"
+        android:id="@+id/include_layout1"
         layout="@layout/view_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -87,7 +87,7 @@ android:layout_marginTop="@dimen/dim10"
                 android:layout_width="match_parent"
                 android:layout_height="0.05dp"
                 android:visibility="gone"
-                android:background="@color/colorBlack1"
+                android:background="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_email_username" />
 
@@ -120,7 +120,7 @@ android:layout_marginTop="@dimen/dim10"
                 android:layout_width="match_parent"
                android:visibility="gone"
                 android:layout_height="0.05dp"
-                android:background="@color/colorBlack1"
+                android:background="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rel_password" />
 

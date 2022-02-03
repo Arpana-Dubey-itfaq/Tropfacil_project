@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
 import androidx.lifecycle.ViewModelProviders
 import com.tropfacil.R
 
@@ -16,19 +17,18 @@ import com.tropfacil.network.auth.account.RefreshTokenResponse
 import com.tropfacil.network.request.LogoutRequest
 import com.tropfacil.network.request.RegenerateTokenRequest
 import com.tropfacil.ui.allusertypes.auth.login.LoginActivity
+import com.tropfacil.ui.allusertypes.auth.welcome.Welcome_Screen
 import com.tropfacil.utils.DevicePlatforms
 import com.tropfacil.utils.compareTokenExpirationDates
 import com.tropfacil.utils.getDateInMinusTenMin
 
 
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.closestKodein
-import org.kodein.di.generic.instance
+
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
 
-    private val preferenceProvider: PreferenceProvider by instance<PreferenceProvider>()
+   // private val preferenceProvider: PreferenceProvider by instance<PreferenceProvider>()
 
     private lateinit var viewModel: SplashViewModel
     private var orderId = ""
@@ -44,7 +44,7 @@ class SplashActivity : BaseActivity() {
         //  initViewModel()
         Handler(Looper.getMainLooper()).postDelayed({
 
-            LoginActivity.start(this)
+            Welcome_Screen.start(this)
             finish()
 
         }, 4000)
@@ -99,7 +99,7 @@ class SplashActivity : BaseActivity() {
           finish()
       }*/
 
-    private fun updateTokenExpirationDateIfExpired() {
+  /*  private fun updateTokenExpirationDateIfExpired() {
         var tokenExpDate: String? = null
         var refreshTokenExpDate: String? = null
         val tokenDate = preferenceProvider.getString(PREF_USER_TOKEN_EXPIRATION, "")
@@ -155,7 +155,7 @@ class SplashActivity : BaseActivity() {
             //deviceFCMToken = preferenceProvider.getString(PREF_USER_FCM_TOKEN, "")
         )
         viewModel.callLogoutApi(logoutRequest)
-    }
+    }*/
 
 
 }

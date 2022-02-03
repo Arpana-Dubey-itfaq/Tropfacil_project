@@ -1,11 +1,9 @@
 package com.tropfacil
 
 import android.app.Application
-import com.tropfacil.base.AccountUnVerifiedViewModelFactory
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.data.repository.AppRepository
 import com.tropfacil.data.repository.AppRepositoryImpl
-import com.tropfacil.ui.allusertypes.auth.splash.SplashViewModelFactory
 
 import io.paperdb.Paper
 import org.kodein.di.Kodein
@@ -31,19 +29,10 @@ class Application : Application(), KodeinAware {
         }
 
         // ViewModel Factories
-        bind() from provider {
-            SplashViewModelFactory(
-                instance(),
-                instance()
-            )
-        }
 
-        bind() from provider {
-            AccountUnVerifiedViewModelFactory(
-                instance(),
-                instance()
-            )
-        }
+
+
+
     }
 
 

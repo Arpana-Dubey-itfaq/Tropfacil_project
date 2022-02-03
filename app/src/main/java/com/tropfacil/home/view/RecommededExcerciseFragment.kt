@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import com.tropfacil.base.BaseFragment
+
 import com.tropfacil.databinding.FragmentHomeBinding
 import com.tropfacil.databinding.FragmentTabRecommededExerciseBinding
 import com.tropfacil.home.adapter.HomeAdapter

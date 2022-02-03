@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navHome"
+        android:icon="@drawable/menu_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/mycource"
+        android:icon="@drawable/menu_mycourses"
+        android:title="My Courses" />
+
+    <item
+        android:id="@+id/myexcersises"
+        android:icon="@drawable/menu_myexercise"
+        android:title="My Excersises" />
+
+    <item
+        android:id="@+id/recomended"
+        android:icon="@drawable/menu_recommended"
+        android:title="Recomended" />
+
+    <item
+        android:id="@+id/allcatagories"
+        android:icon="@drawable/menu_categories"
+        android:title="All Catagories" />
+
+
+    <item android:title="Account Settings">
+        <menu>
+
+            <item
+                android:id="@+id/profile"
+                android:icon="@drawable/menu_profile"
+                android:title="Profile" />
+
+            <item
+                android:id="@+id/favourties"
+                android:icon="@drawable/menu_favorites"
+                android:title="Favorities" />
+
+            <item
+                android:id="@+id/accountsettings"
+                android:icon="@drawable/menu_settings"
+                android:title="Account Settings" />
+
+            <item
+                android:id="@+id/needhelp"
+                android:icon="@drawable/need_help"
+                android:title="Need Help" />
+
+
+        </menu>
+    </item>
+</menu>

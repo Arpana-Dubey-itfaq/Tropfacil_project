@@ -2,6 +2,7 @@ package com.tropfacil.network.request
 
 import com.google.gson.annotations.SerializedName
 
+
 data class LogoutRequest(
 
     @field:SerializedName("authToken")

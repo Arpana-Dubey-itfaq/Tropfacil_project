@@ -13,9 +13,6 @@ import com.tropfacil.network.request.LogoutRequest
 import com.tropfacil.network.request.RegenerateTokenRequest
 import com.tropfacil.network.service.SafeApiCall
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class SplashViewModel(
     private val preferenceProvider: PreferenceProvider,
@@ -25,7 +22,7 @@ class SplashViewModel(
     val logoutLiveData = MutableLiveData<BaseResponse>()
     val refreshTokenLiveData = MutableLiveData<RefreshTokenResponse>()
 
-
+/*
     fun callLogoutApi(logoutRequest: LogoutRequest) {
         showLoading.value = true
         launch {
@@ -38,27 +35,8 @@ class SplashViewModel(
                 is SafeApiCall.Error -> showError.value = getErrorMessage(result.exception)
             }
         }
-    }
+    }*/
 
-    fun callRefreshTokenApi(refreshTokenRequest: RegenerateTokenRequest) {
-        showLoading.value = true
-        launch {
-            val result =
-                withContext(Dispatchers.IO) {
-                    appRepository.reGenerateTokensAsync(
-                        refreshTokenRequest
-                    )
-                }
-            showLoading.value = false
-            when (result) {
-                is SafeApiCall.Success -> {
-                    preferenceProvider.saveRefreshTokenUserInfo(result.data)
-                    refreshTokenLiveData.value = result.data
-                }
-                is SafeApiCall.Error -> showError.value = getErrorMessage(result.exception)
-            }
-        }
-    }
 
     fun saveUserLoggedIn() {
         preferenceProvider.putBoolean(PREF_CUSTOMER_USER_IS_LOGGED_IN, false)
