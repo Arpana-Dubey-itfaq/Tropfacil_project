@@ -28,6 +28,7 @@ import androidx.core.content.ContextCompat
 import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
+import com.tropfacil.util.Constants
 
 
 class HomeFragment : BaseFragment() {
@@ -129,6 +130,7 @@ class HomeFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Constants.FRAGMENT=Constants.HomeFragment
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         return binding.root
 
@@ -156,6 +158,7 @@ class HomeFragment : BaseFragment() {
             startActivity(Intent(requireContext(), MessageActivity::class.java))
 
         }
+/*
         binding.nestedscrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY > oldScrollY) {
                 binding.view1.visibility = View.GONE
@@ -174,5 +177,6 @@ class HomeFragment : BaseFragment() {
                 Log.i(TAG, "BOTTOM SCROLL")
             }
         })
+*/
     }
 }

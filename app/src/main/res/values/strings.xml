@@ -14,5 +14,18 @@
     <string name="notifiation">Notification</string>
     <string name="write_a_message">Write a message</string>
     <string name="message">Message</string>
+    <string name="my_exercises">My Exercises</string>
+    <string name="my_courses">My Courses</string>
+    <string name="countinue">Countinue</string>
+
+    <string name="congratulations_n_you_have_successfully_completed_this_course">Congratulations!\n You have successfully completed this course!</string>
+    <string name="excellent">Excellent</string>
+    <string name="write_your_review_optional">Write your Review(Optional)</string>
+    <string name="submit_and_go_back_to_home_page">Submit and go back to home page</string>
+    <string name="my_badges">My Badges</string>
+    <string name="completed_course">Completed course</string>
+    <string name="earn_budges">Earn Budges</string>
+    <string name="all_categories">All Categories</string>
+
 
 </resources>

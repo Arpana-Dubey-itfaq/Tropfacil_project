@@ -28,6 +28,7 @@ import androidx.core.content.ContextCompat
 import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
+import com.tropfacil.util.Constants
 
 
 class MyExerciseFragment : BaseFragment() {
@@ -99,7 +100,13 @@ class MyExerciseFragment : BaseFragment() {
         binding.lblconutine.visibility = View.GONE
         binding.incCountine.cardCountine.visibility = View.GONE
         binding.relCourse.visibility = View.GONE
-        binding.lblRecommendExcrcise.text = "My Exercise"
+        binding.lblRecommendExcrcise.text = getString(R.string.my_exercises)
+        binding.lblRecommendExcrcise.setTextColor(
+            ContextCompat.getColor(
+                requireContext(),
+                R.color.white
+            )
+        )
 
         binding.lblcourse.visibility = View.GONE
         binding.cardSchedule.visibility = View.GONE
@@ -111,6 +118,8 @@ class MyExerciseFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Constants.FRAGMENT= Constants.MYEXERCISEFragment
+
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         return binding.root
 
@@ -138,9 +147,16 @@ class MyExerciseFragment : BaseFragment() {
             startActivity(Intent(requireContext(), MessageActivity::class.java))
 
         }
+/*
         binding.nestedscrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY > oldScrollY) {
                 binding.view1.visibility = View.GONE
+                binding.lblRecommendExcrcise.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.black
+                    )
+                )
 
                 Log.i(TAG, "Scroll DOWN")
             }
@@ -150,11 +166,18 @@ class MyExerciseFragment : BaseFragment() {
             }
             if (scrollY == 0) {
                 binding.view1.visibility = View.VISIBLE
+                binding.lblRecommendExcrcise.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.white
+                    )
+                )
                 Log.i(TAG, "TOP SCROLL")
             }
             if (scrollY == v.measuredHeight - v.getChildAt(0).measuredHeight) {
                 Log.i(TAG, "BOTTOM SCROLL")
             }
         })
+*/
     }
 }

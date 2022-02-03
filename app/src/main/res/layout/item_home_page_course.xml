@@ -8,11 +8,27 @@
 
     <TextView
         android:id="@+id/tvTitle"
+
         style="@style/tvBoldCommon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chap 1"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvViewAllWHite"
+        style="@style/tvBoldCommon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/view_all_icon"
+        android:drawablePadding="@dimen/_10ssp"
+        android:drawableTint="@color/white"
+        android:text="@string/viewall"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -22,7 +38,9 @@
         android:layout_height="wrap_content"
         android:drawableRight="@drawable/view_all_icon"
         android:drawablePadding="@dimen/_10ssp"
+        android:drawableTint="@color/black"
         android:text="@string/viewall"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

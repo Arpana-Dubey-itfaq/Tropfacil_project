@@ -1,4 +1,4 @@
-package com.tropfacil.mycourses.view
+package com.tropfacil.category.view
 
 import android.content.Context
 import android.content.Intent
@@ -25,26 +25,31 @@ import android.graphics.PorterDuff
 
 
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
+import com.tropfacil.category.adapter.CategoriesListAdapter
+import com.tropfacil.category.model.CategoryList
+import com.tropfacil.databinding.FragmentCatgoryBinding
 import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.util.Constants
 
 
-class MyCourseFragment : BaseFragment() {
-    lateinit var binding: FragmentHomeBinding
+class AllCateogiesFragment : BaseFragment() {
+    lateinit var binding: FragmentCatgoryBinding
     lateinit var homeOptionsListener: HomeOptionsListener
-    lateinit var homeCourseAdapter: HomeCourseAdapter
+    lateinit var categoriesListAdapter: CategoriesListAdapter
 
 
     companion object {
-        const val TAG = "MyCourseFragment"
+        const val TAG = "AllCateogiesFragment"
 
         @JvmStatic
-        fun newInstance() = MyCourseFragment().apply {
+        fun newInstance() = AllCateogiesFragment().apply {
 
         }
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -52,46 +57,50 @@ class MyCourseFragment : BaseFragment() {
 
     }
 
-
-    fun setData() {
-        homeCourseAdapter = HomeCourseAdapter()
-        binding.relCourse.adapter = homeCourseAdapter
-
-        binding.incCountine.cardPlay.visibility = View.VISIBLE
-        binding.incLevelInfo.cardLevel.visibility = View.GONE
-        binding.lblconutine.visibility = View.GONE
-        binding.incCountine.cardCountine.visibility = View.GONE
-        binding.lblRecommendExcrcise.visibility = View.GONE
-        binding.tabLayoutExercise.visibility = View.GONE
-        binding.viewPagerExercise.visibility = View.GONE
-        binding.lblcourse.visibility = View.GONE
-        binding.cardSchedule.visibility = View.GONE
-        binding.viewPagerscheduleCourse.visibility = View.GONE
-        binding.lblMyCourses.visibility = View.VISIBLE
-        binding.lblMyCourses.setTextColor(
-            ContextCompat.getColor(
-                requireContext(),
-                R.color.white
+    fun createdummyData(): MutableList<CategoryList> {
+        var arrayList: MutableList<CategoryList> = mutableListOf()
+        arrayList.add(CategoryList(1, "Maths"))
+        arrayList.add(CategoryList(2, "Science"))
+        arrayList.add(
+            CategoryList(
+                3,
+                "Maths"
             )
         )
+        arrayList.add(CategoryList(4, "Economics"))
+        arrayList.add(CategoryList(5, "English"))
+        return arrayList
+    }
 
+    fun setData() {
+        categoriesListAdapter = CategoriesListAdapter(createdummyData())
+        binding.relcategory.adapter = categoriesListAdapter
+
+        binding.topbar.cardChatcount.visibility = View.GONE
+    }
+
+    fun setObservers() {
+        categoriesListAdapter.selectedItems.observe(viewLifecycleOwner, {
+
+        })
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Constants.FRAGMENT= Constants.MYCOURSESFragment
 
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding = FragmentCatgoryBinding.inflate(layoutInflater, container, false)
         return binding.root
 
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setListner()
         setData()
+        setObservers()
     }
 
     fun setListner() {
@@ -109,15 +118,17 @@ class MyCourseFragment : BaseFragment() {
             startActivity(Intent(requireContext(), MessageActivity::class.java))
 
         }
-        /*binding.nestedscrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+/*
+        binding.nestedscrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY > oldScrollY) {
-              //  binding.view1.visibility = View.GONE
-                binding.lblMyCourses.setTextColor(
+                binding.view1.visibility = View.GONE
+                binding.lblRecommendExcrcise.setTextColor(
                     ContextCompat.getColor(
                         requireContext(),
                         R.color.black
                     )
                 )
+
                 Log.i(TAG, "Scroll DOWN")
             }
             if (scrollY < oldScrollY) {
@@ -125,8 +136,8 @@ class MyCourseFragment : BaseFragment() {
                 Log.i(TAG, "Scroll UP")
             }
             if (scrollY == 0) {
-            //    binding.view1.visibility = View.VISIBLE
-                binding.lblMyCourses.setTextColor(
+                binding.view1.visibility = View.VISIBLE
+                binding.lblRecommendExcrcise.setTextColor(
                     ContextCompat.getColor(
                         requireContext(),
                         R.color.white
@@ -137,6 +148,7 @@ class MyCourseFragment : BaseFragment() {
             if (scrollY == v.measuredHeight - v.getChildAt(0).measuredHeight) {
                 Log.i(TAG, "BOTTOM SCROLL")
             }
-        })*/
+        })
+*/
     }
 }
