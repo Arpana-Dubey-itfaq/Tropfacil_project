@@ -4,8 +4,7 @@
     android:id="@+id/card_level"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_100sdp"
-    android:layout_marginStart="@dimen/_15sdp"
-    android:layout_marginEnd="@dimen/_15sdp"
+
     app:cardCornerRadius="@dimen/_15sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout

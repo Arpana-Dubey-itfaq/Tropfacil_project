@@ -3,7 +3,6 @@ package com.tropfacil
 import android.content.Intent
 import android.os.Bundle
 import com.tropfacil.base.BaseActivity
-import com.tropfacil.databinding.ActivityCongratulationsBinding
 import com.tropfacil.databinding.ActivityRateBinding
 import com.tropfacil.main.view.MainActivity
 

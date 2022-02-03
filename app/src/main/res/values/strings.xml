@@ -26,6 +26,9 @@
     <string name="completed_course">Completed course</string>
     <string name="earn_budges">Earn Budges</string>
     <string name="all_categories">All Categories</string>
+    <string name="subscribe_to_our_plan_now">Subscribe to our plan now!</string>
+    <string name="plan_message">To view courses and trainings. You need to subscribe to our monthly or yearly plan.</string>
+    <string name="subscriptions_message">Opps! All trainings and courses are availble only for users who have subscriptions.</string>
 
 
 </resources>

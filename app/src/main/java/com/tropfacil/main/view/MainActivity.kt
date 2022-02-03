@@ -12,6 +12,7 @@ import com.tropfacil.badge.view.BadgeActivity
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.category.view.AllCateogiesFragment
 import com.tropfacil.databinding.ActivityHomeBinding
+import com.tropfacil.home.view.Home1Fragment
 import com.tropfacil.home.view.HomeFragment
 import com.tropfacil.mycourses.view.MyCourseFragment
 import com.tropfacil.myexcersise.view.MyExerciseFragment
@@ -24,7 +25,7 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-         navigateToCategoryScreen()
+        navigateToHome1Screen()
       //  startActivity()
     }
 
@@ -68,7 +69,12 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
             .commit()
 
     }
+    fun navigateToHome1Screen() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, Home1Fragment.newInstance(), Home1Fragment.TAG)
+            .commit()
 
+    }
     fun navigateToMyExerciseScreen() {
         supportFragmentManager.beginTransaction()
             .replace(
