@@ -2,13 +2,10 @@ package com.tropfacil.main.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.tropfacil.CompletedCourseActivity
-import com.tropfacil.R
-import com.tropfacil.RateReviewActivity
+import com.tropfacil.*
 import com.tropfacil.badge.view.BadgeActivity
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.category.view.AllCateogiesFragment
@@ -26,69 +23,12 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        navigateToHomeScreen()
-        binding.navigationView.setNavigationItemSelectedListener {
-            it.menuInfo
-
-            when (it.itemId) {
-                R.id.navHome -> Toast.makeText(
-
-                applicationContext,
-                    "Clicked Home",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.mycource -> Toast.makeText(
-                    applicationContext,
-                    "Clicked My Course",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.myexcersises -> Toast.makeText(
-                    applicationContext,
-                    "Clicked My Excersises",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.recomended -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Recomended",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.allcatagories -> Toast.makeText(
-                    applicationContext,
-                    "Clicked All Catagories",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.profile -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Profile",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.favourties -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Favorities",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.accountsettings -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Account Settings",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.needhelp -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Need Help",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-            }
-            true
-
-
-        }
-
-        //  startActivity()
+        navigateToHome1Screen()
+       // startActivity()
     }
 
     fun startActivity() {
-        startActivity(Intent(this, BadgeActivity::class.java))
+        startActivity(Intent(this, PageNoSubscriptionActivity::class.java))
     }
 
     override fun onClickMenu() {

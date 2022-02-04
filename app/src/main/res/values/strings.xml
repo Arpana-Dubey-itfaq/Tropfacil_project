@@ -85,6 +85,12 @@
     <string name="subscribe_to_our_plan_now">Subscribe to our plan now!</string>
     <string name="plan_message">To view courses and trainings. You need to subscribe to our monthly or yearly plan.</string>
     <string name="subscriptions_message">Opps! All trainings and courses are availble only for users who have subscriptions.</string>
+    <string name="congratulations_nyou_have_sucessfully_earn_a_badge">Congratulations!\nYou have sucessfully earn a badge</string>
+    <string name="get_my_badge">Get my badge!</string>
+    <string name="change">Change</string>
+    <string name="recent_completed_courses">Recent Completed Courses</string>
+    <string name="profile_statistics">Profile Statistics</string>
+    <string name="my_badge">My Badge</string>
 
 
 </resources>
