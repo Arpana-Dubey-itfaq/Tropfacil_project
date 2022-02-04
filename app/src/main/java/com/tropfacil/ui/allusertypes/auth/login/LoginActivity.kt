@@ -14,7 +14,6 @@ import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.main.view.MainActivity
 import com.tropfacil.ui.allusertypes.auth.Register
-import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : BaseActivity() {
@@ -29,7 +28,7 @@ class LoginActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideStatusBar()
+       // hideStatusBar()
         setContentView(R.layout.activity_login)
         actionBar?.isHideOnContentScrollEnabled
         initViewClickListeners()
@@ -39,7 +38,7 @@ class LoginActivity : BaseActivity() {
 
     private fun initViewClickListeners() {
 
-        btn_sign_in.setOnClickListener {
+     /*   btn_sign_in.setOnClickListener {
            // MainActivity.start(this)
         }
         signup_txt.setOnClickListener {
@@ -47,6 +46,6 @@ class LoginActivity : BaseActivity() {
             // start your next activity
             startActivity(intent)
         }
-
+*/
     }
 }
