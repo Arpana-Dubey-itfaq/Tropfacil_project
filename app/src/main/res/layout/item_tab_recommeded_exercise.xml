@@ -42,6 +42,7 @@
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_centerInParent="true"
+                    android:visibility="gone"
                     app:cardCornerRadius="@dimen/_30sdp"
                     app:cardUseCompatPadding="true"
 

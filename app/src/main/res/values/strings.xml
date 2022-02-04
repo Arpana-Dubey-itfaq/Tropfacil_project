@@ -59,7 +59,32 @@
     <string name="button">Next</string>
     <string name="textview">Skip</string>
     <string name="session_expired_logout">Session ecpire</string>
-    <string name="today">today</string>
+
     <string name="tomorrow">tomorrow</string>
     <string name="msg_password">Username or Password is incorrect.</string>
+    <string name="course">Courses</string>
+    <string name="exercise">Exercise</string>
+
+    <string name="today">Today</string>
+    <string name="new_keyword">New</string>
+    <string name="notifiation">Notification</string>
+    <string name="write_a_message">Write a message</string>
+    <string name="message">Message</string>
+    <string name="my_exercises">My Exercises</string>
+    <string name="my_courses">My Courses</string>
+    <string name="countinue">Countinue</string>
+
+    <string name="congratulations_n_you_have_successfully_completed_this_course">Congratulations!\n You have successfully completed this course!</string>
+    <string name="excellent">Excellent</string>
+    <string name="write_your_review_optional">Write your Review(Optional)</string>
+    <string name="submit_and_go_back_to_home_page">Submit and go back to home page</string>
+    <string name="my_badges">My Badges</string>
+    <string name="completed_course">Completed course</string>
+    <string name="earn_budges">Earn Budges</string>
+    <string name="all_categories">All Categories</string>
+    <string name="subscribe_to_our_plan_now">Subscribe to our plan now!</string>
+    <string name="plan_message">To view courses and trainings. You need to subscribe to our monthly or yearly plan.</string>
+    <string name="subscriptions_message">Opps! All trainings and courses are availble only for users who have subscriptions.</string>
+
+
 </resources>

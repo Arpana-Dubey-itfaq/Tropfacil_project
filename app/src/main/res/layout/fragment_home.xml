@@ -6,25 +6,17 @@
     android:layout_height="match_parent"
     android:background="@color/grey">
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
-        android:background="@drawable/signup_header_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <include
         android:id="@+id/topbar"
         layout="@layout/include_topbar" />
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedscrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/_70sdp"
         android:fillViewport="true"
-android:id="@+id/nestedscrollview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -33,9 +25,23 @@ android:id="@+id/nestedscrollview"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/signup_header_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <include
                 android:id="@+id/inc_level_info"
                 layout="@layout/include_level_info"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +54,7 @@ android:id="@+id/nestedscrollview"
                 tools:ignore="MissingConstraints" />
 
             <include
-
+                android:id="@+id/incCountine"
                 layout="@layout/item_tab_recommeded_exercise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,6 +203,15 @@ android:id="@+id/nestedscrollview"
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
             -->
+            <TextView
+                android:id="@+id/lblMyCourses"
+                style="@style/tvBoldCommon"
+                android:text="@string/my_courses"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/incCountine" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/relCourse"
@@ -208,7 +223,7 @@ android:id="@+id/nestedscrollview"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_countine"
+                app:layout_constraintTop_toBottomOf="@+id/lblMyCourses"
                 tools:listitem="@layout/item_home_page_course" />
 
             <TextView
@@ -226,7 +241,7 @@ android:id="@+id/nestedscrollview"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_15sdp"
-                android:background="@color/grey"
+                android:background="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lbl_recommend_excrcise"

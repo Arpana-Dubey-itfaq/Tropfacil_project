@@ -40,7 +40,7 @@ class LoginActivity : BaseActivity() {
     private fun initViewClickListeners() {
 
         btn_sign_in.setOnClickListener {
-            MainActivity.start(this)
+           // MainActivity.start(this)
         }
         signup_txt.setOnClickListener {
             val intent = Intent(this, Register::class.java)
