@@ -5,9 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.tropfacil.CompletedCourseActivity
-import com.tropfacil.R
-import com.tropfacil.RateReviewActivity
+import com.tropfacil.*
 import com.tropfacil.badge.view.BadgeActivity
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.category.view.AllCateogiesFragment
@@ -26,11 +24,11 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         navigateToHome1Screen()
-      //  startActivity()
+       // startActivity()
     }
 
     fun startActivity() {
-        startActivity(Intent(this, BadgeActivity::class.java))
+        startActivity(Intent(this, PageNoSubscriptionActivity::class.java))
     }
 
     override fun onClickMenu() {

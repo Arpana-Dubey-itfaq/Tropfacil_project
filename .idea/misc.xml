@@ -5,13 +5,16 @@
       <map>
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/actiivty_home.xml" value="0.18" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_completedcourse.xml" value="0.1" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_congras_badge_earn.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_congratulations.xml" value="0.2" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_exercise_multiplechoice.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_home.xml" value="0.1213768115942029" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_message.xml" value="0.10511651469098278" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_notifications.xml" value="0.10144927536231885" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_page_no_subscription.xml" value="0.18" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_rate.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_search.xml" value="0.1" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/activity_userstats_profile.xml" value="0.22" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/custom_tab_recommeded_exercise.xml" value="0.1213768115942029" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/fragment_catgory.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/fragment_home.xml" value="0.1" />
@@ -24,6 +27,7 @@
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/include_topbar.xml" value="0.17" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_all_category.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_badge.xml" value="0.15" />
+        <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_badge_userstat.xml" value="0.14855072463768115" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_chat_date_time.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_chat_receiver.xml" value="0.1" />
         <entry key="..\:/ITFAQ TropFacile/app/src/main/res/layout/item_chat_sender.xml" value="0.10511651469098278" />
