@@ -34,6 +34,7 @@
     <string name="change">Change</string>
     <string name="recent_completed_courses">Recent Completed Courses</string>
     <string name="profile_statistics">Profile Statistics</string>
+    <string name="my_badge">My Badge</string>
 
 
 </resources>

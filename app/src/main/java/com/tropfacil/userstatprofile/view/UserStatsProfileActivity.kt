@@ -48,6 +48,7 @@ class UserStatsProfileActivity : BaseActivity() {
         mybadgeAdapter = MybadgeAdapter()
         binding.itemBadge.relCourse.adapter = mybadgeAdapter
         binding.incTopbar.itemHeader.text=getString(R.string.profile_statistics)
+        binding.itemBadge.tvTitle.text=getString(R.string.my_badge)
 
 
     }
