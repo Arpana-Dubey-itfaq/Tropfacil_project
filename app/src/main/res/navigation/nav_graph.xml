@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/initialFragment">
+    <fragment
+        android:id="@+id/initialFragment"
+        android:name="com.tropfacil.ui.allusertypes.auth.welcome.WelcomeTutorialFragment"
+        android:label="InitialFragment"
+        tools:layout="@layout/fragment_guest_tutorial">
+        <action
+            android:id="@+id/action_initialFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true" />
+
+
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tropfacil.ui.allusertypes.auth.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_regsterFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.tropfacil.ui.allusertypes.auth.forgotpass.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/activity_forget_password">
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/courseperFragment"
+        android:name="com.tropfacil.mycourses.view.Course_per_chapter_Fragment"
+        android:label="Course_per_chapter_Fragment"
+        tools:layout="@layout/course_per_chapter">
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.tropfacil.ui.allusertypes.auth.forgotpass.FragmentResetPassword"
+        android:label="ResetPasswordFragment"
+        tools:layout="@layout/activity_reset_password">
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.tropfacil.home.view.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_courseperFragment"
+            app:destination="@id/courseperFragment" />
+    </fragment>
+      <!--  <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_homeShopFragment"
+            app:destination="@id/homeShopFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeMultipleShopFragment"
+            app:destination="@id/homeMultipleShopFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerManuallyFragment"
+            app:destination="@id/registerManuallyFragment" />-->
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/activity_register">
+
+        <!--  <action
+              android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+              app:destination="@id/forgotPasswordFragment" />
+
+          <action
+              android:id="@+id/action_loginFragment_to_homeShopFragment"
+              app:destination="@id/homeShopFragment"
+              app:launchSingleTop="true"
+              app:popUpTo="@+id/nav_graph"
+              app:popUpToInclusive="true" />
+          <action
+              android:id="@+id/action_loginFragment_to_homeMultipleShopFragment"
+              app:destination="@id/homeMultipleShopFragment" />
+          <action
+              android:id="@+id/action_loginFragment_to_registerManuallyFragment"
+              app:destination="@id/registerManuallyFragment" />-->
+    </fragment>
+
+<!--
+    <fragment
+        android:id="@+id/registerOptionsFragment"
+        android:name="com.tropfacil.ui.allusertypes.auth.signup.Register"
+        android:label="RegisterOptionsFragment"
+        tools:layout="@layout/activity_register">
+      &lt;!&ndash;  <action
+            android:id="@+id/action_registerOptionsFragment_to_registerManuallyFragment"
+            app:destination="@id/registerManuallyFragment" />
+        <action
+            android:id="@+id/action_registerOptionsFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/initialFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registerOptionsFragment_to_homeShopFragment"
+            app:destination="@id/homeShopFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_registerOptionsFragment_to_homeMultipleShopFragment"
+            app:destination="@id/homeMultipleShopFragment" />&ndash;&gt;
+
+    </fragment>-->
+
+  <!--  <fragment
+        android:id="@+id/registerManuallyFragment"
+        android:name="com.itfaq.kitchin.ui.auth.register.RegisterManuallyFragment"
+        android:label="RegisterManuallyFragment"
+        tools:layout="@layout/fragment_register_manually">
+        <action
+            android:id="@+id/action_registerManuallyFragment_to_verificationCodeFragment"
+            app:destination="@id/verificationCodeFragment" />
+        <action
+            android:id="@+id/action_registerManuallyFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/initialFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.itfaq.kitchin.ui.auth.resetpassword.ResetPasswordFragment"
+        android:label="ResetPasswordFragment"
+        tools:layout="@layout/fragment_reset_password">
+        <argument
+            android:name="code"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_resetPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/initialFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/verificationCodeFragment"
+        android:name="com.itfaq.kitchin.ui.auth.verify.VerificationCodeFragment"
+        android:label="VerificationCodeFragment"
+        tools:layout="@layout/fragment_verify_code">
+
+        <action
+            android:id="@+id/action_verificationCodeFragment_to_homeShopFragment"
+            app:destination="@id/homeShopFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_verificationCodeFragment_to_homeMultipleShopFragment"
+            app:destination="@id/homeMultipleShopFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.itfaq.kitchin.ui.auth.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+    </fragment>-->
+
+    <!--<fragment
+        android:id="@+id/homeShopFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.home.shops.HomeShopFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home_shop">
+        <action
+            android:id="@+id/action_homeShopFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_homeShopFragment_to_offersFragment"
+            app:destination="@id/offersFragment" />
+        <action
+            android:id="@+id/action_homeShopFragment_to_searchFragment"
+            app:destination="@id/searchFragment">
+
+        </action>
+
+        <action
+            android:id="@+id/action_filterListFragment"
+            app:destination="@id/filterListFragment" />
+
+        <action
+            android:id="@+id/action_homeShopFragment_to_orderListFragment"
+            app:destination="@id/orderFragment" />
+        <action
+            android:id="@+id/action_homeShopFragment_to_multipleShopsFragment"
+            app:destination="@id/homeMultipleShopFragment" />
+        <action
+            android:id="@+id/action_homeShopFragment_to_productDetailsFragment"
+            app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_homeShopFragment_to_initialFragment"
+            app:destination="@+id/initialFragment" />
+
+        <action
+            android:id="@+id/action_homeShopFragment_to_cartListFragment"
+            app:destination="@+id/cartListingFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeMultipleShopFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.home.shops.HomeMultipleShopsFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home_multiple_shops">
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_offersFragment"
+            app:destination="@id/offersFragment" />
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_orderListFragment"
+            app:destination="@id/orderFragment" />
+
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_cartListFragment"
+            app:destination="@+id/cartListingFragment" />
+
+        <action
+            android:id="@+id/action_filterListFragment"
+            app:destination="@id/filterListFragment" />
+    </fragment>
+-->
+
+    <!--<fragment
+        android:id="@+id/productDetails"
+        android:name="com.itfaq.kitchin.ui.dashboard.restaurantprofilewithitems.RestaurantProfileWithItemsFragment"
+        android:label="ProductDetails"
+        tools:layout="@layout/fragment_restaurant_profile_with_items">
+        <argument
+            android:name="brandId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_productDetails_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+        <action
+            android:id="@+id/action_productDetails_to_searchFragment"
+            app:destination="@id/searchFragment" />
+
+        <action
+            android:id="@+id/action_productDetails_to_cartlisting"
+            app:destination="@id/cartListingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productInfoFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.productinfo.ProductInfoFragment"
+        android:label="ProductInfoFragment"
+        tools:layout="@layout/fragment_product_info">
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_productInfoFragment_to_cartlisting"
+            app:destination="@id/cartListingFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.orders.orderlist.OrderListFragment"
+        android:label="orderListFragment"
+        tools:layout="@layout/fragment_orders">
+
+        <action
+            android:id="@+id/action_orderFragment_to_orderCompleteFragment"
+            app:destination="@id/orderCompleteFragment" />
+        <action
+            android:id="@+id/action_orderFragment_to_cartFragment"
+            app:destination="@id/cartListingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/offersFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.offers.OffersFragment"
+        android:label="offersFragment"
+        tools:layout="@layout/fragment_offers">
+        <action
+            android:id="@+id/action_offersFragment_to_productDetailsFragment"
+            app:destination="@id/productDetails" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.search.SearchFragment"
+        android:label="searchFragment"
+        tools:layout="@layout/fragment_search">
+        <argument
+            android:name="searchKey"
+            app:argType="string" />
+        <argument
+            android:name="fromWhichFragment"
+            app:argType="boolean" />
+        <argument
+            android:name="isGlobalSearch"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/return_to_homeMultipleShopFragment"
+            app:destination="@id/homeMultipleShopFragment" />
+
+        <action
+            android:id="@+id/return_to_homeShopFragment"
+            app:destination="@id/homeShopFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homeShopFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_search_result_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.myaccount.AccountFragment"
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_accountFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+
+        <action
+            android:id="@+id/action_accountFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+
+        <action
+            android:id="@+id/action_accountFragment_to_myCardFragment"
+            app:destination="@id/myCardsFragment" />
+
+        <action
+            android:id="@+id/action_accountFragment_to_initialFragment"
+            app:destination="@id/initialFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_accountFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.itfaq.kitchin.ui.auth.changepassword.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.itfaq.kitchin.ui.auth.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/cartListingFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.cart.CartListingFragment"
+        android:label="CartListingFragment"
+        tools:layout="@layout/fragment_cartlisting">
+        <action
+            android:id="@+id/action_cartListingFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+
+        <action
+            android:id="@+id/action_cartListingFragment_to_initialFragment"
+            app:destination="@id/initialFragment" />
+
+        <action
+            android:id="@+id/action_cartListingFragment_to_homeShopFragment"
+            app:destination="@id/homeShopFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_cartListingFragment_to_productInfoFragment"
+            app:destination="@id/productInfoFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/productInfoFragment"
+            app:popUpToInclusive="true" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.orderdetails.OrderDetailsFragment"
+        android:label="OrderDetailsFragment"
+        tools:layout="@layout/fragment_order_details">
+
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_orderCompletedFragment"
+            app:destination="@id/orderCompleteFragment"
+            app:popUpTo="@id/homeShopFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCardFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.cards.addcard.AddCardFragment"
+        android:label="AddCardFragment"
+        tools:layout="@layout/fragment_add_card" />
+
+    <fragment
+        android:id="@+id/myCardsFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.cards.mycards.MyCardsFragment"
+        android:label="MyCardsFragment"
+        tools:layout="@layout/fragment_my_cards">
+
+        <action
+            android:id="@+id/action_myCardsFragment_to_addCardFragment"
+            app:destination="@id/addCardFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/orderCompleteFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.orders.ordercompleted.OrderCompletedFragment"
+        android:label="OrderCompleteFragment"
+        tools:layout="@layout/fragment_order_complete">
+
+        <argument
+            android:name="isFromOrderList"
+            app:argType="boolean" />
+
+        <argument
+            android:name="orderId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_orderCompleteFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+        <action
+            android:id="@+id/action_orderCompleteFragment_to_homeShopFragment"
+            app:destination="@id/homeShopFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_orderCompleteFragment_to_homeMultipleShopFragment"
+            app:destination="@id/homeMultipleShopFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.notification.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification" />
+
+    <fragment
+        android:id="@+id/filterListFragment"
+        android:name="com.itfaq.kitchin.ui.dashboard.filter.FilterListFragment"
+        android:label="Filter List Fragment"
+        tools:layout="@layout/fragment_filter_list">
+
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_productInfoFragment"
+            app:destination="@id/productInfoFragment" />
+
+        <action
+            android:id="@+id/action_homeMultipleShopFragment_to_cartListFragment"
+            app:destination="@+id/cartListingFragment" />
+    </fragment>-->
+</navigation>

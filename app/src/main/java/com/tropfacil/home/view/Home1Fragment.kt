@@ -29,6 +29,7 @@ import com.tropfacil.databinding.FragmentHome1Binding
 import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
+import com.tropfacil.userstatprofile.view.UserStatsProfileActivity
 import com.tropfacil.util.Constants
 
 
@@ -81,7 +82,7 @@ class Home1Fragment : BaseFragment() {
             homeOptionsListener.onClickMenu()
         }
         binding.topbar.imgsearch.setOnClickListener {
-            startActivity(Intent(requireContext(), SearchActivity::class.java))
+            startActivity(Intent(requireContext(), UserStatsProfileActivity::class.java))
         }
         binding.topbar.imgNotification.setOnClickListener {
             startActivity(Intent(requireContext(), NotificationsActivity::class.java))

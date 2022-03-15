@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/nestedscrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/incTopbar"
+            layout="@layout/include_normal_topbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgUser"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_90sdp"
+            android:src="@drawable/user_profile"
+            app:civ_border_color="@color/goolden"
+            app:civ_border_width="@dimen/_2sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_90sdp"
+            android:text="User name"
+            android:textSize="@dimen/_25sdp"
+
+
+            app:layout_constraintLeft_toRightOf="@+id/imgUser"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgbriefcase"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/briefcase_green"
+            app:layout_constraintLeft_toRightOf="@+id/imgUser"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+
+        <TextView
+            android:id="@+id/tvLevel"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Level1"
+            android:textColor="@color/black"
+
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintLeft_toRightOf="@+id/imgbriefcase"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+
+        <TextView
+            android:id="@+id/tvChange"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_25sdp"
+
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/change"
+            android:textColor="@color/purple_500"
+
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintLeft_toRightOf="@+id/tvLevel"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+
+
+        <include
+            android:id="@+id/item_badge"
+            layout="@layout/item_home_page_course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgUser" />
+
+        <LinearLayout
+            android:id="@+id/lin1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_badge">
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/grey"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/count1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="3"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/_20sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Cours termines cette semaine"
+                        android:textSize="@dimen/_15sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/count1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/grey"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/count2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="3"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/_20sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Cours termines cette semaine"
+                        android:textSize="@dimen/_15sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/count2" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lin1">
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/grey"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/count3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="3"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/_20sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Cours termines cette semaine"
+                        android:textSize="@dimen/_15sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/count3" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/grey"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/count4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="3"
+                        android:textColor="@color/green"
+                        android:textSize="@dimen/_20sdp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Cours termines cette semaine"
+                        android:textSize="@dimen/_15sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/count4" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/grey"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lin2">
+
+            <TextView
+                android:id="@+id/tvTitleRecentCompleted"
+
+                style="@style/tvBoldCommon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recent_completed_courses"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvViewAllrecent"
+                style="@style/tvBoldCommon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/view_all_icon"
+                android:drawablePadding="@dimen/_10ssp"
+                android:drawableTint="@color/black"
+                android:text="@string/viewall"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_completed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/green"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintTop_toBottomOf="@+id/tvViewAllrecent">
+
+
+                <TextView
+                    style="@style/tvBoldCommon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/view_all_icon"
+                    android:drawablePadding="@dimen/_10ssp"
+                    android:drawableTint="@color/black"
+                    android:text="@string/viewall"
+                    android:textColor="@color/black" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/relrecentCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_completed"
+                tools:listitem="@layout/item_home_page_course_list" />
+
+            <TextView
+                android:id="@+id/tvTitleInprogress"
+
+                style="@style/tvBoldCommon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In-Progress Classes"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relrecentCourse" />
+
+            <TextView
+                android:id="@+id/tvViewAllInProgress"
+                style="@style/tvBoldCommon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/view_all_icon"
+                android:drawablePadding="@dimen/_10ssp"
+                android:drawableTint="@color/black"
+                android:text="@string/viewall"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relrecentCourse" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/relInProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvViewAllInProgress"
+                tools:listitem="@layout/item_tab_recommeded_exercise" />
+
+            <View
+                android:id="@+id/viewBottom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_130sdp"
+                android:background="@drawable/bottom_bg"
+                app:layout_constraintTop_toBottomOf="@+id/relInProgress" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

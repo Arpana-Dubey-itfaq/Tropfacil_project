@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dim16">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim20"
+        android:layout_marginEnd="@dimen/dim20"
+        android:background="@drawable/white_rounded_top"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_success_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dim20"
+           />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_success_error_message"
+             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/dim26"
+            android:layout_marginTop="@dimen/dim30"
+            android:layout_marginEnd="@dimen/dim26"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/dim6"
+            tools:text="text message" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnOk"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim38"
+            android:layout_marginStart="@dimen/dim20"
+            android:layout_marginTop="@dimen/dim30"
+            android:layout_marginEnd="@dimen/dim20"
+            android:layout_marginBottom="@dimen/dim15"
+            android:background="@color/black"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/ok"
+            android:textAllCaps="false" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_no"
+             android:layout_width="match_parent"
+            android:layout_height="@dimen/dim38"
+            android:layout_marginStart="@dimen/dim20"
+            android:layout_marginEnd="@dimen/dim20"
+            android:layout_marginBottom="@dimen/dim20"
+            android:background="@color/grey"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="no"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,20 +1,22 @@
 package com.tropfacil.main.view
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.tropfacil.CompletedCourseActivity
 import com.tropfacil.R
-import com.tropfacil.RateReviewActivity
 import com.tropfacil.badge.view.BadgeActivity
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.category.view.AllCateogiesFragment
 import com.tropfacil.databinding.ActivityHomeBinding
+import com.tropfacil.databinding.CoursePerChapterBinding
 import com.tropfacil.home.view.Home1Fragment
 import com.tropfacil.home.view.HomeFragment
+import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
+import com.tropfacil.mycourses.view.Course_per_chapter_Fragment
 import com.tropfacil.mycourses.view.MyCourseFragment
 import com.tropfacil.myexcersise.view.MyExerciseFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener
@@ -31,22 +33,14 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
             it.menuInfo
 
             when (it.itemId) {
-                R.id.navHome -> Toast.makeText(
+                R.id.navHome ->
+                    navigateToHomeScreen()
+               // updateBottomNavBarColor(R.color.green)
 
-                applicationContext,
-                    "Clicked Home",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.mycource -> Toast.makeText(
-                    applicationContext,
-                    "Clicked My Course",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.myexcersises -> Toast.makeText(
-                    applicationContext,
-                    "Clicked My Excersises",
-                    Toast.LENGTH_SHORT
-                ).show()
+                R.id.mycource ->
+                    navigateToMyCoursesScreen()
+                R.id.myexcersises ->
+                    navigateToMyExerciseScreen()
                 R.id.recomended -> Toast.makeText(
                     applicationContext,
                     "Clicked Recomended",
@@ -107,10 +101,31 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         }
     }
 
+    private val bottomNavBarStateList =
+        arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf(-android.R.attr.state_checked))
+
+    private fun updateBottomNavBarColor(currentSelectedColor: Int) {
+        val colorList = intArrayOf(
+            ContextCompat.getColor(this, currentSelectedColor),
+            ContextCompat.getColor(this, R.color.red)
+        )
+        val colorStateList = ColorStateList(
+            bottomNavBarStateList,
+            colorList
+        )
+        binding.navigationView.itemIconTintList = colorStateList
+        binding.navigationView.itemTextColor = colorStateList
+    }
+
+
 
     override fun navigateToHomeScreen() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, HomeFragment.newInstance(), HomeFragment.TAG).commit()
+            .replace(
+                R.id.fragment_container,
+                HomeFragment.newInstance(),
+                HomeFragment.TAG
+            ).commit()
 
     }
 
@@ -123,16 +138,22 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
 
     fun navigateToCategoryScreen() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, AllCateogiesFragment.newInstance(), AllCateogiesFragment.TAG)
+            .replace(
+                R.id.fragment_container,
+                AllCateogiesFragment.newInstance(),
+                AllCateogiesFragment.TAG
+            )
             .commit()
 
     }
+
     fun navigateToHome1Screen() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, Home1Fragment.newInstance(), Home1Fragment.TAG)
             .commit()
 
     }
+
     fun navigateToMyExerciseScreen() {
         supportFragmentManager.beginTransaction()
             .replace(

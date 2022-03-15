@@ -1,4 +1,4 @@
-package com.tropfacil
+package com.tropfacil.network.connectivity
 
 import okhttp3.Interceptor
 

@@ -206,25 +206,47 @@
             <TextView
                 android:id="@+id/lblMyCourses"
                 style="@style/tvBoldCommon"
-                android:text="@string/my_courses"
-                android:visibility="gone"
+                android:text="FORMATION"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_30sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/incCountine" />
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/relCourse"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_schedule1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+                app:cardUseCompatPadding="true"
+
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lblMyCourses"
-                tools:listitem="@layout/item_home_page_course" />
+                app:layout_constraintTop_toBottomOf="@+id/lblcourse">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabschedule_course1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lblcourse"
+                    app:tabGravity="fill"
+                    app:tabIndicatorColor="@color/goolden"
+                    app:tabIndicatorHeight="@dimen/_3sdp"
+                    app:tabMode="fixed"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                    app:tabTextColor="@color/black" />
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:id="@+id/lbl_recommend_excrcise"
@@ -233,7 +255,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relCourse" />
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/relCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_recommend_excrcise"
+                tools:listitem="@layout/item_home_page_course" />
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout_exercise"
                 android:layout_width="0dp"
@@ -244,18 +278,18 @@
                 android:background="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lbl_recommend_excrcise"
+                app:layout_constraintTop_toBottomOf="@+id/relCourse"
                 app:tabGravity="start"
                 app:tabIndicator="@null"
                 app:tabMode="scrollable"
-
-
+android:visibility="gone"
                 app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPager_exercise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tabLayout_exercise" />
@@ -263,6 +297,7 @@
             <TextView
                 android:id="@+id/lblcourse"
                 style="@style/tvBoldCommon"
+                android:visibility="gone"
                 android:text="@string/your_schedule_courses"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -285,33 +320,38 @@
                 android:id="@+id/card_schedule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_15sdp"
-                app:cardCornerRadius="@dimen/_15sdp"
+
                 app:cardUseCompatPadding="true"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lblcourse">
+                app:layout_constraintTop_toBottomOf="@+id/lblMyCourses">
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabschedule_course"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginEnd="@dimen/_20sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
                     android:background="@color/white"
+                    android:scrollbars="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lblcourse"
                     app:tabGravity="fill"
                     app:tabIndicatorColor="@color/goolden"
                     app:tabIndicatorHeight="@dimen/_3sdp"
-                    app:tabMode="fixed"
                     app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
                     app:tabTextColor="@color/black" />
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/lbl_recommend_excrcise2"
+                style="@style/tvBoldCommon"
+                android:text="@string/recommened_exercise"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_schedule" />
 
 
             <!--
@@ -320,12 +360,25 @@
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPagerschedule_course"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_schedule" />
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

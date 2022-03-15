@@ -99,7 +99,7 @@
         android:paddingBottom="@dimen/dim10"
         android:textColor="@color/black"
         android:textSize="@dimen/dim_16sp"
-
+android:text="ITFAQ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_email_username"
         tools:text="orlandsalas@gmail.com" />
@@ -187,7 +187,7 @@ android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password" />
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -199,7 +199,6 @@ android:visibility="gone"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/dim_15sp"
-        android:onClick="sendMessage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include_layout"
@@ -213,6 +212,8 @@ android:visibility="gone"
       android:layout_height="wrap_content"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+
       app:layout_constraintStart_toStartOf="parent">
 
     <ImageView
@@ -243,5 +244,15 @@ android:visibility="gone"
 
 
   </FrameLayout>
-
+  <ProgressBar
+      android:id="@+id/progress_bar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

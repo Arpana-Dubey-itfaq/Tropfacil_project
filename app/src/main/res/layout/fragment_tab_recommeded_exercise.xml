@@ -14,5 +14,5 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/card_countine"
-    tools:listitem="@layout/item_tab_recommeded_exercise" />
+    tools:listitem="@layout/item_home_page_course" />
 
