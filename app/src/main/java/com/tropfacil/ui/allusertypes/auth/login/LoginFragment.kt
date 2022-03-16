@@ -25,8 +25,10 @@ import com.tropfacil.R
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.ActivityLoginBinding
 import com.tropfacil.databinding.FragmentLoginBinding
+import com.tropfacil.main.view.MainActivity
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.SafeApiCall
+import com.tropfacil.search.view.SearchActivity
 import kotlinx.coroutines.flow.collect
 import org.json.JSONException
 import org.json.JSONObject
@@ -124,7 +126,7 @@ class LoginFragment : BaseFragment() {
                 )
 
                 viewModel.loginUser(loginRequest)
-               findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                startActivity(Intent(requireContext(), MainActivity::class.java))
 
             }
         }

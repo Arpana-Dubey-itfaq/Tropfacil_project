@@ -30,6 +30,7 @@ class Dashboard : BaseActivity(), HomeOptionsListener {
     internal lateinit var drawerToggle: ActionBarDrawerToggle
     internal lateinit var drawerLayout: DrawerLayout
     internal lateinit var toolbar: Toolbar
+lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var binding: ActivityHomeBinding
     internal lateinit var fragmentManager: FragmentManager
     internal lateinit var navigationView: NavigationView
@@ -46,7 +47,7 @@ class Dashboard : BaseActivity(), HomeOptionsListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         fragmentManager = supportFragmentManager
-
+        homeOptionsListener=this
         setupView()
         if (savedInstanceState == null) showHome()
     }

@@ -66,7 +66,7 @@ class HomeFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-      // homeOptionsListener = requireActivity() as HomeOptionsListener
+        homeOptionsListener = requireActivity() as HomeOptionsListener
 
     }
 
@@ -199,7 +199,7 @@ class HomeFragment : BaseFragment() {
     }
     fun setListner() {
         binding.topbar.imgUser.setOnClickListener {
-            startActivity(Intent(requireContext(), Dashboard::class.java))
+            homeOptionsListener.onClickMenu()
         }
         binding.topbar.imgsearch.setOnClickListener {
             startActivity(Intent(requireContext(), SearchActivity::class.java))
@@ -245,7 +245,7 @@ class HomeFragment : BaseFragment() {
     private fun initObserver () {
 
 
-            token = "4F4E9010A48C4EA861B497689CFDADD4A205"
+            token = "5ED3BF8DD663D2F644D67358C98F4A2BECE8"
         header = "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
 
 
