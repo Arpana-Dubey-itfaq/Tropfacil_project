@@ -15,6 +15,7 @@ import com.tropfacil.databinding.ActivityHomeBinding
 import com.tropfacil.databinding.CoursePerChapterBinding
 import com.tropfacil.home.view.Home1Fragment
 import com.tropfacil.home.view.HomeFragment
+import com.tropfacil.mycourses.view.Course_chapter_Fragment
 import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
 import com.tropfacil.mycourses.view.Course_per_chapter_Fragment
 import com.tropfacil.mycourses.view.MyCourseFragment
@@ -23,61 +24,14 @@ import com.tropfacil.util.interfaces.HomeOptionsListener
 
 class MainActivity : BaseActivity(), HomeOptionsListener {
     lateinit var binding: ActivityHomeBinding
-
+lateinit var homeOptionsListener: HomeOptionsListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         navigateToHomeScreen()
-        binding.navigationView.setNavigationItemSelectedListener {
-            it.menuInfo
-
-            when (it.itemId) {
-                R.id.navHome ->
-                    navigateToHomeScreen()
-               // updateBottomNavBarColor(R.color.green)
-
-                R.id.mycource ->
-                    navigateToMyCoursesScreen()
-                R.id.myexcersises ->
-                    navigateToMyExerciseScreen()
-                R.id.recomended -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Recomended",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.allcatagories -> Toast.makeText(
-                    applicationContext,
-                    "Clicked All Catagories",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.profile -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Profile",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.favourties -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Favorities",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.accountsettings -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Account Settings",
-                    Toast.LENGTH_SHORT
-                ).show()
-                R.id.needhelp -> Toast.makeText(
-                    applicationContext,
-                    "Clicked Need Help",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-            }
-            true
-
-
-        }
-
+        homeOptionsListener=this
+        initNavigationDrawer()
         //  startActivity()
     }
 
@@ -92,6 +46,13 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
     }
+    private fun closeDrawer() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            binding.drawerLayout.openDrawer(GravityCompat.START)
+        }
+    }
 
     override fun lockDrawer(lock: Boolean) {
         if (lock) {
@@ -99,6 +60,45 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         } else {
             binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
         }
+    }
+
+    override fun navigateToHomeScreen() {
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.fragment_container,
+                HomeFragment.newInstance(),
+                HomeFragment.TAG
+            ).commit()
+
+    }
+
+    override fun navigateToMyCoursesScreen() {
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.fragment_container,
+                Course_chapter_Fragment.newInstance(),
+                MyCourseFragment.TAG
+            )
+            .commit()
+    }
+
+    override fun navigateToMyExerciseScreen() {
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.fragment_container,
+                MyExerciseFragment.newInstance(),
+                MyExerciseFragment.TAG
+            ).commit()
+    }
+
+    override fun navigateToCategoryScreen() {
+        supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.fragment_container,
+                AllCateogiesFragment.newInstance(),
+                AllCateogiesFragment.TAG
+            )
+            .commit()
     }
 
     private val bottomNavBarStateList =
@@ -117,50 +117,63 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         binding.navigationView.itemTextColor = colorStateList
     }
 
+    fun initNavigationDrawer() {
+
+        // refer the navigation view of the xml
+        //   val navigationView = findViewById(R.id.navigation_view) as NavigationView
+        binding.navigationView.setNavigationItemSelectedListener { menuItem ->
+            val id = menuItem.itemId
+            when (id) {
+                R.id.navHome -> {
+                   navigateToHomeScreen()
+                  /*  Toast.makeText(applicationContext, "You Clicked Options A", Toast.LENGTH_SHORT)
+                        .show()*/
+                    binding.drawerLayout!!.closeDrawers()
+                }
+                R.id.mycource -> {
+                    navigateToMyCoursesScreen()
+                 /*   Toast.makeText(applicationContext, "You Clicked Options B", Toast.LENGTH_SHORT)
+                        .show()*/
+                    binding.drawerLayout!!.closeDrawers()
+                }
+                R.id.myexcersises -> {
+                    navigateToMyExerciseScreen()
+                    /*Toast.makeText(applicationContext, "You Clicked Options C", Toast.LENGTH_SHORT)
+                        .show()*/
+                    binding.drawerLayout!!.closeDrawers()
+                }
+                R.id.allcatagories -> {
+                    navigateToCategoryScreen()
+                  /*  Toast.makeText(applicationContext, "You Clicked Options C", Toast.LENGTH_SHORT)
+                        .show()*/
+                    binding.drawerLayout!!.closeDrawers()
+                }
+                R.id.profile -> {
+                    Toast.makeText(applicationContext, "You Clicked Options C", Toast.LENGTH_SHORT)
+                        .show()
+                    binding.drawerLayout!!.closeDrawers()
+                }
+                R.id.accountsettings -> {
+                    Toast.makeText(applicationContext, "You Clicked Options C", Toast.LENGTH_SHORT)
+                        .show()
+                    binding.drawerLayout!!.closeDrawers()
+                }
+            }
+            true
+        }
 
 
-    override fun navigateToHomeScreen() {
-        supportFragmentManager.beginTransaction()
-            .replace(
-                R.id.fragment_container,
-                HomeFragment.newInstance(),
-                HomeFragment.TAG
-            ).commit()
 
-    }
 
-    fun navigateToMyCoursesScreen() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, MyCourseFragment.newInstance(), MyCourseFragment.TAG)
-            .commit()
 
-    }
 
-    fun navigateToCategoryScreen() {
-        supportFragmentManager.beginTransaction()
-            .replace(
-                R.id.fragment_container,
-                AllCateogiesFragment.newInstance(),
-                AllCateogiesFragment.TAG
-            )
-            .commit()
+        fun navigateToHome1Screen() {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, Home1Fragment.newInstance(), Home1Fragment.TAG)
+                .commit()
 
-    }
+        }
 
-    fun navigateToHome1Screen() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, Home1Fragment.newInstance(), Home1Fragment.TAG)
-            .commit()
-
-    }
-
-    fun navigateToMyExerciseScreen() {
-        supportFragmentManager.beginTransaction()
-            .replace(
-                R.id.fragment_container,
-                MyExerciseFragment.newInstance(),
-                MyExerciseFragment.TAG
-            ).commit()
 
     }
 

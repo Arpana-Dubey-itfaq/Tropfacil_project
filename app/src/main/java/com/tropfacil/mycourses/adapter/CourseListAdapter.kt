@@ -11,15 +11,15 @@ class CourseListAdapter(
 ) : RecyclerView.Adapter<CourseListAdapter.ViewHolder>() {
 
 
-    inner class ViewHolder(val bind: ItemCoursePerBinding) :
+    inner class ViewHolder(val bind: ItemCourseChapterBinding) :
         RecyclerView.ViewHolder(bind.root)
 
     lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
-        val binding: ItemCoursePerBinding =
-            ItemCoursePerBinding.inflate(
+        val binding: ItemCourseChapterBinding =
+            ItemCourseChapterBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

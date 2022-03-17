@@ -19,6 +19,7 @@
     <item
         android:id="@+id/recomended"
         android:icon="@drawable/menu_recommended"
+        android:visible="false"
         android:title="Recomended" />
 
     <item
@@ -38,7 +39,8 @@
             <item
                 android:id="@+id/favourties"
                 android:icon="@drawable/menu_favorites"
-                android:title="Favorities" />
+                android:title="Favorities"
+                android:visible="false"/>
 
             <item
                 android:id="@+id/accountsettings"
@@ -47,6 +49,7 @@
 
             <item
                 android:id="@+id/needhelp"
+                android:visible="false"
                 android:icon="@drawable/need_help"
                 android:title="Need Help" />
 

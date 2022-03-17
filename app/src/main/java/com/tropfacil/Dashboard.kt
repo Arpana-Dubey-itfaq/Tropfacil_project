@@ -137,4 +137,16 @@ lateinit var homeOptionsListener: HomeOptionsListener
             .replace(R.id.fragment_container, HomeFragment.newInstance(), HomeFragment.TAG).commit()
 
     }
+
+    override fun navigateToMyCoursesScreen() {
+        TODO("Not yet implemented")
+    }
+
+    override fun navigateToMyExerciseScreen() {
+        TODO("Not yet implemented")
+    }
+
+    override fun navigateToCategoryScreen() {
+        TODO("Not yet implemented")
+    }
 }
