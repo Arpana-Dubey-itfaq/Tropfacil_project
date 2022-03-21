@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.WindowManager
 import com.tropfacil.AuthActivity
 import com.tropfacil.R
-import com.tropfacil.ui.allusertypes.auth.login.LoginActivity
 
 class Welcome_Screen : AppCompatActivity() {
     companion object {

@@ -6,23 +6,13 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
-import androidx.lifecycle.ViewModelProviders
 import com.tropfacil.R
 
 
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.data.provider.*
 import com.tropfacil.network.auth.account.RefreshTokenResponse
-import com.tropfacil.network.request.LogoutRequest
-import com.tropfacil.network.request.RegenerateTokenRequest
-import com.tropfacil.ui.allusertypes.auth.login.LoginActivity
 import com.tropfacil.ui.allusertypes.auth.welcome.Welcome_Screen
-import com.tropfacil.utils.DevicePlatforms
-import com.tropfacil.utils.compareTokenExpirationDates
-import com.tropfacil.utils.getDateInMinusTenMin
-
-
 
 
 @SuppressLint("CustomSplashScreen")
