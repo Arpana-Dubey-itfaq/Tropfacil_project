@@ -72,7 +72,6 @@ class HomeFragment : BaseFragment() {
 
     fun setTabLayout() {
 
-
         TabLayoutMediator(binding.tabLayoutExercise, binding.viewPagerExercise) { tab, position ->
             /* val tabView = LayoutInflater.from(this.context)
                  .inflate(R.layout.custom_tab_recommeded_exercise, binding.tabLayoutExercise, false)
