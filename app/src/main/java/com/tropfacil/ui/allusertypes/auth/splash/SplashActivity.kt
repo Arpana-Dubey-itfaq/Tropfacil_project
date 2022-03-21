@@ -35,7 +35,7 @@ class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideStatusBar()
+       // hideStatusBar()
         setContentView(R.layout.activity_splash)
         val intent = intent
         if (intent != null) {

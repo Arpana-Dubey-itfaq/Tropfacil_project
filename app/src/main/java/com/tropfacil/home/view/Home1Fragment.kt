@@ -92,6 +92,10 @@ class Home1Fragment : BaseFragment() {
             startActivity(Intent(requireContext(), MessageActivity::class.java))
 
         }
+        binding.incLevelInfo.imgNext.setOnClickListener {
+            startActivity(Intent(requireContext(), UserStatsProfileActivity::class.java))
+
+        }
 
     }
 }
