@@ -17,11 +17,7 @@ import androidx.lifecycle.lifecycleScope
 
 import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
-import com.tropfacil.databinding.ActivityBadgeBinding.inflate
-import com.tropfacil.databinding.ActivityUserStatsProfileBinding
-import com.tropfacil.databinding.FragmentLoginBinding
-import com.tropfacil.main.view.MainActivity
-import com.tropfacil.model.Login_resoponse
+
 import com.tropfacil.network.BaseResponse
 import com.tropfacil.network.auth.login.UserInfo
 import com.tropfacil.network.request.LoginRequest
@@ -33,10 +29,6 @@ import kotlinx.android.synthetic.main.inclued_seekbar.*
 import kotlinx.android.synthetic.main.view_edit_password.*
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
-
-
-import androidx.databinding.DataBindingUtil
-import com.tropfacil.databinding.ActivityHomeBinding
 import com.tropfacil.databinding.ActivityLoginBinding
 
 
