@@ -38,6 +38,7 @@ class Course_chapter_Fragment : BaseFragment() {
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var homeCourseAdapter: CourseListAdapter
     lateinit var homeCourseAdapter1: CourseDetailAdapter
+    lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapter
    // private var exoVideoPlayerProvider: ExoVideoPlayerProvider? = null
     private var orientationHandler: Handler? = null
     private var videoUrlActual: String? = null
@@ -60,9 +61,11 @@ class Course_chapter_Fragment : BaseFragment() {
     fun setData() {
         homeCourseAdapter = CourseListAdapter()
            binding.relCourse1.adapter=homeCourseAdapter
+        viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
 
         homeCourseAdapter1 = CourseDetailAdapter()
         binding.relCourse12.adapter = homeCourseAdapter1
+        binding.viewPagerscheduleCourse.adapter = viewPagerSchudeleCourseAdapter
      //   binding.relCoursequestion.adapter=homeCourseAdapter
 
     }
@@ -81,7 +84,7 @@ class Course_chapter_Fragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
        // setListner()
     setData()
-
+        setTabLayout()
 
         /*seekBar?.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
@@ -103,7 +106,41 @@ class Course_chapter_Fragment : BaseFragment() {
         })*/
 
     }
+    fun setTabLayout() {
 
+
+        TabLayoutMediator(
+            binding.tabscheduleCourse,
+            binding.viewPagerscheduleCourse
+        ) { tab, position ->
+            /* val tabView = LayoutInflater.from(this.context)
+                 .inflate(R.layout.custom_tab_recommeded_exercise, binding.tabLayoutExercise, false)
+*/
+            // tab.setCustomView(R.layout.custom_tab_recommeded_exercise);
+            binding.tabscheduleCourse.setTabMode(TabLayout.MODE_SCROLLABLE);
+
+            when (position) {
+                0 -> {
+                    tab.text = "CSS3 - ENI® CERTIFICATIONS"
+                    // tabview.imgIcon.setImageResource(R.drawable.menu_home)
+                    // tabview.tvExerciseName.text = "hfgdsghf"
+                    // you can set your tab text and color here for tab1
+                }
+                1 -> {
+                    tab.text = "FORMATION PLATEFORME"
+                }
+                2 -> {
+                    tab.text = "PACK OFFICE 2019 INTÉGRAL"
+                }
+                3 -> {
+                    tab.text = "REFLEX'ENGLISH NIVEAU 1"
+                }
+                4 -> {
+                    tab.text = "This Month"
+                }
+            }
+        }.attach()
+    }
     /*fun setListner() {
         binding.topbar.imgUser.setOnClickListener {
             homeOptionsListener.onClickMenu()

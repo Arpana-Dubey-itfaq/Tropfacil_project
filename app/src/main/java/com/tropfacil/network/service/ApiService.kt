@@ -29,7 +29,6 @@ interface ApiService {
         @Query("token") token: String
     ): List<Homeresponse>
 
-
     @POST("utilisateur/login")
     suspend fun login(
         @Header("Access-Token") authorization: String?,
@@ -64,6 +63,11 @@ interface ApiService {
         @Query("token") authorization: String?,
     ): Homeresponse
 
+    @POST("catalogue/get-modules")
+    suspend fun courseData(
+        @Header("Access-Token") header: String?,
+        @Query("token") authorization: String?,
+    ): Homeresponse
 
     /*
    *//*   @POST("Authentication/SignIn/Customer")

@@ -36,7 +36,7 @@
         android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        cardView:srcCompat="@drawable/gobackarrow" />
+        cardView:srcCompat="@drawable/go_back_arrow" />
 
     <TextView
         android:id="@+id/textView11"

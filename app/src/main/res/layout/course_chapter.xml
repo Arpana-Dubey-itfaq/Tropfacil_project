@@ -371,7 +371,22 @@ android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvcoursename3"></TextView>
 
-
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabschedule_course"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@color/white"
+                android:scrollbars="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heading1"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="@color/goolden"
+                app:tabIndicatorHeight="@dimen/_3sdp"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                app:tabTextColor="@color/black" />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/relCourse1"
                 android:layout_width="match_parent"
@@ -382,10 +397,18 @@ android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/heading1"
-                tools:listitem="@layout/item_course_chapter" />
+                app:layout_constraintTop_toBottomOf="@+id/tabschedule_course"
+                tools:listitem="@layout/item_home_page_course_list" />
 
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerschedule_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relCourse1" />
             <TextView
                 android:id="@+id/tvLevel"
                 android:layout_width="wrap_content"

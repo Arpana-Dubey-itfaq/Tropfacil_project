@@ -31,11 +31,11 @@ class HomeViewModel(
         syncItemsStateFlow.value = SafeApiCall.Loading
         appRepository.HomeData(header,authorization)
             .catch { e ->
-                Log.e("message", e.message.toString())
+                Log.e("message Error", e.message.toString())
                 syncItemsStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
 
-                Log.e("message", data.themes.toString())
+                Log.e("message success", data.themes.toString())
                 syncItemsStateFlow.value = SafeApiCall.Successhome(data.themes)
                // Log.e("message111", data)
               //  preferenceProvider.saveLoginDataToPref(data)

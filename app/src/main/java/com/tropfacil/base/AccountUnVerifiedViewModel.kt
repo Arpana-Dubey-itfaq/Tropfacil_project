@@ -58,7 +58,7 @@ class AccountUnVerifiedViewModel(
     }
 
 
-    fun getUserToken(): String {
+    public fun getUserToken(): String {
         return preferenceProvider.getString(PREF_USER_TOKEN, "")
     }
 

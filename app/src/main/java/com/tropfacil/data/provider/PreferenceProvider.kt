@@ -46,7 +46,9 @@ class PreferenceProvider(val context: Context) {
     fun putString(key: String, value: String) {
         preferences.edit().putString(key, value).apply()
     }
-
+ fun getUserToken(): String? {
+        return preferences.getString(PREF_USER_TOKEN, "")
+    }
     fun getString(key: String, defaultValue: String): String {
         return preferences.getString(key, defaultValue).toString()
     }

@@ -40,7 +40,7 @@ private val appRepository: AppRepository
             }.collect { data ->
                 Log.e("message111",data.success)
                preferenceProvider.saveLoginDataToPref(data)
-
+                loginStateFlow.value = SafeApiCall.SuccessLogin(data)
                 //loginStateFlow.value = SafeApiCall.Success(data)
             }
     }

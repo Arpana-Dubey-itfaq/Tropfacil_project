@@ -68,7 +68,7 @@ class LoginFragment : BaseFragment() {
                         binding.progressBar.isVisible = false
                         //showErrorMsg(it.exception)
                     }
-                    is SafeApiCall.Success -> {
+                    is SafeApiCall.SuccessLogin -> {
                         binding.progressBar.isVisible = false
                         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
 
@@ -126,7 +126,7 @@ class LoginFragment : BaseFragment() {
                 )
 
                 viewModel.loginUser(loginRequest)
-                startActivity(Intent(requireContext(), MainActivity::class.java))
+               // startActivity(Intent(requireContext(), MainActivity::class.java))
 
             }
         }

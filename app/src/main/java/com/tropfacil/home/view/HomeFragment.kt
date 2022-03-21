@@ -28,6 +28,7 @@ import com.app.leust.data.Data.Companion.token
 import com.example.example.Homeresponse
 import com.tropfacil.Dashboard
 import com.tropfacil.data.provider.PREF_USER_TOKEN
+import com.tropfacil.data.provider.PreferenceProvider
 
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -48,7 +49,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeFragment : BaseFragment() {
    // private val homeViewModel: HomeViewModel by viewModel()
     private val homeViewModel by inject<HomeViewModel>()
-
     lateinit var binding: FragmentHomeBinding
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var homeCourseAdapter: HomeCourseAdapter
@@ -66,7 +66,7 @@ class HomeFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        homeOptionsListener = requireActivity() as HomeOptionsListener
+      //  homeOptionsListener = requireActivity() as HomeOptionsListener
 
     }
 
@@ -183,13 +183,13 @@ class HomeFragment : BaseFragment() {
                         binding.progressBar.isVisible = false
                         //showErrorMsg(it.exception)
                     }
-                    is SafeApiCall.Success -> {
+                    is SafeApiCall.Successhome -> {
                         binding.progressBar.isVisible = false
                         homeViewModel._syncItemsStateFlow.value
                         //viewModel.syncGuestItems(getUUID())
                     }
                     else -> {
-
+val  s=""
                     }
                 }
             }
@@ -217,7 +217,7 @@ class HomeFragment : BaseFragment() {
 
         }
         binding.incCountine.card.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionCourseperFragment())
+           // findNavController().navigate(HomeFragmentDirections.actionCourseperFragment())
 
 
         }
@@ -245,7 +245,7 @@ class HomeFragment : BaseFragment() {
     private fun initObserver () {
 
 
-            token = "5ED3BF8DD663D2F644D67358C98F4A2BECE8"
+            token = PreferenceProvider(requireContext()).getUserToken()
         header = "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
 
 

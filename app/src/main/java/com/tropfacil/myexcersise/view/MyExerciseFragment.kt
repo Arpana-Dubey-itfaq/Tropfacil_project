@@ -25,6 +25,7 @@ import android.graphics.PorterDuff
 
 
 import androidx.core.content.ContextCompat
+import com.tropfacil.databinding.FragmentExcerciseBinding
 import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
@@ -32,7 +33,7 @@ import com.tropfacil.util.Constants
 
 
 class MyExerciseFragment : BaseFragment() {
-    lateinit var binding: FragmentHomeBinding
+    lateinit var binding: FragmentExcerciseBinding
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var viewPagerExcerAdapter: ViewPagerAdapter
 
@@ -120,7 +121,7 @@ class MyExerciseFragment : BaseFragment() {
     ): View? {
         Constants.FRAGMENT= Constants.MYEXERCISEFragment
 
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding = FragmentExcerciseBinding.inflate(layoutInflater, container, false)
         return binding.root
 
     }

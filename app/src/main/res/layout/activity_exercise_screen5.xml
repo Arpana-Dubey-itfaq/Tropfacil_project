@@ -36,7 +36,7 @@
         android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        cardView:srcCompat="@drawable/gobackarrow" />
+        cardView:srcCompat="@drawable/go_back_arrow" />
 
     <TextView
         android:id="@+id/textView11"
@@ -77,7 +77,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginEnd="84dp"
         android:background="@drawable/circle_button"
-        android:text="?"
+        android:text="&amp;"
         android:textColor="#38B6A4"
         app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +93,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="22dp"
         android:background="@drawable/button_background"
-        android:drawableRight="@drawable/chooselevel"
+        android:drawableRight="@drawable/choose_match"
         android:drawablePadding="20dp"
         android:paddingRight="14dp"
         android:text="   Stupid "
@@ -115,7 +115,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="22dp"
         android:background="@drawable/button_background"
-        android:drawableRight="@drawable/chooselevel"
+        android:drawableRight="@drawable/choose_match"
         android:paddingRight="14dp"
         android:text="   Choose Match"
         android:textAlignment="viewStart"
@@ -136,7 +136,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="22dp"
         android:background="@drawable/button_background"
-        android:drawableRight="@drawable/chooselevel"
+        android:drawableRight="@drawable/choose_match"
         android:paddingRight="14dp"
         android:text="   Choose Match"
         android:textAlignment="viewStart"
@@ -157,7 +157,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="22dp"
         android:background="@drawable/button_background"
-        android:drawableRight="@drawable/chooselevel"
+        android:drawableRight="@drawable/choose_match"
         android:paddingRight="14dp"
         android:text="   Choose Match"
         android:textAlignment="viewStart"
