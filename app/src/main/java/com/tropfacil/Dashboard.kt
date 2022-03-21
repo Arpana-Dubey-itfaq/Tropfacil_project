@@ -30,6 +30,7 @@ class Dashboard : BaseActivity(), HomeOptionsListener {
     internal lateinit var drawerToggle: ActionBarDrawerToggle
     internal lateinit var drawerLayout: DrawerLayout
     internal lateinit var toolbar: Toolbar
+lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var binding: ActivityHomeBinding
     internal lateinit var fragmentManager: FragmentManager
     internal lateinit var navigationView: NavigationView
@@ -46,7 +47,7 @@ class Dashboard : BaseActivity(), HomeOptionsListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         fragmentManager = supportFragmentManager
-
+        homeOptionsListener=this
         setupView()
         if (savedInstanceState == null) showHome()
     }
@@ -135,5 +136,17 @@ class Dashboard : BaseActivity(), HomeOptionsListener {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, HomeFragment.newInstance(), HomeFragment.TAG).commit()
 
+    }
+
+    override fun navigateToMyCoursesScreen() {
+        TODO("Not yet implemented")
+    }
+
+    override fun navigateToMyExerciseScreen() {
+        TODO("Not yet implemented")
+    }
+
+    override fun navigateToCategoryScreen() {
+        TODO("Not yet implemented")
     }
 }

@@ -1,22 +1,15 @@
 package com.tropfacil.userstatprofile.view
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
-import com.tropfacil.badge.adapter.BadgeListAdapter
-import com.tropfacil.base.BaseActivity
-import com.tropfacil.databinding.*
+import com.tropfacil.badge.adapter.MybadgeAdapter
+import com.tropfacil.databinding.ActivityUserStatsProfileBinding
 import com.tropfacil.home.adapter.HomeAdapter
 import com.tropfacil.home.adapter.HomeCourseListAdapter
-import com.tropfacil.home.adapter.ViewPagerAdapter
-import com.tropfacil.notificaions.adapter.NotificationListAdapter
-import com.tropfacil.userstatprofile.adapter.MybadgeAdapter
 
-class UserStatsProfileActivity : BaseActivity() {
-
-    lateinit var binding: ActivityUserstatsProfileBinding
+class UserStatsProfileActivity : AppCompatActivity() {
+    lateinit var binding: ActivityUserStatsProfileBinding
     lateinit var homeCourseListAdapter: HomeCourseListAdapter
     lateinit var homeAdapter: HomeAdapter
     lateinit var mybadgeAdapter: MybadgeAdapter
@@ -24,7 +17,7 @@ class UserStatsProfileActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUserstatsProfileBinding.inflate(layoutInflater)
+        binding = ActivityUserStatsProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setonClickListner()
         setData()

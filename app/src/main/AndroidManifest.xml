@@ -4,12 +4,22 @@
     package="com.tropfacil">
 
     <application
+        android:name=".Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        tools:ignore="MissingClass,UnusedAttribute"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.Tropfacil_project">
+        <activity
+            android:name=".mycourses.view.Video_course_activity"
+            android:exported="false" />
+        <activity
+            android:name=".userstatprofile.view.UserStatsProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".Dashboard"
             android:exported="false" />
@@ -60,22 +70,7 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".CongratulationsEarnBadgeActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".PageNoSubscriptionActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".userstatprofile.view.UserStatsProfileActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
-
+        <activity android:name=".AuthActivity" />
     </application>
 
 </manifest>

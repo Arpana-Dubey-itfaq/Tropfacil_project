@@ -85,12 +85,18 @@
     <string name="subscribe_to_our_plan_now">Subscribe to our plan now!</string>
     <string name="plan_message">To view courses and trainings. You need to subscribe to our monthly or yearly plan.</string>
     <string name="subscriptions_message">Opps! All trainings and courses are availble only for users who have subscriptions.</string>
-    <string name="congratulations_nyou_have_sucessfully_earn_a_badge">Congratulations!\nYou have sucessfully earn a badge</string>
-    <string name="get_my_badge">Get my badge!</string>
     <string name="change">Change</string>
     <string name="recent_completed_courses">Recent Completed Courses</string>
     <string name="profile_statistics">Profile Statistics</string>
     <string name="my_badge">My Badge</string>
-
+    <string name="write_a_question">Write a question</string>
+    <string name="can_t_find">Can\'t find what your looking for?</string>
+    <string name="textvalue">\'u Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu purus laoreet, bibendum odio a, efficitur mauris. Sed ultrices blandit turpis, sed auctor libero efficitur eu. Duis fringilla tempor augue id dapibus. Donec fermentum elementum consequat. Sed euismod sapien diam, digniss \nDonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.\n Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu purus laoreet, bibendum odio a, efficitur mauris. Sed ultrices blandit turpis, sed auctor libero efficitur eu. Duis fringilla tempor augue id dapibus.\n Donec fermentum elementum consequat. Sed euismod sapien diam, digniss Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</string>
+    <string name="all_filed_required">please_enter_fullname</string>
+    <string name="valid_password">Enter a valid password</string>
+    <!--ERROR MESSAGES HANDLING-->
+    <string name="err_msg_password_field">Le mot de passe doit contenir au moins 5–20 caractères contenant uniquement des lettres et des chiffres.</string>
+    <string name="please_enter_password">Username or Password is incorrect.</string>
+    <string name="verify">Verify</string>
 
 </resources>

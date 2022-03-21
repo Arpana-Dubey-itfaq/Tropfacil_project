@@ -1,8 +1,12 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id("androidx.navigation.safeargs")
+}
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'com.google.gms.google-services'
+
 
 android {
     compileSdk 31
@@ -18,7 +22,33 @@ android {
     }
 
     buildTypes {
+
+        debug {
+//            buildConfigField "String", "BASE_URL", '"https://api.pharmamoov.fr/api/"'
+
+            /*         buildConfigField "String", "BASE_URL", '"https://pharmamoovapi.itfaq.cloud/api/"'
+                     buildConfigField "String", "FAQ_LINK", '"https://pharmamoovadmin.itfaq.cloud/FAQs/FAQList"'
+                     buildConfigField "String", "TERMS_CONDITIONS_URL", '"https://pharmamoovadmin.itfaq.cloud/FAQs/TermsAndConditions"'
+                     buildConfigField "String", "PRIVACY_POLICY_URL", '"https://pharmamoovadmin.itfaq.cloud/FAQs/PrivacyPolicy"'
+                     buildConfigField "String", "PAYMENT_SUCCESS_URL", '"https://www.pharmamoov.fr/"'*/
+
+           // buildConfigField "String", "BASE_URL", '"olfp.net/php5/restapi/catalogue/"'
+          //  https://rc-tropfacile.onlineformapro.com/php5/restapi/utilisateur/
+            buildConfigField "String", "BASE_URL", '"https://rc-tropfacile.onlineformapro.com/php5/restapi/"'
+          //  https://www.olfp.net/php5/restapi/utilisateur/login?login=ITFAQ&pwd=itfaq.
+          /*  buildConfigField "String", "FAQ_LINK", '"https://admin.pharmamoov.fr/FAQs/FAQList"'
+            buildConfigField "String", "TERMS_CONDITIONS_URL", '"https://admin.pharmamoov.fr/FAQs/TermsAndConditions"'
+            buildConfigField "String", "PRIVACY_POLICY_URL", '"https://admin.pharmamoov.fr/FAQs/PrivacyPolicy"'
+            buildConfigField "String", "PAYMENT_SUCCESS_URL", '"https://www.pharmamoov.fr/"'
+*/
+        }
         release {
+        //    buildConfigField "String", "BASE_URL", '"https://api.pharmamoov.fr/api/"'
+          /*  buildConfigField "String", "FAQ_LINK", '"https://admin.pharmamoov.fr/FAQs/FAQList"'
+            buildConfigField "String", "TERMS_CONDITIONS_URL", '"https://admin.pharmamoov.fr/FAQs/TermsAndConditions"'
+            buildConfigField "String", "PRIVACY_POLICY_URL", '"https://admin.pharmamoov.fr/FAQs/PrivacyPolicy"'
+            buildConfigField "String", "PAYMENT_SUCCESS_URL", '"https://www.pharmamoov.fr/"'
+*/
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -42,9 +72,32 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'com.google.firebase:firebase-components:17.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    def nav_version = "2.3.5"
+
+
+    // Java language implementation
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // Kotlin
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // Feature module Support
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+
+    // Testing Navigation
+    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+
+    // Jetpack Compose Integration
+    implementation("androidx.navigation:navigation-compose:2.4.0-rc01")
+
+
     //sdp
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     //ssp
@@ -89,8 +142,8 @@ dependencies {
     // Kotlin Android Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
@@ -103,7 +156,10 @@ dependencies {
     // Kodein
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein"
     implementation "org.kodein.di:kodein-di-framework-android-x:$kodein"
-
+    implementation "org.koin:koin-core:$koin"
+    implementation "org.koin:koin-android:$koin"
+    implementation "org.koin:koin-androidx-scope:$koin"
+    implementation "org.koin:koin-androidx-viewmodel:$koin"
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide"
@@ -126,6 +182,12 @@ dependencies {
     //  implementation "com.github.zhpanvip:viewpagerindicator:$page_indicator"
 
     implementation "com.github.skydoves:balloon:1.3.6"
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
+    implementation "androidx.media:media:1.1.0"
+    implementation "androidx.localbroadcastmanager:localbroadcastmanager:1.0.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation "com.google.android.exoplayer:exoplayer:2.10.4"
 
 }

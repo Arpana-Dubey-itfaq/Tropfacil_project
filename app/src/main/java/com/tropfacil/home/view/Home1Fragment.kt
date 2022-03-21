@@ -82,7 +82,7 @@ class Home1Fragment : BaseFragment() {
             homeOptionsListener.onClickMenu()
         }
         binding.topbar.imgsearch.setOnClickListener {
-            startActivity(Intent(requireContext(), SearchActivity::class.java))
+            startActivity(Intent(requireContext(), UserStatsProfileActivity::class.java))
         }
         binding.topbar.imgNotification.setOnClickListener {
             startActivity(Intent(requireContext(), NotificationsActivity::class.java))

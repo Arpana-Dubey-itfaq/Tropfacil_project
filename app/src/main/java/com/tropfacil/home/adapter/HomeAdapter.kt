@@ -36,7 +36,7 @@ class HomeAdapter(
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return 1
     }
 
     /*  fun updateData(missionList: List<MissionData>) {

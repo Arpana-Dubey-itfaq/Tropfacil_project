@@ -17,7 +17,7 @@
     <dimen name="dim240">240dp</dimen>
     <dimen name="dim230">230dp</dimen>
     <dimen name="dim235">235dp</dimen>
-
+    <integer name="video_gallery_layout_weight">33</integer>
     <!--    text sizes-->
     <dimen name="dim_15sp">15sp</dimen>
     <dimen name="dim_12sp">12sp</dimen>

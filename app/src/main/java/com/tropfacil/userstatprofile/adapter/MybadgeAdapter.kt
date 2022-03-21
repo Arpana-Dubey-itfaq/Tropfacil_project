@@ -1,10 +1,10 @@
-package com.tropfacil.userstatprofile.adapter
+package com.tropfacil.badge.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tropfacil.databinding.ItemBadgeUserstatBinding
+import com.tropfacil.databinding.*
 
 
 class MybadgeAdapter(

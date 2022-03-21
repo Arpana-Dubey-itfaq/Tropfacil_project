@@ -10,11 +10,12 @@ import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentHomeBinding
 import com.tropfacil.databinding.FragmentTabRecommededExerciseBinding
 import com.tropfacil.home.adapter.HomeAdapter
+import com.tropfacil.home.adapter.HomeAdapternew
 import com.tropfacil.home.adapter.HomeCourseAdapter
 
 class RecommededExcerciseFragment : BaseFragment() {
     lateinit var binding: FragmentTabRecommededExerciseBinding
-    lateinit var homeAdapter: HomeAdapter
+    lateinit var homeAdapter: HomeAdapternew
 
     companion object {
         const val TAG = "RecommededExcerciseFragment"
@@ -40,7 +41,7 @@ class RecommededExcerciseFragment : BaseFragment() {
     }
 
     fun setData() {
-        homeAdapter = HomeAdapter()
+        homeAdapter = HomeAdapternew()
         binding.relCourse.adapter = homeAdapter
     }
 }

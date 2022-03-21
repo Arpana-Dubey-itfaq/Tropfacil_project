@@ -2,26 +2,26 @@ package com.tropfacil.data.provider
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
+import com.tropfacil.model.Login_resoponse
 
 import com.tropfacil.network.auth.account.RefreshTokenResponse
-import com.tropfacil.network.auth.login.LoginResponse
 import com.tropfacil.network.auth.register.AllRegisterResponse
 
 
-const val PREF_USER_ID = "userId"
-const val PREF_USER_EMAIL = "userEmail"
+const val PREF_USER_ID = "pf"
+const val PREF_USER_IDNEW = "id"
 const val PREF_USER_MOBILE = "userMobile"
 const val PREF_USER_PASSWORD = "userPassword"
-const val PREF_USER_FIRST_NAME = "firstName"
-const val PREF_USER_LAST_NAME = "lastName"
+const val PREF_USER_FIRST_NAME = "nom"
+const val PREF_USER_LAST_NAME = "prenom"
 const val PREF_USER_TOKEN = "token"
 const val PREF_USER_TOKEN_EXPIRATION = "tokenExpiration"
 const val PREF_USER_REFRESH_TOKEN = "refreshToken"
 const val PREF_USER_REFRESH_TOKEN_EXPIRATION = "refreshTokenExpiration"
 const val PREF_USER_FCM_TOKEN = "fcmToken"
 const val PREF_USER_LOGIN_ID = "user_login_id"
-const val PREF_USER_DATE_CREATED = "user_date_created"
-const val PREF_USER_ACCOUNT_TYPE = "user_account_type"
+const val PREF_USER_DATE_CREATED = "date_debut"
+const val PREF_USER_DATE_FIN = "date_fin"
 const val PREF_USER_METHOD_DELIVERY = "user_method_delivery"
 
 const val PREF_CUSTOMER_USER_IS_LOGGED_IN = "isCustomerLoggedIn"
@@ -46,7 +46,9 @@ class PreferenceProvider(val context: Context) {
     fun putString(key: String, value: String) {
         preferences.edit().putString(key, value).apply()
     }
-
+ fun getUserToken(): String? {
+        return preferences.getString(PREF_USER_TOKEN, "")
+    }
     fun getString(key: String, defaultValue: String): String {
         return preferences.getString(key, defaultValue).toString()
     }
@@ -78,11 +80,33 @@ class PreferenceProvider(val context: Context) {
     fun getLong(key: String, defaultValue: Long): Long {
         return preferences.getLong(key, defaultValue)
     }
+    fun getBoolean(key: String, defaultValue: Boolean): Boolean {
+        return preferences.getBoolean(key, defaultValue)
+    }
+    fun saveLoginDataToPref(data: Login_resoponse) {
+      /*  "success": "true",
+        "pf": "tropfacile",
+        "nom": "ITFAQ",
+        "prenom": "Itfaq",
+        "date_debut": 1612134000,
+        "date_fin": null,
+        "id": "20476",
+        "token": "089C2CF872282728D7E501D5CAC2AB59839E"*/
+        //TODO remove below 2 lines add it in setFCM token success response
+       // putBoolean(PREF_USER_ID, true)
+       // putBoolean(PREF_GUEST_USER, false)
+
+        putString(PREF_USER_IDNEW, data.id)
+        putString(PREF_USER_TOKEN, data.token)
+        putString(PREF_USER_ID, data.pf)
+        putString(PREF_USER_FIRST_NAME, data.nom)
+        putString(PREF_USER_LAST_NAME,data.prenom)
 
 
-    fun saveUserInfo(response: LoginResponse) {
+    }
+    /*fun saveUserInfo(response: Login_resoponse) {
         // check if the account cred is correct and the account is verified.
-        if (response.statusCode == 200) {
+        if (response.status == 200) {
             response.payload?.userInfo?.userId?.let { putString(PREF_USER_ID, it) }
             response.payload?.userInfo?.email?.let { putString(PREF_USER_EMAIL, it) }
             response.payload?.userInfo?.mobileNumber?.let { putString(PREF_USER_MOBILE, it) }
@@ -136,8 +160,8 @@ class PreferenceProvider(val context: Context) {
             response.payload?.tokens?.dateCreated?.let { putString(PREF_USER_DATE_CREATED, it) }
         }
     }
-
-    fun saveRegisterInfo(registerResponse: AllRegisterResponse) {
+*/
+   /* fun saveRegisterInfo(registerResponse: AllRegisterResponse) {
         if (registerResponse.statusCode == 200) {
             registerResponse.payload?.email?.let {
                 putString(PREF_USER_EMAIL, it)
@@ -150,9 +174,9 @@ class PreferenceProvider(val context: Context) {
             }
         }
     }
+*/
 
-
-    fun saveRefreshTokenUserInfo(response: RefreshTokenResponse) {
+   /* fun saveRefreshTokenUserInfo(response: RefreshTokenResponse) {
         // check if the account cred is correct and the account is verified.
         if (response.statusCode == 200) {
             response.payload?.userInfo?.userId?.let { putString(PREF_USER_ID, it) }
@@ -205,6 +229,6 @@ class PreferenceProvider(val context: Context) {
             }
             response.payload?.tokens?.dateCreated?.let { putString(PREF_USER_DATE_CREATED, it) }
         }
-    }
+    }*/
 
 }

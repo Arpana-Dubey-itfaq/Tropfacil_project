@@ -1,14 +1,9 @@
 package com.tropfacil.badge.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.provider.SyncStateContract
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.tropfacil.R
 import com.tropfacil.databinding.*
 
 

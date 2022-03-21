@@ -1,6 +1,15 @@
 package com.tropfacil.network.service
 
-sealed class SafeApiCall<out T : Any> {
-    class Success<out T : Any>(val data: T) : SafeApiCall<T>()
-    class Error(val exception: Throwable) : SafeApiCall<Nothing>()
+import com.example.example.Themes
+import com.tropfacil.model.Login_resoponse
+import com.tropfacil.network.BaseResponse
+
+sealed class SafeApiCall {
+    class Success(val data: BaseResponse) : SafeApiCall()
+    class Error(val exception: String) : SafeApiCall()
+    class Successhome(val data: ArrayList<Themes>) : SafeApiCall()
+    class SuccessLogin(val data: Login_resoponse) : SafeApiCall()
+
+    object Loading : SafeApiCall()
+    object Empty : SafeApiCall()
 }

@@ -16,7 +16,7 @@ import kotlin.coroutines.CoroutineContext
 
 abstract class BaseViewModel : ViewModel(), CoroutineScope {
     val showLoading = MutableLiveData<Boolean>()
-    val showError = SingleLiveEvent<String?>()
+    val showError = SingleLiveEvent<String>()
     val unAuthorizedUser = SingleLiveEvent<String>()
 
     // Coroutine's background job
@@ -32,85 +32,33 @@ abstract class BaseViewModel : ViewModel(), CoroutineScope {
     }
 
     fun getErrorMessage(exception: Throwable): String? {
-        var message : String? = "nous rencontrons un problème. Merci de réessayer plus tard.!"
+        val message = exception.message
         when (exception) {
             is HttpException -> {
-                val errorJsonString = exception.response()
-                    .errorBody()?.string()
+                val errorJsonString = exception.response()!!.errorBody()!!.string()
                 if (exception.code() != 500) {
                     try {
                         val errorResponse =
                             Gson().fromJson(errorJsonString, BaseResponse::class.java)
-                        message = if (errorResponse != null) {
-                            if (errorResponse.message.isNullOrEmpty() && errorResponse.error_description.isNotEmpty()) {
-                                errorResponse.error_description
-                            } else {
-                                errorResponse.message
-                            }
-                        } else
-                            "nous rencontrons un problème. Merci de réessayer plus tard.!"
-
-                        errorResponse.statusCode?.let {
-                            if (it == 401) {
-                                unAuthorizedUser.value = message!!
-                                message = null
-                            }
-                        }
+                      /*  if (errorResponse.validationMessages != null) {
+                           // return errorResponse.validationMessages[0].message
+                        }*/
                     } catch (ex: Exception) {
-                        message = "nous rencontrons un problème. Merci de réessayer plus tard.!"
+                        return "Something went wrong. Please try after sometime!"
                     }
 
                 }
-
                 return message
             }
-            is NoConnectivityException -> return "Pas de connexion internet.!"
-            is SocketTimeoutException -> return "La connexion avec le serveur n’a pas pu être établie.!"
-            is Exception -> return "Merci de réessayer plus tard.!"
-            else -> return "nous rencontrons un problème. Merci de réessayer plus tard.!"
+            is NoConnectivityException -> return "No Internet Connection!"
+            is SocketTimeoutException -> return "Connection with our server could not be established. Please try after sometime!"
+            is Exception -> return "Something went wrong. Please try after sometime!"
+            else -> return "Something went wrong. Please try after sometime!"
         }
     }
-/*
 
-    fun getErrorMessage(exception: Throwable): String? {
-        var message = exception.message
-        when (exception) {
-            is HttpException -> {
-                val errorJsonString = exception.response()
-                    .errorBody()?.string()
-                if (exception.code() != 500) {
-                    try {
-                        val errorResponse =
-                            Gson().fromJson(errorJsonString, BaseResponse::class.java)
-                        message = if (errorResponse != null) {
-                            if (errorResponse.message.isNullOrEmpty() && errorResponse.error_description.isNotEmpty()) {
-                                errorResponse.error_description
-                            } else {
-                                errorResponse.message
-                            }
-                        } else
-                            "nous rencontrons un problème. Merci de réessayer plus tard.!"
-
-                        errorResponse.statusCode?.let {
-                            if (it == 401) {
-                                unAuthorizedUser.value = message
-                                message = null
-                            }
-                        }
-                    } catch (ex: Exception) {
-                        message = "nous rencontrons un problème. Merci de réessayer plus tard.!"
-                    }
-
-                }
-
-                return message
-            }
-            is NoConnectivityException -> return "Pas de connexion internet.!"
-            is SocketTimeoutException -> return "La connexion avec le serveur n’a pas pu être établie.!"
-            is Exception -> return "Merci de réessayer plus tard.!"
-            else -> return "nous rencontrons un problème. Merci de réessayer plus tard.!"
-        }
-    }
-*/
+    /*fun isStatusSuccess(status: String): Boolean {
+        return (status.equals("success",true) || status.equals("success!",true))
+    }*/
 }
 

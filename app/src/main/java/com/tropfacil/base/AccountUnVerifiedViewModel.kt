@@ -24,7 +24,7 @@ class AccountUnVerifiedViewModel(
     val allDeliveryAddressBookLiveData = MutableLiveData<AddressListResponse>()
 
 
-    fun callLogoutApi(logoutRequest: LogoutRequest) {
+    /*fun callLogoutApi(logoutRequest: LogoutRequest) {
         showLoading.value = true
         launch {
             val result =
@@ -36,7 +36,7 @@ class AccountUnVerifiedViewModel(
                 is SafeApiCall.Error -> showError.value = getErrorMessage(result.exception)
             }
         }
-    }
+    }*/
 
 
    /* fun getAllDeliveryAddressBookAsync(
@@ -58,7 +58,7 @@ class AccountUnVerifiedViewModel(
     }
 
 
-    fun getUserToken(): String {
+    public fun getUserToken(): String {
         return preferenceProvider.getString(PREF_USER_TOKEN, "")
     }
 

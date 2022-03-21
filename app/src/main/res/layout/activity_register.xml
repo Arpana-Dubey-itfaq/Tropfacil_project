@@ -33,20 +33,45 @@
             app:layout_constraintBottom_toBottomOf="@+id/include_layout"
             app:layout_constraintTop_toBottomOf="@+id/include_layout"
             >
-
-
-            <TextView
-                android:id="@+id/Firstname"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="14dp"
-                android:layout_weight="1"
-                android:text="First name"
-                android:textColor="#000000"
-                android:textSize="14dp" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/Firstname"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:text="Civility"
+                    android:textColor="#000000"
+                    android:textSize="14dp" />
+                <TextView
 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:text="First name"
+                    android:textColor="#000000"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/spinner_sample"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_rounded_corner_white"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:layout_height="@dimen/_50sdp"/>
             <EditText
-                android:id="@+id/edit"
+                android:id="@+id/edtNom"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -58,7 +83,7 @@
                 android:hint="Type your first name"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp" />
-
+            </LinearLayout>
             <TextView
                 android:id="@+id/Lastname"
                 android:layout_width="match_parent"
@@ -71,7 +96,7 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/Lastname1"
+                android:id="@+id/edtpernom"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -97,7 +122,7 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/Email1"
+                android:id="@+id/edtemail"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -164,7 +189,7 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/Password1"
+                android:id="@+id/usename"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -189,7 +214,7 @@
                 android:textColor="#CB2A1F" />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/btnSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -208,7 +233,7 @@
                 />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/signin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -232,5 +257,15 @@
 
     </androidx.core.widget.NestedScrollView>
 
-
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
