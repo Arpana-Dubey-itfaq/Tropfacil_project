@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.tropfacil.R
 import com.tropfacil.badge.adapter.MybadgeAdapter
-import com.tropfacil.databinding.ActivityUserStatsProfileBinding
+import com.tropfacil.databinding.ActivityUserStatsBinding
 import com.tropfacil.home.adapter.HomeAdapter
 import com.tropfacil.home.adapter.HomeCourseListAdapter
 
 class UserStatsProfileActivity : AppCompatActivity() {
-    lateinit var binding: ActivityUserStatsProfileBinding
+    lateinit var binding: ActivityUserStatsBinding
     lateinit var homeCourseListAdapter: HomeCourseListAdapter
     lateinit var homeAdapter: HomeAdapter
     lateinit var mybadgeAdapter: MybadgeAdapter
@@ -17,7 +17,7 @@ class UserStatsProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUserStatsProfileBinding.inflate(layoutInflater)
+        binding = ActivityUserStatsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setonClickListner()
         setData()

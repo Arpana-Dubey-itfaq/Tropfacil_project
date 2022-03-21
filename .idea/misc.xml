@@ -30,6 +30,7 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_change_email.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_change_password.xml" value="0.18" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_completedcourse.xml" value="0.14166666666666666" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_congratulations_badge_earn.xml" value="0.11822916666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_dashboard.xml" value="0.13697916666666668" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_exercise_screen2.xml" value="0.1213768115942029" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_exercise_screen3.xml" value="0.1213768115942029" />
@@ -47,7 +48,9 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_reset_password.xml" value="0.12" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_sign_up_screen.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_splash.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_user_stats_profile.xml" value="0.1" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_user_stats.xml" value="0.16" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_user_stats_profile.xml" value="0.25" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_userstats_profile.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_video_course.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_welcome_screen.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_welcome_screen2.xml" value="0.14166666666666666" />
