@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context=".ui.nav.account.AccountSettingsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        app:layout_constraintTop_toBottomOf="@id/cl_title_with_back">
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:fontFamily="@font/robomedium"
+            android:text="@string/lbl_account_settings"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_24ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cl_change_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/title_tv">
+
+            <TextView
+                android:id="@+id/change_email_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="@color/white"
+                android:fontFamily="@font/robomedium"
+                android:gravity="center_vertical"
+                android:text="@string/lbl_change_email"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_next" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cl_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/cl_change_email">
+
+            <TextView
+                android:id="@+id/change_password_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="@color/white"
+                android:fontFamily="@font/robomedium"
+                android:gravity="center_vertical"
+                android:text="@string/lbl_change_password"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/ic_arrow_next" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cl_synchronization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/cl_change_password">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/synchronization_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:fontFamily="@font/robomedium"
+                    android:gravity="center_vertical"
+                    android:text="@string/lbl_synchronization"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    />
+
+                <TextView
+                    android:id="@+id/sync_now_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoregular"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="@string/lbl_sync_now"
+                    android:textColor="@color/tilgreen"
+                    android:textSize="@dimen/_14ssp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/account_settings_sync" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cl_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintTop_toBottomOf="@id/cl_synchronization">
+
+            <TextView
+                android:id="@+id/change_logout_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="@color/white"
+                android:fontFamily="@font/robomedium"
+                android:gravity="center_vertical"
+                android:text="@string/lbl_logout"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:drawableEndCompat="@drawable/account_settings_logout" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        layout="@layout/include_title_with_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cl_title_with_back"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

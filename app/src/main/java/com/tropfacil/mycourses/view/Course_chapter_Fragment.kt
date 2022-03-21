@@ -83,7 +83,7 @@ class Course_chapter_Fragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
        // setListner()
-    setData()
+     setData()
         setTabLayout()
 
         /*seekBar?.setOnSeekBarChangeListener(object :
