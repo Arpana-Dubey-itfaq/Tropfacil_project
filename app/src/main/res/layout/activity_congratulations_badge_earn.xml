@@ -36,7 +36,7 @@
         android:textStyle="bold"
         android:lineSpacingExtra="@dimen/_5sdp"
         android:padding="@dimen/_10sdp"
-        android:text="@string/congratulations_nyou_have_sucessfully_earn_a_badge"
+        android:text="@string/congratulations_n_you_have_successfully_completed_this_course"
         android:textColor="@color/purple_700"
         android:textSize="@dimen/_15sdp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="@dimen/_10sdp"
-            android:text="@string/get_my_badge"
+            android:text="@string/my_badge"
             android:textColor="@color/white"
             android:textSize="@dimen/_12sdp" />
     </androidx.cardview.widget.CardView>
