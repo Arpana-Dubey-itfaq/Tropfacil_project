@@ -70,7 +70,7 @@ class LoginFragment : BaseFragment() {
                     }
                     is SafeApiCall.SuccessLogin -> {
                         binding.progressBar.isVisible = false
-                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                        startActivity(Intent(requireContext(), MainActivity::class.java))
 
                         //viewModel.syncGuestItems(getUUID())
                     }

@@ -66,7 +66,7 @@ class HomeFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-      //  homeOptionsListener = requireActivity() as HomeOptionsListener
+        homeOptionsListener = requireActivity() as HomeOptionsListener
 
     }
 
