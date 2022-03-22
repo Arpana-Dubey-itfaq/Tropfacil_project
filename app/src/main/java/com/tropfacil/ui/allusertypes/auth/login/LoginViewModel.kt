@@ -35,10 +35,9 @@ private val appRepository: AppRepository
         loginStateFlow.value = SafeApiCall.Loading
         appRepository.login(loginRequest)
             .catch { e ->
-                Log.e("message",e.message.toString())
                 loginStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
-                Log.e("message111",data.success)
+                data.username= loginRequest.loginName
                preferenceProvider.saveLoginDataToPref(data)
                 loginStateFlow.value = SafeApiCall.SuccessLogin(data)
                 //loginStateFlow.value = SafeApiCall.Success(data)

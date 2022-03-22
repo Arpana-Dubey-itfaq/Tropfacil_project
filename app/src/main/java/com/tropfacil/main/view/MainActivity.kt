@@ -12,25 +12,23 @@ import com.tropfacil.badge.view.BadgeActivity
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.category.view.AllCateogiesFragment
 import com.tropfacil.databinding.ActivityHomeBinding
-import com.tropfacil.databinding.CoursePerChapterBinding
 import com.tropfacil.home.view.Home1Fragment
 import com.tropfacil.home.view.HomeFragment
 import com.tropfacil.mycourses.view.Course_chapter_Fragment
-import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
-import com.tropfacil.mycourses.view.Course_per_chapter_Fragment
 import com.tropfacil.mycourses.view.MyCourseFragment
 import com.tropfacil.myexcersise.view.MyExerciseFragment
+import com.tropfacil.ui.nav.account.AccountSettingsFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener
 
 class MainActivity : BaseActivity(), HomeOptionsListener {
     lateinit var binding: ActivityHomeBinding
-lateinit var homeOptionsListener: HomeOptionsListener
+    lateinit var homeOptionsListener: HomeOptionsListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         navigateToHomeScreen()
-        homeOptionsListener=this
+        homeOptionsListener = this
         initNavigationDrawer()
         //  startActivity()
     }
@@ -46,6 +44,7 @@ lateinit var homeOptionsListener: HomeOptionsListener
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
     }
+
     private fun closeDrawer() {
         if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -125,15 +124,15 @@ lateinit var homeOptionsListener: HomeOptionsListener
             val id = menuItem.itemId
             when (id) {
                 R.id.navHome -> {
-                   navigateToHomeScreen()
-                  /*  Toast.makeText(applicationContext, "You Clicked Options A", Toast.LENGTH_SHORT)
-                        .show()*/
+                    navigateToHomeScreen()
+                    /*  Toast.makeText(applicationContext, "You Clicked Options A", Toast.LENGTH_SHORT)
+                          .show()*/
                     binding.drawerLayout!!.closeDrawers()
                 }
                 R.id.mycource -> {
                     navigateToMyCoursesScreen()
-                 /*   Toast.makeText(applicationContext, "You Clicked Options B", Toast.LENGTH_SHORT)
-                        .show()*/
+                    /*   Toast.makeText(applicationContext, "You Clicked Options B", Toast.LENGTH_SHORT)
+                           .show()*/
                     binding.drawerLayout!!.closeDrawers()
                 }
                 R.id.myexcersises -> {
@@ -144,8 +143,8 @@ lateinit var homeOptionsListener: HomeOptionsListener
                 }
                 R.id.allcatagories -> {
                     navigateToCategoryScreen()
-                  /*  Toast.makeText(applicationContext, "You Clicked Options C", Toast.LENGTH_SHORT)
-                        .show()*/
+                    /*  Toast.makeText(applicationContext, "You Clicked Options C", Toast.LENGTH_SHORT)
+                          .show()*/
                     binding.drawerLayout!!.closeDrawers()
                 }
                 R.id.profile -> {
@@ -154,8 +153,7 @@ lateinit var homeOptionsListener: HomeOptionsListener
                     binding.drawerLayout!!.closeDrawers()
                 }
                 R.id.accountsettings -> {
-                    Toast.makeText(applicationContext, "You Clicked Options C", Toast.LENGTH_SHORT)
-                        .show()
+                    navigateToAccountSettingScreen()
                     binding.drawerLayout!!.closeDrawers()
                 }
             }
@@ -176,5 +174,12 @@ lateinit var homeOptionsListener: HomeOptionsListener
 
 
     }
+
+    private fun navigateToAccountSettingScreen() {
+        val accountSettingsFragment = AccountSettingsFragment()
+        accountSettingsFragment.arguments = bundle
+        (this as BaseActivity).visitNewFragment(R.id.fragment_container, accountSettingsFragment)
+    }
+
 
 }
