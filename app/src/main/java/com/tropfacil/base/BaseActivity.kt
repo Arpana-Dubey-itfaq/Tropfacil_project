@@ -1,25 +1,20 @@
 package com.tropfacil.base
 
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Patterns
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-
+import androidx.fragment.app.Fragment
 import com.tropfacil.R
-import com.tropfacil.utils.DevicePlatforms
-import com.tropfacil.utils.popups.FailurePopup
-
-import io.paperdb.Paper
-
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.closestKodein
+import com.tropfacil.common.interfaces.ResumeFragmentListener
+import com.tropfacil.ui.nav.account.AccountSettingsFragment
 
 
 open class BaseActivity : AppCompatActivity() {
+
+    var resumeFragmentListener: ResumeFragmentListener? = null
+    var bundle: Bundle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,15 +34,37 @@ open class BaseActivity : AppCompatActivity() {
         window.statusBarColor = colorResource
     }
 
-    /**
-     * Handle a resolved activity from the Google Pay payment sheet.
-     *
-     * @param requestCode Request code originally supplied to AutoResolveHelper in requestPayment().
-     * @param resultCode Result code returned by the Google Pay API.
-     * @param data Intent from the Google Pay API containing payment or error data.
-     * @see [Getting a result
-     * from an Activity](https://developer.android.com/training/basics/intents/result)
-     */
 
+    override fun onBackPressed() {
+        handleBackEvent()
+    }
+
+    private fun handleBackEvent() {
+        resumeFragmentListener?.onFragmentResume(bundle)
+        var fragmentName = supportFragmentManager.findFragmentById(R.id.fragment_container)?.tag
+        if (fragmentName == null) {
+            finish()
+        } else {
+            when (fragmentName) {
+                AccountSettingsFragment::class.java.name -> {
+                    supportFragmentManager.popBackStack()
+                }
+            }
+        }
+    }
+
+    fun updateResumeFragment(resumeFragmentListener: ResumeFragmentListener) {
+        this.resumeFragmentListener = resumeFragmentListener
+    }
+
+
+    fun visitNewFragment(rootLayout: Int, fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .add(rootLayout,
+                fragment,
+                fragment::class.java.name)
+            .addToBackStack(null)
+            .commit()
+    }
 
 }

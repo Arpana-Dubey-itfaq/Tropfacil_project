@@ -99,7 +99,7 @@
         android:paddingBottom="@dimen/dim10"
         android:textColor="@color/black"
         android:textSize="@dimen/dim_16sp"
-android:text="ITFAQ"
+        android:text="ITFAQ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_email_username"
         tools:text="orlandsalas@gmail.com" />

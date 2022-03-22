@@ -3,6 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_account_settings.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_auth.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_change_email.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_congratulations_badge_earn.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_forget_password.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_home.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_login.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_notifications.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_user_stats_profile.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_userstats_profile.xml" value="0.11979166666666667" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/course_chapter.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/course_per_chapter.xml" value="0.13703703703703704" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_account_settings.xml" value="0.176" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_update_email.xml" value="0.176" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_update_password.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/include_header.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/include_level_course.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/include_title_with_back.xml" value="0.2" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/include_topbar.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/menu/nav_menu.xml" value="0.23802083333333332" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/drawable-hdpi/ic_rounded_corner_white.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/drawable-mdpi/active_circle.xml" value="0.1287037037037037" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/drawable-mdpi/btn_white_background.xml" value="0.1287037037037037" />

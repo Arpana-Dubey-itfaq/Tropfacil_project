@@ -2,12 +2,15 @@ package com.tropfacil
 
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.tropfacil.base.BaseActivity
 
 import java.nio.charset.Charset
 
@@ -117,4 +120,6 @@ class Utils {
     enum class LayoutType {
         VIDEO_GALLERY_RVL, VIDEO_GALLERY_RVG, VIDEO_GALLERY_RVH
     }
+
+
 }
