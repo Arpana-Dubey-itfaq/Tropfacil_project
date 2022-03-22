@@ -20,4 +20,5 @@
     <color name="cou_green">#38B6A4</color>
     <color name="pinkdark">#E83C70</color>
     <color name="trans_light_black">#DED4D3</color>
+    <color name="hint_text">#8D8D8D</color>
 </resources>
