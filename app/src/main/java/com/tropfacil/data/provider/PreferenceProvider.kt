@@ -12,6 +12,7 @@ const val PREF_USER_ID = "pf"
 const val PREF_USER_IDNEW = "id"
 const val PREF_USER_MOBILE = "userMobile"
 const val PREF_USER_PASSWORD = "userPassword"
+const val PREF_USER_NAME = "username"
 const val PREF_USER_FIRST_NAME = "nom"
 const val PREF_USER_LAST_NAME = "prenom"
 const val PREF_USER_TOKEN = "token"
@@ -101,6 +102,7 @@ class PreferenceProvider(val context: Context) {
         putString(PREF_USER_ID, data.pf)
         putString(PREF_USER_FIRST_NAME, data.nom)
         putString(PREF_USER_LAST_NAME,data.prenom)
+        putString(PREF_USER_NAME,data.username?:"")
 
 
     }

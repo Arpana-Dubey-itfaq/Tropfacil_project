@@ -1,6 +1,7 @@
 package com.tropfacil.ui.nav.account
 
 import com.tropfacil.base.BaseViewModel
+import com.tropfacil.data.provider.PREF_USER_NAME
 import com.tropfacil.data.provider.PREF_USER_TOKEN
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.data.repository.AppRepository
@@ -23,17 +24,24 @@ class AccountSettingsViewModel(
         MutableStateFlow(SafeApiCall.Empty)
     val _updatePasswordStateFlow: StateFlow<SafeApiCall> = updatePasswordStateFlow
 
+
     fun updatePassword(
         updatePasswordRequest: UpdatePasswordRequest,
     ) = launch {
         updatePasswordStateFlow.value = SafeApiCall.Loading
         val token = preferenceProvider.getString(PREF_USER_TOKEN, "")
+        val username = preferenceProvider.getString(PREF_USER_NAME, "")
         updatePasswordRequest.token = token
+        updatePasswordRequest.login = username
         appRepository.updatePassword(token, updatePasswordRequest)
             .catch { e ->
                 updatePasswordStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
                 updatePasswordStateFlow.value = SafeApiCall.Success(data)
             }
+    }
+
+    fun logout(){
+        preferenceProvider.clearAllPref()
     }
 }

@@ -138,8 +138,8 @@ class UpdatePasswordFragment : BaseFragment() {
                 //call Update Password API
                 val updatePasswordRequest = UpdatePasswordRequest()
                 updatePasswordRequest.newPassword= binding.newPasswordEt.text.toString()
-                updatePasswordRequest.login = "ITFAQ" // add proper username here
                 updatePasswordRequest.password = binding.currentPasswordEt.text.toString()
+                viewModel.updatePassword(updatePasswordRequest)
             }
         }
 

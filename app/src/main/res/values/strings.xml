@@ -122,5 +122,6 @@
     <string name="lbl_confirm_password">Confirm password</string>
     <string name="lbl_type_ur_confirm_password">Confirm new password</string>
     <string name="str_confirm_password_not_match">Password not match</string>
+    <string name="lbl_submit">Submit</string>
 
 </resources>
