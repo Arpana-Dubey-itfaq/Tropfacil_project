@@ -17,11 +17,11 @@
             android:id="@+id/title_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/robomedium"
             android:text="@string/lbl_account_settings"
             android:textColor="@color/black"
-            android:textSize="@dimen/_24ssp"
+            android:textSize="@dimen/_18ssp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

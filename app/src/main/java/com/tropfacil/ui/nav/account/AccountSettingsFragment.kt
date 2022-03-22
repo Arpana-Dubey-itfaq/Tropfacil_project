@@ -60,7 +60,7 @@ class AccountSettingsFragment : BaseFragment() {
 
     private fun navigateToUpdateEmailScreen() {
         val updateEmailFragment = UpdateEmailFragment()
-        (this as BaseActivity).visitNewFragment(R.id.fragment_container, updateEmailFragment)
+        (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, updateEmailFragment)
     }
 
 

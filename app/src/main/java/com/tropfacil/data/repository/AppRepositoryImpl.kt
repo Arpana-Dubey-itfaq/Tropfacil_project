@@ -5,6 +5,7 @@ package com.tropfacil.data.repository
 import com.example.example.Homeresponse
 
 import com.tropfacil.model.*
+import com.tropfacil.network.BaseResponse
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.ApiService
 
@@ -32,7 +33,12 @@ class AppRepositoryImpl(private val apiService: ApiService) {
 
     suspend fun forgotPassword(email: String): ForgotPasswordRes =
         apiService.forgotPassword("v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo",email)
+
+    suspend fun updatePassword(authorization: String?,updatePasswordRequest: UpdatePasswordRequest): BaseResponse =
+        apiService.updatePassword(authorization,updatePasswordRequest)
 }
+
+
 /*  suspend fun verifyCode(identifier: String, code: String): RegisterRes =
     apiService.verifyCode(identifier, code)
 
@@ -52,8 +58,6 @@ suspend fun getUserProfile(userId: Int): GetUserProfileResponse =
 suspend fun updateUserProfile(updateProfileRequest: UpdateProfileRequest): BaseResponse =
     apiService.updateUserProfile(updateProfileRequest)
 
-suspend fun changePassword(changePasswordRequest: ChangePasswordRequest): BaseResponse =
-    apiService.changePassword(changePasswordRequest)
 
 suspend fun resetPassword(resetPasswordRequest: ResetPasswordRequest): BaseResponse =
     apiService.resetPassword(resetPasswordRequest)

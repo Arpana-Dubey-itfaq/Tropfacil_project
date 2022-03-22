@@ -41,17 +41,7 @@ class Constants {
         }
 
 
-        //][-".!;:~@#$!%*?&^+='|\
-        fun isValidPassword(password: String?): Boolean {
-            val pattern: Pattern
-            val matcher: Matcher
-            val PASSWORD_PATTERN =
-                "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-.!;:@$!%*?&^+='])[A-Za-z\\d-.!;:@$!%*?&^+=']{8,}$"
 
-            pattern = Pattern.compile(PASSWORD_PATTERN)
-            matcher = pattern.matcher(password)
-            return matcher.matches()
-        }
 
     }
 }
