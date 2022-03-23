@@ -137,7 +137,6 @@ class ProfileFragment : BaseFragment() {
             .asBitmap()
             .load(bitmap)
             .apply(RequestOptions.circleCropTransform())
-//            .centerCrop()
             .placeholder(R.drawable.logo)
             .into(binding.profileIv)
     }
