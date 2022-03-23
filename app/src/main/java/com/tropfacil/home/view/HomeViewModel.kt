@@ -27,9 +27,9 @@ class HomeViewModel(
         syncItemsStateFlow
 
 
-    fun HomeData(header: String?,authorization: String?) = launch {
+    fun HomeData(authorization: String?) = launch {
         syncItemsStateFlow.value = SafeApiCall.Loading
-        appRepository.HomeData(header,authorization)
+        appRepository.HomeData(authorization)
             .catch { e ->
                 Log.e("message Error", e.message.toString())
                 syncItemsStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!

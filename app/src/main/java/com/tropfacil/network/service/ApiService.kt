@@ -1,22 +1,14 @@
 package com.tropfacil.network.service
 
 
-
 import com.example.example.Homeresponse
-
-import com.tropfacil.BuildConfig
-import com.tropfacil.model.*
-import kotlinx.coroutines.Deferred
+import com.tropfacil.model.ForgotPasswordRes
+import com.tropfacil.model.Login_resoponse
+import com.tropfacil.model.RegisterRes
+import com.tropfacil.model.UpdatePasswordRequest
 import com.tropfacil.network.BaseResponse
-import com.tropfacil.network.auth.login.LoginResponse
-import com.tropfacil.network.request.LoginRequest
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.ResponseBody
 import retrofit2.http.*
-import java.util.concurrent.TimeUnit
 
 
 interface ApiService {
@@ -25,47 +17,41 @@ interface ApiService {
     @Headers("Accept: application/json")
     @GET("get-catalogue")
     suspend fun listUsers(
-        @Header("Access-Token") authorization: String,
-        @Query("token") token: String
+        @Query("token") token: String,
     ): List<Homeresponse>
 
     @POST("utilisateur/login")
     suspend fun login(
-        @Header("Access-Token") authorization: String?,
-        @Query("login") login: String?, @Query("pwd") token: String?
+        @Query("login") login: String?,
+        @Query("pwd") token: String?,
     ): Login_resoponse
 
     @POST("https://rc-tropfacile.onlineformapro.com/php5/restapi/boutique/utilisateur")
     suspend fun users(
-        @Header("Access-Token") authorization: String?,
         @Query("nom") nom: String?, @Query("prenom") prenom: String?,
         @Query("email") email: String?, @Query("civilite") civilite: String?,
-        @Query("login") login: String?
+        @Query("login") login: String?,
 
-    ): RegisterRes
+        ): RegisterRes
 
     @GET("envoyer-code-unique")
     suspend fun forgotPassword(
-        @Header("Access-Token") authorization: String?,
         @Path("login")
-        email: String
+        email: String,
     ): ForgotPasswordRes
 
     @POST("update-password")
     suspend fun updatePassword(
-        @Header("Access-Token") authorization: String?,
-        @Body updatePasswordRequest: UpdatePasswordRequest
+        @Body updatePasswordRequest: UpdatePasswordRequest,
     ): BaseResponse
 
     @POST("catalogue/get-catalogue")
     suspend fun homeData(
-        @Header("Access-Token") header: String?,
         @Query("token") authorization: String?,
     ): Homeresponse
 
     @POST("catalogue/get-modules")
     suspend fun courseData(
-        @Header("Access-Token") header: String?,
         @Query("token") authorization: String?,
     ): Homeresponse
 
@@ -74,9 +60,19 @@ interface ApiService {
     suspend fun changeEmail(
         @Query("nom") nom: String?, @Query("prenom") prenom: String?,
         @Query("login") login: String?, @Query("civilite") civilite: String?,
-        @Query("token") token: String?
     ): BaseResponse
 
+    @POST("utilisateur/update")
+    suspend fun updateUser(
+        @Query("id") id: String?, @Query("nom") nom: String?,
+        @Query("prenom") prenom: String?,
+    ): BaseResponse
+
+    @Streaming
+    @GET("utilisateur/get-photo-profil")
+    suspend fun getProfilePicture(
+        @Query("token") token: String?,
+    ): ResponseBody
     /*
    *//*   @POST("Authentication/SignIn/Customer")
     suspend fun login(@Body loginReq: LoginReq): LoginRes

@@ -6,15 +6,15 @@ import com.tropfacil.model.Login_resoponse
 
 import com.tropfacil.network.auth.account.RefreshTokenResponse
 import com.tropfacil.network.auth.register.AllRegisterResponse
+import com.tropfacil.network.service.PREF_IS_USER_LOGGED_IN
 
 
 const val PREF_USER_ID = "pf"
 const val PREF_USER_IDNEW = "id"
 const val PREF_USER_MOBILE = "userMobile"
 const val PREF_USER_PASSWORD = "userPassword"
-const val PREF_USER_NAME = "username"
-const val PREF_USER_FIRST_NAME = "nom"
-const val PREF_USER_LAST_NAME = "prenom"
+const val PREF_USER_NAME = "nom"
+const val PREF_USER_FIRST_NAME = "prenom"
 const val PREF_USER_TOKEN = "token"
 const val PREF_USER_TOKEN_EXPIRATION = "tokenExpiration"
 const val PREF_USER_REFRESH_TOKEN = "refreshToken"
@@ -100,9 +100,9 @@ class PreferenceProvider(val context: Context) {
         putString(PREF_USER_IDNEW, data.id)
         putString(PREF_USER_TOKEN, data.token)
         putString(PREF_USER_ID, data.pf)
-        putString(PREF_USER_FIRST_NAME, data.nom)
-        putString(PREF_USER_LAST_NAME,data.prenom)
-        putString(PREF_USER_NAME,data.username?:"")
+        putString(PREF_USER_FIRST_NAME, data.prenom)
+        putString(PREF_USER_NAME,data.nom?:"")
+        putBoolean(PREF_IS_USER_LOGGED_IN,true)
 
 
     }
