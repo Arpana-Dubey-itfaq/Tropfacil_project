@@ -23,6 +23,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.tropfacil.databinding.*
 import com.tropfacil.home.adapter.*
+import com.tropfacil.home.view.HomeFragment
+import com.tropfacil.main.view.MainActivity
 
 import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.mycourses.adapter.CourseListAdapter
@@ -79,7 +81,7 @@ class Course_chapter_detail_Fragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       // setListner()
+        setListner()
     setData()
 
 
@@ -104,11 +106,16 @@ class Course_chapter_detail_Fragment : BaseFragment() {
 
     }
 
-    /*fun setListner() {
-        binding.topbar.imgUser.setOnClickListener {
-            homeOptionsListener.onClickMenu()
+    fun setListner() {
+        binding.btnCreateAccount.setOnClickListener {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.fragment_container,
+                    Course_per_chapter_Fragment.newInstance(),
+                    Course_per_chapter_Fragment.TAG
+                ).commit()
         }
-        binding.topbar.imgsearch.setOnClickListener {
+       /* binding.topbar.imgsearch.setOnClickListener {
             startActivity(Intent(requireContext(), SearchActivity::class.java))
         }
         binding.topbar.imgNotification.setOnClickListener {
@@ -118,35 +125,6 @@ class Course_chapter_detail_Fragment : BaseFragment() {
         binding.topbar.imgmessage.setOnClickListener {
             startActivity(Intent(requireContext(), MessageActivity::class.java))
 
-        }
-        *//*binding.nestedscrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-            if (scrollY > oldScrollY) {
-              //  binding.view1.visibility = View.GONE
-                binding.lblMyCourses.setTextColor(
-                    ContextCompat.getColor(
-                        requireContext(),
-                        R.color.black
-                    )
-                )
-                Log.i(TAG, "Scroll DOWN")
-            }
-            if (scrollY < oldScrollY) {
-
-                Log.i(TAG, "Scroll UP")
-            }
-            if (scrollY == 0) {
-            //    binding.view1.visibility = View.VISIBLE
-                binding.lblMyCourses.setTextColor(
-                    ContextCompat.getColor(
-                        requireContext(),
-                        R.color.white
-                    )
-                )
-                Log.i(TAG, "TOP SCROLL")
-            }
-            if (scrollY == v.measuredHeight - v.getChildAt(0).measuredHeight) {
-                Log.i(TAG, "BOTTOM SCROLL")
-            }
-        })*//*
-    }*/
+        }*/
+    }
 }

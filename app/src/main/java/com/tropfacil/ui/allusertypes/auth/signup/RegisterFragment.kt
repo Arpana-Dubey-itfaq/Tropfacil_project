@@ -10,8 +10,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
+import android.widget.ArrayAdapter
+
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
@@ -44,7 +45,7 @@ class RegisterFragment : BaseFragment() {
     private val viewModel by inject<RegisterViewModel>()
     lateinit var binding: ActivityRegisterBinding
     var languages = arrayOf("Miss", "Mr")
-
+    private var qty =""
     var spinner: Spinner? = null
     var textView_msg: TextView? = null
     override fun onCreateView(
@@ -62,7 +63,7 @@ class RegisterFragment : BaseFragment() {
        /// setTextWatchers()
         initObservers()
 
-
+        setupSpinner()
 
 
     }
@@ -118,7 +119,7 @@ class RegisterFragment : BaseFragment() {
                     binding.usename.text.toString(),
                     binding.edtNom.text.toString(),
                     binding.edtpernom.text.toString(),
-                    "2",
+                    qty,
                     //binding.edtPassword.text.toString(),
                     "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
                 )
@@ -126,6 +127,36 @@ class RegisterFragment : BaseFragment() {
            // }
         }
     }
+    private fun setupSpinner() {
+
+        var languages = arrayOf("Miss", "Mr")
+        val spinner = binding.spinnerSample
+            val arrayAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, languages)
+        spinner.adapter = arrayAdapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                val text: String = binding.spinnerSample.getSelectedItem().toString()
+                if (text.equals("Miss")){
+                    qty = "2"
+                }
+                else{
+                    qty="1"
+                }
+               // qty = text.toInt()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Code to perform some action when nothing is selected
+            }
+        }
+
+}
 
 
 

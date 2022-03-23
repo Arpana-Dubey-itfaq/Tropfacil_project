@@ -27,7 +27,7 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_account_settings.xml" value="0.18" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_auth.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_badge.xml" value="0.11503623188405797" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_change_email.xml" value="0.1" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_change_email.xml" value="0.18" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_change_password.xml" value="0.18" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_completedcourse.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_dashboard.xml" value="0.13697916666666668" />
@@ -43,11 +43,12 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_message.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_parent_student_profile.xml" value="0.9444444444444444" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_profile.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_register.xml" value="0.14689265536723164" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_register.xml" value="0.18" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_reset_password.xml" value="0.12" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_sign_up_screen.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_user_stats_profile.xml" value="0.1" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_userstats_profile.xml" value="0.11458333333333333" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_video_course.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_welcome_screen.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_welcome_screen2.xml" value="0.14166666666666666" />

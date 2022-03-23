@@ -73,7 +73,9 @@
     <string name="my_exercises">My Exercises</string>
     <string name="my_courses">My Courses</string>
     <string name="countinue">Countinue</string>
+   <string name="registering_your_account">By registering your account. You agree to our <font color='#146FF8'>terms and conditions.</font></string>
 
+    <string name="already_have_an_account">Already have an account? <font color='#146FF8'>Sign In here</font></string>
     <string name="congratulations_n_you_have_successfully_completed_this_course">Congratulations!\n You have successfully completed this course!</string>
     <string name="excellent">Excellent</string>
     <string name="write_your_review_optional">Write your Review(Optional)</string>

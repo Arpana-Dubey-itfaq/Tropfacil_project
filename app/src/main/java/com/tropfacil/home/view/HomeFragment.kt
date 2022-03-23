@@ -11,10 +11,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentHomeBinding
-import com.tropfacil.home.adapter.HomeAdapter
-import com.tropfacil.home.adapter.HomeCourseAdapter
-import com.tropfacil.home.adapter.HomeCourseListAdapter
-import com.tropfacil.home.adapter.ViewPagerAdapter
 import com.tropfacil.util.interfaces.HomeOptionsListener
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -27,8 +23,10 @@ import com.app.leust.data.Data.Companion.header
 import com.app.leust.data.Data.Companion.token
 import com.example.example.Homeresponse
 import com.tropfacil.Dashboard
+import com.tropfacil.data.home_response
 import com.tropfacil.data.provider.PREF_USER_TOKEN
 import com.tropfacil.data.provider.PreferenceProvider
+import com.tropfacil.home.adapter.*
 
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -55,6 +53,7 @@ class HomeFragment : BaseFragment() {
     lateinit var viewPagerExcerAdapter: ViewPagerAdapter
     lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapter
 
+
     companion object {
         const val TAG = "HomeFragment"
 
@@ -70,7 +69,7 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    fun setTabLayout() {
+    fun setTabLayout(bannersResponse: home_response) {
 
         TabLayoutMediator(binding.tabLayoutExercise, binding.viewPagerExercise) { tab, position ->
             /* val tabView = LayoutInflater.from(this.context)
@@ -114,25 +113,9 @@ class HomeFragment : BaseFragment() {
             // tab.setCustomView(R.layout.custom_tab_recommeded_exercise);
             binding.tabscheduleCourse.setTabMode(TabLayout.MODE_SCROLLABLE);
 
-            when (position) {
-                0 -> {
-                    tab.text = "CSS3 - ENI® CERTIFICATIONS"
-                    // tabview.imgIcon.setImageResource(R.drawable.menu_home)
-                    // tabview.tvExerciseName.text = "hfgdsghf"
-                    // you can set your tab text and color here for tab1
-                }
-                1 -> {
-                    tab.text = "FORMATION PLATEFORME"
-                }
-                2 -> {
-                    tab.text = "PACK OFFICE 2019 INTÉGRAL"
-                }
-                3 -> {
-                    tab.text = "REFLEX'ENGLISH NIVEAU 1"
-                }
-                4 -> {
-                    tab.text = "This Month"
-                }
+            for (i in 0 until bannersResponse.themes?.size!!) {
+
+                tab.text=bannersResponse.themes[i].libelle
             }
         }.attach()
     }
@@ -165,7 +148,6 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         setListner()
         setData()
-        setTabLayout()
         initObserver()
         initObservers()
        // initObserver()
@@ -185,6 +167,9 @@ class HomeFragment : BaseFragment() {
                     is SafeApiCall.Successhome -> {
                         binding.progressBar.isVisible = false
                         homeViewModel._syncItemsStateFlow.value
+
+                        loadBannersList(homeresponse.data as home_response)
+
                         //viewModel.syncGuestItems(getUUID())
                     }
                     else -> {
@@ -265,4 +250,24 @@ val  s=""
             }
         })*/
     }
+
+    private fun loadBannersList(bannersResponse: home_response) {
+            /*val bannersAdapter =
+                BannersAdapter(requireContext(), bannersResponse.response, true, this)
+            binding.viewPagerBanner.adapter = bannersAdapter
+//            binding.indicator.isVisible = true
+            binding.indicator.count = binding.viewPagerBanner.indicatorCount
+            binding.viewPagerBanner.onIndicatorProgress = { selectingPosition, progress ->
+                binding.indicator.setProgress(selectingPosition, progress)
+*/
+      //  viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
+
+
+
+
+        setTabLayout(bannersResponse)
+
+
+    }
+
 }

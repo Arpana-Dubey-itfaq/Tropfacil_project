@@ -64,7 +64,10 @@ class ForgotPasswordFragment : BaseFragment() {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
-                        showErrorMsg(it.exception.toString())
+                        findNavController().navigate(
+                            ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToResetPasswordFragment()
+                        )
+                        // showErrorMsg(it.exception.toString())
                     }
                     is SafeApiCall.Success -> {
                         binding.progressBar.isVisible = false

@@ -5,6 +5,7 @@ package com.tropfacil.network.service
 import com.example.example.Homeresponse
 
 import com.tropfacil.BuildConfig
+import com.tropfacil.data.home_response
 import com.tropfacil.model.*
 import kotlinx.coroutines.Deferred
 import com.tropfacil.network.BaseResponse
@@ -61,7 +62,7 @@ interface ApiService {
     suspend fun homeData(
         @Header("Access-Token") header: String?,
         @Query("token") authorization: String?,
-    ): Homeresponse
+    ): home_response
 
     @POST("catalogue/get-modules")
     suspend fun courseData(

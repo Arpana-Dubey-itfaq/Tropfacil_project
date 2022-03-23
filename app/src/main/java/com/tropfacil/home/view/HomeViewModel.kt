@@ -36,7 +36,7 @@ class HomeViewModel(
             }.collect { data ->
 
                 Log.e("message success", data.themes.toString())
-                syncItemsStateFlow.value = SafeApiCall.Successhome(data.themes)
+                syncItemsStateFlow.value = SafeApiCall.Successhome(data)
                // Log.e("message111", data)
               //  preferenceProvider.saveLoginDataToPref(data)
                 //loginStateFlow.value = SafeApiCall.Success(data)

@@ -1,13 +1,15 @@
 package com.tropfacil.network.service
 
 import com.example.example.Themes
+import com.tropfacil.data.Theme
+import com.tropfacil.data.home_response
 import com.tropfacil.model.Login_resoponse
 import com.tropfacil.network.BaseResponse
 
 sealed class SafeApiCall {
     class Success(val data: BaseResponse) : SafeApiCall()
     class Error(val exception: String) : SafeApiCall()
-    class Successhome(val data: ArrayList<Themes>) : SafeApiCall()
+    class Successhome(val data: home_response) : SafeApiCall()
     class SuccessLogin(val data: Login_resoponse) : SafeApiCall()
 
     object Loading : SafeApiCall()

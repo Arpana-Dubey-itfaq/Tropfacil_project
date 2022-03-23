@@ -57,9 +57,9 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="horizontal"
                 android:padding="@dimen/_5sdp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-
                 app:layout_constraintTop_toBottomOf="@+id/tvcourse1">
 
                 <ImageView
@@ -103,7 +103,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_15ssp"
                 android:orientation="horizontal"
-                android:padding="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/l1">
@@ -121,10 +121,11 @@
                     android:id="@+id/duration2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
                     android:layout_weight="1"
                     android:lines="1"
                     android:padding="5dp"
-                    android:text="Category"
+                    android:text="Duration"
                     android:textSize="12dp"
 
                     />
@@ -139,6 +140,7 @@
                     android:padding="5dp"
                     android:text="Level"
                     android:textSize="12dp"
+                    android:visibility="gone"
 
                     />
 
@@ -151,6 +153,7 @@
                     android:padding="5dp"
                     android:text="Mise Em Ligne"
                     android:textSize="12dp"
+                    android:visibility="gone"
 
                     />
             </LinearLayout>
@@ -160,7 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15ssp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal"
 
                 android:padding="@dimen/_5sdp"
@@ -173,7 +176,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:layout_weight="1"
+
                     android:padding="5dp"
                     app:srcCompat="@drawable/category" />
 
@@ -191,7 +194,7 @@
                     android:id="@+id/briefcasegreen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:padding="5dp"
                     android:src="@drawable/duration" />
 
@@ -212,7 +215,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/level" />
+                    android:src="@drawable/level"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/category1"
@@ -223,6 +227,7 @@
                     android:padding="5dp"
                     android:text="Level 1"
                     android:textSize="12dp"
+                    android:visibility="gone"
 
 
                     />
@@ -232,7 +237,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:src="@drawable/date" />
+                    android:src="@drawable/date"
+                    android:visibility="gone" />
 
                 <TextView
 
@@ -243,6 +249,7 @@
                     android:padding="5dp"
                     android:text="23/10/2020"
                     android:textSize="12dp"
+                    android:visibility="gone"
 
 
                     />
@@ -275,7 +282,6 @@
 
             <TextView
                 android:id="@+id/tvcoursename1"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15ssp"
@@ -284,29 +290,61 @@
                 android:text="No progress yet"
                 android:textColor="#38B6A4"
                 android:textSize="@dimen/_8ssp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_create_account"
+            <LinearLayout
+                android:id="@+id/lin1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginStart="@dimen/dim20"
-                android:layout_marginTop="@dimen/dim_10sp"
-                android:layout_marginEnd="@dimen/dim20"
-                android:background="@drawable/ic_disabled_button_gray"
-                android:backgroundTint="#38B6A4"
-                android:fontFamily="@font/light"
-                android:text="See all Chapters"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/dim_15sp"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvcoursename1"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/tvcoursename1">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_create_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dim20"
+                    android:layout_marginTop="@dimen/dim_10sp"
+                    android:layout_marginEnd="@dimen/dim20"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_disabled_button_gray"
+                    android:backgroundTint="#38B6A4"
+                    android:fontFamily="@font/light"
+                    android:text="See all Chapters"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dim_15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvcoursename1"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_create_account2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dim20"
+                    android:layout_marginTop="@dimen/dim_10sp"
+                    android:layout_marginEnd="@dimen/dim20"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_disabled_button_gray"
+                    android:backgroundTint="#E83C70"
+                    android:fontFamily="@font/light"
+                    android:text="See all Chapters"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dim_15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvcoursename1"
+                    app:layout_constraintVertical_bias="0.0" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/heading"
@@ -321,7 +359,7 @@
 
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_create_account"></TextView>
+                app:layout_constraintTop_toBottomOf="@+id/lin1"></TextView>
 
             <LinearLayout
                 android:id="@+id/line"
@@ -388,10 +426,10 @@
                 android:text="Prerequisite Courses"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13ssp"
-                app:layout_constraintTop_toBottomOf="@+id/relCourse1"
-
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relCourse1" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/relCourse12"

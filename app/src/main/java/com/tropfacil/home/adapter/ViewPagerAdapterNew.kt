@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.tropfacil.data.Theme
 import com.tropfacil.home.view.RecommededExcerciseFragment
 
-class ViewPagerAdapter(fa: FragmentActivity, size: Int) : FragmentStateAdapter(fa) {
+class ViewPagerAdapterNew(fa: FragmentActivity, size: Int) : FragmentStateAdapter(fa) {
 
     var viewPagersize: Int
 

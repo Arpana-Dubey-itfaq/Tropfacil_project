@@ -4,6 +4,7 @@ package com.tropfacil.data.repository
 
 
 import com.example.example.Homeresponse
+import com.tropfacil.data.home_response
 
 import com.tropfacil.model.ForgotPasswordRes
 import com.tropfacil.model.Login_resoponse
@@ -33,7 +34,7 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
        emit(apiServiceImpl.login(loginReq))
    }.flowOn(Dispatchers.IO)
 
-    fun HomeData(header: String?,identifier: String?): Flow<Homeresponse> = flow {
+    fun HomeData(header: String?,identifier: String?): Flow<home_response> = flow {
         emit(apiServiceImpl.HomeData(header,identifier))
     }.flowOn(Dispatchers.IO)
 

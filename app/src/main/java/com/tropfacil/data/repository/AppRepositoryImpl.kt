@@ -3,6 +3,7 @@ package com.tropfacil.data.repository
 
 
 import com.example.example.Homeresponse
+import com.tropfacil.data.home_response
 
 import com.tropfacil.model.*
 import com.tropfacil.network.request.LoginRequest
@@ -14,7 +15,7 @@ class AppRepositoryImpl(private val apiService: ApiService) {
 
         apiService.login(loginReq.token, loginReq.loginName, loginReq.password)
 
-    suspend fun HomeData(header: String?,authorization: String?): Homeresponse =
+    suspend fun HomeData(header: String?,authorization: String?): home_response =
 
         apiService.homeData(header,authorization)
 
