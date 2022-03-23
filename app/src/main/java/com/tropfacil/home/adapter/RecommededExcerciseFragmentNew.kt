@@ -47,58 +47,6 @@ class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment() {
         binding.relCourse.adapter = homeAdapter
     }
 
-    private fun initObserver () {
 
-
-        Data.token = PreferenceProvider(requireContext()).getUserToken()
-        Data.header = "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
-
-
-        homeViewModel.HomeData(Data.header, Data.token)
-        //findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
-
-//    homeViewModel.allUsers.observe(viewLifecycleOwner, Observer { listUser ->
-//      if (listUser.isNotEmpty()) {
-//        listUser.forEach {
-//          Timber.i(it.name)
-//        }
-//      }
-//    })
-        /* homeViewModel.vmGetUserList()
-         homeViewModel.userList.observe(viewLifecycleOwner, Observer { listUser ->
-             listUser.forEach {
-             //    Timber.i(it.themes.indexOf(i))
-             }
-         })*/
-    }
-    private fun initObservers() {
-        lifecycleScope.launchWhenStarted {
-            homeViewModel._syncItemsStateFlow.collect {
-                    homeresponse ->
-                when (homeresponse) {
-                    is SafeApiCall.Loading -> {
-                        // binding.progressBar.isVisible = true
-                    }
-                    is SafeApiCall.Error -> {
-                        // binding.progressBar.isVisible = false
-                        //showErrorMsg(it.exception)
-                    }
-                    is SafeApiCall.Successhome -> {
-                        // binding.progressBar.isVisible = false
-                        homeViewModel._syncItemsStateFlow.value
-                        // setData(homeresponse.data as home_response)
-                        // loadBannersList(homeresponse.data as home_response)
-
-                        //viewModel.syncGuestItems(getUUID())
-                    }
-                    else -> {
-                        val  s=""
-                    }
-                }
-            }
-        }
-
-
-    }
 
 }

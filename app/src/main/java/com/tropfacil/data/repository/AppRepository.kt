@@ -25,33 +25,33 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
         emit(apiServiceImpl.forgotPassword(email))
     }.flowOn(Dispatchers.IO)
 
-   /* fun login(loginReq: LoginRequest): Flow<LoginRequest> = flow {
+    /* fun login(loginReq: LoginRequest): Flow<LoginRequest> = flow {
         emit(apiServiceImpl.login(loginReq))
     }.flowOn(Dispatchers.IO)
 */
-   fun login(loginReq: LoginRequest): Flow<Login_resoponse> = flow {
-       emit(apiServiceImpl.login(loginReq))
-   }.flowOn(Dispatchers.IO)
-
-    fun HomeData(header: String?,identifier: String?): Flow<home_response> = flow {
-        emit(apiServiceImpl.HomeData(header,identifier))
-    fun HomeData(identifier: String?): Flow<Homeresponse> = flow {
-        emit(apiServiceImpl.HomeData(identifier))
+    fun login(loginReq: LoginRequest): Flow<Login_resoponse> = flow {
+        emit(apiServiceImpl.login(loginReq))
     }.flowOn(Dispatchers.IO)
 
-    fun updatePassword(updatePasswordRequest: UpdatePasswordRequest): Flow<BaseResponse> = flow {
-        emit(apiServiceImpl.updatePassword(updatePasswordRequest))
-    }.flowOn(Dispatchers.IO)
 
-    fun updateUser(id:String,nom:String?,prenom:String?): Flow<BaseResponse> = flow {
-        emit(apiServiceImpl.updateUser(id,nom,prenom))
-    }.flowOn(Dispatchers.IO)
+        fun HomeData(identifier: String?): Flow<home_response> = flow {
+            emit(apiServiceImpl.HomeData(identifier))
+        }.flowOn(Dispatchers.IO)
 
-    fun getProfilePicture(token:String?): Flow<ResponseBody> = flow {
-        emit(apiServiceImpl.getProfilePicture(token))
-    }.flowOn(Dispatchers.IO)
+        fun updatePassword(updatePasswordRequest: UpdatePasswordRequest): Flow<BaseResponse> =
+            flow {
+                emit(apiServiceImpl.updatePassword(updatePasswordRequest))
+            }.flowOn(Dispatchers.IO)
 
-    /*  fun verifyCode(identifier: String, code: String): Flow<RegisterRes> = flow {
+        fun updateUser(id: String, nom: String?, prenom: String?): Flow<BaseResponse> = flow {
+            emit(apiServiceImpl.updateUser(id, nom, prenom))
+        }.flowOn(Dispatchers.IO)
+
+        fun getProfilePicture(token: String?): Flow<ResponseBody> = flow {
+            emit(apiServiceImpl.getProfilePicture(token))
+        }.flowOn(Dispatchers.IO)
+
+        /*  fun verifyCode(identifier: String, code: String): Flow<RegisterRes> = flow {
           emit(apiServiceImpl.verifyCode(identifier, code))
       }.flowOn(Dispatchers.IO)
 
@@ -197,4 +197,5 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
       fun payWithCard(payWithCardRequest: PayWithCardRequest): Flow<PayWithCardResponse> = flow {
           emit(apiServiceImpl.payWithCard(payWithCardRequest))
       }.flowOn(Dispatchers.IO)*/
+
 }

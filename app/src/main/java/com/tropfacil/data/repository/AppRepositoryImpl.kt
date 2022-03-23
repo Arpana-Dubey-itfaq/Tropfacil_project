@@ -17,8 +17,7 @@ class AppRepositoryImpl(private val apiService: ApiService) {
 
         apiService.login(loginReq.loginName, loginReq.password)
 
-    suspend fun HomeData(header: String?,authorization: String?): home_response =
-    suspend fun HomeData(authorization: String?): Homeresponse =
+    suspend fun HomeData(authorization: String?): home_response =
 
         apiService.homeData(authorization)
 
