@@ -8,16 +8,17 @@ import com.tropfacil.model.*
 import com.tropfacil.network.BaseResponse
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.ApiService
+import okhttp3.ResponseBody
 
 class AppRepositoryImpl(private val apiService: ApiService) {
 
     suspend fun login(loginReq: LoginRequest): Login_resoponse =
 
-        apiService.login(loginReq.token, loginReq.loginName, loginReq.password)
+        apiService.login(loginReq.loginName, loginReq.password)
 
-    suspend fun HomeData(header: String?,authorization: String?): Homeresponse =
+    suspend fun HomeData(authorization: String?): Homeresponse =
 
-        apiService.homeData(header,authorization)
+        apiService.homeData(authorization)
 
 
     suspend fun register(registerReq: RegisterRequest): RegisterRes =
@@ -26,27 +27,28 @@ class AppRepositoryImpl(private val apiService: ApiService) {
             registerReq.prenom,
             registerReq.email,
             registerReq.login,
-            registerReq.civilite,
-            registerReq.token
+            registerReq.civilite
         )
 
 
     suspend fun forgotPassword(email: String): ForgotPasswordRes =
-        apiService.forgotPassword("v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo",email)
+        apiService.forgotPassword(email)
 
-    suspend fun updatePassword(authorization: String?,updatePasswordRequest: UpdatePasswordRequest): BaseResponse =
-        apiService.updatePassword(authorization,updatePasswordRequest)
+    suspend fun updatePassword(updatePasswordRequest: UpdatePasswordRequest): BaseResponse =
+        apiService.updatePassword(updatePasswordRequest)
 
     suspend fun updateUser(id:String,nom:String?,prenom:String?): BaseResponse =
         apiService.updateUser(id,nom,prenom)
+
+    suspend fun getProfilePicture(token:String?): ResponseBody =
+        apiService.getProfilePicture(token)
 
     suspend fun changeEmail(registerReq: RegisterRequest): BaseResponse =
         apiService.changeEmail(
             registerReq.nom,
             registerReq.prenom,
             registerReq.login,
-            registerReq.civilite,
-            registerReq.token
+            registerReq.civilite
         )
 
 }

@@ -9,7 +9,5 @@ data class LoginRequest(
     var loginName: String? = null,
     @field:SerializedName("pwd")
     var password: String? = null,
-    @field:SerializedName("token")
-    var token: String? = null,
 
     )

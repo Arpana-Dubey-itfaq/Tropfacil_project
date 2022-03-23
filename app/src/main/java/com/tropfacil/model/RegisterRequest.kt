@@ -13,8 +13,6 @@ data class RegisterRequest (
     @SerializedName("prenom")
     val prenom: String,
     @SerializedName("civilite")
-    val civilite: String,
-    @SerializedName("token")
-    val token: String
+    val civilite: String
 )
 
