@@ -41,6 +41,7 @@ class AccountSettingsViewModel(
             }
     }
 
+
     fun logout(){
         preferenceProvider.clearAllPref()
     }

@@ -37,6 +37,9 @@ class AppRepositoryImpl(private val apiService: ApiService) {
     suspend fun updatePassword(authorization: String?,updatePasswordRequest: UpdatePasswordRequest): BaseResponse =
         apiService.updatePassword(authorization,updatePasswordRequest)
 
+    suspend fun updateUser(id:String,nom:String?,prenom:String?): BaseResponse =
+        apiService.updateUser(id,nom,prenom)
+
     suspend fun changeEmail(registerReq: RegisterRequest): BaseResponse =
         apiService.changeEmail(
             registerReq.nom,

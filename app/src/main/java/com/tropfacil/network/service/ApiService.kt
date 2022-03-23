@@ -77,6 +77,12 @@ interface ApiService {
         @Query("token") token: String?
     ): BaseResponse
 
+    @POST("utilisateur/update")
+    suspend fun updateUser(
+        @Query("id") id: String?, @Query("nom") nom: String?,
+        @Query("prenom") prenom: String?,
+    ): BaseResponse
+
     /*
    *//*   @POST("Authentication/SignIn/Customer")
     suspend fun login(@Body loginReq: LoginReq): LoginRes
