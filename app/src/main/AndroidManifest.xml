@@ -23,9 +23,7 @@
         <activity
             android:name=".Dashboard"
             android:exported="false" />
-        <activity
-            android:name=".ui.allusertypes.auth.Register"
-            android:exported="false" />
+
         <activity
             android:name=".ui.allusertypes.auth.welcome.Welcome_Screen"
             android:exported="false" />

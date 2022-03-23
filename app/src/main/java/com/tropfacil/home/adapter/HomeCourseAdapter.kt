@@ -23,9 +23,10 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 
 import android.widget.TextView
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
 
-class HomeCourseAdapter(
+class HomeCourseAdapter(private val homeToCourseDetailsListener: HomeToCourseDetailsListener
 ) : RecyclerView.Adapter<HomeCourseAdapter.ViewHolder>() {
 
 
@@ -75,7 +76,7 @@ class HomeCourseAdapter(
               wrappedDrawable?.let { DrawableCompat.setTint(it, Color.WHITE) }
        */
         }
-        var homeCourseListAdapter = HomeCourseListAdapter()
+        var homeCourseListAdapter = HomeCourseListAdapter(homeToCourseDetailsListener)
         holder.bind.relCourse.adapter = homeCourseListAdapter
     }
 

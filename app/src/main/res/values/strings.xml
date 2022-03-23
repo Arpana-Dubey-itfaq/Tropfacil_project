@@ -123,5 +123,33 @@
     <string name="lbl_type_ur_confirm_password">Confirm new password</string>
     <string name="str_confirm_password_not_match">Password not match</string>
     <string name="lbl_submit">Submit</string>
+    <!--    Subject-->
+    <string name="sujet">Sujet</string>
+    <!--Write your question-->
+    <string name="write_your_question">Write your question</string>
+    <!--Type your subjet-->
+    <string name="type_your_subject">Type your sujet</string>
+    <!--Write your question here-->
+    <string name="write_your_question_here">Write your question here</string>
+    <!--Send-->
+    <string name="send">Send</string>
+    <!--Category-->
+    <string name="category">Category</string>
+    <!--Duration-->
+    <string name="duration">Duration</string>
+    <string name="percentage">Pourcentage du cours appris</string>
+    <!--Start Course-->
+    <string name="start_course">Start Course</string>
+    <string name="about_this_course">About the course</string>
+    <!--What you can learn from this course-->
+    <string name="what_you_can_learn">What you can learn from this course</string>
+    <!--Chapter-->
+    <string name="chapters">Chapter %d</string>
+    <!-- 2 Lessons-->
+    <string name="lessons_count">%d Lessons</string>
+    <string name="lesson_count">%d Lesson</string>
 
+    <!--Time spent: 0 minutes-->
+    <string name="time_spent_in_min">Time spent: %f minutes</string>
+    <string name="vocabularies">Vocabulaire et grammaire</string>
 </resources>

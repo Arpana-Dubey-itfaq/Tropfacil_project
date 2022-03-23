@@ -26,16 +26,19 @@ import android.graphics.PorterDuff
 
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
+import com.tropfacil.base.BaseActivity
 import com.tropfacil.category.adapter.CategoriesListAdapter
 import com.tropfacil.category.model.CategoryList
+import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.databinding.FragmentCatgoryBinding
 import com.tropfacil.message.view.MessageActivity
+import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.util.Constants
 
 
-class AllCateogiesFragment : BaseFragment() {
+class AllCateogiesFragment : BaseFragment(), ResumeFragmentListener {
     lateinit var binding: FragmentCatgoryBinding
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var categoriesListAdapter: CategoriesListAdapter
@@ -115,7 +118,11 @@ class AllCateogiesFragment : BaseFragment() {
 
         }
         binding.topbar.imgmessage.setOnClickListener {
-            startActivity(Intent(requireContext(), MessageActivity::class.java))
+            (requireActivity() as BaseActivity).updateResumeFragment(this)
+            val writeAMessageFragment = WriteAMessageFragment()
+            (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
+
+//            startActivity(Intent(requireContext(), MessageActivity::class.java))
 
         }
 /*
@@ -150,5 +157,9 @@ class AllCateogiesFragment : BaseFragment() {
             }
         })
 */
+    }
+
+    override fun onFragmentResume(bundle: Bundle?) {
+
     }
 }
