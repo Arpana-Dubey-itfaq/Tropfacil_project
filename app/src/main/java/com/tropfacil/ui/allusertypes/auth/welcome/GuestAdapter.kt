@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -38,20 +39,9 @@ class GuestAdapter(
         val view: View =
             LayoutInflater.from(context).inflate(R.layout.activity_welcome_screen, container, false)
         val guestImageSlider: ImageView = view.findViewById(R.id.stylish1)
-        //val constGuest: ConstraintLayout = view.findViewById(R.id.constGuest)
         val tvSliderTitle: AppCompatTextView = view.findViewById(R.id.textView)
         val tvSliderDescription: AppCompatTextView = view.findViewById(R.id.textView2)
-       /// val guestImageShade: AppCompatImageView = view.findViewById(R.id.guestImageShade)
-    val next: Button = view.findViewById(R.id.next)
-
-        // constGuest.setBackgroundColor(models[position].color)
-
         guestImageSlider.setImageDrawable(models[position].image)
-
-      //  guestImageShade.setColorFilter(models[position].shadeColor)
-        next.setOnClickListener {
-            listener.onCourseDetails()
-         }
         tvSliderTitle.text = models[position].title
         tvSliderDescription.text = models[position].desc
 
@@ -62,7 +52,9 @@ class GuestAdapter(
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as View)
     }
+
     interface OnCourseHistoryListener {
-        fun onCourseDetails()
+        fun onCourseDetails(position: Int)
+        fun onSkipClicked()
     }
 }

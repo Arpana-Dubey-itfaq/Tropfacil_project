@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardParent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dim10"
+   >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/dim10"
+        android:paddingBottom="@dimen/dim10">
+
+
+        <ImageView
+            android:id="@+id/imgChapterLearn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dim20"
+            android:scaleType="fitXY"
+            android:src="@drawable/chapters_lock"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <TextView
+            android:id="@+id/tvLessonVocabulary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@android:color/black"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvCourseDesc"
+            app:layout_constraintStart_toEndOf="@+id/imgChapterLearn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/vocabularies" />
+
+
+        <TextView
+            android:id="@+id/tvLessonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto_medium"
+            android:lineSpacingExtra="@dimen/dim4"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvTimeSpent"
+            app:layout_constraintStart_toEndOf="@+id/imgChapterLearn"
+            app:layout_constraintTop_toBottomOf="@+id/tvLessonVocabulary"
+            tools:text="The vocabulary of world of work" />
+
+        <TextView
+            android:id="@+id/tvTimeSpent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:drawableStart="@drawable/clock"
+            android:drawablePadding="@dimen/dim10"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgChapterLearn"
+            app:layout_constraintTop_toBottomOf="@+id/tvLessonName"
+            tools:text="Time spent:20 mintues" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -85,8 +85,8 @@ object networkModule {
         builder.addHeader("accept", "application/json")
         if (_preferenceProvider!!.getBoolean(PREF_IS_USER_LOGGED_IN, false)) {
             builder.addHeader(
-                "Authorization",
-                "bearer " + _preferenceProvider?.getString(PREF_TOKEN, "")
+                "Access-Token",
+                 _preferenceProvider?.getString(PREF_TOKEN, "")
             )
         }
         return builder

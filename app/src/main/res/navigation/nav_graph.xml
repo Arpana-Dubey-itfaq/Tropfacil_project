@@ -16,8 +16,6 @@
             app:popUpToInclusive="true" />
 
 
-
-
     </fragment>
 
     <fragment
@@ -48,16 +46,14 @@
         android:id="@+id/courseperFragment"
         android:name="com.tropfacil.mycourses.view.Course_per_chapter_Fragment"
         android:label="Course_per_chapter_Fragment"
-        tools:layout="@layout/course_per_chapter">
-    </fragment>
+        tools:layout="@layout/course_per_chapter"></fragment>
 
 
     <fragment
         android:id="@+id/resetPasswordFragment"
         android:name="com.tropfacil.ui.allusertypes.auth.forgotpass.FragmentResetPassword"
         android:label="ResetPasswordFragment"
-        tools:layout="@layout/activity_reset_password">
-    </fragment>
+        tools:layout="@layout/activity_reset_password"></fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.tropfacil.home.view.HomeFragment"
@@ -66,23 +62,27 @@
         <action
             android:id="@+id/action_courseperFragment"
             app:destination="@id/courseperFragment" />
-    </fragment>
-      <!--  <action
-            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
 
-        <action
-            android:id="@+id/action_loginFragment_to_homeShopFragment"
-            app:destination="@id/homeShopFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@+id/nav_graph"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_loginFragment_to_homeMultipleShopFragment"
-            app:destination="@id/homeMultipleShopFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_registerManuallyFragment"
-            app:destination="@id/registerManuallyFragment" />-->
+
+    </fragment>
+
+
+<!--  <action
+          android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+          app:destination="@id/forgotPasswordFragment" />
+
+      <action
+          android:id="@+id/action_loginFragment_to_homeShopFragment"
+          app:destination="@id/homeShopFragment"
+          app:launchSingleTop="true"
+          app:popUpTo="@+id/nav_graph"
+          app:popUpToInclusive="true" />
+      <action
+          android:id="@+id/action_loginFragment_to_homeMultipleShopFragment"
+          app:destination="@id/homeMultipleShopFragment" />
+      <action
+          android:id="@+id/action_loginFragment_to_registerManuallyFragment"
+          app:destination="@id/registerManuallyFragment" />-->
 
     <fragment
         android:id="@+id/registerFragment"
@@ -108,89 +108,89 @@
               app:destination="@id/registerManuallyFragment" />-->
     </fragment>
 
-<!--
-    <fragment
-        android:id="@+id/registerOptionsFragment"
-        android:name="com.tropfacil.ui.allusertypes.auth.signup.Register"
-        android:label="RegisterOptionsFragment"
-        tools:layout="@layout/activity_register">
-      &lt;!&ndash;  <action
-            android:id="@+id/action_registerOptionsFragment_to_registerManuallyFragment"
-            app:destination="@id/registerManuallyFragment" />
-        <action
-            android:id="@+id/action_registerOptionsFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:popUpTo="@id/initialFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_registerOptionsFragment_to_homeShopFragment"
-            app:destination="@id/homeShopFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@+id/nav_graph"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_registerOptionsFragment_to_homeMultipleShopFragment"
-            app:destination="@id/homeMultipleShopFragment" />&ndash;&gt;
+    <!--
+        <fragment
+            android:id="@+id/registerOptionsFragment"
+            android:name="com.tropfacil.ui.allusertypes.auth.signup.Register"
+            android:label="RegisterOptionsFragment"
+            tools:layout="@layout/activity_register">
+          &lt;!&ndash;  <action
+                android:id="@+id/action_registerOptionsFragment_to_registerManuallyFragment"
+                app:destination="@id/registerManuallyFragment" />
+            <action
+                android:id="@+id/action_registerOptionsFragment_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:popUpTo="@id/initialFragment"
+                app:popUpToInclusive="true" />
+            <action
+                android:id="@+id/action_registerOptionsFragment_to_homeShopFragment"
+                app:destination="@id/homeShopFragment"
+                app:launchSingleTop="true"
+                app:popUpTo="@+id/nav_graph"
+                app:popUpToInclusive="true" />
+            <action
+                android:id="@+id/action_registerOptionsFragment_to_homeMultipleShopFragment"
+                app:destination="@id/homeMultipleShopFragment" />&ndash;&gt;
 
-    </fragment>-->
+        </fragment>-->
 
-  <!--  <fragment
-        android:id="@+id/registerManuallyFragment"
-        android:name="com.itfaq.kitchin.ui.auth.register.RegisterManuallyFragment"
-        android:label="RegisterManuallyFragment"
-        tools:layout="@layout/fragment_register_manually">
-        <action
-            android:id="@+id/action_registerManuallyFragment_to_verificationCodeFragment"
-            app:destination="@id/verificationCodeFragment" />
-        <action
-            android:id="@+id/action_registerManuallyFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:popUpTo="@id/initialFragment"
-            app:popUpToInclusive="true" />
-    </fragment>
+    <!--  <fragment
+          android:id="@+id/registerManuallyFragment"
+          android:name="com.itfaq.kitchin.ui.auth.register.RegisterManuallyFragment"
+          android:label="RegisterManuallyFragment"
+          tools:layout="@layout/fragment_register_manually">
+          <action
+              android:id="@+id/action_registerManuallyFragment_to_verificationCodeFragment"
+              app:destination="@id/verificationCodeFragment" />
+          <action
+              android:id="@+id/action_registerManuallyFragment_to_loginFragment"
+              app:destination="@id/loginFragment"
+              app:popUpTo="@id/initialFragment"
+              app:popUpToInclusive="true" />
+      </fragment>
 
-    <fragment
-        android:id="@+id/resetPasswordFragment"
-        android:name="com.itfaq.kitchin.ui.auth.resetpassword.ResetPasswordFragment"
-        android:label="ResetPasswordFragment"
-        tools:layout="@layout/fragment_reset_password">
-        <argument
-            android:name="code"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_resetPasswordFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:popUpTo="@id/initialFragment"
-            app:popUpToInclusive="true" />
-    </fragment>
+      <fragment
+          android:id="@+id/resetPasswordFragment"
+          android:name="com.itfaq.kitchin.ui.auth.resetpassword.ResetPasswordFragment"
+          android:label="ResetPasswordFragment"
+          tools:layout="@layout/fragment_reset_password">
+          <argument
+              android:name="code"
+              app:argType="string" />
+          <action
+              android:id="@+id/action_resetPasswordFragment_to_loginFragment"
+              app:destination="@id/loginFragment"
+              app:popUpTo="@id/initialFragment"
+              app:popUpToInclusive="true" />
+      </fragment>
 
-    <fragment
-        android:id="@+id/verificationCodeFragment"
-        android:name="com.itfaq.kitchin.ui.auth.verify.VerificationCodeFragment"
-        android:label="VerificationCodeFragment"
-        tools:layout="@layout/fragment_verify_code">
+      <fragment
+          android:id="@+id/verificationCodeFragment"
+          android:name="com.itfaq.kitchin.ui.auth.verify.VerificationCodeFragment"
+          android:label="VerificationCodeFragment"
+          tools:layout="@layout/fragment_verify_code">
 
-        <action
-            android:id="@+id/action_verificationCodeFragment_to_homeShopFragment"
-            app:destination="@id/homeShopFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_verificationCodeFragment_to_homeMultipleShopFragment"
-            app:destination="@id/homeMultipleShopFragment" />
+          <action
+              android:id="@+id/action_verificationCodeFragment_to_homeShopFragment"
+              app:destination="@id/homeShopFragment"
+              app:launchSingleTop="true"
+              app:popUpTo="@id/nav_graph"
+              app:popUpToInclusive="true" />
+          <action
+              android:id="@+id/action_verificationCodeFragment_to_homeMultipleShopFragment"
+              app:destination="@id/homeMultipleShopFragment" />
 
 
-    </fragment>
-    <fragment
-        android:id="@+id/forgotPasswordFragment"
-        android:name="com.itfaq.kitchin.ui.auth.ForgotPasswordFragment"
-        android:label="ForgotPasswordFragment"
-        tools:layout="@layout/fragment_forgot_password">
-        <action
-            android:id="@+id/action_forgotPasswordFragment_to_resetPasswordFragment"
-            app:destination="@id/resetPasswordFragment" />
-    </fragment>-->
+      </fragment>
+      <fragment
+          android:id="@+id/forgotPasswordFragment"
+          android:name="com.itfaq.kitchin.ui.auth.ForgotPasswordFragment"
+          android:label="ForgotPasswordFragment"
+          tools:layout="@layout/fragment_forgot_password">
+          <action
+              android:id="@+id/action_forgotPasswordFragment_to_resetPasswordFragment"
+              app:destination="@id/resetPasswordFragment" />
+      </fragment>-->
 
     <!--<fragment
         android:id="@+id/homeShopFragment"

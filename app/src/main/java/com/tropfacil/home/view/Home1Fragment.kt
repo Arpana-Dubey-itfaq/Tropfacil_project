@@ -25,8 +25,10 @@ import android.graphics.PorterDuff
 
 
 import androidx.core.content.ContextCompat
+import com.tropfacil.base.BaseActivity
 import com.tropfacil.databinding.FragmentHome1Binding
 import com.tropfacil.message.view.MessageActivity
+import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.userstatprofile.view.UserStatsProfileActivity
@@ -89,7 +91,11 @@ class Home1Fragment : BaseFragment() {
 
         }
         binding.topbar.imgmessage.setOnClickListener {
-            startActivity(Intent(requireContext(), MessageActivity::class.java))
+
+            val writeAMessageFragment = WriteAMessageFragment()
+            (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
+
+//            startActivity(Intent(requireContext(), MessageActivity::class.java))
 
         }
         binding.incLevelInfo.imgNext.setOnClickListener {

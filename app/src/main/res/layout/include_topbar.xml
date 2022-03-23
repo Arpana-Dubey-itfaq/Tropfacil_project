@@ -69,9 +69,7 @@
     <ImageView
         android:id="@+id/imgmessage"
         style="@style/imgHeader"
-
         android:scaleType="fitXY"
-
         android:src="@drawable/message"
         app:layout_constraintRight_toLeftOf="@+id/imgNotification"
         app:layout_constraintTop_toTopOf="parent" />
