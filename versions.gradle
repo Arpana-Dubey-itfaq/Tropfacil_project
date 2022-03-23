@@ -71,7 +71,7 @@ ext {
 
     paper_db = "2.7.1"
 
-    page_indicator="1.2.0"
+    page_indicator="1.2.1"
 
     tooltip="1.2.2"
 

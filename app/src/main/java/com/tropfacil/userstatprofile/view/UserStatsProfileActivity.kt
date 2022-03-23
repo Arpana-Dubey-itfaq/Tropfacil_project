@@ -8,8 +8,9 @@ import com.tropfacil.badge.adapter.MybadgeAdapter
 import com.tropfacil.databinding.ActivityUserstatsProfileBinding
 import com.tropfacil.home.adapter.HomeAdapter
 import com.tropfacil.home.adapter.HomeCourseListAdapter
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
-class UserStatsProfileActivity : AppCompatActivity() {
+class UserStatsProfileActivity : AppCompatActivity(), HomeToCourseDetailsListener {
     lateinit var binding: ActivityUserstatsProfileBinding
     lateinit var homeCourseListAdapter: HomeCourseListAdapter
     lateinit var homeAdapter: HomeAdapter
@@ -35,7 +36,7 @@ class UserStatsProfileActivity : AppCompatActivity() {
 
     fun setData() {
         binding.incTopbar.itemHeader.text = getString(R.string.earn_budges)
-        homeCourseListAdapter = HomeCourseListAdapter()
+        homeCourseListAdapter = HomeCourseListAdapter(this)
         binding.relrecentCourse.adapter = homeCourseListAdapter
         homeAdapter = HomeAdapter()
         binding.relInProgress.adapter = homeAdapter
@@ -45,6 +46,10 @@ class UserStatsProfileActivity : AppCompatActivity() {
         binding.itemBadge.tvTitle.text=getString(R.string.my_badge)
 
 
+    }
+
+    override fun navigateToCourseDetailsScreen(courseId: Int) {
+        TODO("Not yet implemented")
     }
 
 

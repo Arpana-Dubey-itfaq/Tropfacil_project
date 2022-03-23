@@ -70,6 +70,13 @@ interface ApiService {
     ): Homeresponse
 
 
+    @POST("utilisateur/update-carte-de-visite")
+    suspend fun changeEmail(
+        @Query("nom") nom: String?, @Query("prenom") prenom: String?,
+        @Query("login") login: String?, @Query("civilite") civilite: String?,
+        @Query("token") token: String?
+    ): BaseResponse
+
     /*
    *//*   @POST("Authentication/SignIn/Customer")
     suspend fun login(@Body loginReq: LoginReq): LoginRes
