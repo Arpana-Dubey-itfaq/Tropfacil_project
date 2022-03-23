@@ -27,12 +27,16 @@ import com.app.leust.data.Data.Companion.header
 import com.app.leust.data.Data.Companion.token
 import com.example.example.Homeresponse
 import com.tropfacil.Dashboard
+import com.tropfacil.base.BaseActivity
+import com.tropfacil.closeAndResumePrevFrag
+import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.data.provider.PREF_USER_TOKEN
 import com.tropfacil.data.provider.PreferenceProvider
 
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 import com.tropfacil.message.view.MessageActivity
+import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.notificaions.view.NotificationsActivity
@@ -41,12 +45,13 @@ import com.tropfacil.ui.allusertypes.auth.login.LoginFragmentDirections
 import com.tropfacil.ui.allusertypes.auth.login.LoginViewModel
 import com.tropfacil.userstatprofile.view.UserStatsProfileActivity
 import com.tropfacil.util.Constants
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), HomeToCourseDetailsListener, ResumeFragmentListener {
    // private val homeViewModel: HomeViewModel by viewModel()
     private val homeViewModel by inject<HomeViewModel>()
     lateinit var binding: FragmentHomeBinding
@@ -140,7 +145,7 @@ class HomeFragment : BaseFragment() {
 
 
     fun setData() {
-        homeCourseAdapter = HomeCourseAdapter()
+        homeCourseAdapter = HomeCourseAdapter(this)
         binding.relCourse.adapter = homeCourseAdapter
         viewPagerExcerAdapter = ViewPagerAdapter(requireActivity(), 5)
         viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
@@ -208,7 +213,11 @@ val  s=""
 
         }
         binding.topbar.imgmessage.setOnClickListener {
-            startActivity(Intent(requireContext(), MessageActivity::class.java))
+            (requireActivity() as BaseActivity).updateResumeFragment(this)
+            val writeAMessageFragment = WriteAMessageFragment()
+            (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
+
+//            startActivity(Intent(requireContext(), MessageActivity::class.java))
 
         }
         binding.incLevelInfo.imgNext.setOnClickListener {
@@ -265,4 +274,13 @@ val  s=""
             }
         })*/
     }
+
+    override fun navigateToCourseDetailsScreen(courseId: Int) {
+    }
+
+    override fun onFragmentResume(bundle: Bundle?) {
+        closeAndResumePrevFrag(requireActivity(),null)
+    }
+
+
 }

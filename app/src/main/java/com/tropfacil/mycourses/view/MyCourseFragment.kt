@@ -3,35 +3,27 @@ package com.tropfacil.mycourses.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentHomeBinding
-import com.tropfacil.home.adapter.HomeAdapter
 import com.tropfacil.home.adapter.HomeCourseAdapter
-import com.tropfacil.home.adapter.HomeCourseListAdapter
-import com.tropfacil.home.adapter.ViewPagerAdapter
 import com.tropfacil.util.interfaces.HomeOptionsListener
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
-import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
-import com.tropfacil.databinding.ItemTabRecommededExerciseBinding
-import androidx.core.widget.NestedScrollView
-import android.graphics.PorterDuff
 
 
 import androidx.core.content.ContextCompat
-import com.tropfacil.message.view.MessageActivity
+import com.tropfacil.base.BaseActivity
+import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
+import com.tropfacil.ui.nav.account.email.UpdateEmailFragment
 import com.tropfacil.util.Constants
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
 
-class MyCourseFragment : BaseFragment() {
+class MyCourseFragment : BaseFragment(), HomeToCourseDetailsListener {
     lateinit var binding: FragmentHomeBinding
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var homeCourseAdapter: HomeCourseAdapter
@@ -40,10 +32,10 @@ class MyCourseFragment : BaseFragment() {
     companion object {
         const val TAG = "MyCourseFragment"
 
-        @JvmStatic
+        /*@JvmStatic
         fun newInstance() = MyCourseFragment().apply {
 
-        }
+        }*/
     }
 
     override fun onAttach(context: Context) {
@@ -54,7 +46,7 @@ class MyCourseFragment : BaseFragment() {
 
 
     fun setData() {
-        homeCourseAdapter = HomeCourseAdapter()
+        homeCourseAdapter = HomeCourseAdapter(this)
         binding.relCourse.adapter = homeCourseAdapter
 
         binding.incCountine.cardPlay.visibility = View.VISIBLE
@@ -106,7 +98,10 @@ class MyCourseFragment : BaseFragment() {
 
         }
         binding.topbar.imgmessage.setOnClickListener {
-            startActivity(Intent(requireContext(), MessageActivity::class.java))
+            val writeAMessageFragment = WriteAMessageFragment()
+            (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
+
+//            startActivity(Intent(requireContext(), MessageActivity::class.java))
 
         }
         /*binding.nestedscrollview.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
@@ -138,5 +133,9 @@ class MyCourseFragment : BaseFragment() {
                 Log.i(TAG, "BOTTOM SCROLL")
             }
         })*/
+    }
+
+    override fun navigateToCourseDetailsScreen(courseId: Int) {
+        TODO("Not yet implemented")
     }
 }
