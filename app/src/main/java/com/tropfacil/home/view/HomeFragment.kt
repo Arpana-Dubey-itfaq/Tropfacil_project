@@ -51,7 +51,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class HomeFragment : BaseFragment(), HomeToCourseDetailsListener, ResumeFragmentListener {
+class HomeFragment : BaseFragment(), HomeToCourseDetailsListener {
    // private val homeViewModel: HomeViewModel by viewModel()
     private val homeViewModel by inject<HomeViewModel>()
     lateinit var binding: FragmentHomeBinding
@@ -213,7 +213,6 @@ val  s=""
 
         }
         binding.topbar.imgmessage.setOnClickListener {
-            (requireActivity() as BaseActivity).updateResumeFragment(this)
             val writeAMessageFragment = WriteAMessageFragment()
             (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
 
@@ -277,9 +276,6 @@ val  s=""
     override fun navigateToCourseDetailsScreen(courseId: Int) {
     }
 
-    override fun onFragmentResume(bundle: Bundle?) {
-        closeAndResumePrevFrag(requireActivity(),null)
-    }
 
 
 }
