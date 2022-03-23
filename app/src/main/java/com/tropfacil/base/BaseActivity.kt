@@ -8,7 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.tropfacil.R
 import com.tropfacil.common.interfaces.ResumeFragmentListener
+import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
+import com.tropfacil.ui.nav.account.password.UpdatePasswordFragment
 
 
 open class BaseActivity : AppCompatActivity() {
@@ -49,6 +51,10 @@ open class BaseActivity : AppCompatActivity() {
                 AccountSettingsFragment::class.java.name -> {
                     supportFragmentManager.popBackStack()
                 }
+                UpdatePasswordFragment::class.java.name -> {
+                    supportFragmentManager.popBackStack()
+                }
+                WriteAMessageFragment::class.java.name-> supportFragmentManager.popBackStack()
             }
         }
     }
