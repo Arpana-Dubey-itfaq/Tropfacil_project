@@ -89,6 +89,8 @@ class HomeAdapternew( val context: Context,val parcours: List<Parcour>) : Recycl
                 .commit()
         }
 
+
+
        // Glide.with(context).load("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.image).into(holder.bannerImage)
 
     }
