@@ -226,10 +226,9 @@ val  s=""
 
 
             token = PreferenceProvider(requireContext()).getUserToken()
-        header = "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
 
 
-        homeViewModel.HomeData(header,token)
+        homeViewModel.HomeData(token)
         //findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
 
 //    homeViewModel.allUsers.observe(viewLifecycleOwner, Observer { listUser ->

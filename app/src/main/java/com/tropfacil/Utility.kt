@@ -5,6 +5,8 @@ import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.tropfacil.base.BaseActivity
 import kotlinx.android.synthetic.main.imagelayout.view.*
 
@@ -57,6 +59,7 @@ fun EditText.isValidEmail(context: Context):Boolean {
     }else this.error = null
     return true
 }
+
 fun EditText.isValidPassword(context: Context):Boolean {
     val passwordPattern =
         "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-.!;:@$!%*?&^+='])[A-Za-z\\d-.!;:@$!%*?&^+=']{6,}$"
@@ -66,4 +69,17 @@ fun EditText.isValidPassword(context: Context):Boolean {
         return false
     }else this.error = null
     return true
+}
+
+
+fun updateStatusBarColor(colorResource: Int, activity: Activity) {
+    activity.window.statusBarColor = colorResource
+}
+
+fun ImageView.loadImage(context: Context, url: String) {
+    Glide.with(context).load(url).into(this)
+}
+
+fun ImageView.loadSrcImage(context: Context, src: Int) {
+    Glide.with(context).load(src).into(this)
 }

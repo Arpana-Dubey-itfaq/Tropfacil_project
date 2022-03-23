@@ -28,10 +28,12 @@ class HomeViewModel(
     val _syncItemsStateFlow: StateFlow<SafeApiCall> =
         syncItemsStateFlow
 
+
+    fun HomeData(authorization: String?) = launch {
  val parcorselist:MutableLiveData<ArrayList<Parcour>> = MutableLiveData()
     fun HomeData(header: String?,authorization: String?) = launch {
         syncItemsStateFlow.value = SafeApiCall.Loading
-        appRepository.HomeData(header,authorization)
+        appRepository.HomeData(authorization)
             .catch { e ->
                 Log.e("message Error", e.message.toString())
                 syncItemsStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!

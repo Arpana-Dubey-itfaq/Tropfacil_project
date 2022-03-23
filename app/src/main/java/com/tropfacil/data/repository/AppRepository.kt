@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import okhttp3.ResponseBody
 
 class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
 
@@ -34,10 +35,20 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
 
     fun HomeData(header: String?,identifier: String?): Flow<home_response> = flow {
         emit(apiServiceImpl.HomeData(header,identifier))
+    fun HomeData(identifier: String?): Flow<Homeresponse> = flow {
+        emit(apiServiceImpl.HomeData(identifier))
     }.flowOn(Dispatchers.IO)
 
-    fun updatePassword(authorization:String,updatePasswordRequest: UpdatePasswordRequest): Flow<BaseResponse> = flow {
-        emit(apiServiceImpl.updatePassword(authorization,updatePasswordRequest))
+    fun updatePassword(updatePasswordRequest: UpdatePasswordRequest): Flow<BaseResponse> = flow {
+        emit(apiServiceImpl.updatePassword(updatePasswordRequest))
+    }.flowOn(Dispatchers.IO)
+
+    fun updateUser(id:String,nom:String?,prenom:String?): Flow<BaseResponse> = flow {
+        emit(apiServiceImpl.updateUser(id,nom,prenom))
+    }.flowOn(Dispatchers.IO)
+
+    fun getProfilePicture(token:String?): Flow<ResponseBody> = flow {
+        emit(apiServiceImpl.getProfilePicture(token))
     }.flowOn(Dispatchers.IO)
 
     /*  fun verifyCode(identifier: String, code: String): Flow<RegisterRes> = flow {

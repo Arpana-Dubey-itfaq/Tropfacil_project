@@ -72,8 +72,6 @@ class UpdatePasswordFragment : BaseFragment() {
                 }
             }
         }
-
-
     }
 
     private fun closeFragment() {

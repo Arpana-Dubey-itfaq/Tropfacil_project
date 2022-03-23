@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 import com.tropfacil.R
+import com.tropfacil.updateStatusBarColor
 import com.tropfacil.utils.popups.SuccessOrFailurePopup
-import com.tropfacil.utils.updateStatusBarColor
 
 abstract class BaseFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {

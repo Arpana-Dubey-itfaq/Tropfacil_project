@@ -150,6 +150,21 @@
     <!-- 2 Lessons-->
     <string name="lessons_count">%d Lessons</string>
     <string name="lesson_count">%d Lesson</string>
+    <string name="lbl_civility">Civility</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_type_ur_lastname">Enter your last name</string>
+    <string name="lbl_lastname">Last name</string>
+    <string name="lbl_username">Username</string>
+    <string name="lbl_type_ur_username">Username</string>
+    <string name="lbl_type_ur_email_address">Email address</string>
+    <string name="lbl_save">Save</string>
+    <string name="lbl_profile">Profile</string>
+
+    <string-array name="civility_code">
+        <item>Mr</item>
+        <item>Ms</item>
+        <item>Mrs</item>
+    </string-array>
 
     <!--Time spent: 0 minutes-->
     <string name="time_spent_in_min">Time spent: %f minutes</string>
