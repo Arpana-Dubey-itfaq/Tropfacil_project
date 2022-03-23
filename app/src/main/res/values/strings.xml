@@ -123,5 +123,20 @@
     <string name="lbl_type_ur_confirm_password">Confirm new password</string>
     <string name="str_confirm_password_not_match">Password not match</string>
     <string name="lbl_submit">Submit</string>
+    <string name="lbl_civility">Civility</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_type_ur_lastname">Enter your last name</string>
+    <string name="lbl_lastname">Last name</string>
+    <string name="lbl_username">Username</string>
+    <string name="lbl_type_ur_username">Username</string>
+    <string name="lbl_type_ur_email_address">Email address</string>
+    <string name="lbl_save">Save</string>
+    <string name="lbl_profile">Profile</string>
+
+    <string-array name="civility_code">
+        <item>Mr</item>
+        <item>Ms</item>
+        <item>Mrs</item>
+    </string-array>
 
 </resources>

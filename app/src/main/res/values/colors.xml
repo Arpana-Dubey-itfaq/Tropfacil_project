@@ -21,4 +21,6 @@
     <color name="pinkdark">#E83C70</color>
     <color name="trans_light_black">#DED4D3</color>
     <color name="hint_text">#8D8D8D</color>
+    <color name="yellow">#F0E7B6</color>
+    <color name="disable_grey">#EAEAEE</color>
 </resources>

@@ -18,6 +18,7 @@ import com.tropfacil.mycourses.view.Course_chapter_Fragment
 import com.tropfacil.mycourses.view.MyCourseFragment
 import com.tropfacil.myexcersise.view.MyExerciseFragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
+import com.tropfacil.ui.nav.profile.ProfileFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener
 
 class MainActivity : BaseActivity(), HomeOptionsListener {
@@ -148,8 +149,7 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
                     binding.drawerLayout!!.closeDrawers()
                 }
                 R.id.profile -> {
-                    Toast.makeText(applicationContext, "You Clicked Options C", Toast.LENGTH_SHORT)
-                        .show()
+                    navigateToProfileScreen()
                     binding.drawerLayout!!.closeDrawers()
                 }
                 R.id.accountsettings -> {
@@ -175,9 +175,12 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
 
     }
 
+    private fun navigateToProfileScreen() {
+        val profileFragment = ProfileFragment()
+        (this as BaseActivity).visitNewFragment(R.id.fragment_container, profileFragment)
+    }
     private fun navigateToAccountSettingScreen() {
         val accountSettingsFragment = AccountSettingsFragment()
-        accountSettingsFragment.arguments = bundle
         (this as BaseActivity).visitNewFragment(R.id.fragment_container, accountSettingsFragment)
     }
 
