@@ -122,7 +122,6 @@ class LoginFragment : BaseFragment() {
                 val loginRequest = LoginRequest(
                     loginName = binding.etEmailUsername.text.toString(),
                     password = binding.relPassword.editPassword.text.toString(),
-                    token = "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
                 )
 
                 viewModel.loginUser(loginRequest)

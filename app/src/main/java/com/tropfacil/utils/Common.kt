@@ -13,20 +13,9 @@ import com.tropfacil.R
 
 
 /*
-fun glideImage(context: Context, imageURL: String, imageView: ImageView) {
-    Glide.with(context).load(imageURL).placeholder(R.drawable.ic_launcher_background)
-        .into(imageView)
-}
 
-fun glideRoundedImage(context: Context, imageURL: String, imageView: RoundedImageView) {
-    Glide.with(context).load(imageURL).placeholder(R.drawable.ic_launcher_background)
-        .into(imageView)
-}
 */
 
-fun updateStatusBarColor(colorResource: Int, activity: Activity) {
-    activity.window.statusBarColor = colorResource
-}
 
 fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
 

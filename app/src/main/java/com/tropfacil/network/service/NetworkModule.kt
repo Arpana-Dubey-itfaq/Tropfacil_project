@@ -83,12 +83,12 @@ object networkModule {
 
     private fun setAuthHeader(builder: Request.Builder): Request.Builder {
         builder.addHeader("accept", "application/json")
-        if (_preferenceProvider!!.getBoolean(PREF_IS_USER_LOGGED_IN, false)) {
+        /*if (_preferenceProvider!!.getBoolean(PREF_IS_USER_LOGGED_IN, false)) {*/
             builder.addHeader(
                 "Access-Token",
-                 _preferenceProvider?.getString(PREF_TOKEN, "")
+                "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
             )
-        }
+//        }
         return builder
     }
 }

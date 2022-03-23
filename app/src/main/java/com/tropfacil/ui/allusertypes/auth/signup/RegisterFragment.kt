@@ -120,7 +120,6 @@ class RegisterFragment : BaseFragment() {
                     binding.edtpernom.text.toString(),
                     "2",
                     //binding.edtPassword.text.toString(),
-                    "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
                 )
                 viewModel.registerUser(registerReq)
            // }
