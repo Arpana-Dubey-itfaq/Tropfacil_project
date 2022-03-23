@@ -1,5 +1,6 @@
 package com.tropfacil.ui.allusertypes.auth.welcome
 
+import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,13 +17,19 @@ import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentGuestTutorialBinding
 
 import com.tropfacil.model.GuestTutorialViewPagerModel
+import java.text.FieldPosition
+import android.graphics.drawable.Drawable
+
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 
 
-class WelcomeTutorialFragment : BaseFragment(),GuestAdapter.OnCourseHistoryListener {
+class WelcomeTutorialFragment : BaseFragment(), GuestAdapter.OnCourseHistoryListener {
     private lateinit var binding: FragmentGuestTutorialBinding
     private lateinit var adapter: GuestAdapter
     private var guestTutorialViewPagerModel: ArrayList<GuestTutorialViewPagerModel> = ArrayList()
     private var dotscount = 0
+    private var position = 0
+    private var dots: List<ImageView>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,14 +46,25 @@ class WelcomeTutorialFragment : BaseFragment(),GuestAdapter.OnCourseHistoryListe
             addList()
         }
         clickListener()
+
     }
 
     private fun clickListener() {
-        binding.btnConnection.setOnClickListener {
-          //  findNavController().navigate(GuestTutorialFragmentDirections.actionGuestSignInFragment())
+        binding.next.setOnClickListener {
+            when (position) {
+                0 -> {
+                    binding.viewPager.currentItem = 1
+                    position = 1
+                }
+                1 -> {
+                    binding.viewPager.currentItem = 2
+                    position = -1
+                }
+                else -> findNavController().navigate(WelcomeTutorialFragmentDirections.actionInitialFragmentToLoginFragment())
+            }
         }
-        binding.btnInscription.setOnClickListener {
-          //  findNavController().navigate(GuestTutorialFragmentDirections.actionGuestSignInFragment())
+        binding.tvSkip.setOnClickListener {
+            findNavController().navigate(WelcomeTutorialFragmentDirections.actionInitialFragmentToLoginFragment())
         }
     }
 
@@ -55,30 +73,35 @@ class WelcomeTutorialFragment : BaseFragment(),GuestAdapter.OnCourseHistoryListe
         guestTutorialViewPagerModel.clear()
         guestTutorialViewPagerModel.add(
             GuestTutorialViewPagerModel(
-                requireContext().getDrawable(R.drawable.review_course_img),
+                ContextCompat.getDrawable(requireContext(), R.drawable.review_course_img),
                 requireContext().getString(R.string.la_meilleure_cole_en_ligne),
                 requireContext().getString(R.string.lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua),
-               // requireContext().getColor(R.color.pink),
+                // requireContext().getColor(R.color.pink),
                 //requireContext().getColor(R.color.view_pager_shade_color1),
             )
         )
         guestTutorialViewPagerModel.add(
             GuestTutorialViewPagerModel(
-                requireContext().getDrawable(R.drawable.screen2),
-                requireContext().getString(R.string.la_meilleure_cole_en_ligne),
-                requireContext().getString(R.string.lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua),
-
-            )
-        )
-        guestTutorialViewPagerModel.add(
-            GuestTutorialViewPagerModel(
-                requireContext().getDrawable(R.drawable.review_course_img),
+                ContextCompat.getDrawable(requireContext(), R.drawable.screen2),
                 requireContext().getString(R.string.la_meilleure_cole_en_ligne),
                 requireContext().getString(R.string.lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua),
 
                 )
         )
-        adapter = GuestAdapter(guestTutorialViewPagerModel, requireContext(), requireActivity(),this@WelcomeTutorialFragment)
+        guestTutorialViewPagerModel.add(
+            GuestTutorialViewPagerModel(
+                ContextCompat.getDrawable(requireContext(), R.drawable.review_course_img),
+                requireContext().getString(R.string.la_meilleure_cole_en_ligne),
+                requireContext().getString(R.string.lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua),
+
+                )
+        )
+        adapter = GuestAdapter(
+            guestTutorialViewPagerModel,
+            requireContext(),
+            requireActivity(),
+            this@WelcomeTutorialFragment
+        )
         binding.viewPager.adapter = adapter
 
         viewPager()
@@ -138,8 +161,16 @@ class WelcomeTutorialFragment : BaseFragment(),GuestAdapter.OnCourseHistoryListe
     }
 
 
+    override fun onCourseDetails(position: Int) {
+        when (position) {
+            0 -> binding.viewPager.currentItem = 1
+            1 -> binding.viewPager.currentItem = 2
+            else -> findNavController().navigate(WelcomeTutorialFragmentDirections.actionInitialFragmentToLoginFragment())
+        }
+    }
 
-    override fun onCourseDetails() {
+    override fun onSkipClicked() {
         findNavController().navigate(WelcomeTutorialFragmentDirections.actionInitialFragmentToLoginFragment())
     }
+
 }

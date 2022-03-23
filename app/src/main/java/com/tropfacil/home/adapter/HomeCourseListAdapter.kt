@@ -6,13 +6,16 @@ import android.provider.SyncStateContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tropfacil.databinding.ItemHomePageCourseBinding
 import com.tropfacil.databinding.ItemHomePageCourseListBinding
 import com.tropfacil.databinding.ItemTabRecommededExerciseBinding
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
 
-class HomeCourseListAdapter(
+class HomeCourseListAdapter(private val homeToCourseDetailsListener: HomeToCourseDetailsListener
 ) : RecyclerView.Adapter<HomeCourseListAdapter.ViewHolder>() {
 
 
@@ -35,7 +38,9 @@ class HomeCourseListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-
+        holder.bind.icCourseDetails.setOnClickListener {
+            homeToCourseDetailsListener.navigateToCourseDetailsScreen(164)
+        }
 
     }
 
@@ -43,8 +48,4 @@ class HomeCourseListAdapter(
         return 5
     }
 
-    /*  fun updateData(missionList: List<MissionData>) {
-          list = missionList
-          notifyDataSetChanged()
-      }*/
 }

@@ -1,36 +1,23 @@
 package com.tropfacil.mycourses.view
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.tropfacil.R
-import androidx.core.widget.NestedScrollView
-import android.graphics.PorterDuff
 import android.os.Handler
-import android.widget.SeekBar
-import android.widget.Toast
 
 
-import androidx.core.content.ContextCompat
 import com.tropfacil.databinding.*
 import com.tropfacil.home.adapter.*
 
-import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.mycourses.adapter.CourseListAdapter
-import com.tropfacil.notificaions.view.NotificationsActivity
 
-import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.util.Constants
-import kotlinx.android.synthetic.main.inclued_seekbar.*
 
 
 class Course_chapter_Fragment : BaseFragment() {
@@ -83,7 +70,7 @@ class Course_chapter_Fragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
        // setListner()
-    setData()
+     setData()
         setTabLayout()
 
         /*seekBar?.setOnSeekBarChangeListener(object :

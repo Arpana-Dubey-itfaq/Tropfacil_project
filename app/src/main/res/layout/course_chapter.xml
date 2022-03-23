@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-android:background="@color/grey"
-    >
-
-    <include
-        android:id="@+id/topbar"
-        layout="@layout/include_courseheader"
-android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    android:background="@color/grey"
+    android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedscrollview"
@@ -33,22 +23,6 @@ android:visibility="gone"
 
             android:layout_height="match_parent">
 
-
-            <TextView
-                android:id="@+id/tvcourse1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15ssp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:lines="2"
-                android:visibility="gone"
-                android:padding="@dimen/_5sdp"
-                android:text="The vocabulary of world of work Longer Title Sample"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_18ssp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/l1"
@@ -105,8 +79,8 @@ android:visibility="gone"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_15ssp"
                 android:orientation="horizontal"
-                android:visibility="gone"
                 android:padding="@dimen/_5sdp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/l1">
@@ -165,8 +139,8 @@ android:visibility="gone"
                 android:layout_marginStart="@dimen/_15ssp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-android:visibility="gone"
                 android:padding="@dimen/_5sdp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/l12">
@@ -180,16 +154,6 @@ android:visibility="gone"
                     android:padding="5dp"
                     app:srcCompat="@drawable/category" />
 
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:lines="1"
-                    android:padding="5dp"
-                    android:text="English"
-                    android:textSize="12dp" />
-
                 <ImageView
                     android:id="@+id/briefcasegreen"
                     android:layout_width="wrap_content"
@@ -198,37 +162,12 @@ android:visibility="gone"
                     android:padding="5dp"
                     android:src="@drawable/duration" />
 
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:lines="1"
-                    android:padding="5dp"
-                    android:text="1h20"
-                    android:textSize="12dp"
-
-                    />
-
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:src="@drawable/level" />
-
-                <TextView
-                    android:id="@+id/category1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:lines="1"
-                    android:padding="5dp"
-                    android:text="Level 1"
-                    android:textSize="12dp"
-
-
-                    />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -244,6 +183,41 @@ android:visibility="gone"
                     android:layout_weight="1"
                     android:lines="1"
                     android:padding="5dp"
+                    android:text="English"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/category1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:text="Level 1"
+                    android:textSize="12dp"
+
+
+                    />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:text="1h20"
+                    android:textSize="12dp"
+
+                    />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:lines="1"
+                    android:padding="5dp"
                     android:text="23/10/2020"
                     android:textSize="12dp"
 
@@ -251,9 +225,35 @@ android:visibility="gone"
                     />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/line"
+                android:layout_width="50dp"
+                android:layout_height="8dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:background="#E83C70"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heading"></LinearLayout>
+
+            <TextView
+                android:id="@+id/tvcourse1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15ssp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:lines="2"
+                android:padding="@dimen/_5sdp"
+                android:text="The vocabulary of world of work Longer Title Sample"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/tvcoursename"
-android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15ssp"
@@ -262,24 +262,13 @@ android:visibility="gone"
                 android:text="Pourcentage du cours appris"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/l3" />
 
-            <include
-                android:id="@+id/seekBar"
-                layout="@layout/inclued_seekbar"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvcoursename"></include>
-
             <TextView
                 android:id="@+id/tvcoursename1"
-android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15ssp"
@@ -288,29 +277,10 @@ android:visibility="gone"
                 android:text="No progress yet"
                 android:textColor="#38B6A4"
                 android:textSize="@dimen/_8ssp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/seekBar" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_create_account"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-android:visibility="gone"
-                android:layout_marginStart="@dimen/dim20"
-                android:layout_marginTop="@dimen/dim_10sp"
-                android:layout_marginEnd="@dimen/dim20"
-                android:background="@drawable/ic_disabled_button_gray"
-                android:backgroundTint="#38B6A4"
-                android:fontFamily="@font/light"
-                android:text="See all Chapters"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/dim_15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvcoursename1"
-                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/heading"
@@ -322,21 +292,10 @@ android:visibility="gone"
                 android:text="About the course"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18ssp"
-android:visibility="gone"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_create_account"></TextView>
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/line"
-                android:layout_width="50dp"
-                android:layout_height="8dp"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:background="#E83C70"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/heading"></LinearLayout>
 
             <TextView
                 android:id="@+id/tvcoursename3"
@@ -346,11 +305,11 @@ android:visibility="gone"
                 android:layout_marginStart="@dimen/_15ssp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:lines="8"
-                android:visibility="gone"
                 android:padding="@dimen/_3sdp"
                 android:text="@string/textvalue"
                 android:textColor="#000000"
                 android:textSize="@dimen/dim16"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line" />
@@ -359,17 +318,87 @@ android:visibility="gone"
                 android:id="@+id/heading1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:padding="@dimen/_5sdp"
                 android:text="Course Chapter"
-                android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-
-
                 android:textStyle="bold"
+
+
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvcoursename3"></TextView>
+
+            <TextView
+                android:id="@+id/tvLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_45ssp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:text="Prerequisite Courses"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relCourse1" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_create_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim20"
+                android:layout_marginTop="@dimen/dim_10sp"
+                android:layout_marginEnd="@dimen/dim20"
+                android:background="@drawable/ic_disabled_button_gray"
+                android:backgroundTint="#38B6A4"
+                android:fontFamily="@font/light"
+                android:text="See all Chapters"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dim_15sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvcoursename1"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/relCourse1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabschedule_course"
+                tools:listitem="@layout/item_home_page_course_list" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/relCourse12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLevel"
+                tools:listitem="@layout/item_home_page_course" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerschedule_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relCourse1" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabschedule_course"
@@ -387,56 +416,28 @@ android:visibility="gone"
                 app:tabIndicatorHeight="@dimen/_3sdp"
                 app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
                 app:tabTextColor="@color/black" />
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/relCourse1"
+
+            <include
+                android:id="@+id/seekBar"
+                layout="@layout/inclued_seekbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:nestedScrollingEnabled="false"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tabschedule_course"
-                tools:listitem="@layout/item_home_page_course_list" />
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerschedule_course"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relCourse1" />
-            <TextView
-                android:id="@+id/tvLevel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_45ssp"
-                android:layout_marginBottom="@dimen/_15sdp"
-                android:text="Prerequisite Courses"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13ssp"
-                app:layout_constraintTop_toBottomOf="@+id/relCourse1"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/relCourse12"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:nestedScrollingEnabled="false"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvLevel"
-                tools:listitem="@layout/item_home_page_course" />
+                app:layout_constraintTop_toBottomOf="@+id/tvcoursename"></include>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+
+    <include
+        android:id="@+id/topbar"
+        layout="@layout/include_courseheader"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -100,5 +100,58 @@
     <string name="err_msg_password_field">Le mot de passe doit contenir au moins 5–20 caractères contenant uniquement des lettres et des chiffres.</string>
     <string name="please_enter_password">Username or Password is incorrect.</string>
     <string name="verify">Verify</string>
+    <string name="nav_account_settings">Account Settings</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lbl_account_settings">Account Settings</string>
+    <string name="lbl_change_email">Change email</string>
+    <string name="lbl_change_password">Change password</string>
+    <string name="lbl_synchronization">Synchronization</string>
+    <string name="lbl_sync_now">Sync Now</string>
+    <string name="lbl_logout">Logout</string>
+    <string name="lbl_current_email">Current Email</string>
+    <string name="lbl_type_ur_current_email">Type your current email</string>
+    <string name="str_please_enter_valid_email">Enter valid email</string>
+    <string name="lbl_new_email">New email</string>
+    <string name="lbl_type_ur_new_email">Type your new email</string>
+    <string name="lbl_password">Password</string>
+    <string name="lbl_type_ur_password">Type your password</string>
+    <string name="str_please_enter_valid_password">Enter valid password</string>
+    <string name="lbl_current_password">Current Password</string>
+    <string name="lbl_type_ur_current_password">Type your current password</string>
+    <string name="lbl_new_password">New password</string>
+    <string name="lbl_type_ur_new_password">Type your new password</string>
+    <string name="lbl_confirm_password">Confirm password</string>
+    <string name="lbl_type_ur_confirm_password">Confirm new password</string>
+    <string name="str_confirm_password_not_match">Password not match</string>
+    <string name="lbl_submit">Submit</string>
+    <!--    Subject-->
+    <string name="sujet">Sujet</string>
+    <!--Write your question-->
+    <string name="write_your_question">Write your question</string>
+    <!--Type your subjet-->
+    <string name="type_your_subject">Type your sujet</string>
+    <!--Write your question here-->
+    <string name="write_your_question_here">Write your question here</string>
+    <!--Send-->
+    <string name="send">Send</string>
+    <!--Category-->
+    <string name="category">Category</string>
+    <!--Duration-->
+    <string name="duration">Duration</string>
+    <string name="percentage">Pourcentage du cours appris</string>
+    <!--Start Course-->
+    <string name="start_course">Start Course</string>
+    <string name="about_this_course">About the course</string>
+    <!--What you can learn from this course-->
+    <string name="what_you_can_learn">What you can learn from this course</string>
+    <!--Chapter-->
+    <string name="chapters">Chapter %d</string>
+    <!-- 2 Lessons-->
+    <string name="lessons_count">%d Lessons</string>
+    <string name="lesson_count">%d Lesson</string>
+
+    <!--Time spent: 0 minutes-->
+    <string name="time_spent_in_min">Time spent: %f minutes</string>
+    <string name="vocabularies">Vocabulaire et grammaire</string>
 </resources>

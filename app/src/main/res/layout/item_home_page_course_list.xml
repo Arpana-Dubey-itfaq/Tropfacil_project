@@ -103,10 +103,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_desc" />
 
             <ImageView
+                android:id="@+id/icCourseDetails"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30ssp"
                 android:scaleType="fitXY"
-
                 android:src="@drawable/go_arrow_green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_min" />

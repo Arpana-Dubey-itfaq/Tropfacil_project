@@ -23,6 +23,8 @@ data class Login_resoponse(
         val id: String,
         @SerializedName("token")
         val token: String,
+        @SerializedName("username")
+        var username: String?="",
     )
 
 

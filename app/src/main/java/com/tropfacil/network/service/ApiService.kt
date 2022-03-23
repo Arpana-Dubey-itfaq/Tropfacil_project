@@ -53,9 +53,9 @@ interface ApiService {
     ): ForgotPasswordRes
 
     @POST("update-password")
-    suspend fun resetPassword(
+    suspend fun updatePassword(
         @Header("Access-Token") authorization: String?,
-        @Body resetPasswordRequest: ResetPasswordRequest
+        @Body updatePasswordRequest: UpdatePasswordRequest
     ): BaseResponse
 
     @POST("catalogue/get-catalogue")
@@ -69,6 +69,14 @@ interface ApiService {
         @Header("Access-Token") header: String?,
         @Query("token") authorization: String?,
     ): Homeresponse
+
+
+    @POST("utilisateur/update-carte-de-visite")
+    suspend fun changeEmail(
+        @Query("nom") nom: String?, @Query("prenom") prenom: String?,
+        @Query("login") login: String?, @Query("civilite") civilite: String?,
+        @Query("token") token: String?
+    ): BaseResponse
 
     /*
    *//*   @POST("Authentication/SignIn/Customer")

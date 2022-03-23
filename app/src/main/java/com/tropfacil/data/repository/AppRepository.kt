@@ -4,12 +4,10 @@ package com.tropfacil.data.repository
 
 
 import com.example.example.Homeresponse
+import com.tropfacil.model.*
+import com.tropfacil.network.BaseResponse
 import com.tropfacil.data.home_response
 
-import com.tropfacil.model.ForgotPasswordRes
-import com.tropfacil.model.Login_resoponse
-import com.tropfacil.model.RegisterRequest
-import com.tropfacil.model.RegisterRes
 import com.tropfacil.network.request.LoginRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -38,6 +36,10 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
         emit(apiServiceImpl.HomeData(header,identifier))
     }.flowOn(Dispatchers.IO)
 
+    fun updatePassword(authorization:String,updatePasswordRequest: UpdatePasswordRequest): Flow<BaseResponse> = flow {
+        emit(apiServiceImpl.updatePassword(authorization,updatePasswordRequest))
+    }.flowOn(Dispatchers.IO)
+
     /*  fun verifyCode(identifier: String, code: String): Flow<RegisterRes> = flow {
           emit(apiServiceImpl.verifyCode(identifier, code))
       }.flowOn(Dispatchers.IO)
@@ -64,9 +66,7 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
           emit(apiServiceImpl.updateUserProfile(updateProfileRequest))
       }.flowOn(Dispatchers.IO)
 
-      fun changePassword(changePasswordRequest: ChangePasswordRequest): Flow<BaseResponse> = flow {
-          emit(apiServiceImpl.changePassword(changePasswordRequest))
-      }.flowOn(Dispatchers.IO)
+
 
       fun resetPassword(resetPasswordRequest: ResetPasswordRequest): Flow<BaseResponse> = flow {
           emit(apiServiceImpl.resetPassword(resetPasswordRequest))
