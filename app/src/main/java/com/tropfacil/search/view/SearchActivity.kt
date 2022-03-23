@@ -6,15 +6,13 @@ import android.text.TextWatcher
 import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
-import com.tropfacil.databinding.ActivityHomeBinding
 import com.tropfacil.databinding.ActivitySearchBinding
-import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
-import com.tropfacil.home.adapter.ViewPagerAdapter
+import com.tropfacil.home.adapter.ViewPagerAdapterEvery
 
 class SearchActivity : BaseActivity() {
 
     lateinit var binding: ActivitySearchBinding
-    lateinit var viewPagerSearch: ViewPagerAdapter
+    lateinit var viewPagerSearch: ViewPagerAdapterEvery
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +42,7 @@ class SearchActivity : BaseActivity() {
     }
 
     fun setData() {
-        viewPagerSearch = ViewPagerAdapter(this, 2)
+        viewPagerSearch = ViewPagerAdapterEvery(this, 2)
         binding.viewPagersearch.adapter = viewPagerSearch
 
     }

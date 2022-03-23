@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.tropfacil.base.BaseFragment
-import com.tropfacil.home.adapter.ViewPagerAdapter
+import com.tropfacil.home.adapter.ViewPagerAdapterEvery
 import com.tropfacil.util.interfaces.HomeOptionsListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
@@ -26,7 +26,7 @@ import com.tropfacil.util.Constants
 class MyExerciseFragment : BaseFragment() {
     lateinit var binding: FragmentExcerciseBinding
     lateinit var homeOptionsListener: HomeOptionsListener
-    lateinit var viewPagerExcerAdapter: ViewPagerAdapter
+    lateinit var viewPagerExcerAdapter: ViewPagerAdapterEvery
 
 
     companion object {
@@ -83,7 +83,7 @@ class MyExerciseFragment : BaseFragment() {
 
 
     fun setData() {
-        viewPagerExcerAdapter = ViewPagerAdapter(requireActivity(), 5)
+        viewPagerExcerAdapter = ViewPagerAdapterEvery(requireActivity(), 5)
         binding.viewPagerExercise.adapter = viewPagerExcerAdapter
 
 

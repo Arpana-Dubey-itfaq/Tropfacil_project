@@ -1,8 +1,10 @@
 package com.tropfacil.home.view
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 
 import com.tropfacil.base.BaseViewModel
+import com.tropfacil.data.Parcour
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.data.repository.AppRepository
 import com.tropfacil.network.service.SafeApiCall
@@ -26,7 +28,7 @@ class HomeViewModel(
     val _syncItemsStateFlow: StateFlow<SafeApiCall> =
         syncItemsStateFlow
 
-
+ val parcorselist:MutableLiveData<ArrayList<Parcour>> = MutableLiveData()
     fun HomeData(header: String?,authorization: String?) = launch {
         syncItemsStateFlow.value = SafeApiCall.Loading
         appRepository.HomeData(header,authorization)
@@ -37,6 +39,7 @@ class HomeViewModel(
 
                 Log.e("message success", data.themes.toString())
                 syncItemsStateFlow.value = SafeApiCall.Successhome(data)
+
                // Log.e("message111", data)
               //  preferenceProvider.saveLoginDataToPref(data)
                 //loginStateFlow.value = SafeApiCall.Success(data)

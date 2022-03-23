@@ -3,12 +3,10 @@ package com.tropfacil.home.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentHomeBinding
 import com.tropfacil.util.interfaces.HomeOptionsListener
@@ -16,37 +14,25 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
 import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.app.leust.data.Data.Companion.header
 import com.app.leust.data.Data.Companion.token
-import com.example.example.Homeresponse
-import com.tropfacil.Dashboard
 import com.tropfacil.data.home_response
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.common.interfaces.ResumeFragmentListener
-import com.tropfacil.data.provider.PREF_USER_TOKEN
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.home.adapter.*
 
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
-import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.message.view.WriteAMessageFragment
-import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
-import com.tropfacil.ui.allusertypes.auth.login.LoginFragmentDirections
-import com.tropfacil.ui.allusertypes.auth.login.LoginViewModel
 import com.tropfacil.userstatprofile.view.UserStatsProfileActivity
 import com.tropfacil.util.Constants
 import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class HomeFragment : BaseFragment(), HomeToCourseDetailsListener, ResumeFragmentListener {
@@ -55,8 +41,8 @@ class HomeFragment : BaseFragment(), HomeToCourseDetailsListener, ResumeFragment
     lateinit var binding: FragmentHomeBinding
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var homeCourseAdapter: HomeCourseAdapter
-    lateinit var viewPagerExcerAdapter: ViewPagerAdapter
-    lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapter
+    lateinit var viewPagerExcerAdapter: ViewPagerAdapterEvery
+    lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapterNew
 
 
     companion object {
@@ -117,21 +103,22 @@ class HomeFragment : BaseFragment(), HomeToCourseDetailsListener, ResumeFragment
 */
             // tab.setCustomView(R.layout.custom_tab_recommeded_exercise);
             binding.tabscheduleCourse.setTabMode(TabLayout.MODE_SCROLLABLE);
-
-            for (i in 0 until bannersResponse.themes?.size!!) {
+//tab.position
+            tab.text=bannersResponse.themes[position].libelle
+           /* for (i in 0 until bannersResponse.themes?.size!!) {
 
                 tab.text=bannersResponse.themes[i].libelle
-            }
+            }*/
         }.attach()
     }
 
 
 
-    fun setData() {
+    fun setData(bannersResponse: home_response) {
         homeCourseAdapter = HomeCourseAdapter(this)
         binding.relCourse.adapter = homeCourseAdapter
-        viewPagerExcerAdapter = ViewPagerAdapter(requireActivity(), 5)
-        viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
+        viewPagerExcerAdapter = ViewPagerAdapterEvery(requireActivity(), 5)
+        viewPagerSchudeleCourseAdapter = ViewPagerAdapterNew(requireActivity(),bannersResponse.themes)
 
         binding.viewPagerExercise.adapter = viewPagerExcerAdapter
         binding.viewPagerscheduleCourse.adapter = viewPagerSchudeleCourseAdapter
@@ -152,7 +139,7 @@ class HomeFragment : BaseFragment(), HomeToCourseDetailsListener, ResumeFragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setListner()
-        setData()
+
         initObserver()
         initObservers()
        // initObserver()
@@ -273,7 +260,8 @@ val  s=""
 
 
 
-
+        setData(bannersResponse)
+       // homeViewModel.parcorselist.value=bannersResponse.
         setTabLayout(bannersResponse)
 
 

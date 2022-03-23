@@ -1,16 +1,11 @@
 package com.tropfacil.message.view
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.databinding.*
-import com.tropfacil.home.adapter.ViewPagerAdapter
 import com.tropfacil.message.adpter.MessageListAdapter
 import com.tropfacil.message.model.User
-import com.tropfacil.notificaions.adapter.NotificationListAdapter
 
 class MessageActivity : BaseActivity() {
 

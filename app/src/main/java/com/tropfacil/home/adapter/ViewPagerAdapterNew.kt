@@ -6,17 +6,17 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.tropfacil.data.Theme
 import com.tropfacil.home.view.RecommededExcerciseFragment
 
-class ViewPagerAdapterNew(fa: FragmentActivity, size: Int) : FragmentStateAdapter(fa) {
+class ViewPagerAdapterNew(fa: FragmentActivity,private val listOfTitle: List<Theme>) : FragmentStateAdapter(fa) {
 
-    var viewPagersize: Int
 
-    init {
-        viewPagersize = size
-    }
-
-    override fun getItemCount() = viewPagersize
+    override fun getItemCount(): Int = listOfTitle.size
 
     override fun createFragment(position: Int): Fragment {
-        return RecommededExcerciseFragment()
+        return RecommededExcerciseFragmentNew(listOfTitle[position])
     }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
+    }
+
 }

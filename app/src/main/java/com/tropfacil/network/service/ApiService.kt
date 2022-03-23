@@ -36,7 +36,7 @@ interface ApiService {
         @Query("login") login: String?, @Query("pwd") token: String?
     ): Login_resoponse
 
-    @POST("https://rc-tropfacile.onlineformapro.com/php5/restapi/boutique/utilisateur")
+    @POST("boutique/utilisateur")
     suspend fun users(
         @Header("Access-Token") authorization: String?,
         @Query("nom") nom: String?, @Query("prenom") prenom: String?,

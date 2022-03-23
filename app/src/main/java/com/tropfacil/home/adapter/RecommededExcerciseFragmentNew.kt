@@ -1,4 +1,4 @@
-package com.tropfacil.home.view
+package com.tropfacil.home.adapter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,30 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.app.leust.data.Data
-
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.data.Theme
 import com.tropfacil.data.provider.PreferenceProvider
-
 import com.tropfacil.databinding.FragmentTabRecommededExerciseBinding
-import com.tropfacil.home.adapter.HomeAdapter
-import com.tropfacil.home.adapter.HomeAdapternew
+import com.tropfacil.home.view.HomeViewModel
 import com.tropfacil.network.service.SafeApiCall
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
-class RecommededExcerciseFragment() : BaseFragment() {
+class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment() {
     lateinit var binding: FragmentTabRecommededExerciseBinding
-    lateinit var homeAdapter: HomeAdapter
+    lateinit var homeAdapter: HomeAdapternew
 
     private val homeViewModel by inject<HomeViewModel>()
     companion object {
         const val TAG = "RecommededExcerciseFragment"
 
-        @JvmStatic
-        fun newInstance() = RecommededExcerciseFragment().apply {
 
-        }
     }
 
     override fun onCreateView(
@@ -43,13 +37,13 @@ class RecommededExcerciseFragment() : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-setData()
+        setData()
         /*initObserver()
         initObservers()*/
     }
 
     fun setData() {
-        homeAdapter = HomeAdapter()
+        homeAdapter = HomeAdapternew(requireContext(),theme.parcours)
         binding.relCourse.adapter = homeAdapter
     }
 
@@ -83,17 +77,17 @@ setData()
                     homeresponse ->
                 when (homeresponse) {
                     is SafeApiCall.Loading -> {
-                       // binding.progressBar.isVisible = true
+                        // binding.progressBar.isVisible = true
                     }
                     is SafeApiCall.Error -> {
-                       // binding.progressBar.isVisible = false
+                        // binding.progressBar.isVisible = false
                         //showErrorMsg(it.exception)
                     }
                     is SafeApiCall.Successhome -> {
-                       // binding.progressBar.isVisible = false
+                        // binding.progressBar.isVisible = false
                         homeViewModel._syncItemsStateFlow.value
-                       // setData(homeresponse.data as home_response)
-                       // loadBannersList(homeresponse.data as home_response)
+                        // setData(homeresponse.data as home_response)
+                        // loadBannersList(homeresponse.data as home_response)
 
                         //viewModel.syncGuestItems(getUUID())
                     }

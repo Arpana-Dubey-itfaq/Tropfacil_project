@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener
 import android.os.Handler
+import com.tropfacil.R
 
 
 import com.tropfacil.databinding.*
@@ -92,7 +93,7 @@ class CourseDetailsFragment : BaseFragment() {
     }
 
     fun setListner() {
-        binding.btnCreateAccount.setOnClickListener {
+        binding.btnStartCourse.setOnClickListener {
             (context as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragment_container,

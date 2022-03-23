@@ -20,12 +20,15 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.app.leust.data.Data
+import com.app.leust.data.Data.Companion.token
 
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.tropfacil.R
 
 import com.tropfacil.base.BaseFragment
+import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.databinding.ActivityLoginBinding
 import com.tropfacil.databinding.ActivityRegisterBinding
 import com.tropfacil.databinding.FragmentLoginBinding
@@ -112,8 +115,10 @@ class RegisterFragment : BaseFragment() {
         }
 */
         binding.btnSignIn.setOnClickListener {
-           it.hideKeyboard()
-         //   if (isValidForm()) {
+            token = PreferenceProvider(requireContext()).getUserToken()
+
+            it.hideKeyboard()
+            //   if (isValidForm()) {
                 val registerReq = RegisterRequest(
                     binding.edtemail.text.toString(),
                     binding.usename.text.toString(),
@@ -121,7 +126,7 @@ class RegisterFragment : BaseFragment() {
                     binding.edtpernom.text.toString(),
                     qty,
                     //binding.edtPassword.text.toString(),
-                    "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
+                   "v6yRZ5gsSPY0dS9imbUUySYuTdPGn5Wo"
                 )
                 viewModel.registerUser(registerReq)
            // }
