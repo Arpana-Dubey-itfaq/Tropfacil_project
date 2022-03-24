@@ -163,6 +163,8 @@
     <!--Time spent: 0 minutes-->
     <string name="vocabularies">Vocabulaire et grammaire</string>
     <string name="str_my_exercices">My Exercices</string>
+    <string name="lbl_earn_badges">Earn badges</string>
+    <string name="lbl_my_badges">My Badges</string>
     <string-array name="civility_code">
         <item>Mr</item>
         <item>Ms</item>
