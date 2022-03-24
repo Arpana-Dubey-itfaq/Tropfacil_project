@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="@dimen/_2sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/badge_iv"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:src="@drawable/white_rounded_top"
+                app:tint="@color/tilgreen"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+               />
+            <TextView
+                android:id="@+id/badge_status_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/badge_iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/robotoregular"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textSize="@dimen/_9sdp"
+                android:textColor="@color/black"
+                android:text="Completed Course"
+                app:layout_constraintTop_toTopOf="@id/badge_iv"
+                app:layout_constraintTop_toBottomOf="@id/badge_title_tv"/>
+            <TextView
+                android:id="@+id/badge_title_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/badge_iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:text="The vocabulary of world of work"
+                app:layout_constraintBottom_toBottomOf="@id/badge_iv"
+                app:layout_constraintTop_toBottomOf="@id/badge_status_tv"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
