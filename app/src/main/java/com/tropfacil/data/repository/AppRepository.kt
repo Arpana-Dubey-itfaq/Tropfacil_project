@@ -5,6 +5,7 @@ package com.tropfacil.data.repository
 
 import com.example.example.Homeresponse
 import com.tropfacil.model.*
+import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 
 import com.tropfacil.network.request.LoginRequest
@@ -46,6 +47,10 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
 
     fun getProfilePicture(token:String?): Flow<ResponseBody> = flow {
         emit(apiServiceImpl.getProfilePicture(token))
+    }.flowOn(Dispatchers.IO)
+
+   fun getExercices(token:String?): Flow<ExercicesListResponse> = flow {
+        emit(apiServiceImpl.getExercices(token))
     }.flowOn(Dispatchers.IO)
 
     /*  fun verifyCode(identifier: String, code: String): Flow<RegisterRes> = flow {

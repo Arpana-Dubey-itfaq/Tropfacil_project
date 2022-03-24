@@ -1,8 +1,9 @@
-package com.tropfacil.myexcersise.view
+package com.tropfacil.ui.nav.exercices
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,16 +16,23 @@ import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
 
 
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.databinding.FragmentExcerciseBinding
 import com.tropfacil.message.view.WriteAMessageFragment
+import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
+import com.tropfacil.ui.nav.profile.ProfileSettingsViewModel
 import com.tropfacil.util.Constants
+import kotlinx.coroutines.flow.collect
+import org.koin.android.ext.android.inject
 
 
 class MyExerciseFragment : BaseFragment() {
     lateinit var binding: FragmentExcerciseBinding
+    private val viewModel by inject<ExercicesViewModel>()
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var viewPagerExcerAdapter: ViewPagerAdapter
 
@@ -122,8 +130,31 @@ class MyExerciseFragment : BaseFragment() {
         setListner()
         setData()
         setTabLayout()
+        initObservers()
     }
+    private fun initObservers() {
+        viewModel.getExerciseList()
+        lifecycleScope.launchWhenStarted {
+            viewModel._getExercicesStateFlow.collect { it ->
+                when (it) {
+                    is SafeApiCall.Loading -> {
+                        binding.progressBar.isVisible = true
+                    }
+                    is SafeApiCall.Error -> {
+                        binding.progressBar.isVisible = false
+                        showErrorMsg(it.exception.toString())
+                    }
+                    is SafeApiCall.Success -> {
+                        binding.progressBar.isVisible = false
+                        Log.e(TAG, "initObservers: ${it.data.message}", )
+                    }
+                    else -> {
+                    }
+                }
+            }
+        }
 
+    }
     fun setListner() {
         binding.topbar.imgUser.setOnClickListener {
             homeOptionsListener.onClickMenu()
