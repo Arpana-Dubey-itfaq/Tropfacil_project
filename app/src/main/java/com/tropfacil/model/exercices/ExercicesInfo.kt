@@ -2,6 +2,7 @@ package com.tropfacil.model.exercices
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class ExercicesInfo(
     @SerializedName("avancement")
@@ -34,4 +35,4 @@ data class ExercicesInfo(
     val type: String, // quiz
     @SerializedName("verrouille")
     val verrouille: Boolean // true
-)
+) : Serializable
