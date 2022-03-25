@@ -2,9 +2,12 @@ package com.tropfacil.base
 
 import android.content.Context
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -24,6 +27,22 @@ abstract class BaseFragment : Fragment() {
             requireActivity()
         )
     }
+    fun showHidePassword(password: EditText, imgEye: ImageView) {
+        if (password.text.toString().isNotEmpty()) {
+            if (password.transformationMethod == null) {
+                imgEye.setImageResource(R.drawable.icon_show_password)
+                password.transformationMethod = PasswordTransformationMethod()
+            } else {
+                imgEye.setImageResource(R.drawable.icon_hide_password)
+                password.transformationMethod = null
+            }
+            password.setSelection(password.length())
+        } else {
+            imgEye.setImageResource(R.drawable.icon_show_password)
+            password.transformationMethod = PasswordTransformationMethod()
+        }
+    }
+
     protected fun showErrorMsg(errorMsg: String) {
         SuccessOrFailurePopup.newInstance {
             onConfirm = {}

@@ -17,7 +17,7 @@ import okhttp3.ResponseBody
 
 class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
 
-    fun register(registerReq: RegisterRequest): Flow<RegisterRes> = flow {
+    fun register(registerReq: RegisterRequest): Flow<Register_response> = flow {
         emit(apiServiceImpl.register(registerReq))
     }.flowOn(Dispatchers.IO)
 
@@ -47,7 +47,13 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
             emit(apiServiceImpl.updateUser(id, nom, prenom))
         }.flowOn(Dispatchers.IO)
 
-        fun getProfilePicture(token: String?): Flow<ResponseBody> = flow {
+
+    fun SendRating(token: String, type: String?, idelement: String?,note: String?): Flow<BaseResponse> = flow {
+        emit(apiServiceImpl.sendRating(token, type, idelement,note))
+    }.flowOn(Dispatchers.IO)
+
+
+    fun getProfilePicture(token: String?): Flow<ResponseBody> = flow {
             emit(apiServiceImpl.getProfilePicture(token))
         }.flowOn(Dispatchers.IO)
 

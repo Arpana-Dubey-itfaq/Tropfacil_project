@@ -37,11 +37,11 @@ interface ApiService {
         @Query("email") email: String?, @Query("civilite") civilite: String?,
         @Query("login") login: String?,
 
-        ): RegisterRes
+        ): Register_response
 
-    @GET("envoyer-code-unique")
+    @POST("utilisateur/envoyer-code-unique")
     suspend fun forgotPassword(
-        @Path("login")
+        @Query("login")
         email: String,
     ): ForgotPasswordRes
 
@@ -72,7 +72,11 @@ interface ApiService {
         @Query("id") id: String?, @Query("nom") nom: String?,
         @Query("prenom") prenom: String?,
     ): BaseResponse
-
+    @POST("catalogue/set-note-cours")
+    suspend fun sendRating(
+        @Query("token") nom: String?, @Query("type") prenom: String?,
+        @Query("idelement") login: String?, @Query("note") civilite: String?,
+    ): BaseResponse
     @Streaming
     @GET("utilisateur/get-photo-profil")
     suspend fun getProfilePicture(

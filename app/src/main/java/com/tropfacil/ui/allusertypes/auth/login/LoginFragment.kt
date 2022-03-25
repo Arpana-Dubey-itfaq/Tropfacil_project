@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
@@ -38,6 +39,8 @@ class LoginFragment : BaseFragment() {
   //  private lateinit var binding: FragmentLoginBinding
     private val viewModel by inject<LoginViewModel>()
     lateinit var binding: ActivityLoginBinding
+    private lateinit var email: String
+    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -106,6 +109,9 @@ class LoginFragment : BaseFragment() {
             it.hideKeyboard()
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
         }*/
+        binding.relPassword.showPassBtn.setOnClickListener {
+            showHidePassword(binding.relPassword.editPassword, binding.relPassword.showPassBtn)
+        }
 
         binding.signupTxt.setOnClickListener {
             //it.hideKeyboard()
@@ -115,12 +121,12 @@ class LoginFragment : BaseFragment() {
             //it.hideKeyboard()
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
         }
-
-        binding.btnSignIn.setOnClickListener {
+        email= binding.etEmailUsername.text.toString()
+         binding.btnSignIn.setOnClickListener {
             //  it.hideKeyboard()
-            if (isValidForm()) {
+            if (!validateEmail()) {
                 val loginRequest = LoginRequest(
-                    loginName = binding.etEmailUsername.text.toString(),
+                    loginName = email,
                     password = binding.relPassword.editPassword.text.toString(),
                 )
 
@@ -193,23 +199,43 @@ class LoginFragment : BaseFragment() {
             binding.btnLogin.isClickable = false
         }
     }*/
+fun validateEmail(): Boolean {
+    var isValid = true
+    if (email.matches(emailPattern.toRegex())) {
+        Toast.makeText(
+            requireContext(), "Valid email address",
+            Toast.LENGTH_SHORT
+        ).show()
+    } else {
+        isValid = false
 
-    private fun isValidForm(): Boolean {
+        Toast.makeText(
+            requireContext(), "Invalid email address",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+
+    return isValid
+}
+
+}
+   /* private fun isValidForm(): Boolean {
         var isValid = true
         val email = binding.etEmailUsername.text.toString()
         val password = binding.relPassword.editPassword.text.toString()
 
-       /* if (!isValidEmailId(email)) {
+       *//* if (!isValidEmailId(email)) {
             isValid = false
 
             binding.tvPassword.text = getString(R.string.please_enter_password)
         } else binding.etEmailUsername.toString()
-*/
-        /*if (!isValidPassword(password)) {
+*//*
+        *//*if (!isValidPassword(password)) {
             isValid = false
             binding.tvErrPassword.visible()
             binding.tvErrPassword.text = getString(R.string.err_password)
-        } else binding.tvErrPassword.gone()*/
+        } else binding.tvErrPassword.gone()*//*
         if (TextUtils.isEmpty(password)) {
             isValid = false
           //  binding.relPassword.editPassword.visible()
@@ -218,6 +244,5 @@ class LoginFragment : BaseFragment() {
 
         return isValid
     }
+*/
 
-
-}

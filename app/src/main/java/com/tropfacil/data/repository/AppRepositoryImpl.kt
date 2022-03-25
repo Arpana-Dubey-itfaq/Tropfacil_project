@@ -22,7 +22,7 @@ class AppRepositoryImpl(private val apiService: ApiService) {
         apiService.homeData(authorization)
 
 
-    suspend fun register(registerReq: RegisterRequest): RegisterRes =
+    suspend fun register(registerReq: RegisterRequest): Register_response =
         apiService.users(
             registerReq.nom,
             registerReq.prenom,
@@ -40,6 +40,9 @@ class AppRepositoryImpl(private val apiService: ApiService) {
 
     suspend fun updateUser(id:String,nom:String?,prenom:String?): BaseResponse =
         apiService.updateUser(id,nom,prenom)
+
+    suspend fun sendRating(token: String, type: String?, idelement: String?,note: String?): BaseResponse =
+        apiService.sendRating(token, type, idelement,note)
 
     suspend fun getProfilePicture(token:String?): ResponseBody =
         apiService.getProfilePicture(token)

@@ -35,11 +35,14 @@ class RegisterViewModel(
         syncItemsStateFlow
 
     fun registerUser(request: RegisterRequest) = launch {
-        showLoading.value = true
+        registerStateFlow.value = SafeApiCall.Loading
+
         appRepository.register(request)
             .catch { e ->
                 showLoading.value = false
                 showError.value = getErrorMessage(e)
+                registerStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
+
 //                registerStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
                 showLoading.value = false
@@ -53,7 +56,8 @@ class RegisterViewModel(
                 )
 
               //  registerLiveData.value = data
-              //  registerStateFlow.value = data.success
+                registerStateFlow.value = SafeApiCall.SuccessRegister(data)
+
             }
     }
 
