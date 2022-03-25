@@ -160,13 +160,16 @@
     <string name="lbl_save">Save</string>
     <string name="lbl_profile">Profile</string>
 
+    <string name="time_spent_in_min">Time spent: %f minutes</string>
+
+    <!--Time spent: 0 minutes-->
+    <string name="vocabularies">Vocabulaire et grammaire</string>
+    <string name="str_my_exercices">My Exercices</string>
+    <string name="lbl_earn_badges">Earn badges</string>
+    <string name="lbl_my_badges">My Badges</string>
     <string-array name="civility_code">
         <item>Mr</item>
         <item>Ms</item>
         <item>Mrs</item>
     </string-array>
-
-    <!--Time spent: 0 minutes-->
-    <string name="time_spent_in_min">Time spent: %f minutes</string>
-    <string name="vocabularies">Vocabulaire et grammaire</string>
 </resources>

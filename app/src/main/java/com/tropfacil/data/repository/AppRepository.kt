@@ -5,6 +5,7 @@ package com.tropfacil.data.repository
 
 import com.example.example.Homeresponse
 import com.tropfacil.model.*
+import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 import com.tropfacil.data.home_response
 
@@ -52,6 +53,13 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
         emit(apiServiceImpl.sendRating(token, type, idelement,note))
     }.flowOn(Dispatchers.IO)
 
+    fun getProfilePicture(token:String?): Flow<ResponseBody> = flow {
+        emit(apiServiceImpl.getProfilePicture(token))
+    }.flowOn(Dispatchers.IO)
+
+   fun getExercices(token:String?): Flow<ExercicesListResponse> = flow {
+        emit(apiServiceImpl.getExercices(token))
+    }.flowOn(Dispatchers.IO)
 
     fun getProfilePicture(token: String?): Flow<ResponseBody> = flow {
             emit(apiServiceImpl.getProfilePicture(token))

@@ -21,7 +21,7 @@ import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 
 
-class AllCateogiesFragment : BaseFragment(), ResumeFragmentListener {
+class AllCateogiesFragment : BaseFragment() {
     lateinit var binding: FragmentCatgoryBinding
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var categoriesListAdapter: CategoriesListAdapter
@@ -101,7 +101,6 @@ class AllCateogiesFragment : BaseFragment(), ResumeFragmentListener {
 
         }
         binding.topbar.imgmessage.setOnClickListener {
-            (requireActivity() as BaseActivity).updateResumeFragment(this)
             val writeAMessageFragment = WriteAMessageFragment()
             (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
 
@@ -142,7 +141,5 @@ class AllCateogiesFragment : BaseFragment(), ResumeFragmentListener {
 */
     }
 
-    override fun onFragmentResume(bundle: Bundle?) {
 
-    }
 }

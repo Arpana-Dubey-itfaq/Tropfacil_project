@@ -11,6 +11,7 @@ import com.tropfacil.model.ForgotPasswordRes
 import com.tropfacil.model.Login_resoponse
 import com.tropfacil.model.RegisterRes
 import com.tropfacil.model.UpdatePasswordRequest
+import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 import okhttp3.ResponseBody
 import retrofit2.http.*
@@ -82,6 +83,12 @@ interface ApiService {
     suspend fun getProfilePicture(
         @Query("token") token: String?,
     ): ResponseBody
+
+    @FormUrlEncoded
+    @POST("catalogue/get-exercices")
+    suspend fun getExercices(
+        @Field("token") token: String?
+    ):ExercicesListResponse
     /*
    *//*   @POST("Authentication/SignIn/Customer")
     suspend fun login(@Body loginReq: LoginReq): LoginRes

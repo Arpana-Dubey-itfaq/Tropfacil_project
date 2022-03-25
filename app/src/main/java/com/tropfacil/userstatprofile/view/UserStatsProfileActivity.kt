@@ -2,15 +2,19 @@ package com.tropfacil.userstatprofile.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.tropfacil.R
 import com.tropfacil.badge.adapter.MybadgeAdapter
+import com.tropfacil.base.BaseActivity
 
 import com.tropfacil.databinding.ActivityUserstatsProfileBinding
 import com.tropfacil.home.adapter.HomeAdapter
 import com.tropfacil.home.adapter.HomeCourseListAdapter
+import com.tropfacil.ui.nav.account.email.UpdateEmailFragment
+import com.tropfacil.ui.nav.home.userstats.badges.EarnBadgesFragment
 import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
-class UserStatsProfileActivity : AppCompatActivity(), HomeToCourseDetailsListener {
+class UserStatsProfileActivity : BaseActivity(), HomeToCourseDetailsListener {
     lateinit var binding: ActivityUserstatsProfileBinding
     lateinit var homeCourseListAdapter: HomeCourseListAdapter
     lateinit var homeAdapter: HomeAdapter
@@ -30,8 +34,16 @@ class UserStatsProfileActivity : AppCompatActivity(), HomeToCourseDetailsListene
         binding.incTopbar.imgBack.setOnClickListener {
             finish()
         }
+        binding.itemBadge.tvViewAll.setOnClickListener {
+            navigateToEarnBadgeScreen()
+        }
 
 
+    }
+    private fun navigateToEarnBadgeScreen() {
+        binding.fragmentContainer.isVisible = true
+        val earnBadgesFragment = EarnBadgesFragment()
+        (this as BaseActivity).visitNewFragment(R.id.fragment_container, earnBadgesFragment)
     }
 
     fun setData() {
@@ -49,7 +61,7 @@ class UserStatsProfileActivity : AppCompatActivity(), HomeToCourseDetailsListene
     }
 
     override fun navigateToCourseDetailsScreen(courseId: Int) {
-        TODO("Not yet implemented")
+
     }
 
 

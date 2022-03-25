@@ -6,6 +6,7 @@ import com.example.example.Homeresponse
 import com.tropfacil.data.home_response
 
 import com.tropfacil.model.*
+import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.ApiService
@@ -46,6 +47,9 @@ class AppRepositoryImpl(private val apiService: ApiService) {
 
     suspend fun getProfilePicture(token:String?): ResponseBody =
         apiService.getProfilePicture(token)
+
+    suspend fun getExercices(token:String?): ExercicesListResponse =
+        apiService.getExercices(token)
 
     suspend fun changeEmail(registerReq: RegisterRequest): BaseResponse =
         apiService.changeEmail(
