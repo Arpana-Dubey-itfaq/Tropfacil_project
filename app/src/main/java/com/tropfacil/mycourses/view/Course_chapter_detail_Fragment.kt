@@ -23,10 +23,13 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.tropfacil.databinding.*
 import com.tropfacil.home.adapter.*
+import com.tropfacil.home.view.HomeFragment
+import com.tropfacil.main.view.MainActivity
 
 import com.tropfacil.message.view.MessageActivity
 import com.tropfacil.mycourses.adapter.CourseListAdapter
 import com.tropfacil.notificaions.view.NotificationsActivity
+import com.tropfacil.rate.view.RateFragment
 
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.util.Constants
@@ -105,12 +108,19 @@ class Course_chapter_detail_Fragment : BaseFragment() {
     }
 
     fun setListner() {
-      /*  binding.topbar.imgUser.setOnClickListener {
-            homeOptionsListener.onClickMenu()
+        binding.btnCreateAccount.setOnClickListener {
+            val optionsFrag = Course_per_chapter_Fragment()
+            (context as MainActivity).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment").addToBackStack(null)
+                .commit()
+
         }
-        binding.topbar.imgsearch.setOnClickListener {
-            startActivity(Intent(requireContext(), SearchActivity::class.java))
-        }*/
+        binding.btnCreateAccount2.setOnClickListener {
+            val optionsFrag = RateFragment()
+            (context as MainActivity).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment").addToBackStack(null)
+                .commit()
+        }
       /*  binding.topbar.imgNotification.setOnClickListener {
             startActivity(Intent(requireContext(), NotificationsActivity::class.java))
 

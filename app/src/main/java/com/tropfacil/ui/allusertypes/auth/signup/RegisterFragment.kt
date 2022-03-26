@@ -32,9 +32,12 @@ import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.databinding.ActivityLoginBinding
 import com.tropfacil.databinding.ActivityRegisterBinding
 import com.tropfacil.databinding.FragmentLoginBinding
+import com.tropfacil.main.view.MainActivity
 import com.tropfacil.model.RegisterRequest
+import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.SafeApiCall
+import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
 import com.tropfacil.ui.allusertypes.auth.login.LoginFragmentDirections
 import com.tropfacil.utils.popups.SuccessOrFailurePopup
 import kotlinx.coroutines.flow.collect
@@ -92,9 +95,10 @@ class RegisterFragment : BaseFragment() {
                         binding.progressBar.isVisible = false
                         showErrorMsg(it.exception)
                     }
-                    is SafeApiCall.Success -> {
+                    is SafeApiCall.SuccessRegister -> {
                         binding.progressBar.isVisible = false
-                        it.data.message?.let { it1 -> showPopUp(it1) }
+                        findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
+
                     }
                     else -> {}
                 }

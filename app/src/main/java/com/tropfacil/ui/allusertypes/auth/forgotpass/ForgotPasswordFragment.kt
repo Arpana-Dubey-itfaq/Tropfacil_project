@@ -64,19 +64,14 @@ class ForgotPasswordFragment : BaseFragment() {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
+
+                        // showErrorMsg(it.exception.toString())
+                    }
+                    is SafeApiCall.SuccessForgot -> {
+                        binding.progressBar.isVisible = false
                         findNavController().navigate(
                             ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToResetPasswordFragment()
                         )
-                        // showErrorMsg(it.exception.toString())
-                    }
-                    is SafeApiCall.Success -> {
-                        binding.progressBar.isVisible = false
-                        val data = it.data as ForgotPasswordRes
-                        Log.e("##OPEN-->", "POPUP")
-                        if (flag) {
-                            flag = false
-                            showPopUp(data.response.success)
-                        }
                     }
                     else -> {
                     }

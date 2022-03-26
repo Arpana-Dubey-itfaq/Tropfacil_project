@@ -11,6 +11,7 @@ import com.tropfacil.model.ForgotPasswordRes
 import com.tropfacil.model.Login_resoponse
 import com.tropfacil.model.RegisterRes
 import com.tropfacil.model.UpdatePasswordRequest
+import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 import okhttp3.ResponseBody
 import retrofit2.http.*
@@ -37,11 +38,11 @@ interface ApiService {
         @Query("email") email: String?, @Query("civilite") civilite: String?,
         @Query("login") login: String?,
 
-        ): RegisterRes
+        ): Register_response
 
-    @GET("envoyer-code-unique")
+    @POST("utilisateur/envoyer-code-unique")
     suspend fun forgotPassword(
-        @Path("login")
+        @Query("login")
         email: String,
     ): ForgotPasswordRes
 
@@ -72,12 +73,22 @@ interface ApiService {
         @Query("id") id: String?, @Query("nom") nom: String?,
         @Query("prenom") prenom: String?,
     ): BaseResponse
-
+    @POST("catalogue/set-note-cours")
+    suspend fun sendRating(
+        @Query("token") nom: String?, @Query("type") prenom: String?,
+        @Query("idelement") login: String?, @Query("note") civilite: String?,
+    ): BaseResponse
     @Streaming
     @GET("utilisateur/get-photo-profil")
     suspend fun getProfilePicture(
         @Query("token") token: String?,
     ): ResponseBody
+
+    @FormUrlEncoded
+    @POST("catalogue/get-exercices")
+    suspend fun getExercices(
+        @Field("token") token: String?
+    ):ExercicesListResponse
     /*
    *//*   @POST("Authentication/SignIn/Customer")
     suspend fun login(@Body loginReq: LoginReq): LoginRes

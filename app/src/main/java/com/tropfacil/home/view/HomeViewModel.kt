@@ -31,7 +31,7 @@ class HomeViewModel(
 
 
        // val parcorselist: MutableLiveData<ArrayList<Parcour>> = MutableLiveData()
-        fun HomeData(header: String?, authorization: String?) = launch {
+        fun HomeData(authorization: String?) = launch {
             syncItemsStateFlow.value = SafeApiCall.Loading
             appRepository.HomeData(authorization)
                 .catch { e ->
@@ -40,7 +40,7 @@ class HomeViewModel(
                 }.collect { data ->
 
                     Log.e("message success", data.themes.toString())
-                    syncItemsStateFlow.value = SafeApiCall.Successhome(data.themes)
+                    syncItemsStateFlow.value = SafeApiCall.Successhome(data)
 
                     // Log.e("message111", data)
                     //  preferenceProvider.saveLoginDataToPref(data)
