@@ -49,6 +49,7 @@
             <TextView
                 android:id="@+id/lblconutine"
                 style="@style/tvBoldCommon"
+                android:visibility="gone"
                 android:text="Countine where you left off"
                 app:layout_constraintTop_toBottomOf="@+id/inc_level_info"
                 tools:ignore="MissingConstraints" />
@@ -61,7 +62,7 @@
                 android:layout_margin="@dimen/_15ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-
+android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/lblconutine" />
             <!--
                         <androidx.cardview.widget.CardView
@@ -206,7 +207,7 @@
             <TextView
                 android:id="@+id/lblMyCourses"
                 style="@style/tvBoldCommon"
-                android:text="FORMATION"
+                android:text="Recommened exercise"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18sdp"
                 android:layout_marginTop="@dimen/_30sdp"
@@ -220,7 +221,7 @@
                 android:id="@+id/card_schedule1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+android:visibility="gone"
                 app:cardUseCompatPadding="true"
 
                 app:layout_constraintEnd_toEndOf="parent"
@@ -251,6 +252,7 @@
             <TextView
                 android:id="@+id/lbl_recommend_excrcise"
                 style="@style/tvBoldCommon"
+                android:visibility="gone"
                 android:text="@string/recommened_exercise"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -348,7 +350,7 @@ android:visibility="gone"
             <TextView
                 android:id="@+id/lbl_recommend_excrcise2"
                 style="@style/tvBoldCommon"
-                android:text="@string/recommened_exercise"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_schedule" />
@@ -363,10 +365,9 @@ android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_schedule" />
+                app:layout_constraintTop_toBottomOf="@+id/lbl_recommend_excrcise2" />
             <ProgressBar
                 android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"

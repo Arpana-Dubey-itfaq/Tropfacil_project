@@ -35,6 +35,7 @@
             >
             <LinearLayout
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/Firstname"
@@ -58,42 +59,105 @@
 
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/name_cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cl_profile">
+                    <TextView
+                        android:id="@+id/civility_tv"
+                        android:layout_width="@dimen/_65sdp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoregular"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
 
-                    android:layout_width="@dimen/_200sdp"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                        android:gravity="center_vertical"
+                        android:text="@string/lbl_civility"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_spinner"
+                         android:layout_marginEnd="16dp"
 
-                <Spinner
-                android:id="@+id/spinner_sample"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_42sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/rounded_corner_10dp"
+                        app:layout_constraintStart_toStartOf="@id/civility_tv"
+                        app:layout_constraintTop_toBottomOf="@id/civility_tv">
+                        <Spinner
+                            android:id="@+id/spinnernew"
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:entries="@array/civility_code"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+                        <TextView
+                            android:id="@+id/spinner_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12ssp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/robotoregular"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_height="@dimen/_50sdp"/>
-                </LinearLayout>
-            <EditText
-                android:id="@+id/edtNom"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_rounded_corner_white"
-                android:drawablePadding="12dp"
-                android:hint="Type your first name"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp" />
-            </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/name_tv"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:fontFamily="@font/robotoregular"
+                        android:gravity="center_vertical"
+                        android:text="@string/lbl_name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        app:layout_constraintStart_toEndOf="@id/civility_tv"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+                    <EditText
+                        android:id="@+id/name_et"
+                        android:layout_width="0dp"
+                        android:layout_marginEnd="16dp"
+
+                        android:layout_height="@dimen/_42sdp"
+                        android:background="@drawable/rounded_corner_10dp"
+                        app:layout_constraintStart_toStartOf="@id/name_tv"
+                        app:layout_constraintTop_toBottomOf="@id/name_tv"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:fontFamily="@font/robotoregular"
+                        android:hint="Type your name"
+
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/_5sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
             <TextView
                 android:id="@+id/Lastname"
                 android:layout_width="match_parent"
@@ -124,7 +188,7 @@
                 android:id="@+id/Email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="19dp"
+                android:layout_marginStart="20dp"
                 android:layout_weight="1"
                 android:paddingTop="25dp"
                 android:text="Email address"
@@ -238,7 +302,7 @@ android:visibility="gone"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:shadowColor="#36A89259"
-                android:text="Sign Up and Pay"
+                android:text="Sign Up"
                 android:textAlignment="center"
 
                 />

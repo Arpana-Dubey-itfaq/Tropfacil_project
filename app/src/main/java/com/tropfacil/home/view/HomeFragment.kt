@@ -16,6 +16,8 @@ import com.tropfacil.R
 import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
 import androidx.lifecycle.lifecycleScope
 import com.app.leust.data.Data.Companion.header
+import com.app.leust.data.Data.Companion.nom
+import com.app.leust.data.Data.Companion.pernom
 import com.app.leust.data.Data.Companion.token
 import com.tropfacil.data.home_response
 import com.tropfacil.base.BaseActivity
@@ -123,6 +125,11 @@ class HomeFragment : BaseFragment(), HomeToCourseDetailsListener {
         binding.viewPagerExercise.adapter = viewPagerExcerAdapter
         binding.viewPagerscheduleCourse.adapter = viewPagerSchudeleCourseAdapter
         binding.incCountine.cardPlay.visibility = View.VISIBLE
+        nom=PreferenceProvider(requireContext()).getNom()
+        pernom=PreferenceProvider(requireContext()).getperNom()
+       // binding.incLevelInfo.tvcourse1.setText(nom)
+        binding.incLevelInfo.tvcoursename.setText(nom+" "+pernom)
+
 
     }
 

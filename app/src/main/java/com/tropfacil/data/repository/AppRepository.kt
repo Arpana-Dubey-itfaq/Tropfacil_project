@@ -53,10 +53,10 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
         emit(apiServiceImpl.sendRating(token, type, idelement,note))
     }.flowOn(Dispatchers.IO)
 
-    fun getProfilePicture(token:String?): Flow<ResponseBody> = flow {
+   /* fun getProfilePicture(token:String?): Flow<ResponseBody> = flow {
         emit(apiServiceImpl.getProfilePicture(token))
     }.flowOn(Dispatchers.IO)
-
+*/
    fun getExercices(token:String?): Flow<ExercicesListResponse> = flow {
         emit(apiServiceImpl.getExercices(token))
     }.flowOn(Dispatchers.IO)
