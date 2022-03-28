@@ -46,10 +46,10 @@ class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment(), HomeToC
 
     fun setData() {
         if(!theme.parcours.isEmpty()) {
-            homeAdapter = HomeAdapternew(requireContext(), theme,true)
+            homeAdapter = HomeAdapternew(requireContext(), theme,true,this)
             binding.relCourse.adapter = homeAdapter
         }else{
-            homeAdapter = HomeAdapternew(requireContext(), theme,false)
+            homeAdapter = HomeAdapternew(requireContext(), theme,false,this)
             binding.relCourse.adapter = homeAdapter
         }
     }

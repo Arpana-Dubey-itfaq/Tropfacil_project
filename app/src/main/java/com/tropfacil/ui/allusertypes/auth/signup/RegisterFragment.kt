@@ -1,6 +1,7 @@
 package com.tropfacil.ui.allusertypes.auth.signup
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -32,6 +33,7 @@ import com.tropfacil.main.view.MainActivity
 import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.model.RegisterRequest
 import com.tropfacil.network.service.SafeApiCall
+import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
 import com.tropfacil.utils.popups.SuccessOrFailurePopup
 import kotlinx.android.synthetic.main.activity_account_settings.view.*
 import kotlinx.coroutines.flow.collect

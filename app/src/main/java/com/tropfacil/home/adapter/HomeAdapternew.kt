@@ -91,7 +91,7 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
                holder.textView.text = ItemsViewModel.libelle
                holder.imgNext.setOnClickListener {
 
-                   homeToCourseDetailsListener.navigateToCourseDetailsScreenViaParCour(parCourseItem)
+                   homeToCourseDetailsListener.navigateToCourseDetailsScreenViaParCour(ItemsViewModel)
                }
            }else{
 
@@ -100,7 +100,7 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
                holder.textView.text = Itemsnew.libelle
                holder.imgNext.setOnClickListener {
 
-                   homeToCourseDetailsListener.navigateToCourseDetailsScreenViaParCour(parCourseItem)
+                   homeToCourseDetailsListener.navigateToCourseDetailsScreenViaSousTheme(Itemsnew)
                }
 
 
