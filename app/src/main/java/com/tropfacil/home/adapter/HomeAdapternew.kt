@@ -7,45 +7,23 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.tropfacil.R
 import com.tropfacil.data.Parcour
+import com.tropfacil.data.Soustheme
 import com.tropfacil.databinding.ItemTabRecommededExercisenewBinding
 
-import com.tropfacil.main.view.MainActivity
-import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
 
-class HomeAdapternew( val context: Context,val parcours: List<Parcour>) : RecyclerView.Adapter<HomeAdapternew.PageHolder>() {
+class HomeAdapternew(
+    val context: Context,
+    val parcours: List<Parcour>,
+    private val homeToCourseDetailsListener: HomeToCourseDetailsListener
+) : RecyclerView.Adapter<HomeAdapternew.PageHolder>() {
 
 
     inner class ViewHolder(val bind: ItemTabRecommededExercisenewBinding) :
         RecyclerView.ViewHolder(bind.root)
-   // lateinit var binding: ItemTabRecommededExercisenewBinding
-   // lateinit var context: Context
-
-    /*override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageHolder {
-        context = parent.context
-
-        val binding: ItemTabRecommededExercisenewBinding =
-            ItemTabRecommededExercisenewBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-             binding.imgNext.setOnClickListener {
-                 val optionsFrag = Course_chapter_detail_Fragment()
-                 (context as MainActivity).getSupportFragmentManager().beginTransaction()
-                     .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment").addToBackStack(null)
-                     .commit()
-             }
-
-       *//* Glide.with(context).load(it)
-            .into(convertView.findViewById<ImageView>(R.id.imageView))
-*//*
-        // -- Put the other views in your recycler view item here --
-        return ViewHolder(binding)
-    }*/
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageHolder =
         PageHolder(
             LayoutInflater.from(context).inflate(R.layout.item_tab_recommeded_exercisenew, parent, false)
@@ -80,13 +58,11 @@ class HomeAdapternew( val context: Context,val parcours: List<Parcour>) : Recycl
     }
 
     override fun onBindViewHolder(holder: PageHolder, position: Int) {
-        val ItemsViewModel = parcours[position]
-        holder.textView.text =ItemsViewModel.libelle
+        val parCourseItem = parcours[position]
+       holder.textView.text =parCourseItem.libelle
         holder.imgNext.setOnClickListener {
-            val optionsFrag = Course_chapter_detail_Fragment()
-            (context as MainActivity).getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment").addToBackStack(null)
-                .commit()
+
+            homeToCourseDetailsListener.navigateToCourseDetailsScreenViaParCour(parCourseItem)
         }
 
 

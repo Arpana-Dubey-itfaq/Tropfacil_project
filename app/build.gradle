@@ -35,6 +35,8 @@ android {
            // buildConfigField "String", "BASE_URL", '"olfp.net/php5/restapi/catalogue/"'
           //  https://rc-tropfacile.onlineformapro.com/php5/restapi/utilisateur/
             buildConfigField "String", "BASE_URL", '"https://rc-tropfacile.onlineformapro.com/php5/restapi/"'
+            buildConfigField "String", "LOAD_IMAGE", '"https://rc-tropfacile.onlineformapro.com"'
+
           //  https://www.olfp.net/php5/restapi/utilisateur/login?login=ITFAQ&pwd=itfaq.
           /*  buildConfigField "String", "FAQ_LINK", '"https://admin.pharmamoov.fr/FAQs/FAQList"'
             buildConfigField "String", "TERMS_CONDITIONS_URL", '"https://admin.pharmamoov.fr/FAQs/TermsAndConditions"'

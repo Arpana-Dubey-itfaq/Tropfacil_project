@@ -4,47 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardParent"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/dim10"
-   >
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/dim10"
-        android:paddingBottom="@dimen/dim10">
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="@dimen/dim10"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="@dimen/dim10">
 
 
         <ImageView
-            android:id="@+id/imgChapterLearn"
+            android:id="@+id/imgLessonPlayOrLock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dim20"
             android:scaleType="fitXY"
-            android:src="@drawable/chapters_lock"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
         <TextView
             android:id="@+id/tvLessonVocabulary"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="gone"
             android:fontFamily="@font/roboto_regular"
+            android:lines="1"
             android:textColor="@android:color/black"
             android:textSize="10sp"
-            app:layout_constraintBottom_toTopOf="@+id/tvCourseDesc"
-            app:layout_constraintStart_toEndOf="@+id/imgChapterLearn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgLessonPlayOrLock"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/vocabularies" />
 
 
         <TextView
             android:id="@+id/tvLessonName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="4dp"
@@ -53,27 +53,75 @@
             android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/tvTimeSpent"
-            app:layout_constraintStart_toEndOf="@+id/imgChapterLearn"
+            app:layout_constraintBottom_toTopOf="@+id/linTimeSpentProgress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgLessonPlayOrLock"
             app:layout_constraintTop_toBottomOf="@+id/tvLessonVocabulary"
             tools:text="The vocabulary of world of work" />
 
-        <TextView
-            android:id="@+id/tvTimeSpent"
+        <LinearLayout
+            android:id="@+id/linTimeSpentProgress"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgLessonPlayOrLock"
             android:layout_marginTop="4dp"
-            android:drawableStart="@drawable/clock"
-            android:drawablePadding="@dimen/dim10"
-            android:fontFamily="@font/roboto_regular"
-            android:textColor="@color/black"
-            android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgChapterLearn"
-            app:layout_constraintTop_toBottomOf="@+id/tvLessonName"
-            tools:text="Time spent:20 mintues" />
+            app:layout_constraintTop_toBottomOf="@+id/tvLessonName">
 
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvTimeSpent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:drawableStart="@drawable/clock"
+                    android:drawablePadding="@dimen/dim6"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/black"
+                    android:textSize="11sp"
+                    tools:text="Time spent:20 mintues" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_marginStart="4dp"
+                android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toStartOf="@+id/tvProgressWithPercentage"
+                    android:theme="@style/ProgressAndRatingBar"
+                    tools:progress="40" />
+
+                <TextView
+                    android:id="@+id/tvProgressWithPercentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginStart="@dimen/dim10"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="0%"
+                    android:textColor="@color/green"
+                    android:textSize="11sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

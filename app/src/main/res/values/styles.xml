@@ -85,4 +85,7 @@
     <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
+    <style name="ProgressAndRatingBar" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/green</item>
+    </style>
 </resources>

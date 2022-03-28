@@ -5,12 +5,14 @@
     android:id="@+id/cardParent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/dim10"
-    android:background="#D7F0ED">
+    android:layout_marginTop="10dp"
+    android:background="#FFFFFF"
+    app:cardBackgroundColor="#D7F0ED"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#D7F0ED"
         android:paddingTop="@dimen/dim10"
         android:paddingBottom="@dimen/dim10">
@@ -44,6 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@android:color/black"
             android:textSize="10sp"
@@ -60,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/roboto_medium"
             android:lineSpacingExtra="@dimen/dim4"
             android:maxLines="2"
@@ -77,16 +81,34 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="20dp"
             android:drawableStart="@drawable/lessons_book_icon"
             android:drawablePadding="@dimen/dim10"
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/black"
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imgArrow"
             app:layout_constraintStart_toEndOf="@+id/imgChapterLearn"
             app:layout_constraintTop_toBottomOf="@+id/tvChapterName"
             tools:text="2 lessons" />
+
+        <TextView
+            android:id="@+id/tvTimeSpentVal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="20dp"
+            android:drawableStart="@drawable/clock"
+            android:drawablePadding="@dimen/dim10"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgArrow"
+            app:layout_constraintStart_toEndOf="@+id/tvLessonsCount"
+            app:layout_constraintTop_toBottomOf="@+id/tvChapterName"
+            tools:text="18min" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
