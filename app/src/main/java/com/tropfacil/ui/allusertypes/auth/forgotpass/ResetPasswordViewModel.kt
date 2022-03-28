@@ -38,6 +38,23 @@ private val appRepository: AppRepository,
     }
 
 
+    fun resetPassword(
+        updatePasswordRequest: UpdatePasswordRequest,
+    ) = launch {
+        updatePasswordStateFlow.value = SafeApiCall.Loading
+        val token = preferenceProvider.getString(PREF_USER_TOKEN, "")
+        val username = preferenceProvider.getString(PREF_USER_NAME, "")
+        updatePasswordRequest.token = token
+        updatePasswordRequest.login = username
+        appRepository.updatePassword(updatePasswordRequest)
+            .catch { e ->
+                updatePasswordStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
+            }.collect { data ->
+                updatePasswordStateFlow.value = SafeApiCall.Success(data)
+            }
+    }
+
+
     fun logout(){
         preferenceProvider.clearAllPref()
     }

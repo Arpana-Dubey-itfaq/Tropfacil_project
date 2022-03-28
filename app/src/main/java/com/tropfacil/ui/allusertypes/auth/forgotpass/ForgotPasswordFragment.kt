@@ -47,6 +47,9 @@ class ForgotPasswordFragment : BaseActivity() {
              findNavController().popBackStack()
          }
  */
+        binding.includeLayout2.backIv.setOnClickListener {
+            this.onBackPressed()
+        }
 
 
         binding.btnCreateAccount.setOnClickListener {
@@ -78,7 +81,10 @@ class ForgotPasswordFragment : BaseActivity() {
                     }
                     is SafeApiCall.SuccessForgot -> {
                         binding.progressBar.isVisible = false
-                        startActivity(Intent(this@ForgotPasswordFragment, FragmentResetPassword::class.java))
+                        val intent = Intent(this@ForgotPasswordFragment,FragmentResetPassword::class.java)
+                        intent.putExtra("Email",binding.etEmailUsername.text.toString())
+                        startActivity(intent)
+                       // startActivity(Intent(this@ForgotPasswordFragment, FragmentResetPassword::class.java))
                     }
                     else -> {
                     }

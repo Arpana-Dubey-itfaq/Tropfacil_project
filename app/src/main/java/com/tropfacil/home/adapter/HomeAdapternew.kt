@@ -98,6 +98,7 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
                 val Itemsnew = theme.sousthemes[position]
               // Log.debug("valuedata",Itemsnew.toString())
                holder.textView.text = Itemsnew.libelle
+               holder.imgNext
                holder.imgNext.setOnClickListener {
 
                    homeToCourseDetailsListener.navigateToCourseDetailsScreenViaSousTheme(Itemsnew)

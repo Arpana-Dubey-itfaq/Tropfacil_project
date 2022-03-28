@@ -36,6 +36,7 @@ import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.ui.allusertypes.auth.forgotpass.ForgotPasswordFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment
+import com.tropfacil.utils.gone
 import kotlinx.coroutines.flow.collect
 import org.json.JSONException
 import org.json.JSONObject
@@ -89,6 +90,7 @@ class LoginFragment : BaseActivity(), ResumeFragmentListener {
 
 
     private fun initListeners() {
+        binding.includeLayout1.backIv.gone()
         /*  binding.tvCreateAccount.setOnClickListener {
             it.hideKeyboard()
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterManuallyFragment())
