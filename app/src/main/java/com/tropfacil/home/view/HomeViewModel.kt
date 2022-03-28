@@ -16,8 +16,8 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-                    private val preferenceProvider: PreferenceProvider,
-                    private val appRepository: AppRepository
+    private val preferenceProvider: PreferenceProvider,
+    private val appRepository: AppRepository
 ) : BaseViewModel() {
 
     private val loginStateFlow: MutableStateFlow<SafeApiCall> = MutableStateFlow(SafeApiCall.Empty)

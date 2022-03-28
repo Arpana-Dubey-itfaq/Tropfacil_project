@@ -1,32 +1,16 @@
 package com.tropfacil.home.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.graphics.Color
-import android.provider.SyncStateContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.tropfacil.databinding.ItemHomePageCourseBinding
-import com.tropfacil.databinding.ItemTabRecommededExerciseBinding
 import com.tropfacil.util.Constants
-import androidx.core.graphics.drawable.DrawableCompat
-
-import android.graphics.drawable.Drawable
-import android.R
-
-import androidx.appcompat.content.res.AppCompatResources
-import android.graphics.PorterDuff
-
-import android.graphics.PorterDuffColorFilter
-
-import android.widget.TextView
-import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
 
-class HomeCourseAdapter(private val homeToCourseDetailsListener: HomeToCourseDetailsListener
+class HomeCourseAdapter(
 ) : RecyclerView.Adapter<HomeCourseAdapter.ViewHolder>() {
 
 
@@ -76,7 +60,7 @@ class HomeCourseAdapter(private val homeToCourseDetailsListener: HomeToCourseDet
               wrappedDrawable?.let { DrawableCompat.setTint(it, Color.WHITE) }
        */
         }
-        var homeCourseListAdapter = HomeCourseListAdapter(homeToCourseDetailsListener)
+        var homeCourseListAdapter = HomeCourseListAdapter()
         holder.bind.relCourse.adapter = homeCourseListAdapter
     }
 

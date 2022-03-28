@@ -34,7 +34,7 @@ class MyExerciseFragment : BaseFragment() {
     lateinit var binding: FragmentExcerciseBinding
     private val viewModel by inject<ExercicesViewModel>()
     lateinit var homeOptionsListener: HomeOptionsListener
-  //  lateinit var viewPagerExcerAdapter: ViewPagerAdapter
+//    lateinit var viewPagerExcerAdapter: ViewPagerAdapter
     private var exerciseList:List<ExercicesInfoList> = ArrayList()
     private var exercicesTabAdapter:ExercicesTabAdapter? =null
     companion object {

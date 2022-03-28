@@ -9,14 +9,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tropfacil.R
 import com.tropfacil.data.Theme
+import com.tropfacil.data.Parcour
+import com.tropfacil.data.Soustheme
 import com.tropfacil.databinding.ItemTabRecommededExercisenewBinding
 
-import com.tropfacil.main.view.MainActivity
-import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
 
-class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Boolean) :
-    RecyclerView.Adapter<HomeAdapternew.PageHolder>() {
+class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Boolean, private val homeToCourseDetailsListener: HomeToCourseDetailsListener
+) :
+    RecyclerView.Adapter<HomeAdapternew.PageHolder>()
+{
 
 
     inner class ViewHolder(val bind: ItemTabRecommededExercisenewBinding) :
@@ -87,11 +90,8 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
                val ItemsViewModel = theme.parcours[position]
                holder.textView.text = ItemsViewModel.libelle
                holder.imgNext.setOnClickListener {
-                   val optionsFrag = Course_chapter_detail_Fragment()
-                   (context as MainActivity).getSupportFragmentManager().beginTransaction()
-                       .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment")
-                       .addToBackStack(null)
-                       .commit()
+
+                   homeToCourseDetailsListener.navigateToCourseDetailsScreenViaParCour(parCourseItem)
                }
            }else{
 
@@ -99,18 +99,17 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
               // Log.debug("valuedata",Itemsnew.toString())
                holder.textView.text = Itemsnew.libelle
                holder.imgNext.setOnClickListener {
-                   val optionsFrag = Course_chapter_detail_Fragment()
-                   (context as MainActivity).getSupportFragmentManager().beginTransaction()
-                       .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment")
-                       .addToBackStack(null)
-                       .commit()
+
+                   homeToCourseDetailsListener.navigateToCourseDetailsScreenViaParCour(parCourseItem)
                }
+
+
 
            }
 
 
 
-            // Glide.with(context).load("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.image).into(holder.bannerImage)
+       // Glide.with(context).load("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.image).into(holder.bannerImage)
 
         }
 

@@ -2,14 +2,14 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/courseNestedScroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6FB"
+    android:fillViewport="true"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F6F6FB"
@@ -25,9 +25,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topbar">
@@ -36,8 +38,7 @@
                 android:id="@+id/constraint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dim20"
-                android:background="@drawable/white_rounded_top"
+                android:background="@drawable/bg_rounded_corner_white"
                 android:paddingStart="@dimen/dim20"
                 android:paddingEnd="@dimen/dim20"
                 android:paddingBottom="@dimen/dim40"
@@ -46,18 +47,17 @@
 
 
                 <TextView
-                    android:id="@+id/tvCourseName"
+                    android:id="@+id/tvCourseNameVal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:lines="2"
-                    android:padding="@dimen/_5sdp"
-                    android:text="The vocabulary of world of work Longer Title Sample"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_18ssp"
+                    android:maxLines="2"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="The vocabulary of world of work Longer Title Sample" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/lin1"
@@ -67,7 +67,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvCourseName">
+                    app:layout_constraintTop_toBottomOf="@+id/tvCourseNameVal">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="0dp"
@@ -93,9 +93,9 @@
                             android:drawableStart="@drawable/category"
                             android:drawablePadding="@dimen/dim10"
                             android:fontFamily="@font/roboto_regular"
-                            android:text="@string/category"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            tools:text="@string/category" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -124,9 +124,9 @@
                             android:drawableStart="@drawable/duration"
                             android:drawablePadding="@dimen/dim10"
                             android:fontFamily="@font/roboto_regular"
-                            android:text="@string/category"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            tools:text="@string/category" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -141,19 +141,42 @@
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/percentage"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lin1" />
 
-                <include
-                    android:id="@+id/seekBar"
-                    layout="@layout/inclued_seekbar"
+                <LinearLayout
+                    android:id="@+id/linProgress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPercentage" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvPercentage">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:theme="@style/ProgressAndRatingBar"
+                        tools:progress="40" />
+
+                    <TextView
+                        android:id="@+id/tvProgressWithPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:layout_marginStart="@dimen/dim20"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="0%"
+                        android:textColor="@color/green"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
 
                 <TextView
                     android:id="@+id/tvcoursename1"
@@ -168,51 +191,63 @@
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/seekBar" />
- <LinearLayout
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:orientation="horizontal"
-     android:id="@+id/l1"
-     app:layout_constraintTop_toBottomOf="@+id/tvcoursename1">
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnStartCourse"
+                    app:layout_constraintTop_toBottomOf="@+id/linProgress" />
+
+                <LinearLayout
+                    android:id="@+id/l1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:background="@drawable/bg_green"
-                    android:fontFamily="@font/light"
-                    android:text="@string/start_course"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/dim_15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:padding="@dimen/_5sdp"
-                    app:layout_constraintVertical_bias="0.0" />
-     <androidx.appcompat.widget.AppCompatButton
-         android:id="@+id/btnStartCourse2"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_marginTop="32dp"
-         android:backgroundTint="#E83C70"
-         android:background="@drawable/bg_green"
-         android:layout_weight="1"
-         android:layout_margin="@dimen/_5sdp"
-         android:padding="@dimen/_5sdp"
-         android:fontFamily="@font/light"
-         android:text="Rate this Course"
-         android:textAllCaps="false"
-         android:textColor="@color/white"
-         android:textSize="@dimen/dim_15sp"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="42dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/tvcoursename1">
 
-         app:layout_constraintVertical_bias="0.0" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnStartCourse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_green"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/start_course"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
 
- </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnContinueCourse"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_green"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/continue_course"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnRateThisCourse"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_red"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/rate_this_course"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/tvAboutThisCourse"
                     android:layout_width="wrap_content"
@@ -228,7 +263,7 @@
                 <LinearLayout
                     android:id="@+id/line"
                     android:layout_width="50dp"
-                    android:layout_height="8dp"
+                    android:layout_height="5dp"
                     android:layout_marginTop="@dimen/dim8"
                     android:background="#E83C70"
                     android:orientation="horizontal"
@@ -242,51 +277,63 @@
                     android:layout_marginTop="18dp"
                     android:fontFamily="@font/roboto_regular"
                     android:lineSpacingExtra="6dp"
-                    android:lines="8"
-                    android:text="@string/textvalue"
+                    android:maxLines="8"
                     android:textColor="#000000"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/line" />
+                    app:layout_constraintTop_toBottomOf="@+id/line"
+                    tools:text="@string/textvalue" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
+            <TextView
+
+
+                android:id="@+id/heading1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dim20"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="@dimen/dim20"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/what_you_can_learn"
+                android:textColor="@color/black"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraint">
+                app:layout_constraintTop_toBottomOf="@+id/constraint" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSousItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="20dp"  tools:itemCount="2"
+                tools:listitem="@layout/item_course_child" />
+
+            <ExpandableListView
+                android:visibility="gone"
+                android:id="@+id/expChaptersAndLessonsListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                android:childDivider="@null"
+                android:divider="@null"
+                android:dividerHeight="6dp"
+                android:groupIndicator="@null"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heading1"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_course_parent" />
 
 
-                <TextView
-                    android:id="@+id/heading1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/what_you_can_learn"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-
-                <ExpandableListView
-                    android:id="@+id/expChaptersAndLessonsListView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="4"
-                    tools:listitem="@layout/item_course_per" />
-
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

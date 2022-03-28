@@ -16,6 +16,7 @@ import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragmentDirections
+import com.tropfacil.mycourses.view.CourseDetailsFragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
 import com.tropfacil.ui.nav.account.password.UpdatePasswordFragment
 
@@ -89,7 +90,8 @@ open class BaseActivity : AppCompatActivity() {
 
 
                 }
-                WriteAMessageFragment::class.java.name-> supportFragmentManager.popBackStack()
+                WriteAMessageFragment::class.java.name -> supportFragmentManager.popBackStack()
+                CourseDetailsFragment::class.java.name->supportFragmentManager.popBackStack()
             }
         }
     }
@@ -101,9 +103,11 @@ open class BaseActivity : AppCompatActivity() {
 
     fun visitNewFragment(rootLayout: Int, fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .add(rootLayout,
+            .add(
+                rootLayout,
                 fragment,
-                fragment::class.java.name)
+                fragment::class.java.name
+            )
             .addToBackStack(null)
             .commit()
     }

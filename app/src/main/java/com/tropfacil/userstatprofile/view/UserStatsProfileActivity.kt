@@ -14,7 +14,7 @@ import com.tropfacil.ui.nav.account.email.UpdateEmailFragment
 import com.tropfacil.ui.nav.home.userstats.badges.EarnBadgesFragment
 import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 
-class UserStatsProfileActivity : BaseActivity(), HomeToCourseDetailsListener {
+class UserStatsProfileActivity : BaseActivity() {
     lateinit var binding: ActivityUserstatsProfileBinding
     lateinit var homeCourseListAdapter: HomeCourseListAdapter
     lateinit var homeAdapter: HomeAdapter
@@ -48,7 +48,7 @@ class UserStatsProfileActivity : BaseActivity(), HomeToCourseDetailsListener {
 
     fun setData() {
         binding.incTopbar.itemHeader.text = getString(R.string.earn_budges)
-        homeCourseListAdapter = HomeCourseListAdapter(this)
+        homeCourseListAdapter = HomeCourseListAdapter()
         binding.relrecentCourse.adapter = homeCourseListAdapter
         homeAdapter = HomeAdapter()
         binding.relInProgress.adapter = homeAdapter
@@ -57,10 +57,6 @@ class UserStatsProfileActivity : BaseActivity(), HomeToCourseDetailsListener {
         binding.incTopbar.itemHeader.text=getString(R.string.profile_statistics)
         binding.itemBadge.tvTitle.text=getString(R.string.my_badge)
 
-
-    }
-
-    override fun navigateToCourseDetailsScreen(courseId: Int) {
 
     }
 
