@@ -34,6 +34,7 @@ import com.tropfacil.main.view.MainActivity
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.search.view.SearchActivity
+import com.tropfacil.ui.allusertypes.auth.forgotpass.ForgotPasswordFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment
 import kotlinx.coroutines.flow.collect
 import org.json.JSONException
@@ -118,6 +119,8 @@ class LoginFragment : BaseActivity(), ResumeFragmentListener {
             //it.hideKeyboard()
             }
         binding.includeLayout.forgotPass.setOnClickListener {
+            startActivity(Intent(this@LoginFragment, ForgotPasswordFragment::class.java))
+
             //it.hideKeyboard()
            // findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
         }
