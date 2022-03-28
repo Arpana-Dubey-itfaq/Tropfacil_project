@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tropfacil.R
 import com.tropfacil.data.Parcour
+import com.tropfacil.data.Theme
 import com.tropfacil.databinding.ItemTabRecommededExercisenewBinding
 
 import com.tropfacil.main.view.MainActivity
 import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
 
 
-class HomeAdapternew( val context: Context,val parcours: List<Parcour>) : RecyclerView.Adapter<HomeAdapternew.PageHolder>() {
+class HomeAdapternew( val context: Context,val parcours: List<Parcour>,val theme: Theme) : RecyclerView.Adapter<HomeAdapternew.PageHolder>() {
 
 
     inner class ViewHolder(val bind: ItemTabRecommededExercisenewBinding) :
@@ -81,15 +82,28 @@ class HomeAdapternew( val context: Context,val parcours: List<Parcour>) : Recycl
 
     override fun onBindViewHolder(holder: PageHolder, position: Int) {
         val ItemsViewModel = parcours[position]
-        holder.textView.text =ItemsViewModel.libelle
-        holder.imgNext.setOnClickListener {
-            val optionsFrag = Course_chapter_detail_Fragment()
-            (context as MainActivity).getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment").addToBackStack(null)
-                .commit()
+        val Itemsnew=theme.sousthemes[position]
+        if(ItemsViewModel.libelle.isEmpty()) {
+            holder.textView.text = Itemsnew.libelle
+            holder.imgNext.setOnClickListener {
+                val optionsFrag = Course_chapter_detail_Fragment()
+                (context as MainActivity).getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment")
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }else {
+            holder.textView.text = ItemsViewModel.libelle
+            holder.imgNext.setOnClickListener {
+                val optionsFrag = Course_chapter_detail_Fragment()
+                (context as MainActivity).getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment")
+                    .addToBackStack(null)
+                    .commit()
+            }
+
+
         }
-
-
 
        // Glide.with(context).load("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.image).into(holder.bannerImage)
 

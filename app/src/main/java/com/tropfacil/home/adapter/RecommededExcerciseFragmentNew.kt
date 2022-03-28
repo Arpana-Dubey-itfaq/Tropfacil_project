@@ -43,7 +43,7 @@ class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment() {
     }
 
     fun setData() {
-        homeAdapter = HomeAdapternew(requireContext(),theme.parcours)
+        homeAdapter = HomeAdapternew(requireContext(),theme.parcours,theme)
         binding.relCourse.adapter = homeAdapter
     }
 

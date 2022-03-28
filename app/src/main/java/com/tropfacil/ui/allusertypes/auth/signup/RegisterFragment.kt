@@ -77,8 +77,10 @@ class RegisterFragment : BaseFragment() {
 
     }
     private fun clickListeners() {
-        binding.includeLayout.imageView3.setOnClickListener {
-            closeFragment()
+        binding.includeLayout.back.setOnClickListener {
+            findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
+
+            // closeFragment()
         }
         /*binding.llChangePassword.setOnClickListener {
             findNavController().navigate(AccountSettingsFragmentDirections.actionHomeToAccountSettingsToChangePassword())

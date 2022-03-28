@@ -192,6 +192,7 @@ val  s=""
 
         }
         binding.topbar.imgmessage.setOnClickListener {
+            (requireActivity() as BaseActivity).updateResumeFragment(this)
             val writeAMessageFragment = WriteAMessageFragment()
             (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
 

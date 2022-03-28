@@ -28,7 +28,7 @@
             app:srcCompat="@drawable/signup_header_bg" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
