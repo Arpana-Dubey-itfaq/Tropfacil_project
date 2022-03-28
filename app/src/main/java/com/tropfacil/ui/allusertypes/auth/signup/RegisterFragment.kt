@@ -1,6 +1,7 @@
 package com.tropfacil.ui.allusertypes.auth.signup
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -16,21 +17,30 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.app.leust.data.Data.Companion.token
 
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
+import com.tropfacil.AuthActivity
 import com.tropfacil.R
+import com.tropfacil.base.BaseActivity
 
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.closeAndResumePrevFrag
+import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.databinding.ActivityRegisterBinding
+import com.tropfacil.databinding.FragmentLoginBinding
+import com.tropfacil.main.view.MainActivity
+import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.model.RegisterRequest
 import com.tropfacil.network.service.SafeApiCall
+import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
 import com.tropfacil.utils.popups.SuccessOrFailurePopup
 import kotlinx.android.synthetic.main.activity_account_settings.view.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
-class RegisterFragment : BaseFragment() {
+class RegisterFragment : BaseActivity(), ResumeFragmentListener {
     //  private lateinit var binding: FragmentLoginBinding
     private val viewModel by inject<RegisterViewModel>()
     lateinit var binding: ActivityRegisterBinding
@@ -38,35 +48,35 @@ class RegisterFragment : BaseFragment() {
     private var qty = ""
     var spinner: Spinner? = null
     var textView_msg: TextView? = null
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = ActivityRegisterBinding.inflate(layoutInflater, container, false)
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //  initView()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initListeners()
-        /// setTextWatchers()
         initObservers()
-
         setupSpinner()
         clickListeners()
-
     }
+
+
+
+
     private fun clickListeners() {
-        binding.includeLayout.imageView3.setOnClickListener {
-            closeFragment()
+        binding.includeLayout.back.setOnClickListener {
+           // findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
+
+         //   closeAndResumePrevFrag(this, null)
+            val intent = Intent(this, LoginFragment::class.java)
+            this.startActivity(intent)
         }
-        /*binding.llChangePassword.setOnClickListener {
-            findNavController().navigate(AccountSettingsFragmentDirections.actionHomeToAccountSettingsToChangePassword())
-        }*/
+        binding.signin.setOnClickListener {
+            val intent = Intent(this, LoginFragment::class.java)
+            this.startActivity(intent)
+        }
     }
     private fun closeFragment() {
-        closeAndResumePrevFrag(requireActivity(),null)
+        closeAndResumePrevFrag(this,null)
     }
     private fun initObservers() {
         /* viewModel.showLoading.observe(viewLifecycleOwner, { showLoading ->
@@ -87,12 +97,12 @@ class RegisterFragment : BaseFragment() {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
-                        showErrorMsg(it.exception)
+                        //showErrorMsg(it.exception)
                     }
                     is SafeApiCall.SuccessRegister -> {
                         binding.progressBar.isVisible = false
-                        findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
-
+                        val intent = Intent(applicationContext, LoginFragment::class.java)
+                        applicationContext.startActivity(intent)
                     }
                     else -> {}
                 }
@@ -103,7 +113,7 @@ class RegisterFragment : BaseFragment() {
 
     private fun initListeners() {
         binding.signin.setOnClickListener {
-            it.hideKeyboard()
+           // it.hideKeyboard()
             // findNavController().navigate(LoginFragmentDirections.actionRegisterManuallyFragmentToLoginFragment())
         }
 
@@ -113,24 +123,24 @@ class RegisterFragment : BaseFragment() {
             }
     */
         binding.btnSignIn.setOnClickListener {
-            token = PreferenceProvider(requireContext()).getUserToken()
+            token = PreferenceProvider(this).getUserToken()
 
-            it.hideKeyboard()
+            //it.hideKeyboard()
             if (binding.nameEt.getText().toString().trim().isEmpty()) {
                 Toast.makeText(
-                    requireContext(), "Please enter Name",
+                    this, "Please enter Name",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.nameEt.requestFocus();
             } else if (binding.edtpernom.getText().toString().trim().isEmpty()) {
                 Toast.makeText(
-                    requireContext(), "Please enter lastname",
+                    this, "Please enter lastname",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.edtpernom.requestFocus();
             } else if (binding.edtemail.getText().toString().trim().isEmpty()) {
                 Toast.makeText(
-                    requireContext(), "Please enter email",
+                    this, "Please enter email",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.edtemail.requestFocus();
@@ -138,13 +148,13 @@ class RegisterFragment : BaseFragment() {
                     .matches()
             ) {
                 Toast.makeText(
-                    requireContext(), getString(R.string.validation_input_email_invalid),
+                    this, getString(R.string.validation_input_email_invalid),
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.edtemail.requestFocus();
             } else if (binding.usename.getText().toString().trim().isEmpty()) {
                 Toast.makeText(
-                    requireContext(), "Please enter username",
+                    this, "Please enter username",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.usename.requestFocus();
@@ -182,7 +192,7 @@ class RegisterFragment : BaseFragment() {
                 id: Long,
             ) {
 
-                //  binding.spinnernew.text = resources.getStringArray(R.array.civility_code)[position]
+                binding.spinnerTv.text = resources.getStringArray(R.array.civility_code)[position]
                 val text: String = binding.spinnernew.getSelectedItem().toString()
                 if (text.equals("Miss")) {
                     qty = "2"
@@ -282,15 +292,8 @@ class RegisterFragment : BaseFragment() {
             binding.tvLoginHere.paintFlags or Paint.UNDERLINE_TEXT_FLAG
     }*/
 
-    public fun showPopUp(popupMsg: String) {
-        SuccessOrFailurePopup.newInstance {
-            onConfirm = {
-                //  findNavController().navigate(RegisterManuallyFragmentDirections.actionRegisterManuallyFragmentToVerificationCodeFragment())
-            }
-            message = popupMsg
-            isSuccessPopUp = 1
-            successBtnName = getString(R.string.verify)
-        }.show(childFragmentManager, SuccessOrFailurePopup.TAG)
+
+    override fun onFragmentResume(bundle: Bundle?) {
 
     }
 }

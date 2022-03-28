@@ -16,7 +16,7 @@
             android:id="@+id/imgCourse"
             android:layout_width="@dimen/_500sdp"
             android:layout_height="300dp"
-             android:background="@drawable/img_bg_1"
+             android:background="@drawable/bannerimage"
              app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

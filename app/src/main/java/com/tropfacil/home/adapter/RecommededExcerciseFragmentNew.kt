@@ -22,7 +22,6 @@ class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment(), HomeToC
     lateinit var homeAdapter: HomeAdapternew
 
     private val homeViewModel by inject<HomeViewModel>()
-
     companion object {
         const val TAG = "RecommededExcerciseFragment"
 
@@ -46,8 +45,11 @@ class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment(), HomeToC
     }
 
     fun setData() {
-        if (theme.parcours.isNotEmpty()) {
-            homeAdapter = HomeAdapternew(requireContext(), theme.parcours, this)
+        if(!theme.parcours.isEmpty()) {
+            homeAdapter = HomeAdapternew(requireContext(), theme,true,this)
+            binding.relCourse.adapter = homeAdapter
+        }else{
+            homeAdapter = HomeAdapternew(requireContext(), theme,false,this)
             binding.relCourse.adapter = homeAdapter
         }
     }
