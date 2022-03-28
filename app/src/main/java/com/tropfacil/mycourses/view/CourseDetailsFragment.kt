@@ -2,6 +2,7 @@ package com.tropfacil.mycourses.view
 
 
 import android.os.Bundle
+import android.text.Html
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -73,7 +74,15 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
             binding.tvCourseNameVal.text = it
             binding.tvCategoryName.text = it
         }
-
+        binding.tvAboutThisCourse.isVisible = !TextUtils.isEmpty(sousThemeList.description)
+        binding.line.isVisible = !TextUtils.isEmpty(sousThemeList.description)
+        binding.tvCourseDesc.isVisible = !TextUtils.isEmpty(sousThemeList.description)
+        if(sousThemeList.description!=null && sousThemeList.description!=""){
+            binding.tvCourseDesc.text= Html.fromHtml(sousThemeList.description)
+        }
+        setSousThemeDataToAdapter()
+        binding.expChaptersAndLessonsListView.isVisible = false
+        binding.rvSousItems.isVisible = true
         //TODO needs to check for below items details from the api model proper keys
         /*   binding.tvAboutThisCourse.isVisible = !TextUtils.isEmpty(parCourse.description)
            binding.line.isVisible = !TextUtils.isEmpty(parCourse.description)
@@ -145,8 +154,9 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
             }
         else
             sousThemeList.icone.let {
+                val removedRes="/"+it.removePrefix("res:")
                 Glide.with(requireActivity())
-                    .load(BuildConfig.LOAD_IMAGE + it.removePrefix("res:"))
+                    .load(BuildConfig.LOAD_IMAGE +removedRes )
                     .placeholder(R.drawable.logo)
                     .into(binding.topbar.imgCourse)
             }
@@ -235,18 +245,11 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
             }
         }
         calculateProgressBarPercentage()
-        when (isForWhichCourse) {
-            true -> {
-                setParCourDataToExpandableAdapter()
-                binding.expChaptersAndLessonsListView.isVisible = true
-                binding.rvSousItems.isVisible = false
-            }
-            false -> {
-                setSousThemeDataToAdapter()
-                binding.expChaptersAndLessonsListView.isVisible = false
-                binding.rvSousItems.isVisible = true
-            }
-            else -> {}
+        if (isForWhichCourse) {
+            setParCourDataToExpandableAdapter()
+            binding.expChaptersAndLessonsListView.isVisible = true
+            binding.rvSousItems.isVisible = false
+
         }
     }
 
