@@ -3,7 +3,6 @@ package com.tropfacil.main.view
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -16,7 +15,7 @@ import com.tropfacil.home.view.Home1Fragment
 import com.tropfacil.home.view.HomeFragment
 import com.tropfacil.mycourses.view.Course_chapter_Fragment
 import com.tropfacil.mycourses.view.MyCourseFragment
-import com.tropfacil.myexcersise.view.MyExerciseFragment
+import com.tropfacil.ui.nav.exercices.MyExerciseFragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
 import com.tropfacil.ui.nav.profile.ProfileFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener

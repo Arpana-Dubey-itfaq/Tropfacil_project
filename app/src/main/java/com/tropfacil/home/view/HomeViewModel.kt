@@ -1,8 +1,10 @@
 package com.tropfacil.home.view
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 
 import com.tropfacil.base.BaseViewModel
+import com.tropfacil.data.Parcour
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.data.repository.AppRepository
 import com.tropfacil.network.service.SafeApiCall
@@ -14,8 +16,8 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-                    private val preferenceProvider: PreferenceProvider,
-                    private val appRepository: AppRepository
+    private val preferenceProvider: PreferenceProvider,
+    private val appRepository: AppRepository
 ) : BaseViewModel() {
 
     private val loginStateFlow: MutableStateFlow<SafeApiCall> = MutableStateFlow(SafeApiCall.Empty)
@@ -27,19 +29,23 @@ class HomeViewModel(
         syncItemsStateFlow
 
 
-    fun HomeData(authorization: String?) = launch {
-        syncItemsStateFlow.value = SafeApiCall.Loading
-        appRepository.HomeData(authorization)
-            .catch { e ->
-                Log.e("message Error", e.message.toString())
-                syncItemsStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
-            }.collect { data ->
 
-                Log.e("message success", data.themes.toString())
-                syncItemsStateFlow.value = SafeApiCall.Successhome(data.themes)
-               // Log.e("message111", data)
-              //  preferenceProvider.saveLoginDataToPref(data)
-                //loginStateFlow.value = SafeApiCall.Success(data)
-            }
-    }
+       // val parcorselist: MutableLiveData<ArrayList<Parcour>> = MutableLiveData()
+        fun HomeData(authorization: String?) = launch {
+            syncItemsStateFlow.value = SafeApiCall.Loading
+            appRepository.HomeData(authorization)
+                .catch { e ->
+                    Log.e("message Error", e.message.toString())
+                    syncItemsStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
+                }.collect { data ->
+
+                    Log.e("message success", data.themes.toString())
+                    syncItemsStateFlow.value = SafeApiCall.Successhome(data)
+
+                    // Log.e("message111", data)
+                    //  preferenceProvider.saveLoginDataToPref(data)
+                    //loginStateFlow.value = SafeApiCall.Success(data)
+                }
+        }
+
 }

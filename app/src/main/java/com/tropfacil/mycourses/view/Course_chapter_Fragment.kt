@@ -25,7 +25,7 @@ class Course_chapter_Fragment : BaseFragment() {
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var homeCourseAdapter: CourseListAdapter
     lateinit var homeCourseAdapter1: CourseDetailAdapter
-    lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapter
+    lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapterEvery
    // private var exoVideoPlayerProvider: ExoVideoPlayerProvider? = null
     private var orientationHandler: Handler? = null
     private var videoUrlActual: String? = null
@@ -48,7 +48,7 @@ class Course_chapter_Fragment : BaseFragment() {
     fun setData() {
         homeCourseAdapter = CourseListAdapter()
            binding.relCourse1.adapter=homeCourseAdapter
-        viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
+        viewPagerSchudeleCourseAdapter = ViewPagerAdapterEvery(requireActivity(), 5)
 
         homeCourseAdapter1 = CourseDetailAdapter()
         binding.relCourse12.adapter = homeCourseAdapter1

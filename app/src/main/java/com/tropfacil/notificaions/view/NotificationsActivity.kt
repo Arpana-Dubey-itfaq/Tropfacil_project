@@ -1,16 +1,9 @@
 package com.tropfacil.notificaions.view
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
-import com.tropfacil.databinding.ActivityHomeBinding
 import com.tropfacil.databinding.ActivityNotificationsBinding
-import com.tropfacil.databinding.ActivitySearchBinding
-import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
-import com.tropfacil.home.adapter.ViewPagerAdapter
 import com.tropfacil.notificaions.adapter.NotificationListAdapter
 
 class NotificationsActivity : BaseActivity() {

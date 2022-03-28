@@ -21,6 +21,8 @@ class Constants {
         //const val BASE_URL = "https://demo2.itfaq.cloud/leust-web/"
         const val BASE_URL = "https://demo2.itfaq.cloud/leust-web/public/" //old base usre
 
+        const val BASE_IMAGE_URL ="https://rc-tropfacile.onlineformapro.com/"
+
         //Regular Expressions
         const val PASSWORD_REGX = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{5,20}\$"
         const val ALPHA_NUMERIC_REGX = "[A-Za-z0-9\\_\\\"]+\$"//"^[a-zA-Z0-9]+$"
@@ -31,6 +33,7 @@ class Constants {
         val MYCOURSESFragment = 2
         val MYEXERCISEFragment = 3
         var FRAGMENT = 1
+        var EXERCICES_INFO_LIST ="Exercices Info List"
 
 
         private fun isIntentAvailable(ctx: Context, intent: Intent): Boolean {

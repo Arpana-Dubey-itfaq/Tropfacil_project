@@ -3,8 +3,10 @@ package com.tropfacil.data.repository
 
 
 import com.example.example.Homeresponse
+import com.tropfacil.data.home_response
 
 import com.tropfacil.model.*
+import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.ApiService
@@ -16,12 +18,12 @@ class AppRepositoryImpl(private val apiService: ApiService) {
 
         apiService.login(loginReq.loginName, loginReq.password)
 
-    suspend fun HomeData(authorization: String?): Homeresponse =
+    suspend fun HomeData(authorization: String?): home_response =
 
         apiService.homeData(authorization)
 
 
-    suspend fun register(registerReq: RegisterRequest): RegisterRes =
+    suspend fun register(registerReq: RegisterRequest): Register_response =
         apiService.users(
             registerReq.nom,
             registerReq.prenom,
@@ -40,8 +42,14 @@ class AppRepositoryImpl(private val apiService: ApiService) {
     suspend fun updateUser(id:String,nom:String?,prenom:String?): BaseResponse =
         apiService.updateUser(id,nom,prenom)
 
+    suspend fun sendRating(token: String, type: String?, idelement: String?,note: String?): BaseResponse =
+        apiService.sendRating(token, type, idelement,note)
+
     suspend fun getProfilePicture(token:String?): ResponseBody =
         apiService.getProfilePicture(token)
+
+    suspend fun getExercices(token:String?): ExercicesListResponse =
+        apiService.getExercices(token)
 
     suspend fun changeEmail(registerReq: RegisterRequest): BaseResponse =
         apiService.changeEmail(

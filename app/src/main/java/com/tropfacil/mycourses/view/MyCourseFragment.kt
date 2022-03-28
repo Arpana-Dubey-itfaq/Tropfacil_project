@@ -1,29 +1,26 @@
 package com.tropfacil.mycourses.view
 
+
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import com.tropfacil.R
+import com.tropfacil.base.BaseActivity
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentHomeBinding
 import com.tropfacil.home.adapter.HomeCourseAdapter
-import com.tropfacil.util.interfaces.HomeOptionsListener
-import com.tropfacil.R
-
-
-import androidx.core.content.ContextCompat
-import com.tropfacil.base.BaseActivity
 import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
-import com.tropfacil.ui.nav.account.email.UpdateEmailFragment
 import com.tropfacil.util.Constants
-import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
+import com.tropfacil.util.interfaces.HomeOptionsListener
 
 
-class MyCourseFragment : BaseFragment(), HomeToCourseDetailsListener {
+class MyCourseFragment : BaseFragment() {
     lateinit var binding: FragmentHomeBinding
     lateinit var homeOptionsListener: HomeOptionsListener
     lateinit var homeCourseAdapter: HomeCourseAdapter
@@ -46,7 +43,7 @@ class MyCourseFragment : BaseFragment(), HomeToCourseDetailsListener {
 
 
     fun setData() {
-        homeCourseAdapter = HomeCourseAdapter(this)
+        homeCourseAdapter = HomeCourseAdapter()
         binding.relCourse.adapter = homeCourseAdapter
 
         binding.incCountine.cardPlay.visibility = View.VISIBLE
@@ -135,7 +132,5 @@ class MyCourseFragment : BaseFragment(), HomeToCourseDetailsListener {
         })*/
     }
 
-    override fun navigateToCourseDetailsScreen(courseId: Int) {
-        TODO("Not yet implemented")
-    }
+
 }

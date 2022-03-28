@@ -14,7 +14,7 @@
     <!--Veuillez-vous connecter pour continuer.-->
     <string name="login_to_continue">Sign in.</string>
     <!--Email or Username-->
-    <string name="email_username">Email ou nom d\'utilisateur</string>
+    <string name="email_username">Username</string>
     <!--Password-->
     <string name="password">Mot de passe</string>
     <!--Show-->
@@ -45,8 +45,8 @@
     <string name="saturday">Samedi</string>
     <!--Sign Up-->
     <string name="sign_up">S\'inscrire</string>
-    <string name="txt_reset_passwords">Reset password</string>
-    <string name="register_here">Don\'t have an account? Register here</string>
+    <string name="txt_reset_passwords">Your new password must be different from your previous used passwords.</string>
+    <string name="register_here">Don\'t have an account?<font color='#146FF8'>Register here</font></string>
     <string name="txt_your_password">Enter the email associated with your account and we\'ll send an email with a link to reset your password.</string>
     <string name="stay_login">Stay login</string>
     <string name="forgot_passwordhint">Forgot Password?</string>
@@ -73,7 +73,9 @@
     <string name="my_exercises">My Exercises</string>
     <string name="my_courses">My Courses</string>
     <string name="countinue">Countinue</string>
+    <string name="registering_your_account">By registering your account. You agree to our <font color='#146FF8'>terms and conditions.</font></string>
 
+    <string name="already_have_an_account">Already have an account? <font color='#146FF8'>Sign In here</font></string>
     <string name="congratulations_n_you_have_successfully_completed_this_course">Congratulations!\n You have successfully completed this course!</string>
     <string name="excellent">Excellent</string>
     <string name="write_your_review_optional">Write your Review(Optional)</string>
@@ -148,6 +150,18 @@
     <!-- 2 Lessons-->
     <string name="lessons_count">%d Lessons</string>
     <string name="lesson_count">%d Lesson</string>
+    <!--Rate this Course-->
+    <string name="rate_this_course">Rate this Course</string>
+
+    <!--Time spent: 0 minutes-->
+    <string name="time_spent_in_min">Time spent: %dmin</string>
+    <string name="time_spent_in_hr_min">Time spent: %dhr %dmin</string>
+
+    <string name="vocabularies">Vocabulaire et grammaire</string>
+    <string name="continue_course">Continue</string>
+
+
+
     <string name="lbl_civility">Civility</string>
     <string name="lbl_name">Name</string>
     <string name="lbl_type_ur_lastname">Enter your last name</string>
@@ -158,13 +172,12 @@
     <string name="lbl_save">Save</string>
     <string name="lbl_profile">Profile</string>
 
+    <string name="str_my_exercices">My Exercices</string>
+    <string name="lbl_earn_badges">Earn badges</string>
+    <string name="lbl_my_badges">My Badges</string>
+    <string name="validation_input_email_invalid">"Email Id is invalid    "</string>
     <string-array name="civility_code">
         <item>Mr</item>
-        <item>Ms</item>
-        <item>Mrs</item>
+        <item>Miss</item>
     </string-array>
-
-    <!--Time spent: 0 minutes-->
-    <string name="time_spent_in_min">Time spent: %f minutes</string>
-    <string name="vocabularies">Vocabulaire et grammaire</string>
 </resources>

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 
 import androidx.lifecycle.lifecycleScope
@@ -21,7 +22,7 @@ import org.koin.android.ext.android.inject
 
 class ForgotPasswordFragment : BaseFragment() {
 
-    private lateinit var binding:ActivityForgetPasswordBinding
+    private lateinit var binding: ActivityForgetPasswordBinding
     private val viewModel by inject<ForgotPasswordViewModel>()
     private var flag = false
 
@@ -40,18 +41,24 @@ class ForgotPasswordFragment : BaseFragment() {
     }
 
     private fun initListeners() {
-       /* binding.ivClose.setOnClickListener {
-            findNavController().popBackStack()
-        }
-*/
+        /* binding.ivClose.setOnClickListener {
+             findNavController().popBackStack()
+         }
+ */
 
 
         binding.btnCreateAccount.setOnClickListener {
             //it.hideKeyboard()
-           // if (isValidForm()) {
+            if (binding.etEmailUsername.getText().toString().trim().isEmpty()) {
+                Toast.makeText(
+                    requireContext(), "Please enter Username",
+                    Toast.LENGTH_SHORT
+                ).show()
+                binding.etEmailUsername.requestFocus();
+            } else {
                 viewModel.forgotPassword(binding.etEmailUsername.text.toString())
                 flag = true
-          //  }
+            }
         }
     }
 
@@ -64,16 +71,14 @@ class ForgotPasswordFragment : BaseFragment() {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
-                        showErrorMsg(it.exception.toString())
+
+                        // showErrorMsg(it.exception.toString())
                     }
-                    is SafeApiCall.Success -> {
+                    is SafeApiCall.SuccessForgot -> {
                         binding.progressBar.isVisible = false
-                        val data = it.data as ForgotPasswordRes
-                        Log.e("##OPEN-->", "POPUP")
-                        if (flag) {
-                            flag = false
-                            showPopUp(data.response.success)
-                        }
+                        findNavController().navigate(
+                            ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToResetPasswordFragment()
+                        )
                     }
                     else -> {
                     }
@@ -86,30 +91,31 @@ class ForgotPasswordFragment : BaseFragment() {
         findNavController().navigate(
             ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToResetPasswordFragment()
         )
-     /*   SuccessOrFailurePopup.newInstance {
-            onConfirm =
-                {
+        /*   SuccessOrFailurePopup.newInstance {
+               onConfirm =
+                   {
 
-                    findNavController().navigate(
-                        ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToResetPasswordFragment()
-                    )
-                }
-            message = "Link sent successfully to your email.\nPlease check your email."
-            successBtnName = getString(R.string.ok)
-            isSuccessPopUp = 1
-            cancellable = false
-        }.show(childFragmentManager, SuccessOrFailurePopup.TAG)
-*/    }
+                       findNavController().navigate(
+                           ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToResetPasswordFragment()
+                       )
+                   }
+               message = "Link sent successfully to your email.\nPlease check your email."
+               successBtnName = getString(R.string.ok)
+               isSuccessPopUp = 1
+               cancellable = false
+           }.show(childFragmentManager, SuccessOrFailurePopup.TAG)
+   */
+    }
 
-   /* private fun isValidForm(): Boolean {
-        var isValid = true
-        val email = binding.etEmailUsername.text.toString()
-        if (!isValidEmailId(email)) {
-            isValid = false
-            binding.tvErrEmailAddress.visible()
-            binding.tvErrEmailAddress.text = getString(R.string.err_email_id)
-        } else binding.tvErrEmailAddress.gone()
+    /* private fun isValidForm(): Boolean {
+         var isValid = true
+         val email = binding.etEmailUsername.text.toString()
+         if (!isValidEmailId(email)) {
+             isValid = false
+             binding.tvErrEmailAddress.visible()
+             binding.tvErrEmailAddress.text = getString(R.string.err_email_id)
+         } else binding.tvErrEmailAddress.gone()
 
-        return isValid
-    }*/
+         return isValid
+     }*/
 }

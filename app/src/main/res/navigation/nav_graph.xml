@@ -89,7 +89,9 @@
         android:name="com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment"
         android:label="LoginFragment"
         tools:layout="@layout/activity_register">
-
+        <action
+            android:id="@+id/action_initialFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
         <!--  <action
               android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
               app:destination="@id/forgotPasswordFragment" />
