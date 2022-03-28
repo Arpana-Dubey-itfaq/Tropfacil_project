@@ -21,43 +21,42 @@ import androidx.navigation.fragment.findNavController
 
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import com.tropfacil.AuthActivity
 import com.tropfacil.R
+import com.tropfacil.base.BaseActivity
 
 import com.tropfacil.base.BaseFragment
+import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.databinding.ActivityLoginBinding
+import com.tropfacil.databinding.ActivityRateBinding
 import com.tropfacil.databinding.FragmentLoginBinding
 import com.tropfacil.main.view.MainActivity
 import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.search.view.SearchActivity
+import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment
 import kotlinx.coroutines.flow.collect
 import org.json.JSONException
 import org.json.JSONObject
 import org.koin.android.ext.android.inject
 
-class LoginFragment : BaseFragment() {
+class LoginFragment : BaseActivity(), ResumeFragmentListener {
   //  private lateinit var binding: FragmentLoginBinding
     private val viewModel by inject<LoginViewModel>()
     lateinit var binding: ActivityLoginBinding
     private lateinit var email: String
     private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
     private lateinit var password: String
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = ActivityLoginBinding.inflate(layoutInflater, container, false)
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        // initView()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initListeners()
         initObservers()
-        //   callbackManager = CallbackManager.Factory.create()
 
     }
+
 
 
     private fun initObservers() {
@@ -73,7 +72,7 @@ class LoginFragment : BaseFragment() {
                     }
                     is SafeApiCall.SuccessLogin -> {
                         binding.progressBar.isVisible = false
-                        startActivity(Intent(requireContext(), MainActivity::class.java))
+                        startActivity(Intent(this@LoginFragment, MainActivity::class.java))
 
                         //viewModel.syncGuestItems(getUUID())
                     }
@@ -114,13 +113,13 @@ class LoginFragment : BaseFragment() {
         }
 
         binding.signupTxt.setOnClickListener {
+            val intent = Intent(this, RegisterFragment::class.java)
+            this.startActivity(intent)
             //it.hideKeyboard()
-
-            findNavController().navigate(LoginFragmentDirections.actionRegsterFragment())
-        }
+            }
         binding.includeLayout.forgotPass.setOnClickListener {
             //it.hideKeyboard()
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
+           // findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
         }
         email= binding.etEmailUsername.text.toString()
         password=binding.relPassword.editPassword.text.toString()
@@ -128,13 +127,13 @@ class LoginFragment : BaseFragment() {
             //  it.hideKeyboard()
              if (binding.etEmailUsername.text.toString().trim().isEmpty()) {
                  Toast.makeText(
-                     requireContext(), "Please enter username",
+                     this, "Please enter username",
                      Toast.LENGTH_SHORT
                  ).show()
                  binding.etEmailUsername.requestFocus();
              } else if (binding.relPassword.editPassword.text.toString().trim().isEmpty()) {
                  Toast.makeText(
-                     requireContext(), "Please enter password",
+                     this, "Please enter password",
                      Toast.LENGTH_SHORT
                  ).show()
                  binding.relPassword.editPassword.requestFocus();
@@ -228,7 +227,7 @@ fun validateEmail(): Boolean {
         isValid = false
 
         Toast.makeText(
-            requireContext(), "Valid email address",
+           this, "Valid email address",
             Toast.LENGTH_SHORT
         ).show()
     } /*else {
@@ -242,12 +241,16 @@ fun validateEmail(): Boolean {
     if (TextUtils.isEmpty(password)) {
         isValid = false
         Toast.makeText(
-            requireContext(), "Please enter password",
+           this, "Please enter password",
             Toast.LENGTH_SHORT
         ).show()    }
 
     return isValid
 }
+
+    override fun onFragmentResume(bundle: Bundle?) {
+
+    }
 
 }
    /* private fun isValidForm(): Boolean {

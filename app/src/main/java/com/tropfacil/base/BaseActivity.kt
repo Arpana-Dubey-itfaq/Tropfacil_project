@@ -1,8 +1,11 @@
 package com.tropfacil.base
 
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.view.Window
 import android.view.WindowManager
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -10,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.tropfacil.R
 import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.message.view.WriteAMessageFragment
+import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragmentDirections
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
@@ -24,6 +28,21 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         updateStatusBarColor(ContextCompat.getColor(this, android.R.color.white))
+    }
+    fun showHidePassword(password: EditText, imgEye: ImageView) {
+        if (password.text.toString().isNotEmpty()) {
+            if (password.transformationMethod == null) {
+                imgEye.setImageResource(R.drawable.icon_show_password)
+                password.transformationMethod = PasswordTransformationMethod()
+            } else {
+                imgEye.setImageResource(R.drawable.icon_hide_password)
+                password.transformationMethod = null
+            }
+            password.setSelection(password.length())
+        } else {
+            imgEye.setImageResource(R.drawable.icon_show_password)
+            password.transformationMethod = PasswordTransformationMethod()
+        }
     }
 
     /** Hide the status bar*/
@@ -59,6 +78,14 @@ open class BaseActivity : AppCompatActivity() {
                 }
                 RegisterFragment::class.java.name ->{
                    // findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
+                    supportFragmentManager.popBackStack()
+
+
+                }
+
+                LoginFragment::class.java.name ->{
+                    // findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
+                    supportFragmentManager.popBackStack()
 
 
                 }

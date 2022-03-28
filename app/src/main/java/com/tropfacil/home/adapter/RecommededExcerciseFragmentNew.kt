@@ -4,15 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
-import com.app.leust.data.Data
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.data.Theme
-import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.databinding.FragmentTabRecommededExerciseBinding
 import com.tropfacil.home.view.HomeViewModel
-import com.tropfacil.network.service.SafeApiCall
-import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
 class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment() {
@@ -43,8 +38,13 @@ class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment() {
     }
 
     fun setData() {
-        homeAdapter = HomeAdapternew(requireContext(),theme.parcours,theme)
-        binding.relCourse.adapter = homeAdapter
+        if(!theme.parcours.isEmpty()) {
+            homeAdapter = HomeAdapternew(requireContext(), theme,true)
+            binding.relCourse.adapter = homeAdapter
+        }else{
+            homeAdapter = HomeAdapternew(requireContext(), theme,false)
+            binding.relCourse.adapter = homeAdapter
+        }
     }
 
 

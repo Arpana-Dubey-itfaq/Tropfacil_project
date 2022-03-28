@@ -1,11 +1,13 @@
 package com.tropfacil.ui.nav.account
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.lifecycleScope
+import com.tropfacil.AuthActivity
 import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.base.BaseFragment
@@ -84,8 +86,8 @@ class AccountSettingsFragment : BaseFragment() {
     }
 
     private fun navigateToLoginScreen() {
-        val loginFragment = LoginFragment()
-        (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, loginFragment)
+        val intent = Intent(requireContext(), LoginFragment::class.java)
+        this.startActivity(intent)
     }
     private fun navigateToUpdateEmailScreen() {
         val updateEmailFragment = UpdateEmailFragment()

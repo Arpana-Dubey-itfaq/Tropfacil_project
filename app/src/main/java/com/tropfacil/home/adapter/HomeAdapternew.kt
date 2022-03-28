@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.tropfacil.R
-import com.tropfacil.data.Parcour
 import com.tropfacil.data.Theme
 import com.tropfacil.databinding.ItemTabRecommededExercisenewBinding
 
@@ -17,13 +15,14 @@ import com.tropfacil.main.view.MainActivity
 import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
 
 
-class HomeAdapternew( val context: Context,val parcours: List<Parcour>,val theme: Theme) : RecyclerView.Adapter<HomeAdapternew.PageHolder>() {
+class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Boolean) :
+    RecyclerView.Adapter<HomeAdapternew.PageHolder>() {
 
 
     inner class ViewHolder(val bind: ItemTabRecommededExercisenewBinding) :
         RecyclerView.ViewHolder(bind.root)
-   // lateinit var binding: ItemTabRecommededExercisenewBinding
-   // lateinit var context: Context
+    // lateinit var binding: ItemTabRecommededExercisenewBinding
+    // lateinit var context: Context
 
     /*override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageHolder {
         context = parent.context
@@ -49,9 +48,9 @@ class HomeAdapternew( val context: Context,val parcours: List<Parcour>,val theme
     }*/
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageHolder =
         PageHolder(
-            LayoutInflater.from(context).inflate(R.layout.item_tab_recommeded_exercisenew, parent, false)
+            LayoutInflater.from(context)
+                .inflate(R.layout.item_tab_recommeded_exercisenew, parent, false)
         )
-
 
 
     inner class PageHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -62,55 +61,61 @@ class HomeAdapternew( val context: Context,val parcours: List<Parcour>,val theme
 
         // imgNext
     }
-        // sets the image to the imageview from our itemHolder class
-       /* binding.imgCourse.set("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.image)
-        Glide.with(context).load(it).into(holder.imgProduct)
-        Glide.with(this).load("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.parcours.i).into(imageView);
-        for (i in 0 until ti.length()) {
-            // ID
-            val id = jsonArray.getJSONObject(i).getString("id")
-            Log.i("ID: ", id)
-        }
+    // sets the image to the imageview from our itemHolder class
+    /* binding.imgCourse.set("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.image)
+     Glide.with(context).load(it).into(holder.imgProduct)
+     Glide.with(this).load("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.parcours.i).into(imageView);
+     for (i in 0 until ti.length()) {
+         // ID
+         val id = jsonArray.getJSONObject(i).getString("id")
+         Log.i("ID: ", id)
+     }
 
-            // sets the text to the textview from our itemHolder class
-        holder.textView.text = ItemsViewModel.text
+         // sets the text to the textview from our itemHolder class
+     holder.textView.text = ItemsViewModel.text
 */
 
     override fun getItemCount(): Int {
-        return parcours.size
+        if (isboolean) {
+            return theme.parcours.size
+        } else {
+            return theme.sousthemes.size
+        }
     }
+        override fun onBindViewHolder(holder: PageHolder, position: Int) {
+           if(isboolean){
+               val ItemsViewModel = theme.parcours[position]
+               holder.textView.text = ItemsViewModel.libelle
+               holder.imgNext.setOnClickListener {
+                   val optionsFrag = Course_chapter_detail_Fragment()
+                   (context as MainActivity).getSupportFragmentManager().beginTransaction()
+                       .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment")
+                       .addToBackStack(null)
+                       .commit()
+               }
+           }else{
 
-    override fun onBindViewHolder(holder: PageHolder, position: Int) {
-        val ItemsViewModel = parcours[position]
-        val Itemsnew=theme.sousthemes[position]
-        if(ItemsViewModel.libelle.isEmpty()) {
-            holder.textView.text = Itemsnew.libelle
-            holder.imgNext.setOnClickListener {
-                val optionsFrag = Course_chapter_detail_Fragment()
-                (context as MainActivity).getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment")
-                    .addToBackStack(null)
-                    .commit()
-            }
-        }else {
-            holder.textView.text = ItemsViewModel.libelle
-            holder.imgNext.setOnClickListener {
-                val optionsFrag = Course_chapter_detail_Fragment()
-                (context as MainActivity).getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment")
-                    .addToBackStack(null)
-                    .commit()
-            }
+                val Itemsnew = theme.sousthemes[position]
+              // Log.debug("valuedata",Itemsnew.toString())
+               holder.textView.text = Itemsnew.libelle
+               holder.imgNext.setOnClickListener {
+                   val optionsFrag = Course_chapter_detail_Fragment()
+                   (context as MainActivity).getSupportFragmentManager().beginTransaction()
+                       .replace(R.id.fragment_container, optionsFrag, "MyCourseFragment")
+                       .addToBackStack(null)
+                       .commit()
+               }
 
+           }
+
+
+
+            // Glide.with(context).load("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.image).into(holder.bannerImage)
 
         }
 
-       // Glide.with(context).load("https://rc-tropfacile.onlineformapro.com/"+ItemsViewModel.image).into(holder.bannerImage)
-
+        /*  fun updateData(missionList: List<MissionData>) {
+              list = missionList
+              notifyDataSetChanged()
+          }*/
     }
-
-    /*  fun updateData(missionList: List<MissionData>) {
-          list = missionList
-          notifyDataSetChanged()
-      }*/
-}
