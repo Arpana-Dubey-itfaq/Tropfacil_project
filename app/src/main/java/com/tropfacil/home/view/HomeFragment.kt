@@ -19,10 +19,9 @@ import com.app.leust.data.Data.Companion.header
 import com.app.leust.data.Data.Companion.nom
 import com.app.leust.data.Data.Companion.pernom
 import com.app.leust.data.Data.Companion.token
-import com.tropfacil.data.home_response
 import com.tropfacil.base.BaseActivity
-import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.common.interfaces.ResumeFragmentListener
+import com.tropfacil.data.home_response
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.home.adapter.*
 
@@ -32,12 +31,11 @@ import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.userstatprofile.view.UserStatsProfileActivity
 import com.tropfacil.util.Constants
-import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
 
-class HomeFragment : BaseFragment(), HomeToCourseDetailsListener {
+class HomeFragment : BaseFragment(),  ResumeFragmentListener {
    // private val homeViewModel: HomeViewModel by viewModel()
     private val homeViewModel by inject<HomeViewModel>()
     lateinit var binding: FragmentHomeBinding
@@ -117,7 +115,7 @@ class HomeFragment : BaseFragment(), HomeToCourseDetailsListener {
 
 
     fun setData(bannersResponse: home_response) {
-        homeCourseAdapter = HomeCourseAdapter(this)
+        homeCourseAdapter = HomeCourseAdapter()
         binding.relCourse.adapter = homeCourseAdapter
         viewPagerExcerAdapter = ViewPagerAdapterEvery(requireActivity(), 5)
         viewPagerSchudeleCourseAdapter = ViewPagerAdapterNew(requireActivity(),bannersResponse.themes)
@@ -166,8 +164,7 @@ class HomeFragment : BaseFragment(), HomeToCourseDetailsListener {
                     is SafeApiCall.Successhome -> {
                         binding.progressBar.isVisible = false
                         homeViewModel._syncItemsStateFlow.value
-
-                        loadBannersList(homeresponse.data as home_response)
+                        loadBannersList(homeresponse.data)
 
                         //viewModel.syncGuestItems(getUUID())
                     }
@@ -192,6 +189,7 @@ val  s=""
 
         }
         binding.topbar.imgmessage.setOnClickListener {
+            (requireActivity() as BaseActivity).updateResumeFragment(this)
             val writeAMessageFragment = WriteAMessageFragment()
             (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
 
@@ -273,9 +271,9 @@ val  s=""
     }
 
 
-    override fun navigateToCourseDetailsScreen(courseId: Int) {
-    }
 
+    override fun onFragmentResume(bundle: Bundle?) {
+    }
 
 
 }

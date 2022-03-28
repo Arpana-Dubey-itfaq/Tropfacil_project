@@ -1,9 +1,6 @@
 package com.tropfacil.ui.allusertypes.auth.signup
 
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Paint
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -14,39 +11,23 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.ArrayAdapter
 
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.app.leust.data.Data
 import com.app.leust.data.Data.Companion.token
 
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.Task
 import com.tropfacil.R
 
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.data.provider.PreferenceProvider
-import com.tropfacil.databinding.ActivityLoginBinding
 import com.tropfacil.databinding.ActivityRegisterBinding
-import com.tropfacil.databinding.FragmentLoginBinding
-import com.tropfacil.main.view.MainActivity
 import com.tropfacil.model.RegisterRequest
-import com.tropfacil.mycourses.view.Course_chapter_detail_Fragment
-import com.tropfacil.network.request.LoginRequest
 import com.tropfacil.network.service.SafeApiCall
-import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
-import com.tropfacil.ui.allusertypes.auth.login.LoginFragmentDirections
 import com.tropfacil.utils.popups.SuccessOrFailurePopup
 import kotlinx.android.synthetic.main.activity_account_settings.view.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import org.json.JSONException
-import org.json.JSONObject
 import org.koin.android.ext.android.inject
 
 class RegisterFragment : BaseFragment() {
