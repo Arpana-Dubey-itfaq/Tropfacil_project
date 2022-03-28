@@ -154,8 +154,9 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
             }
         else
             sousThemeList.icone.let {
+                val removedRes="/"+it.removePrefix("res:")
                 Glide.with(requireActivity())
-                    .load(BuildConfig.LOAD_IMAGE + it.removePrefix("res:"))
+                    .load(BuildConfig.LOAD_IMAGE +removedRes )
                     .placeholder(R.drawable.logo)
                     .into(binding.topbar.imgCourse)
             }
