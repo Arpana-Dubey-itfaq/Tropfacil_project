@@ -15,7 +15,6 @@ import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentExcerciseBinding
-import com.tropfacil.home.adapter.ViewPagerAdapter
 import com.tropfacil.message.view.WriteAMessageFragment
 import com.tropfacil.model.exercices.ExercicesInfoList
 import com.tropfacil.model.exercices.ExercicesListResponse
@@ -35,7 +34,7 @@ class MyExerciseFragment : BaseFragment() {
     lateinit var binding: FragmentExcerciseBinding
     private val viewModel by inject<ExercicesViewModel>()
     lateinit var homeOptionsListener: HomeOptionsListener
-    lateinit var viewPagerExcerAdapter: ViewPagerAdapter
+  //  lateinit var viewPagerExcerAdapter: ViewPagerAdapter
     private var exerciseList:List<ExercicesInfoList> = ArrayList()
     private var exercicesTabAdapter:ExercicesTabAdapter? =null
     companion object {

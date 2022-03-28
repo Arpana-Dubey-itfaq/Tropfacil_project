@@ -6,5 +6,7 @@ class Data {
         var token: String? = ""
         var header: String? = ""
         var refreshToken: String? = ""
+        var nom:String?=""
+        var pernom:String?=""
     }
 }

@@ -41,7 +41,7 @@ class LoginFragment : BaseFragment() {
     lateinit var binding: ActivityLoginBinding
     private lateinit var email: String
     private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
-
+    private lateinit var password: String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -115,6 +115,7 @@ class LoginFragment : BaseFragment() {
 
         binding.signupTxt.setOnClickListener {
             //it.hideKeyboard()
+
             findNavController().navigate(LoginFragmentDirections.actionRegsterFragment())
         }
         binding.includeLayout.forgotPass.setOnClickListener {
@@ -122,18 +123,40 @@ class LoginFragment : BaseFragment() {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
         }
         email= binding.etEmailUsername.text.toString()
+        password=binding.relPassword.editPassword.text.toString()
          binding.btnSignIn.setOnClickListener {
             //  it.hideKeyboard()
-            if (!validateEmail()) {
+             if (binding.etEmailUsername.text.toString().trim().isEmpty()) {
+                 Toast.makeText(
+                     requireContext(), "Please enter username",
+                     Toast.LENGTH_SHORT
+                 ).show()
+                 binding.etEmailUsername.requestFocus();
+             } else if (binding.relPassword.editPassword.text.toString().trim().isEmpty()) {
+                 Toast.makeText(
+                     requireContext(), "Please enter password",
+                     Toast.LENGTH_SHORT
+                 ).show()
+                 binding.relPassword.editPassword.requestFocus();
+             } else {
+                 //Call your API/function here
+                 val loginRequest = LoginRequest(
+                     loginName = binding.etEmailUsername.text.toString(),
+                     password = binding.relPassword.editPassword.text.toString()
+                 )
+
+                 viewModel.loginUser(loginRequest)
+             }
+           /* if (!validateEmail()) {
                 val loginRequest = LoginRequest(
                     loginName = email,
-                    password = binding.relPassword.editPassword.text.toString(),
+                    password = password
                 )
 
                 viewModel.loginUser(loginRequest)
                // startActivity(Intent(requireContext(), MainActivity::class.java))
 
-            }
+            }*/
         }
 
         /* binding.imgPassword.setOnClickListener {
@@ -201,20 +224,27 @@ class LoginFragment : BaseFragment() {
     }*/
 fun validateEmail(): Boolean {
     var isValid = true
-    if (email.matches(emailPattern.toRegex())) {
+    if (TextUtils.isEmpty(email)) {
+        isValid = false
+
         Toast.makeText(
             requireContext(), "Valid email address",
             Toast.LENGTH_SHORT
         ).show()
-    } else {
+    } /*else {
         isValid = false
 
         Toast.makeText(
             requireContext(), "Invalid email address",
             Toast.LENGTH_SHORT
         ).show()
-    }
-
+    }*/
+    if (TextUtils.isEmpty(password)) {
+        isValid = false
+        Toast.makeText(
+            requireContext(), "Please enter password",
+            Toast.LENGTH_SHORT
+        ).show()    }
 
     return isValid
 }

@@ -45,7 +45,7 @@
     <string name="saturday">Samedi</string>
     <!--Sign Up-->
     <string name="sign_up">S\'inscrire</string>
-    <string name="txt_reset_passwords">Reset password</string>
+    <string name="txt_reset_passwords">Your new password must be different from your previous used passwords.</string>
     <string name="register_here">Don\'t have an account?<font color='#146FF8'>Register here</font></string>
     <string name="txt_your_password">Enter the email associated with your account and we\'ll send an email with a link to reset your password.</string>
     <string name="stay_login">Stay login</string>
@@ -167,9 +167,9 @@
     <string name="str_my_exercices">My Exercices</string>
     <string name="lbl_earn_badges">Earn badges</string>
     <string name="lbl_my_badges">My Badges</string>
+    <string name="validation_input_email_invalid">"Email Id is invalid    "</string>
     <string-array name="civility_code">
         <item>Mr</item>
-        <item>Ms</item>
-        <item>Mrs</item>
+        <item>Miss</item>
     </string-array>
 </resources>

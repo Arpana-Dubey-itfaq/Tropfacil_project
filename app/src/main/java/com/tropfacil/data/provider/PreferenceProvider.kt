@@ -4,8 +4,7 @@ import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import com.tropfacil.model.Login_resoponse
 
-import com.tropfacil.network.auth.account.RefreshTokenResponse
-import com.tropfacil.network.auth.register.AllRegisterResponse
+
 import com.tropfacil.network.service.PREF_IS_USER_LOGGED_IN
 
 
@@ -49,6 +48,12 @@ class PreferenceProvider(val context: Context) {
     }
  fun getUserToken(): String? {
         return preferences.getString(PREF_USER_TOKEN, "")
+    }
+    fun getNom(): String? {
+        return preferences.getString(PREF_USER_NAME, "")
+    }
+    fun getperNom(): String? {
+        return preferences.getString(PREF_USER_FIRST_NAME, "")
     }
     fun getString(key: String, defaultValue: String): String {
         return preferences.getString(key, defaultValue).toString()
