@@ -25,13 +25,14 @@ import org.koin.android.ext.android.inject
 class FragmentResetPassword : BaseActivity() {
     private lateinit var binding: ActivityResetPasswordBinding
     private val viewModel by inject<ResetPasswordViewModel>()
+
     //val profileName = TODO()
     private lateinit var profilename: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResetPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        profilename= intent.getStringExtra("Email").toString()
+        profilename = intent.getStringExtra("Email").toString()
         initListeners()
         initObservers()
         clickListeners()
@@ -44,7 +45,7 @@ class FragmentResetPassword : BaseActivity() {
          }
  */
         binding.includeLayout1.backIv.setOnClickListener {
-              this.onBackPressed()
+            this.onBackPressed()
         }
 
         binding.manageConfirmPassIv.setOnClickListener {
@@ -74,26 +75,26 @@ class FragmentResetPassword : BaseActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.currentPasswordCl.requestFocus();
-            }else if(binding.newPasswordEt.text.toString().isEmpty()) {
+            } else if (binding.newPasswordEt.text.toString().isEmpty()) {
                 Toast.makeText(
                     this, "Please enter Confirm password",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.newPasswordEt.requestFocus();
-            } else if(binding.confirmNewPasswordEt.text.toString().isEmpty()) {
+            } else if (binding.confirmNewPasswordEt.text.toString().isEmpty()) {
                 Toast.makeText(
                     this, "Please enter OTP",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.confirmNewPasswordEt.requestFocus();
-            }  else {
+            } else {
                 val updatePasswordRequest = UpdatePasswordRequest()
-                updatePasswordRequest.login="appud8787@gmail.com"
-                updatePasswordRequest.newPassword= binding.currentPasswordEt.text.toString()
+                updatePasswordRequest.login = "appud8787@gmail.com"
+                updatePasswordRequest.newPassword = binding.currentPasswordEt.text.toString()
                 updatePasswordRequest.password = binding.newPasswordEt.text.toString()
                 viewModel.resetPassword(updatePasswordRequest)
-               //viewModel.updatePassword(profilename,binding.currentPasswordCl.editPassword.text.toString(),binding.newPasswordEt.editPassword.text.toString())
-               // flag = true
+                //viewModel.updatePassword(profilename,binding.currentPasswordCl.editPassword.text.toString(),binding.newPasswordEt.editPassword.text.toString())
+                // flag = true
             }
         }
     }
@@ -107,8 +108,7 @@ class FragmentResetPassword : BaseActivity() {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
-
-                        // showErrorMsg(it.exception.toString())
+                        showErrorMsg(it.exception.toString())
                     }
                     is SafeApiCall.Success -> {
                         binding.progressBar.isVisible = false
@@ -123,8 +123,8 @@ class FragmentResetPassword : BaseActivity() {
     }
 
     private fun clickListeners() {
-       /* binding.btnCreateAccount.setOnClickListener {
-          //  this.onBackPressed()
-        }*/
+        /* binding.btnCreateAccount.setOnClickListener {
+           //  this.onBackPressed()
+         }*/
     }
 }

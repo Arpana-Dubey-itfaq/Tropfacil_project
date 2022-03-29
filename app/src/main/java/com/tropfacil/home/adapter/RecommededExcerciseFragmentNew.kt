@@ -17,7 +17,7 @@ import com.tropfacil.mycourses.view.CourseDetailsFragment
 import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 import org.koin.android.ext.android.inject
 
-class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment(), HomeToCourseDetailsListener, ResumeFragmentListener {
+class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment(), HomeToCourseDetailsListener {
     lateinit var binding: FragmentTabRecommededExerciseBinding
     lateinit var homeAdapter: HomeAdapternew
 
@@ -55,22 +55,15 @@ class RecommededExcerciseFragmentNew(val theme: Theme) : BaseFragment(), HomeToC
     }
 
     override fun navigateToCourseDetailsScreenViaParCour(parcourItem: Parcour) {
-        (requireActivity() as BaseActivity).updateResumeFragment(this)
         val courseDetailsFragment = CourseDetailsFragment.newInstance(parcourItem, true)
         (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, courseDetailsFragment)
 
     }
 
     override fun navigateToCourseDetailsScreenViaSousTheme(sousItem: Soustheme) {
-        (requireActivity() as BaseActivity).updateResumeFragment(this)
         val courseDetailsFragment = CourseDetailsFragment.newInstance(sousItem,false)
         (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, courseDetailsFragment)
 
     }
-
-    override fun onFragmentResume(bundle: Bundle?) {
-        //nothing to do here
-    }
-
 
 }

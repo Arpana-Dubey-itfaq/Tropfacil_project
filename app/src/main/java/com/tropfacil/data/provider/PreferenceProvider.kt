@@ -107,7 +107,6 @@ class PreferenceProvider(val context: Context) {
         putString(PREF_USER_ID, data.pf)
         putString(PREF_USER_FIRST_NAME, data.prenom)
         putString(PREF_USER_NAME,data.nom?:"")
-        putBoolean(PREF_IS_USER_LOGGED_IN,true)
 
 
     }

@@ -77,7 +77,7 @@ class ForgotPasswordFragment : BaseActivity() {
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
 
-                        // showErrorMsg(it.exception.toString())
+                         showErrorMsg(it.exception.toString())
                     }
                     is SafeApiCall.SuccessForgot -> {
                         binding.progressBar.isVisible = false

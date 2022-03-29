@@ -25,6 +25,8 @@ data class Login_resoponse(
         val token: String,
         @SerializedName("username")
         var username: String?="",
+        @SerializedName("error")
+        var error: Error?=null
     )
 
 

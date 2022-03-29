@@ -1,11 +1,13 @@
 package com.tropfacil.ui.nav.account
 
 import com.tropfacil.base.BaseViewModel
+import com.tropfacil.data.provider.PREF_USER_IDNEW
 import com.tropfacil.data.provider.PREF_USER_NAME
 import com.tropfacil.data.provider.PREF_USER_TOKEN
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.data.repository.AppRepository
 import com.tropfacil.model.UpdatePasswordRequest
+import com.tropfacil.network.service.PREF_IS_USER_LOGGED_IN
 import com.tropfacil.network.service.SafeApiCall
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -24,6 +26,10 @@ class AccountSettingsViewModel(
         MutableStateFlow(SafeApiCall.Empty)
     val _updatePasswordStateFlow: StateFlow<SafeApiCall> = updatePasswordStateFlow
 
+    private val updateEmailStateFlow: MutableStateFlow<SafeApiCall> =
+        MutableStateFlow(SafeApiCall.Empty)
+    val _updateEmailStateFlow: StateFlow<SafeApiCall> = updateEmailStateFlow
+
 
     fun updatePassword(
         updatePasswordRequest: UpdatePasswordRequest,
@@ -41,8 +47,34 @@ class AccountSettingsViewModel(
             }
     }
 
+    fun getUserId(): String {
+        return preferenceProvider.getString(PREF_USER_IDNEW, "")
+    }
 
-    fun logout(){
+    fun getUserToken(): String {
+        return preferenceProvider.getString(PREF_USER_TOKEN, "")
+
+    }
+
+    fun logout() {
+
         preferenceProvider.clearAllPref()
     }
+
+    fun updateEmail(
+        email: String, pwd: String
+    ) = launch {
+        updateEmailStateFlow.value = SafeApiCall.Loading
+        appRepository.updateEmail(getUserId(), email, pwd)
+            .catch { e ->
+                updateEmailStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
+            }.collect { data ->
+                updateEmailStateFlow.value =
+                    if (data.responseSuess.equals("true"))
+                        SafeApiCall.Success(data)
+                    else SafeApiCall.Error("Please try after sometime!")
+            }
+    }
+
+
 }
