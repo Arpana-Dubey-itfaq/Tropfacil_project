@@ -35,8 +35,8 @@ import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
 
-class HomeFragment : BaseFragment(),  ResumeFragmentListener {
-   // private val homeViewModel: HomeViewModel by viewModel()
+class HomeFragment : BaseFragment() {
+    // private val homeViewModel: HomeViewModel by viewModel()
     private val homeViewModel by inject<HomeViewModel>()
     lateinit var binding: FragmentHomeBinding
     lateinit var homeOptionsListener: HomeOptionsListener
@@ -76,7 +76,7 @@ class HomeFragment : BaseFragment(),  ResumeFragmentListener {
 
             when (position) {
                 0 -> {
-                     tabview.imgIcon.setImageResource(R.drawable.menu_home)
+                    tabview.imgIcon.setImageResource(R.drawable.menu_home)
 
                     //  tabview.tvExerciseName.text = "hfgdsghf"
                     // you can set your tab text and color here for tab1
@@ -104,29 +104,29 @@ class HomeFragment : BaseFragment(),  ResumeFragmentListener {
             // tab.setCustomView(R.layout.custom_tab_recommeded_exercise);
             binding.tabscheduleCourse.setTabMode(TabLayout.MODE_SCROLLABLE);
 //tab.position
-            tab.text=bannersResponse.themes[position].libelle
-           /* for (i in 0 until bannersResponse.themes?.size!!) {
+            tab.text = bannersResponse.themes[position].libelle
+            /* for (i in 0 until bannersResponse.themes?.size!!) {
 
-                tab.text=bannersResponse.themes[i].libelle
-            }*/
+                 tab.text=bannersResponse.themes[i].libelle
+             }*/
         }.attach()
     }
-
 
 
     fun setData(bannersResponse: home_response) {
         homeCourseAdapter = HomeCourseAdapter()
         binding.relCourse.adapter = homeCourseAdapter
         viewPagerExcerAdapter = ViewPagerAdapterEvery(requireActivity(), 5)
-        viewPagerSchudeleCourseAdapter = ViewPagerAdapterNew(requireActivity(),bannersResponse.themes)
+        viewPagerSchudeleCourseAdapter =
+            ViewPagerAdapterNew(requireActivity(), bannersResponse.themes)
 
         binding.viewPagerExercise.adapter = viewPagerExcerAdapter
         binding.viewPagerscheduleCourse.adapter = viewPagerSchudeleCourseAdapter
         binding.incCountine.cardPlay.visibility = View.VISIBLE
-        nom=PreferenceProvider(requireContext()).getNom()
-        pernom=PreferenceProvider(requireContext()).getperNom()
-       // binding.incLevelInfo.tvcourse1.setText(nom)
-        binding.incLevelInfo.tvcoursename.setText(nom+" "+pernom)
+        nom = PreferenceProvider(requireContext()).getNom()
+        pernom = PreferenceProvider(requireContext()).getperNom()
+        // binding.incLevelInfo.tvcourse1.setText(nom)
+        binding.incLevelInfo.tvcoursename.setText(nom + " " + pernom)
 
 
     }
@@ -135,7 +135,7 @@ class HomeFragment : BaseFragment(),  ResumeFragmentListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Constants.FRAGMENT=Constants.HomeFragment
+        Constants.FRAGMENT = Constants.HomeFragment
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         return binding.root
 
@@ -147,12 +147,12 @@ class HomeFragment : BaseFragment(),  ResumeFragmentListener {
 
         initObserver()
         initObservers()
-       // initObserver()
+        // initObserver()
     }
+
     private fun initObservers() {
         lifecycleScope.launchWhenStarted {
-            homeViewModel._syncItemsStateFlow.collect {
-                    homeresponse ->
+            homeViewModel._syncItemsStateFlow.collect { homeresponse ->
                 when (homeresponse) {
                     is SafeApiCall.Loading -> {
                         binding.progressBar.isVisible = true
@@ -169,7 +169,7 @@ class HomeFragment : BaseFragment(),  ResumeFragmentListener {
                         //viewModel.syncGuestItems(getUUID())
                     }
                     else -> {
-val  s=""
+                        val s = ""
                     }
                 }
             }
@@ -177,6 +177,7 @@ val  s=""
 
 
     }
+
     fun setListner() {
         binding.topbar.imgUser.setOnClickListener {
             homeOptionsListener.onClickMenu()
@@ -189,12 +190,11 @@ val  s=""
 
         }
         binding.topbar.imgmessage.setOnClickListener {
-            (requireActivity() as BaseActivity).updateResumeFragment(this)
-         //   (requireActivity() as BaseActivity).updateResumeFragment(this)
             val writeAMessageFragment = WriteAMessageFragment()
-            (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, writeAMessageFragment)
-
-//            startActivity(Intent(requireContext(), MessageActivity::class.java))
+            (requireActivity() as BaseActivity).visitNewFragment(
+                R.id.fragment_container,
+                writeAMessageFragment
+            )
 
         }
         binding.incLevelInfo.imgNext.setOnClickListener {
@@ -202,7 +202,7 @@ val  s=""
 
         }
         binding.incCountine.card.setOnClickListener {
-           // findNavController().navigate(HomeFragmentDirections.actionCourseperFragment())
+            // findNavController().navigate(HomeFragmentDirections.actionCourseperFragment())
 
 
         }
@@ -227,10 +227,11 @@ val  s=""
         })
 */
     }
-    private fun initObserver () {
+
+    private fun initObserver() {
 
 
-            token = PreferenceProvider(requireContext()).getUserToken()
+        token = PreferenceProvider(requireContext()).getUserToken()
 
 
         homeViewModel.HomeData(token)
@@ -243,38 +244,31 @@ val  s=""
 //        }
 //      }
 //    })
-       /* homeViewModel.vmGetUserList()
-        homeViewModel.userList.observe(viewLifecycleOwner, Observer { listUser ->
-            listUser.forEach {
-            //    Timber.i(it.themes.indexOf(i))
-            }
-        })*/
+        /* homeViewModel.vmGetUserList()
+         homeViewModel.userList.observe(viewLifecycleOwner, Observer { listUser ->
+             listUser.forEach {
+             //    Timber.i(it.themes.indexOf(i))
+             }
+         })*/
     }
 
     private fun loadBannersList(bannersResponse: home_response) {
-            /*val bannersAdapter =
-                BannersAdapter(requireContext(), bannersResponse.response, true, this)
-            binding.viewPagerBanner.adapter = bannersAdapter
+        /*val bannersAdapter =
+            BannersAdapter(requireContext(), bannersResponse.response, true, this)
+        binding.viewPagerBanner.adapter = bannersAdapter
 //            binding.indicator.isVisible = true
-            binding.indicator.count = binding.viewPagerBanner.indicatorCount
-            binding.viewPagerBanner.onIndicatorProgress = { selectingPosition, progress ->
-                binding.indicator.setProgress(selectingPosition, progress)
+        binding.indicator.count = binding.viewPagerBanner.indicatorCount
+        binding.viewPagerBanner.onIndicatorProgress = { selectingPosition, progress ->
+            binding.indicator.setProgress(selectingPosition, progress)
 */
-      //  viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
-
+        //  viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
 
 
         setData(bannersResponse)
-       // homeViewModel.parcorselist.value=bannersResponse.
+        // homeViewModel.parcorselist.value=bannersResponse.
         setTabLayout(bannersResponse)
 
 
     }
-
-
-
-    override fun onFragmentResume(bundle: Bundle?) {
-    }
-
 
 }
