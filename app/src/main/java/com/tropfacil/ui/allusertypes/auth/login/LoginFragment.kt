@@ -68,9 +68,9 @@ class LoginFragment : BaseActivity(), ResumeFragmentListener {
                     is SafeApiCall.Loading -> {
                         binding.progressBar.isVisible = true
                     }
-                    is SafeApiCall.Error -> {
+                    is SafeApiCall.ErrorLogin -> {
                         binding.progressBar.isVisible = false
-                        //showErrorMsg(it.exception)
+                               //showErrorMsg(it.exception)
                     }
                     is SafeApiCall.SuccessLogin -> {
                         binding.progressBar.isVisible = false
