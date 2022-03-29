@@ -1,29 +1,28 @@
 package com.tropfacil.ui.nav.account.email
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
+import android.util.Patterns
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.tropfacil.R
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
+import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.lifecycleScope
+import com.tropfacil.*
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentUpdateEmailBinding
-import com.tropfacil.isValidEmail
-import com.tropfacil.isValidPassword
-import com.tropfacil.textCapSentences
-import kotlinx.android.synthetic.main.fragment_update_email.view.*
+import com.tropfacil.network.service.SafeApiCall
+import com.tropfacil.ui.nav.account.AccountSettingsViewModel
+import com.tropfacil.utils.popups.SuccessOrFailurePopup
+import kotlinx.coroutines.flow.collect
+import org.koin.android.ext.android.inject
 
 class UpdateEmailFragment : BaseFragment() {
     lateinit var binding: FragmentUpdateEmailBinding
+    private val viewModel by inject<AccountSettingsViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,58 +36,27 @@ class UpdateEmailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        SetUI()
+        initUI()
+        initObservers()
+
     }
 
-    private fun SetUI() {
+    private fun initUI() {
         binding.clTitleWithBack.headerTitleTv.text =
             textCapSentences(getString(R.string.lbl_change_email))
 
-        binding.currentEmailEt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        binding.clTitleWithBack.backIv.setOnClickListener {
+            closeFragment()
+        }
+        binding.newEmailEt.doAfterTextChanged {
+            enableOrDisableButton()
+        }
+        binding.passwordEt.doAfterTextChanged {
+            enableOrDisableButton()
+        }
 
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                binding.currentEmailEt.isValidEmail(requireContext())
-            }
-
-        })
-        binding.newEmailEt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                binding.newEmailEt.isValidEmail(requireContext())
-            }
-
-        })
-        binding.passwordEt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                binding.passwordEt.isValidPassword(requireContext())
-            }
-
-        })
-
-        binding.submitCl.setOnClickListener {
-
+        binding.btnSubmit.setOnClickListener {
+            isValidForm()
         }
 
         binding.managePassIv.setOnClickListener {
@@ -101,6 +69,89 @@ class UpdateEmailFragment : BaseFragment() {
             }
         }
 
+    }
+
+
+    private fun enableOrDisableButton() {
+        val isEnabled = binding.newEmailEt.text.toString()
+            .isNotEmpty() && binding.passwordEt.text.toString().isNotEmpty()
+        binding.btnSubmit.isEnabled = isEnabled
+        binding.btnSubmit.isClickable = isEnabled
+        if (isEnabled) {
+            binding.btnSubmit.background = AppCompatResources.getDrawable(
+                requireContext(),
+                R.drawable.bg_green
+            )
+        } else {
+            binding.btnSubmit.background = AppCompatResources.getDrawable(
+                requireContext(),
+                R.drawable.bg_light_green
+            )
+        }
+
+    }
+
+    private fun isValidForm() {
+        var isValid = true
+        if (!isValidEmailId(binding.newEmailEt.text.toString())) {
+            isValid = false
+            binding.newEmailEt.error = null
+            binding.tvErrorMsg.text = getString(R.string.str_please_enter_valid_email)
+        }
+
+        if (!binding.passwordEt.isValidPassword(requireContext())) {
+            isValid = false
+            binding.passwordEt.error = null
+            binding.tvErrorMsg.text = getString(R.string.str_please_enter_valid_password)
+        }
+        if (isValid)
+            callAPIForChangeEmail()
+
+    }
+
+    private fun callAPIForChangeEmail() {
+        viewModel.updateEmail(binding.newEmailEt.text.toString(),binding.passwordEt.text.toString())
+    }
+
+    private fun initObservers() {
+        lifecycleScope.launchWhenStarted {
+            viewModel._updateEmailStateFlow.collect { it ->
+                when (it) {
+                    is SafeApiCall.Loading -> {
+                        binding.progressBar.isVisible = true
+                    }
+                    is SafeApiCall.Error -> {
+                        binding.progressBar.isVisible = false
+                        showErrorMsg(it.exception.toString())
+                    }
+                    is SafeApiCall.Success -> {
+                        binding.progressBar.isVisible = false
+                        showSuccessMsg(getString(R.string.email_updated_successfully))
+                    }
+                    else -> {
+                    }
+                }
+            }
+        }
+    }
+
+    private fun showSuccessMsg(successMsg: String) {
+        SuccessOrFailurePopup.newInstance {
+            onConfirm = {
+                closeFragment()
+            }
+            message = successMsg
+            successBtnName = getString(R.string.ok)
+            isSuccessPopUp = 1
+            cancellable = false
+        }.show(childFragmentManager, SuccessOrFailurePopup.TAG)
+    }
+
+    private fun closeFragment() {
+        closeAndResumePrevFrag(requireActivity(), null)
+    }
+    private fun isValidEmailId(emailId: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(emailId).matches()
     }
 
 }

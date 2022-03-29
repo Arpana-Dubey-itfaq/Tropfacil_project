@@ -2,6 +2,7 @@ package com.tropfacil.network.service
 
 
 import com.example.example.Homeresponse
+import com.tropfacil.model.*
 
 import com.tropfacil.BuildConfig
 import com.tropfacil.data.home_response
@@ -62,10 +63,10 @@ interface ApiService {
     ): Homeresponse
 
 
-    @POST("utilisateur/update-carte-de-visite")
+    @POST("utilisateur/update")
     suspend fun changeEmail(
-        @Query("nom") nom: String?, @Query("prenom") prenom: String?,
-        @Query("login") login: String?, @Query("civilite") civilite: String?,
+        @Query("id") id: String?, @Query("email") email: String?,
+        @Query("pwd") pwd: String?
     ): BaseResponse
 
     @POST("utilisateur/update")

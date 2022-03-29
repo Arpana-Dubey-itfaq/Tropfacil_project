@@ -18,6 +18,7 @@ import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragmentDirections
 import com.tropfacil.mycourses.view.CourseDetailsFragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
+import com.tropfacil.ui.nav.account.email.UpdateEmailFragment
 import com.tropfacil.ui.nav.account.password.UpdatePasswordFragment
 
 
@@ -30,6 +31,7 @@ open class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         updateStatusBarColor(ContextCompat.getColor(this, android.R.color.white))
     }
+
     fun showHidePassword(password: EditText, imgEye: ImageView) {
         if (password.text.toString().isNotEmpty()) {
             if (password.transformationMethod == null) {
@@ -77,21 +79,22 @@ open class BaseActivity : AppCompatActivity() {
                 UpdatePasswordFragment::class.java.name -> {
                     supportFragmentManager.popBackStack()
                 }
-                RegisterFragment::class.java.name ->{
-                   // findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
+                RegisterFragment::class.java.name -> {
+                    // findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
                     supportFragmentManager.popBackStack()
 
 
                 }
 
-                LoginFragment::class.java.name ->{
+                LoginFragment::class.java.name -> {
                     // findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
                     supportFragmentManager.popBackStack()
 
 
                 }
                 WriteAMessageFragment::class.java.name -> supportFragmentManager.popBackStack()
-                CourseDetailsFragment::class.java.name->supportFragmentManager.popBackStack()
+                CourseDetailsFragment::class.java.name -> supportFragmentManager.popBackStack()
+                UpdateEmailFragment::class.java.name -> supportFragmentManager.popBackStack()
             }
         }
     }
