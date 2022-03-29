@@ -29,23 +29,25 @@ class HomeViewModel(
         syncItemsStateFlow
 
 
-
-       // val parcorselist: MutableLiveData<ArrayList<Parcour>> = MutableLiveData()
-        fun HomeData(authorization: String?) = launch {
-            syncItemsStateFlow.value = SafeApiCall.Loading
-            appRepository.HomeData(authorization)
-                .catch { e ->
-                    Log.e("message Error", e.message.toString())
-                    syncItemsStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
-                }.collect { data ->
-
-                    Log.e("message success", data.themes.toString())
-                    syncItemsStateFlow.value = SafeApiCall.Successhome(data)
-
-                    // Log.e("message111", data)
-                    //  preferenceProvider.saveLoginDataToPref(data)
-                    //loginStateFlow.value = SafeApiCall.Success(data)
+    // val parcorselist: MutableLiveData<ArrayList<Parcour>> = MutableLiveData()
+    fun HomeData(authorization: String?) = launch {
+        syncItemsStateFlow.value = SafeApiCall.Loading
+        appRepository.HomeData(authorization)
+            .catch { e ->
+                Log.e("message Error", e.message.toString())
+                syncItemsStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
+            }.collect { data ->
+                if (data.success.equals("true")) {
+                    syncItemsStateFlow.value =        SafeApiCall.Successhome(data)}
+                else {
+                    syncItemsStateFlow.value =  if (data.error != null) {
+                        SafeApiCall.Error(data.error?.message.toString())
+                    } else SafeApiCall.Error("Something went wrong. Please try after sometime!")
                 }
-        }
+                    // Log.e("message111", data)
+                //  preferenceProvider.saveLoginDataToPref(data)
+                //loginStateFlow.value = SafeApiCall.Success(data)
+            }
+    }
 
 }

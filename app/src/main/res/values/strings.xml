@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Tropfacil_project</string>
+    <string name="app_name">Trop Facile</string>
     <string name="ok">OK</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="french">French:</string>
@@ -46,7 +46,9 @@
     <!--Sign Up-->
     <string name="sign_up">S\'inscrire</string>
     <string name="txt_reset_passwords">Your new password must be different from your previous used passwords.</string>
-    <string name="register_here">Don\'t have an account?<font color='#146FF8'>Register here</font></string>
+    <string name="register_here">Don\'t have an account?<font color='#146FF8'> Register here</font></string>
+    <string name="reset_here"><font color='#146FF8'>Resend code</font> or<font color='#146FF8'>Resend code or</font></string>
+
     <string name="txt_your_password">Enter the email associated with your account and we\'ll send an email with a link to reset your password.</string>
     <string name="stay_login">Stay login</string>
     <string name="forgot_passwordhint">Forgot Password?</string>

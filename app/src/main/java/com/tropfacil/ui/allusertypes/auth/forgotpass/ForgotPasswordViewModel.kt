@@ -26,7 +26,9 @@ class ForgotPasswordViewModel(
             .catch { e ->
                 forgotPasswordStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
-                forgotPasswordStateFlow.value = SafeApiCall.SuccessForgot(data)
+                forgotPasswordStateFlow.value = if (data.success.equals("true"))
+                    SafeApiCall.SuccessForgot(data)
+                else SafeApiCall.Error("Something went wrong. Please try after sometime!")
             }
     }
 }

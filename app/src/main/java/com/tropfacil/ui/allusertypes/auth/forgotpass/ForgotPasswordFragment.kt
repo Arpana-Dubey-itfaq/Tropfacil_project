@@ -1,5 +1,6 @@
 package com.tropfacil.ui.allusertypes.auth.forgotpass
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.databinding.DataBindingUtil.setContentView
 
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.tropfacil.R
+import com.tropfacil.base.BaseActivity
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.ActivityForgetPasswordBinding
+import com.tropfacil.databinding.ActivityLoginBinding
 import com.tropfacil.model.ForgotPasswordRes
 import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.utils.popups.SuccessOrFailurePopup
@@ -20,38 +24,39 @@ import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
 
-class ForgotPasswordFragment : BaseFragment() {
+class ForgotPasswordFragment : BaseActivity() {
 
     private lateinit var binding: ActivityForgetPasswordBinding
     private val viewModel by inject<ForgotPasswordViewModel>()
     private var flag = false
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = ActivityForgetPasswordBinding.inflate(layoutInflater, container, false)
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityForgetPasswordBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initListeners()
         initObservers()
+
     }
+
+
 
     private fun initListeners() {
         /* binding.ivClose.setOnClickListener {
              findNavController().popBackStack()
          }
  */
+        binding.includeLayout2.backIv.setOnClickListener {
+            this.onBackPressed()
+        }
 
 
         binding.btnCreateAccount.setOnClickListener {
             //it.hideKeyboard()
             if (binding.etEmailUsername.getText().toString().trim().isEmpty()) {
                 Toast.makeText(
-                    requireContext(), "Please enter Username",
+                  this, "Please enter Username",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.etEmailUsername.requestFocus();
@@ -72,13 +77,14 @@ class ForgotPasswordFragment : BaseFragment() {
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
 
-                        // showErrorMsg(it.exception.toString())
+                         showErrorMsg(it.exception.toString())
                     }
                     is SafeApiCall.SuccessForgot -> {
                         binding.progressBar.isVisible = false
-                        findNavController().navigate(
-                            ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToResetPasswordFragment()
-                        )
+                        val intent = Intent(this@ForgotPasswordFragment,FragmentResetPassword::class.java)
+                        intent.putExtra("Email",binding.etEmailUsername.text.toString())
+                        startActivity(intent)
+                       // startActivity(Intent(this@ForgotPasswordFragment, FragmentResetPassword::class.java))
                     }
                     else -> {
                     }
@@ -88,9 +94,8 @@ class ForgotPasswordFragment : BaseFragment() {
     }
 
     private fun showPopUp(messageRes: String?) {
-        findNavController().navigate(
-            ForgotPasswordFragmentDirections.actionForgotPasswordFragmentToResetPasswordFragment()
-        )
+        startActivity(Intent(this@ForgotPasswordFragment, FragmentResetPassword::class.java))
+
         /*   SuccessOrFailurePopup.newInstance {
                onConfirm =
                    {

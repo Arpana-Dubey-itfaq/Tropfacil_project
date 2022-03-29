@@ -6,6 +6,7 @@ import com.tropfacil.model.ForgotPasswordRes
 import com.tropfacil.model.Login_resoponse
 import com.tropfacil.model.Register_response
 import com.tropfacil.network.BaseResponse
+import com.tropfacil.ui.allusertypes.auth.login.Login_error
 import okhttp3.ResponseBody
 
 sealed class SafeApiCall {
@@ -15,6 +16,7 @@ sealed class SafeApiCall {
     class SuccessLogin(val data: Login_resoponse) : SafeApiCall()
     class SuccessRegister(val data: Register_response) : SafeApiCall()
     class SuccessForgot(val data: ForgotPasswordRes) : SafeApiCall()
+    class ErrorLogin(val data: Login_error) : SafeApiCall()
 
     class SuccessResponseBody(val data: ResponseBody) : SafeApiCall()
     object Loading : SafeApiCall()

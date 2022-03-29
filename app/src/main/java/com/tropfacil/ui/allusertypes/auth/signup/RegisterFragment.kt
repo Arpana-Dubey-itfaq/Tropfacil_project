@@ -72,6 +72,7 @@ class RegisterFragment : BaseActivity(), ResumeFragmentListener {
         }
         binding.signin.setOnClickListener {
             val intent = Intent(this, LoginFragment::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             this.startActivity(intent)
         }
     }
@@ -102,6 +103,7 @@ class RegisterFragment : BaseActivity(), ResumeFragmentListener {
                     is SafeApiCall.SuccessRegister -> {
                         binding.progressBar.isVisible = false
                         val intent = Intent(applicationContext, LoginFragment::class.java)
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         applicationContext.startActivity(intent)
                     }
                     else -> {}

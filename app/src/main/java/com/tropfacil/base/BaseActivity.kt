@@ -20,6 +20,7 @@ import com.tropfacil.mycourses.view.CourseDetailsFragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
 import com.tropfacil.ui.nav.account.email.UpdateEmailFragment
 import com.tropfacil.ui.nav.account.password.UpdatePasswordFragment
+import com.tropfacil.utils.popups.SuccessOrFailurePopup
 
 
 open class BaseActivity : AppCompatActivity() {
@@ -48,6 +49,15 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
+    protected fun showErrorMsg(errorMsg: String) {
+        SuccessOrFailurePopup.newInstance {
+            onConfirm = {}
+            message = errorMsg
+            successBtnName = getString(R.string.ok)
+            isSuccessPopUp = 2
+            cancellable = false
+        }.show(supportFragmentManager, SuccessOrFailurePopup.TAG)
+    }
     /** Hide the status bar*/
     fun hideStatusBar() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)

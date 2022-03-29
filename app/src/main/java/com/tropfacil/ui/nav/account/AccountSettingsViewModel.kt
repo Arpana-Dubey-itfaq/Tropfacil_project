@@ -7,6 +7,7 @@ import com.tropfacil.data.provider.PREF_USER_TOKEN
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.data.repository.AppRepository
 import com.tropfacil.model.UpdatePasswordRequest
+import com.tropfacil.network.service.PREF_IS_USER_LOGGED_IN
 import com.tropfacil.network.service.SafeApiCall
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -50,18 +51,21 @@ class AccountSettingsViewModel(
         return preferenceProvider.getString(PREF_USER_IDNEW, "")
     }
 
-    fun getUserToken():String{
-        return           preferenceProvider.getString(PREF_USER_TOKEN, "")
+    fun getUserToken(): String {
+        return preferenceProvider.getString(PREF_USER_TOKEN, "")
 
     }
+
     fun logout() {
+
         preferenceProvider.clearAllPref()
     }
 
-    fun updateEmail(email: String, pwd:String
+    fun updateEmail(
+        email: String, pwd: String
     ) = launch {
         updateEmailStateFlow.value = SafeApiCall.Loading
-        appRepository.updateEmail(getUserId(),email,pwd)
+        appRepository.updateEmail(getUserId(), email, pwd)
             .catch { e ->
                 updateEmailStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
