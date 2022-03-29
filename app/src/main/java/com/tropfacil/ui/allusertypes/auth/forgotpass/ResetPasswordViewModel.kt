@@ -13,8 +13,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class ResetPasswordViewModel ( private val preferenceProvider: PreferenceProvider,
-private val appRepository: AppRepository,
+class ResetPasswordViewModel(
+    private val preferenceProvider: PreferenceProvider,
+    private val appRepository: AppRepository,
 ) : BaseViewModel() {
     private val updatePasswordStateFlow: MutableStateFlow<SafeApiCall> =
         MutableStateFlow(SafeApiCall.Empty)
@@ -50,12 +51,14 @@ private val appRepository: AppRepository,
             .catch { e ->
                 updatePasswordStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
-                updatePasswordStateFlow.value = SafeApiCall.Success(data)
+                updatePasswordStateFlow.value =if (data.responseSuess.equals("true"))
+                     SafeApiCall.Success(data)
+                else SafeApiCall.Error("Something went wrong. Please try after sometime!")
             }
     }
 
 
-    fun logout(){
+    fun logout() {
         preferenceProvider.clearAllPref()
     }
 }

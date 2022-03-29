@@ -159,7 +159,7 @@ class HomeFragment : BaseFragment() {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
-                        //showErrorMsg(it.exception)
+                        showErrorMsg(homeresponse.exception)
                     }
                     is SafeApiCall.Successhome -> {
                         binding.progressBar.isVisible = false
@@ -233,8 +233,8 @@ class HomeFragment : BaseFragment() {
 
         token = PreferenceProvider(requireContext()).getUserToken()
 
-
-        homeViewModel.HomeData(token)
+        if (token != null)
+            homeViewModel.HomeData(token)
         //findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
 
 //    homeViewModel.allUsers.observe(viewLifecycleOwner, Observer { listUser ->

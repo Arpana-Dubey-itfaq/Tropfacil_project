@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:layout_height="match_parent">
+    android:layout_height="25dp"
+    android:orientation="horizontal">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:padding="@dimen/dim4"
-
-        app:srcCompat="@drawable/check_1" />
+        android:layout_width="20dp"
+        android:layout_centerVertical="true"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:button="@drawable/uncheck"
+        android:checked="false" />
 
     <TextView
-        android:id="@+id/textA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dim5"
-        android:layout_weight="1"
-        android:padding="@dimen/dim4"
+        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/imageView3"
+        android:fontFamily="@font/roboto_regular"
         android:text="@string/stay_login"
-
-        />
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/forgot_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="4dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/roboto_regular"
         android:text="@string/forgot_passwordhint"
         android:textAlignment="textEnd"
-        android:textColor="@color/blue" />
+        android:textColor="@color/blue"
+        android:textSize="12sp" />
 
 
-</LinearLayout>
+</RelativeLayout>
