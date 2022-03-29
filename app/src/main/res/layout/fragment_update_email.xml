@@ -12,13 +12,13 @@
         android:layout_height="0dp"
         android:fitsSystemWindows="true"
         android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@id/cl_title_with_back"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_title_with_back">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/_15sdp"
-            >
+            android:layout_marginHorizontal="@dimen/_15sdp">
 
             <TextView
                 android:id="@+id/title_tv"
@@ -37,20 +37,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:fontFamily="@font/robotoregular"
                 android:gravity="center_vertical"
                 android:text="@string/lbl_current_email"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_20sdp"
-                app:layout_constraintTop_toBottomOf="@id/title_tv"
-                />
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/title_tv" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/current_email_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:visibility="gone"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintTop_toBottomOf="@id/current_email_tv">
@@ -64,30 +65,31 @@
                     android:fontFamily="@font/robotoregular"
                     android:gravity="center_vertical"
                     android:hint="@string/lbl_type_ur_current_email"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp"
-                    android:maxLines="1"
                     android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/hint_text"
-                    />
+                    android:textSize="@dimen/_12ssp" />
             </androidx.cardview.widget.CardView>
+
             <TextView
                 android:id="@+id/new_email_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/robotoregular"
                 android:gravity="center_vertical"
                 android:text="@string/lbl_new_email"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_10sdp"
-                app:layout_constraintTop_toBottomOf="@id/current_email_cl"
-                />
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/current_email_cl" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/new_email_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintTop_toBottomOf="@id/new_email_tv">
@@ -101,101 +103,114 @@
                     android:fontFamily="@font/robotoregular"
                     android:gravity="center_vertical"
                     android:hint="@string/lbl_type_ur_new_email"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_12ssp"
-                    android:maxLines="1"
                     android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/hint_text"
-                    />
+                    android:textSize="14sp" />
             </androidx.cardview.widget.CardView>
+
             <TextView
                 android:id="@+id/password_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/robotoregular"
                 android:gravity="center_vertical"
                 android:text="@string/lbl_password"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_10sdp"
-                app:layout_constraintTop_toBottomOf="@id/new_email_cl"
-                />
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/new_email_cl" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/password_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintTop_toBottomOf="@id/password_tv">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
                     <EditText
                         android:id="@+id/password_et"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/_42sdp"
                         android:layout_weight="1"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
                         android:background="@color/white"
                         android:fontFamily="@font/robotoregular"
                         android:gravity="center_vertical"
                         android:hint="@string/lbl_type_ur_password"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp"
-                        android:maxLines="1"
                         android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/hint_text"
-                        />
+                        android:textSize="14sp" />
+
                     <ImageView
                         android:id="@+id/manage_pass_iv"
                         android:layout_width="@dimen/_12sdp"
                         android:layout_height="@dimen/_12sdp"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/icon_show_password"/>
+                        android:src="@drawable/icon_show_password" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/submit_cl"
+            <TextView
+                android:id="@+id/tvErrorMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardUseCompatPadding="true"
-                app:cardBackgroundColor="@color/tilgreen"
-                app:cardElevation="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_32sdp"
-                app:layout_constraintTop_toBottomOf="@id/password_cl">
-                <TextView
-                    android:id="@+id/submit_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_10sdp"
-                    android:fontFamily="@font/robotoregular"
-                    android:gravity="center_vertical"
-                    android:text="@string/lbl_current_email"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:textSize="@dimen/_12ssp"
-                    android:padding="@dimen/_12ssp"
-                    app:layout_constraintTop_toBottomOf="@id/current_email_cl"
-                    />
-            </androidx.cardview.widget.CardView>
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/robotoregular"
+                android:gravity="center_vertical"
+                tools:text="@string/lbl_password"
+                android:textColor="#CB2A1F"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/password_cl" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim50"
+                android:background="@drawable/bg_light_green"
+                android:enabled="false"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/lbl_submit"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/tvErrorMsg" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
     <include
+        android:id="@+id/cl_title_with_back"
         layout="@layout/include_title_with_back"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cl_title_with_back"/>
-
-
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

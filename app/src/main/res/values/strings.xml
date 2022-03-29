@@ -182,4 +182,7 @@
         <item>Mr</item>
         <item>Miss</item>
     </string-array>
+
+    <string name="email_updated_successfully">Email Id updated successfully!</string>
+
 </resources>

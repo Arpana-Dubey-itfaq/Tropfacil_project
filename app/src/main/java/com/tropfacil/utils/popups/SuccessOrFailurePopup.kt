@@ -35,7 +35,7 @@ class SuccessOrFailurePopup : DialogFragment() {
         binding.tvSuccessErrorMessage.text = options.message
         binding.btnOk.text = options.successBtnName
 
-        when (options.isSuccessPopUp) {
+    /*    when (options.isSuccessPopUp) {
             1 -> {
                 binding.btnNo.gone()
                 binding.imgSuccessError.setImageResource(R.drawable.icon_popup_check)
@@ -50,7 +50,7 @@ class SuccessOrFailurePopup : DialogFragment() {
                 binding.imgSuccessError.setImageResource(R.drawable.icon_popup_warning)
             }
         }
-
+*/
         binding.btnOk.setOnClickListener {
             dismiss()
             options.onConfirm?.invoke()
