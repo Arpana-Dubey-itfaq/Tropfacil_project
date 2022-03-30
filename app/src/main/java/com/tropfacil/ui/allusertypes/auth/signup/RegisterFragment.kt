@@ -98,7 +98,8 @@ class RegisterFragment : BaseActivity(), ResumeFragmentListener {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
-                        //showErrorMsg(it.exception)
+                        showErrorMsg(it.exception.toString())
+
                     }
                     is SafeApiCall.SuccessRegister -> {
                         binding.progressBar.isVisible = false
@@ -163,7 +164,7 @@ class RegisterFragment : BaseActivity(), ResumeFragmentListener {
             } else {
                 val registerReq = RegisterRequest(
                     binding.edtemail.text.toString(),
-                    binding.usename.text.toString(),
+                   "",
                     binding.nameEt.text.toString(),
                     binding.edtpernom.text.toString(),
                     qty,

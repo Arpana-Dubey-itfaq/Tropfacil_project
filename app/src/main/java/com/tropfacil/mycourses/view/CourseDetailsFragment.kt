@@ -12,6 +12,7 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.tropfacil.BuildConfig
 import com.tropfacil.R
+import com.tropfacil.base.BaseActivity
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.common.interfaces.ResumeFragmentListener
@@ -22,11 +23,12 @@ import com.tropfacil.databinding.FragmentCourseDetailsBinding
 import com.tropfacil.model.CourseChaptersWithLessonsModel
 import com.tropfacil.mycourses.adapter.CourseExpandableListAdapter
 import com.tropfacil.mycourses.adapter.SousThemeListAdapter
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 import setExpandableListViewHeight
 import setListViewHeight
 
 
-class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
+class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCourseDetailsListener {
     lateinit var binding: FragmentCourseDetailsBinding
     private lateinit var parCourse: Parcour
     private lateinit var sousThemeList: Soustheme
@@ -169,6 +171,11 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
         binding.btnStartCourse.setOnClickListener {
 
         }
+        binding.btnContinueCourse.setOnClickListener {
+            val courseDetailsFragment = Course_per_chapter_Fragment.newInstance(parCourse,false)
+            (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, courseDetailsFragment)
+
+        }
         binding.expChaptersAndLessonsListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
             Toast.makeText(
                 requireContext(),
@@ -286,5 +293,13 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
 
     override fun onFragmentResume(bundle: Bundle?) {
 
+    }
+
+    override fun navigateToCourseDetailsScreenViaParCour(parcourItem: Parcour) {
+        TODO("Not yet implemented")
+    }
+
+    override fun navigateToCourseDetailsScreenViaSousTheme(sousItem: Soustheme) {
+        TODO("Not yet implemented")
     }
 }

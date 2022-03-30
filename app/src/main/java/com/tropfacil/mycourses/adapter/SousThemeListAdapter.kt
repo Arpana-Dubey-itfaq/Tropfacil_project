@@ -12,6 +12,7 @@ import com.tropfacil.databinding.*
 
 class SousThemeListAdapter(
     private val sousThemeList: List<ElementX>
+
 ) : RecyclerView.Adapter<SousThemeListAdapter.ViewHolder>() {
 
 
