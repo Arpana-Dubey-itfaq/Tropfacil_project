@@ -63,8 +63,8 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
         emit(apiServiceImpl.getExercices(token))
     }.flowOn(Dispatchers.IO)
 
-    fun updateEmail(id: String, email: String, pwd: String): Flow<BaseResponse> = flow {
-        emit(apiServiceImpl.changeEmail(id, email, pwd))
+    fun updateEmail(id: String, email: String): Flow<BaseResponse> = flow {
+        emit(apiServiceImpl.changeEmail(id, email))
     }.flowOn(Dispatchers.IO)
 
     fun getBadges(token: String): Flow<BadgeListResponse> = flow {
