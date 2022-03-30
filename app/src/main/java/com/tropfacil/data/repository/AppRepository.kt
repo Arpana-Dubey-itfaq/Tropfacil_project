@@ -1,14 +1,11 @@
 package com.tropfacil.data.repository
 
 
-
-
-import com.example.example.Homeresponse
+import com.tropfacil.data.home_response
 import com.tropfacil.model.*
+import com.tropfacil.model.badges.BadgeListResponse
 import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
-import com.tropfacil.data.home_response
-
 import com.tropfacil.network.request.LoginRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -35,34 +32,43 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
     }.flowOn(Dispatchers.IO)
 
 
-        fun HomeData(identifier: String?): Flow<home_response> = flow {
-            emit(apiServiceImpl.HomeData(identifier))
-        }.flowOn(Dispatchers.IO)
-
-        fun updatePassword(updatePasswordRequest: UpdatePasswordRequest): Flow<BaseResponse> =
-            flow {
-                emit(apiServiceImpl.updatePassword(updatePasswordRequest))
-            }.flowOn(Dispatchers.IO)
-
-        fun updateUser(id: String, nom: String?, prenom: String?): Flow<BaseResponse> = flow {
-            emit(apiServiceImpl.updateUser(id, nom, prenom))
-        }.flowOn(Dispatchers.IO)
-
-
-    fun SendRating(token: String, type: String?, idelement: String?,note: String?): Flow<BaseResponse> = flow {
-        emit(apiServiceImpl.sendRating(token, type, idelement,note))
+    fun HomeData(identifier: String?): Flow<home_response> = flow {
+        emit(apiServiceImpl.HomeData(identifier))
     }.flowOn(Dispatchers.IO)
 
-    fun getProfilePicture(token:String?): Flow<ResponseBody> = flow {
+    fun updatePassword(updatePasswordRequest: UpdatePasswordRequest): Flow<BaseResponse> =
+        flow {
+            emit(apiServiceImpl.updatePassword(updatePasswordRequest))
+        }.flowOn(Dispatchers.IO)
+
+    fun updateUser(id: String, nom: String?, prenom: String?): Flow<BaseResponse> = flow {
+        emit(apiServiceImpl.updateUser(id, nom, prenom))
+    }.flowOn(Dispatchers.IO)
+
+
+    fun SendRating(
+        token: String,
+        type: String?,
+        idelement: String?,
+        note: String?,
+    ): Flow<BaseResponse> = flow {
+        emit(apiServiceImpl.sendRating(token, type, idelement, note))
+    }.flowOn(Dispatchers.IO)
+
+    fun getProfilePicture(token: String?): Flow<ResponseBody> = flow {
         emit(apiServiceImpl.getProfilePicture(token))
     }.flowOn(Dispatchers.IO)
 
-   fun getExercices(token:String?): Flow<ExercicesListResponse> = flow {
+    fun getExercices(token: String?): Flow<ExercicesListResponse> = flow {
         emit(apiServiceImpl.getExercices(token))
     }.flowOn(Dispatchers.IO)
 
-    fun updateEmail(id: String, email: String, pwd:String): Flow<BaseResponse> = flow {
-        emit(apiServiceImpl.changeEmail(id,email,pwd))
+    fun updateEmail(id: String, email: String, pwd: String): Flow<BaseResponse> = flow {
+        emit(apiServiceImpl.changeEmail(id, email, pwd))
+    }.flowOn(Dispatchers.IO)
+
+    fun getBadges(token: String): Flow<BadgeListResponse> = flow {
+        emit(apiServiceImpl.getBadges(token))
     }.flowOn(Dispatchers.IO)
 
 }

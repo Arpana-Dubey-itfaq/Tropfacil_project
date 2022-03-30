@@ -6,6 +6,7 @@ import com.example.example.Homeresponse
 import com.tropfacil.data.home_response
 
 import com.tropfacil.model.*
+import com.tropfacil.model.badges.BadgeListResponse
 import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 import com.tropfacil.network.request.LoginRequest
@@ -53,6 +54,9 @@ class AppRepositoryImpl(private val apiService: ApiService) {
 
     suspend fun changeEmail(id: String, email: String, pwd:String): BaseResponse =
         apiService.changeEmail(id,email,pwd)
+
+    suspend fun getBadges(token:String?): BadgeListResponse =
+        apiService.getBadges(token)
 
 }
 

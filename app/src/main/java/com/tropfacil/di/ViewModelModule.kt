@@ -8,6 +8,7 @@ import com.tropfacil.ui.allusertypes.auth.signup.RegisterViewModel
 import com.tropfacil.ui.nav.account.AccountSettingsViewModel
 import com.tropfacil.ui.nav.exercices.ExercicesViewModel
 import com.tropfacil.ui.nav.profile.ProfileSettingsViewModel
+import com.tropfacil.userstatprofile.UserStatsProfileViewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
@@ -24,6 +25,7 @@ val viewModelModule = module {
     viewModel { ProfileSettingsViewModel(get(), get()) }
     viewModel { ExercicesViewModel(get(), get()) }
     viewModel { ResetPasswordViewModel(get(), get()) }
+    viewModel { UserStatsProfileViewModel(get(), get()) }
 
     /*  viewModel { AddCardViewModel(get(), get()) }
       viewModel { TokenRefresherViewModel(get(), get()) }
