@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dim50"
             android:fontFamily="@font/robotoregular"
-            android:text="@string/email_username"
+            android:text="@string/email_address"
             android:textColor="@color/black"
             android:textSize="@dimen/dim_14sp"
             app:layout_constraintStart_toStartOf="parent"
