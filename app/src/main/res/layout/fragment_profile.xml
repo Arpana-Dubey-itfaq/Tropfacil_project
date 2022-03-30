@@ -33,6 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/_1sdp"
+                    android:src="@drawable/user_profile"
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <ImageView
@@ -44,6 +45,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:padding="@dimen/_1sdp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/cl_profile"
                 app:layout_constraintEnd_toEndOf="@id/cl_profile"
                 />
@@ -145,6 +147,7 @@
                 android:text="@string/lbl_lastname"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12ssp"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:layout_constraintTop_toBottomOf="@id/name_cl"
                 app:layout_constraintStart_toStartOf="parent"
@@ -156,6 +159,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardUseCompatPadding="true"
+                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@id/lastname_tv">
                 <EditText
                     android:id="@+id/lastname_et"
@@ -219,6 +223,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/lbl_type_ur_email_address"
                 android:textColor="@color/black"
+                android:visibility="gone"
                 android:textSize="@dimen/_12ssp"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:layout_constraintTop_toBottomOf="@id/username_cl"
@@ -229,6 +234,7 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardUseCompatPadding="true"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/disable_grey"
                 app:layout_constraintTop_toBottomOf="@id/email_tv">
                 <TextView
@@ -241,7 +247,7 @@
                     android:textColor="@color/hint_text"
                     android:textSize="@dimen/_12ssp"
                     android:maxLines="1"
-                    tools:text="orlandsalas@gmail.com"
+                    android:text="xxxx@xxxx.com"
                     />
 
             </androidx.cardview.widget.CardView>
@@ -277,7 +283,8 @@
                     android:textColor="@color/hint_text"
                     android:textSize="@dimen/_12ssp"
                     android:maxLines="1"
-                    tools:text="orlandsalas@gmail.com"
+                    android:inputType="textPassword"
+                    android:text="Current Password"
                     app:drawableEndCompat="@drawable/icon_show_password"
                     app:drawableTint="@color/hint_text" />
 

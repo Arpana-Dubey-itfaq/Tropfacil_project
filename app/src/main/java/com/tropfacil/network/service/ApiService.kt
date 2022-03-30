@@ -12,6 +12,7 @@ import com.tropfacil.model.ForgotPasswordRes
 import com.tropfacil.model.Login_resoponse
 import com.tropfacil.model.RegisterRes
 import com.tropfacil.model.UpdatePasswordRequest
+import com.tropfacil.model.badges.BadgeListResponse
 import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 import okhttp3.ResponseBody
@@ -89,7 +90,12 @@ interface ApiService {
     @POST("catalogue/get-exercices")
     suspend fun getExercices(
         @Field("token") token: String?
-    ):ExercicesListResponse
+    ):ExercicesListResponse  @FormUrlEncoded
+
+    @POST("utilisateur/get-badges")
+    suspend fun getBadges(
+        @Query("token") token: String?
+    ):BadgeListResponse
     /*
    *//*   @POST("Authentication/SignIn/Customer")
     suspend fun login(@Body loginReq: LoginReq): LoginRes
