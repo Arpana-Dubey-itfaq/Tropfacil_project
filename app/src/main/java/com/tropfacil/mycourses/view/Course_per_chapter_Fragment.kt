@@ -8,9 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import com.bumptech.glide.Glide
 
-import com.tropfacil.R
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.data.Element
@@ -21,8 +19,8 @@ import com.tropfacil.util.interfaces.HomeOptionsListener
 
 import com.tropfacil.databinding.CoursePerChapterBinding
 import com.tropfacil.model.CourseChaptersWithLessonsModel
-import com.tropfacil.mycourses.adapter.CourseExpandableListAdapter
 import com.tropfacil.mycourses.adapter.CourseListAdapter
+import com.tropfacil.mycourses.adapter.ParThemeListAdapter
 import com.tropfacil.mycourses.adapter.SousThemeListAdapter
 
 import com.tropfacil.util.Constants
@@ -38,18 +36,27 @@ class Course_per_chapter_Fragment : BaseFragment(), ResumeFragmentListener,
     //private var exoVideoPlayerProvider: ExoVideoPlayerProvider? = null
    private lateinit var parCourse: Parcour
     private lateinit var sousThemeList: Soustheme
-    private var isForWhichCourse = false
+    private var isForWhichCourse = true
     private var chaptersWithLessonsList = mutableListOf<CourseChaptersWithLessonsModel>()
-
     companion object {
-        //const val TAG = "MyCourseFragment"
+        const val TAG = "Course_per_chapter_Fragment"
 
         @JvmStatic
-        fun newInstance(parCourseItem: Parcour, isForParCourse: Boolean) = Course_per_chapter_Fragment().apply {
-            parCourse = parCourseItem
-            isForWhichCourse = isForParCourse
-        }
+        fun newInstance(parCourseItem: Parcour,isForParCourse: Boolean) =
+            Course_per_chapter_Fragment().apply {
+                parCourse = parCourseItem
+
+                isForWhichCourse = isForParCourse
+            }
+
+        @JvmStatic
+        fun newInstance(sousThemeItem: Soustheme, isForSousTheme: Boolean) =
+            Course_per_chapter_Fragment().apply {
+                sousThemeList = sousThemeItem
+                isForWhichCourse = isForSousTheme
+            }
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -218,8 +225,12 @@ class Course_per_chapter_Fragment : BaseFragment(), ResumeFragmentListener,
         }
     }
     private fun setParCourDataToExpandableAdapter() {
+        if (!parCourse.elements.isNullOrEmpty()) {
+            val adapter = ParThemeListAdapter(parCourse.elements)
+            binding.relCourse1.adapter = adapter
+        }
         //CREATE AND BIND TO ADAPTER
-        setSousThemeDataToAdapter()
+     //   setSousThemeDataToAdapter()
         /*setExpandableListViewHeight(
             binding.expChaptersAndLessonsListView,
             binding.courseNestedScroll
@@ -254,12 +265,19 @@ class Course_per_chapter_Fragment : BaseFragment(), ResumeFragmentListener,
         super.onViewCreated(view, savedInstanceState)
         if (isForWhichCourse)
             loadParCourData()
-        //else loadSousThemeData()
-        setData()
+        else loadSousThemeData()
+       // setData()
     }
-    private fun setSousThemeDataToAdapter() {
+    private fun loadSousThemeData() {
         if (!sousThemeList.elements.isNullOrEmpty()) {
             val adapter = SousThemeListAdapter(sousThemeList.elements)
+            binding.relCourse1.adapter = adapter
+        }
+    }
+
+    private fun setSousThemeDataToAdapter() {
+        if (!parCourse.elements.isNullOrEmpty()) {
+            val adapter = ParThemeListAdapter(parCourse.elements)
             binding.relCourse1.adapter = adapter
         }
     }

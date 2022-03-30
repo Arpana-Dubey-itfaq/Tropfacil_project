@@ -1,5 +1,9 @@
 package com.tropfacil.data
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+
 data class Parcour(
     val couleur: String,
     val description: String,

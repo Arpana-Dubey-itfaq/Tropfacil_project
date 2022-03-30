@@ -49,7 +49,7 @@
     <string name="register_here">Don\'t have an account?<font color='#146FF8'> Register here</font></string>
     <string name="reset_here"><font color='#146FF8'>Resend code</font> or<font color='#146FF8'>Resend code or</font></string>
 
-    <string name="txt_your_password">Enter the email associated with your account and we\'ll send an email with a link to reset your password.</string>
+    <string name="txt_your_password">Enter your username and well send to the email associated with your account a link to reset your password.</string>
     <string name="stay_login">Stay login</string>
     <string name="forgot_passwordhint">Forgot Password?</string>
     <string name="new_password">New password</string>

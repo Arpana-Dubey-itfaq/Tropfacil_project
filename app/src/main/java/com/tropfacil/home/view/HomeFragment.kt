@@ -31,6 +31,9 @@ import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.userstatprofile.view.UserStatsProfileActivity
 import com.tropfacil.util.Constants
+import com.tropfacil.utils.gone
+import com.tropfacil.utils.visible
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
@@ -43,7 +46,7 @@ class HomeFragment : BaseFragment() {
     lateinit var homeCourseAdapter: HomeCourseAdapter
     lateinit var viewPagerExcerAdapter: ViewPagerAdapterEvery
     lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapterNew
-
+    private var qty = ""
 
     companion object {
         const val TAG = "HomeFragment"
@@ -163,8 +166,17 @@ class HomeFragment : BaseFragment() {
                     }
                     is SafeApiCall.Successhome -> {
                         binding.progressBar.isVisible = false
-                        homeViewModel._syncItemsStateFlow.value
+                        qty = homeViewModel._syncItemsStateFlow.value.toString()
+                         if(homeresponse.data.themes.isEmpty())
+                         {
+                             binding.nestedscrollviewheader.visible()
+
+                         }else{
+                            binding.nestedscrollview.visible()
+                        }
+
                         loadBannersList(homeresponse.data)
+
 
                         //viewModel.syncGuestItems(getUUID())
                     }

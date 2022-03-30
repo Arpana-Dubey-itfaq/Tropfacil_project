@@ -27,6 +27,7 @@
         app:cardCornerRadius="@dimen/_30sdp"
         app:cardElevation="@dimen/_10sdp"
         app:cardMaxElevation="@dimen/_12sdp"
+        android:visibility="gone"
         app:layout_constraintLeft_toRightOf="@+id/imgUser"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -47,7 +48,7 @@
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/_20sdp"
         app:layout_constraintEnd_toEndOf="parent"
-
+android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -62,7 +63,7 @@
     <ImageView
         android:id="@+id/imgNotification"
         style="@style/imgHeader"
-
+android:visibility="gone"
         android:src="@drawable/notification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -71,6 +72,7 @@
         android:id="@+id/imgmessage"
         style="@style/imgHeader"
         android:scaleType="fitXY"
+        android:visibility="gone"
         android:src="@drawable/message"
         app:layout_constraintRight_toLeftOf="@+id/imgNotification"
         app:layout_constraintTop_toTopOf="parent" />

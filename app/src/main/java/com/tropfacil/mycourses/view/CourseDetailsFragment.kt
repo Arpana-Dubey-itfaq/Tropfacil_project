@@ -12,7 +12,6 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.tropfacil.BuildConfig
 import com.tropfacil.R
-import com.tropfacil.base.BaseActivity
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.common.interfaces.ResumeFragmentListener
@@ -42,6 +41,7 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCour
         fun newInstance(parCourseItem: Parcour, isForParCourse: Boolean) =
             CourseDetailsFragment().apply {
                 parCourse = parCourseItem
+
                 isForWhichCourse = isForParCourse
             }
 
@@ -172,9 +172,26 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCour
 
         }
         binding.btnContinueCourse.setOnClickListener {
-            val courseDetailsFragment = Course_per_chapter_Fragment.newInstance(parCourse,false)
+            if (isForWhichCourse){
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.fragment_container,
+                        Course_per_chapter_Fragment.newInstance(parCourse, isForWhichCourse),
+                        Course_per_chapter_Fragment.TAG
+                    )
+                    .commit()
+        }else{
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.fragment_container,
+                        Course_per_chapter_Fragment.newInstance(sousThemeList, isForWhichCourse),
+                        Course_per_chapter_Fragment.TAG
+                    )
+                    .commit()
+        }
+         /*   val courseDetailsFragment = Course_per_chapter_Fragment.newInstance(parCourse,false)
             (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, courseDetailsFragment)
-
+*/
         }
         binding.expChaptersAndLessonsListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
             Toast.makeText(

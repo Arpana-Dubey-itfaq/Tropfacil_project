@@ -36,7 +36,7 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_exercise_screen4.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_exercise_screen5.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_exercisescreen1.xml" value="0.1213768115942029" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_forget_password.xml" value="0.18" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_forget_password.xml" value="0.13" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_login.xml" value="0.17" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_main.xml" value="0.1" />
@@ -66,7 +66,7 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_course_details.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_excercise.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_guest_tutorial.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_home1.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_initial.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_login.xml" value="0.1" />
@@ -84,7 +84,7 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_level_progress.xml" value="0.11" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_normal_topbar.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_title_with_back.xml" value="0.14166666666666666" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_topbar.xml" value="0.12" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_topbar.xml" value="0.33" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/inclued_seekbar.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_badge.xml" value="0.11503623188405797" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_badge_userstat.xml" value="0.14166666666666666" />
@@ -92,6 +92,7 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_chat_sender.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_course_chapter.xml" value="0.22" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_course_child.xml" value="0.22" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_course_child_video.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_course_per.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_detail_course.xml" value="0.1213768115942029" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_home_page_course.xml" value="0.10552536231884058" />

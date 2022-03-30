@@ -17,12 +17,14 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/_70sdp"
         android:fillViewport="true"
+android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+
             android:layout_height="match_parent">
 
             <View
@@ -368,18 +370,147 @@ android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lbl_recommend_excrcise2" />
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedscrollviewheader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:fillViewport="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/header"
+
+        android:paddingBottom="@dimen/_30sdp">
+
+        <View
+            android:id="@+id/view12"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90sdp"
+            android:background="@drawable/signup_header_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/inc_level_info1"
+            layout="@layout/include_level_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lblconutine2"
+            style="@style/tvBoldCommon"
+            android:visibility="gone"
+            android:text="Countine where you left off"
+            app:layout_constraintTop_toBottomOf="@+id/inc_level_info1"
+            tools:ignore="MissingConstraints" />
+
+        <include
+            android:id="@+id/incCountine1"
+            layout="@layout/item_tab_recommeded_exercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/lblconutine2" />
+
+        <ImageView
+            android:id="@+id/imgplan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:src="@drawable/plan2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incCountine1" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/subscriptions_message"
+            android:textColor="@color/purple_700"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgplan" />
+
+        <TextView
+            android:id="@+id/tv_message1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_1sdp"
+            android:text="@string/plan_message"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_message" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_25sdp"
+            app:cardBackgroundColor="@color/cou_green"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_message1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/subscribe_to_our_plan_now"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
