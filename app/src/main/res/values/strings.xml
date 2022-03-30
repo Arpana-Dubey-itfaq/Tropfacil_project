@@ -186,5 +186,6 @@
 
     <string name="email_updated_successfully">Email Id updated successfully!</string>
     <string name="no_data_found">No data found</string>
+    <string name="time_spent">Time spent:</string>
 
 </resources>

@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/drawable/rounded_border_image.xml" value="0.129" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/drawable/rounded_corner_10dp.xml" value="0.129" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_profile.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_search.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_account_settings.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_earn_badges.xml" value="0.19647822057460612" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_home.xml" value="0.1962962962962963" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_profile.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_update_email.xml" value="0.1962962962962963" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/include_topbar.xml" value="0.1962962962962963" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/item_search.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/menu/nav_menu.xml" value="0.1962962962962963" />
         <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable-xxhdpi/bg_rounded_corner_white.xml" value="0.1" />
         <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable/bg_green.xml" value="0.1235" />
         <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable/bg_red.xml" value="0.1135" />
