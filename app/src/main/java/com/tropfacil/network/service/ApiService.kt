@@ -66,8 +66,7 @@ interface ApiService {
 
     @POST("utilisateur/update")
     suspend fun changeEmail(
-        @Query("id") id: String?, @Query("email") email: String?,
-        @Query("pwd") pwd: String?
+        @Query("id") id: String?, @Query("email") email: String?
     ): BaseResponse
 
     @POST("utilisateur/update")

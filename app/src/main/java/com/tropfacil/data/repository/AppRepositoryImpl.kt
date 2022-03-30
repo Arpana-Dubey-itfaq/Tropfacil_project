@@ -52,8 +52,8 @@ class AppRepositoryImpl(private val apiService: ApiService) {
     suspend fun getExercices(token:String?): ExercicesListResponse =
         apiService.getExercices(token)
 
-    suspend fun changeEmail(id: String, email: String, pwd:String): BaseResponse =
-        apiService.changeEmail(id,email,pwd)
+    suspend fun changeEmail(id: String, email: String): BaseResponse =
+        apiService.changeEmail(id,email)
 
     suspend fun getBadges(token:String?): BadgeListResponse =
         apiService.getBadges(token)
