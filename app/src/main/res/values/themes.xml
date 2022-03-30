@@ -28,8 +28,8 @@
         <item name="cornerSize">20dp</item>
     </style>
     <style name="imgHeader">
-        <item name="android:layout_height">@dimen/dim35</item>
-        <item name="android:layout_width">@dimen/dim35</item>
+        <item name="android:layout_height">@dimen/_36sdp</item>
+        <item name="android:layout_width">@dimen/_36sdp</item>
         <item name="android:scaleType">fitXY</item>
         <item name="android:layout_marginTop">@dimen/dim15</item>
         <item name="android:layout_marginBottom">@dimen/dim15</item>
