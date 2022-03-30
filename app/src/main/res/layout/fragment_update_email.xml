@@ -118,6 +118,7 @@
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/robotoregular"
                 android:gravity="center_vertical"
+                android:visibility="gone"
                 android:text="@string/lbl_password"
                 android:textColor="@color/black"
                 android:textSize="14sp"
@@ -128,6 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:visibility="gone"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintTop_toBottomOf="@id/password_tv">

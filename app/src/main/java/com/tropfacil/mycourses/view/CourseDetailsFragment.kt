@@ -85,6 +85,7 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCour
         setSousThemeDataToAdapter()
         binding.expChaptersAndLessonsListView.isVisible = false
         binding.rvSousItems.isVisible = true
+        binding.tvDurationName.text ="0min 0sec"
         //TODO needs to check for below items details from the api model proper keys
         /*   binding.tvAboutThisCourse.isVisible = !TextUtils.isEmpty(parCourse.description)
            binding.line.isVisible = !TextUtils.isEmpty(parCourse.description)
@@ -158,7 +159,7 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCour
             sousThemeList.icone.let {
                 val removedRes="/"+it.removePrefix("res:")
                 Glide.with(requireActivity())
-                    .load(BuildConfig.LOAD_IMAGE +removedRes )
+                    .load(BuildConfig.LOAD_ICON_IMAGE +removedRes )
                     .placeholder(R.drawable.logo)
                     .into(binding.topbar.imgCourse)
             }
@@ -194,13 +195,14 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCour
 */
         }
         binding.expChaptersAndLessonsListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
-            Toast.makeText(
+            //TODO handle the navigation to per chapter view.
+        /*    Toast.makeText(
                 requireContext(),
                 "Clicked: " + chaptersWithLessonsList[groupPosition].libelle + " -> " + (chaptersWithLessonsList[groupPosition].lessonsList?.get(
                     childPosition
                 )),
                 Toast.LENGTH_SHORT
-            ).show()
+            ).show()*/
             false
         }
         binding.expChaptersAndLessonsListView.setOnGroupClickListener { parent, v, groupPosition, id ->

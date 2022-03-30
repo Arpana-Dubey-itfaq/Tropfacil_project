@@ -3,6 +3,49 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/drawable/rounded_border_image.xml" value="0.129" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/drawable/rounded_corner_10dp.xml" value="0.129" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_profile.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_search.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_account_settings.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_earn_badges.xml" value="0.19647822057460612" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_home.xml" value="0.1962962962962963" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_profile.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_update_email.xml" value="0.1962962962962963" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/include_topbar.xml" value="0.1962962962962963" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/item_search.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/menu/nav_menu.xml" value="0.1962962962962963" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable-xxhdpi/bg_rounded_corner_white.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable/bg_green.xml" value="0.1235" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable/bg_red.xml" value="0.1135" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable/checkbox_selector.xml" value="0.1135" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable/shape_border_and_background_pass.xml" value="0.1235" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable/white_rounded_top.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/activity_forget_password.xml" value="0.25" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/activity_register.xml" value="0.1718683197947841" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/activity_reset_password.xml" value="0.33" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/activity_userstats_profile.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/activity_welcome_screen.xml" value="0.13229166666666667" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/activity_welcome_screen2.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/course_chapter_detail.xml" value="0.10182370820668693" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/fragment_account_settings.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/fragment_course_details.xml" value="0.25" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/fragment_excercise.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/fragment_guest_tutorial.xml" value="0.17527173913043478" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/fragment_update_email.xml" value="0.28737300435413643" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/fragment_userstats_profile.xml" value="0.22" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/fragment_write_a_message.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/include_courseheader.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/include_title_with_back.xml" value="0.1718683197947841" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/item_badge_userstat.xml" value="0.22" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/item_course_child.xml" value="0.25" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/item_course_parent.xml" value="0.17527173913043478" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/item_home_page_course.xml" value="0.1718683197947841" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/item_page_course_list.xml" value="0.1" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/view_login.xml" value="0.5" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/view_popups.xml" value="0.1718683197947841" />
+        <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/layout/view_reset_password.xml" value="0.18" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/drawable-hdpi/ic_rounded_corner_white.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/drawable-mdpi/active_circle.xml" value="0.1287037037037037" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/drawable-mdpi/btn_white_background.xml" value="0.1287037037037037" />
@@ -36,16 +79,15 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_exercise_screen4.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_exercise_screen5.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_exercisescreen1.xml" value="0.1213768115942029" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_forget_password.xml" value="0.13" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_forget_password.xml" value="0.18" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_home.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_login.xml" value="0.17" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_message.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_parent_student_profile.xml" value="0.9444444444444444" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_profile.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_rate.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_register.xml" value="0.14" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_reset_password.xml" value="0.2107843137254902" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_register.xml" value="0.18" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_reset_password.xml" value="0.12" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_sign_up_screen.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/activity_user_stats_profile.xml" value="0.1" />
@@ -56,26 +98,21 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/cource_chapter.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/course_chapter.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/course_chapter_detail.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/course_per_chapter.xml" value="0.1274131274131274" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/course_per_chapter.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/custom_tab_recommeded_exercise.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/dashboard.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/dashboard_header.xml" value="0.1381340579710145" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/dashbord_card_header.xml" value="0.2" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/exo_video_gallery_control_full_view.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_catgory.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_course_details.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_excercise.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_guest_tutorial.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_home1.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_initial.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_login.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_profile.xml" value="0.15" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_rate.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_student_profile.xml" value="0.10828625235404897" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_tab_recommeded_exercise.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_update_password.xml" value="0.14166666666666666" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/fragment_write_a_message.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/imagelayout.xml" value="0.22" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_courseheader.xml" value="0.25" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_header.xml" value="0.14166666666666666" />
@@ -83,16 +120,13 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_level_info.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_level_progress.xml" value="0.11" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_normal_topbar.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_title_with_back.xml" value="0.14166666666666666" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_topbar.xml" value="0.33" />
+        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/include_topbar.xml" value="0.12" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/inclued_seekbar.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_badge.xml" value="0.11503623188405797" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_badge_userstat.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_chat_receiver.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_chat_sender.xml" value="0.1" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_course_chapter.xml" value="0.22" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_course_child.xml" value="0.22" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_course_child_video.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_course_per.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_detail_course.xml" value="0.1213768115942029" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/item_home_page_course.xml" value="0.10552536231884058" />
@@ -111,7 +145,6 @@
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/view_login.xml" value="0.33" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/view_popups.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/view_reset_password.xml" value="0.1" />
-        <entry key="..\:/Tropfacil_project/app/src/main/res/layout/view_reset_passwordotp.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/layout/view_toolbar.xml" value="0.14166666666666666" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/menu/nav_menu.xml" value="0.21" />
         <entry key="..\:/Tropfacil_project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
@@ -119,7 +152,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

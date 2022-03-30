@@ -98,19 +98,21 @@ class UpdateEmailFragment : BaseFragment() {
             binding.newEmailEt.error = null
             binding.tvErrorMsg.text = getString(R.string.str_please_enter_valid_email)
         }
+/*
 
         if (!binding.passwordEt.isValidPassword(requireContext())) {
             isValid = false
             binding.passwordEt.error = null
             binding.tvErrorMsg.text = getString(R.string.str_please_enter_valid_password)
         }
+*/
         if (isValid)
             callAPIForChangeEmail()
 
     }
 
     private fun callAPIForChangeEmail() {
-        viewModel.updateEmail(binding.newEmailEt.text.toString(),binding.passwordEt.text.toString())
+        viewModel.updateEmail(binding.newEmailEt.text.toString())
     }
 
     private fun initObservers() {

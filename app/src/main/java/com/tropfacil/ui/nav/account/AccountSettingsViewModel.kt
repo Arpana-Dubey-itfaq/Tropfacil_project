@@ -62,10 +62,10 @@ class AccountSettingsViewModel(
     }
 
     fun updateEmail(
-        email: String, pwd: String
+        email: String
     ) = launch {
         updateEmailStateFlow.value = SafeApiCall.Loading
-        appRepository.updateEmail(getUserId(), email, pwd)
+        appRepository.updateEmail(getUserId(), email)
             .catch { e ->
                 updateEmailStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->

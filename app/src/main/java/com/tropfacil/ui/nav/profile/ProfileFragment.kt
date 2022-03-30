@@ -132,15 +132,18 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun displayImages(data: ResponseBody) {
-        if (data != null && data.byteStream() != null) {
+        try {
             val bitmap: Bitmap = BitmapFactory.decodeStream(data.byteStream())
             Glide.with(requireActivity())
                 .asBitmap()
                 .load(bitmap)
                 .apply(RequestOptions.circleCropTransform())
-                .placeholder(R.drawable.logo)
+                .placeholder(R.drawable.user_profile)
                 .into(binding.profileIv)
+        }catch (e:Exception){
+            e.printStackTrace()
         }
+
     }
 
     private fun closeFragment() {

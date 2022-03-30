@@ -79,7 +79,6 @@ android:visibility="gone"
 
     <ImageView
         android:id="@+id/imgsearch"
-
         style="@style/imgHeader"
         android:src="@drawable/search"
         app:layout_constraintRight_toLeftOf="@+id/imgmessage"

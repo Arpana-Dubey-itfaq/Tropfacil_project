@@ -14,7 +14,8 @@
     <!--Veuillez-vous connecter pour continuer.-->
     <string name="login_to_continue">Sign in.</string>
     <!--Email or Username-->
-    <string name="email_username">Email</string>
+    <string name="email_username">Username</string>
+    <string name="email_address">Email address</string>
     <!--Password-->
     <string name="password">Mot de passe</string>
     <!--Show-->
