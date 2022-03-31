@@ -1,6 +1,7 @@
 package com.tropfacil.mycourses.adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.tropfacil.base.BaseViewHolder
 import com.tropfacil.data.Parcour
 import com.tropfacil.getDurationFromSeconds
 import com.tropfacil.loadImage
+import com.tropfacil.util.Constants.Companion.PARCOUR
 import com.tropfacil.utils.ItemClickListener
 import kotlinx.android.synthetic.main.raw_item_course_info.view.*
 
@@ -52,7 +54,11 @@ class CourseInfoAdapter(
                     itemView.progress_time.progress = totalCoursePercentage
                     itemView.tv_time_percent.text = "${totalCoursePercentage}%"
                 }
-
+            itemView.next_iv.setOnClickListener {
+            val bundle= Bundle()
+                bundle.putSerializable(PARCOUR,parcourList[adapterPosition])
+                itemClickListener.onItemClick(bundle)
+            }
             }
         }
     }

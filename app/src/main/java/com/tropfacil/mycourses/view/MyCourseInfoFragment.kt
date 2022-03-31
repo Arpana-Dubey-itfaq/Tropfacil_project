@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tropfacil.R
+import com.tropfacil.base.BaseActivity
 import com.tropfacil.base.BaseFragment
+import com.tropfacil.data.Parcour
 import com.tropfacil.data.Theme
 import com.tropfacil.databinding.FragmentExerciseInfoBinding
 import com.tropfacil.databinding.FragmentMyCourseInfoBinding
@@ -16,6 +18,7 @@ import com.tropfacil.model.exercices.ExercicesInfoList
 import com.tropfacil.mycourses.adapter.CourseInfoAdapter
 import com.tropfacil.ui.nav.exercices.adapter.ExercicesInfoAdapter
 import com.tropfacil.util.Constants
+import com.tropfacil.util.Constants.Companion.PARCOUR
 import com.tropfacil.utils.ItemClickListener
 import kotlinx.android.synthetic.main.raw_item_course_info.view.*
 
@@ -53,6 +56,9 @@ class MyCourseInfoFragment : BaseFragment() {
     private fun setUI() {
         courseInfoAdapter = CourseInfoAdapter(requireContext(), object : ItemClickListener {
             override fun onItemClick(bundle: Bundle?) {
+                val parcourItem:Parcour = bundle?.getSerializable(PARCOUR) as Parcour
+                val courseDetailsFragment = CourseDetailsFragment.newInstance(parcourItem, true)
+                (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, courseDetailsFragment)
 
             }
         })
