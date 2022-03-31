@@ -1,5 +1,7 @@
 package com.tropfacil.data
 
+import java.io.Serializable
+
 data class Parcour(
     val couleur: String,
     val description: String,
@@ -11,4 +13,4 @@ data class Parcour(
     val duree_estimee: String,
     val duree_suivi: String,
     val verrouille: Boolean,
-)
+):Serializable

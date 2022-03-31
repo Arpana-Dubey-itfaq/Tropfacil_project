@@ -15,6 +15,9 @@ import com.tropfacil.model.search.SearchInfo
 import com.tropfacil.util.Constants
 import com.tropfacil.utils.ItemClickListener
 import kotlinx.android.synthetic.main.item_search.view.*
+import kotlinx.android.synthetic.main.item_search.view.progress_time
+import kotlinx.android.synthetic.main.item_search.view.tv_time_percent
+import kotlinx.android.synthetic.main.raw_item_course_info.view.*
 
 /**
  * Created by Nimesh Patel on 30-03-2022.
