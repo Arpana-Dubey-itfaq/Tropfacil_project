@@ -28,6 +28,10 @@ class UserStatsProfileViewModel (
     val _getBadgesStateFlow: StateFlow<SafeApiResponse<BadgeListResponse>?> =
         getBadgesStateFlow
 
+    private val profilePictureStateFlow: MutableStateFlow<SafeApiCall> =
+        MutableStateFlow(SafeApiCall.Empty)
+    val _profilePictureStateFlow: StateFlow<SafeApiCall> = profilePictureStateFlow
+
     fun getBadges() = launch {
         getBadgesStateFlow.value = SafeApiResponse.Loading
         val token = preferenceProvider.getString(PREF_USER_TOKEN, "")
@@ -36,6 +40,17 @@ class UserStatsProfileViewModel (
                 getBadgesStateFlow.value = getErrorMessage(e)?.let { SafeApiResponse.Error(e) }
             }.collect { data ->
                 getBadgesStateFlow.value = SafeApiResponse.Success(data)
+            }
+    }
+    fun getProfilePicture() = launch {
+        profilePictureStateFlow.value = SafeApiCall.Loading
+        val token =preferenceProvider.getString(PREF_USER_TOKEN, "")
+        appRepository.getProfilePicture(token)
+            .catch { e ->
+                profilePictureStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
+            }.collect { data ->
+                profilePictureStateFlow.value = SafeApiCall.SuccessResponseBody(data)
+
             }
     }
 }

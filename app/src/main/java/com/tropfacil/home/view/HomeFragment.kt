@@ -15,12 +15,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
 import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
 import androidx.lifecycle.lifecycleScope
-import com.app.leust.data.Data.Companion.header
 import com.app.leust.data.Data.Companion.nom
 import com.app.leust.data.Data.Companion.pernom
 import com.app.leust.data.Data.Companion.token
 import com.tropfacil.base.BaseActivity
-import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.data.home_response
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.home.adapter.*
@@ -31,9 +29,7 @@ import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.userstatprofile.view.UserStatsProfileActivity
 import com.tropfacil.util.Constants
-import com.tropfacil.utils.gone
 import com.tropfacil.utils.visible
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
@@ -221,6 +217,7 @@ class HomeFragment : BaseFragment() {
 
         }
         binding.incLevelInfo.imgNext.setOnClickListener {
+
             startActivity(Intent(requireContext(), UserStatsProfileActivity::class.java))
 
         }

@@ -6,6 +6,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -21,6 +22,8 @@ import com.tropfacil.mycourses.view.Course_per_chapter_Fragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
 import com.tropfacil.ui.nav.account.email.UpdateEmailFragment
 import com.tropfacil.ui.nav.account.password.UpdatePasswordFragment
+import com.tropfacil.ui.nav.home.userstats.badges.EarnBadgesFragment
+import com.tropfacil.ui.nav.profile.ProfileFragment
 import com.tropfacil.utils.popups.SuccessOrFailurePopup
 
 
@@ -51,14 +54,16 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showErrorMsg(errorMsg: String) {
-        SuccessOrFailurePopup.newInstance {
-            onConfirm = {}
-            message = errorMsg
-            successBtnName = getString(R.string.ok)
-            isSuccessPopUp = 2
-            cancellable = false
-        }.show(supportFragmentManager, SuccessOrFailurePopup.TAG)
+        Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show()
+        /*    SuccessOrFailurePopup.newInstance {
+                onConfirm = {}
+                message = errorMsg
+                successBtnName = getString(R.string.ok)
+                isSuccessPopUp = 2
+                cancellable = false
+            }.show(supportFragmentManager, SuccessOrFailurePopup.TAG)*/
     }
+
     /** Hide the status bar*/
     fun hideStatusBar() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -98,14 +103,13 @@ open class BaseActivity : AppCompatActivity() {
                 }
 
                 LoginFragment::class.java.name -> {
-                    // findNavController().navigate(RegisterFragmentDirections.actionInitialFragmentToLoginFragment())
                     supportFragmentManager.popBackStack()
-
-
                 }
                 WriteAMessageFragment::class.java.name -> supportFragmentManager.popBackStack()
                 CourseDetailsFragment::class.java.name -> supportFragmentManager.popBackStack()
                 UpdateEmailFragment::class.java.name -> supportFragmentManager.popBackStack()
+                ProfileFragment::class.java.name -> supportFragmentManager.popBackStack()
+                EarnBadgesFragment::class.java.name -> supportFragmentManager.popBackStack()
                 Course_per_chapter_Fragment::class.java.name -> supportFragmentManager.popBackStack()
 
             }

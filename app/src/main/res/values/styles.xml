@@ -87,4 +87,5 @@
     <style name="ProgressAndRatingBar" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/green</item>
     </style>
+
 </resources>

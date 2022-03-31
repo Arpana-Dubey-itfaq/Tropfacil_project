@@ -1,4 +1,4 @@
-package com.tropfacil.badge.adapter
+package com.tropfacil.userstatprofile.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
