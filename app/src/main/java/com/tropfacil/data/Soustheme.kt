@@ -1,5 +1,7 @@
 package com.tropfacil.data
 
+import java.io.Serializable
+
 data class Soustheme(
     val couleur: String,
     val description: String,
@@ -7,4 +9,4 @@ data class Soustheme(
     val icone: String,
     val id: String,
     val libelle: String
-)
+):Serializable

@@ -1,8 +1,6 @@
 package com.tropfacil.data
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-
+import java.io.Serializable
 
 data class Parcour(
     val couleur: String,
@@ -15,4 +13,4 @@ data class Parcour(
     val duree_estimee: String,
     val duree_suivi: String,
     val verrouille: Boolean,
-)
+):Serializable

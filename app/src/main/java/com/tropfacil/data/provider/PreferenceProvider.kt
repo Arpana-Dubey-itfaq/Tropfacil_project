@@ -13,7 +13,8 @@ const val PREF_USER_IDNEW = "id"
 const val PREF_USER_MOBILE = "userMobile"
 const val PREF_USER_PASSWORD = "userPassword"
 const val PREF_USER_NAME = "nom"
-const val PREF_USER_FIRST_NAME = "prenom"
+const val PREF_USER_FIRST_NAME = "nom"
+const val PREF_USER_LAST_NAME = "prenom"
 const val PREF_USER_TOKEN = "token"
 const val PREF_USER_TOKEN_EXPIRATION = "tokenExpiration"
 const val PREF_USER_REFRESH_TOKEN = "refreshToken"
@@ -53,7 +54,7 @@ class PreferenceProvider(val context: Context) {
         return preferences.getString(PREF_USER_NAME, "")
     }
     fun getperNom(): String? {
-        return preferences.getString(PREF_USER_FIRST_NAME, "")
+        return preferences.getString(PREF_USER_LAST_NAME, "")
     }
     fun getString(key: String, defaultValue: String): String {
         return preferences.getString(key, defaultValue).toString()
@@ -105,9 +106,9 @@ class PreferenceProvider(val context: Context) {
         putString(PREF_USER_IDNEW, data.id)
         putString(PREF_USER_TOKEN, data.token)
         putString(PREF_USER_ID, data.pf)
-        putString(PREF_USER_FIRST_NAME, data.prenom)
-        putString(PREF_USER_NAME,data.nom?:"")
-
+        putString(PREF_USER_FIRST_NAME,data.nom?:"")
+        putString(PREF_USER_LAST_NAME, data.prenom)
+        putString(PREF_USER_NAME,data.username?:"")
 
     }
     /*fun saveUserInfo(response: Login_resoponse) {
