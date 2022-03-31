@@ -100,10 +100,10 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCour
         parCourse.libelle.let {
             binding.topbar.tvCourseName.text = it
             binding.tvCourseNameVal.text = it
-        }
-        parCourse.type.let {
             binding.tvCategoryName.text = it
+
         }
+
         parCourse.description.let {
             binding.tvAboutThisCourse.isVisible = !TextUtils.isEmpty(it)
             binding.line.isVisible = !TextUtils.isEmpty(it)
