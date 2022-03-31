@@ -169,7 +169,7 @@
     <string name="lbl_civility">Civility</string>
     <string name="lbl_name">Name</string>
     <string name="lbl_type_ur_lastname">Enter your last name</string>
-    <string name="lbl_lastname">Last name</string>
+    <string name="lbl_lastname">Lastname</string>
     <string name="lbl_username">Username</string>
     <string name="lbl_type_ur_username">Username</string>
     <string name="lbl_type_ur_email_address">Email address</string>
