@@ -19,6 +19,7 @@ import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.ActivityForgetPasswordBinding
 import com.tropfacil.databinding.ActivityResetPasswordBinding
 import com.tropfacil.isValidPassword
+import com.tropfacil.isValidPasswordotp
 import com.tropfacil.model.ResetPasswordRequest
 import com.tropfacil.model.UpdatePasswordRequest
 import com.tropfacil.network.service.SafeApiCall
@@ -82,7 +83,7 @@ class FragmentResetPassword : BaseActivity() {
             this.onBackPressed()
         }
 
-        binding.manageConfirmPassIv.setOnClickListener {
+        binding.manageNewPassIv.setOnClickListener {
             binding.newPasswordEt.apply {
                 transformationMethod =
                     if (transformationMethod is PasswordTransformationMethod)
@@ -100,12 +101,14 @@ class FragmentResetPassword : BaseActivity() {
                         PasswordTransformationMethod() //hides password
             }
         }
-
+        binding.includeLayout1.backIv.setOnClickListener {
+            this.onBackPressed()
+        }
         binding.btnCreateAccount.setOnClickListener {
 
             if (binding.currentPasswordEt.isValidPassword(this) &&
                 binding.newPasswordEt.isValidPassword(this) &&
-                binding.confirmNewPasswordEt.isValidPassword(this)
+                binding.confirmNewPasswordEt.isValidPasswordotp(this)
                // isValidConfirmPassowrd()
             ) {
                 //call Update Password API

@@ -119,6 +119,8 @@
     <string name="lbl_type_ur_new_email">Type your new email</string>
     <string name="lbl_password">Password</string>
     <string name="lbl_type_ur_password">Type your password</string>
+    <string name="str_please_enter_valid_otp">Enter valid otp</string>
+
     <string name="str_please_enter_valid_password">Enter valid password</string>
     <string name="lbl_current_password">Current Password</string>
     <string name="lbl_type_ur_current_password">Type your current password</string>
@@ -167,7 +169,7 @@
     <string name="lbl_civility">Civility</string>
     <string name="lbl_name">Name</string>
     <string name="lbl_type_ur_lastname">Enter your last name</string>
-    <string name="lbl_lastname">Last name</string>
+    <string name="lbl_lastname">Lastname</string>
     <string name="lbl_username">Username</string>
     <string name="lbl_type_ur_username">Username</string>
     <string name="lbl_type_ur_email_address">Email address</string>
