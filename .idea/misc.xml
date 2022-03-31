@@ -8,12 +8,23 @@
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_profile.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/activity_search.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_account_settings.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_course_details.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_earn_badges.xml" value="0.19647822057460612" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_excercise.xml" value="0.23435897435897435" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_exercise_info.xml" value="0.23435897435897435" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_home.xml" value="0.1962962962962963" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_home1.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_my_course.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_my_course_info.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_profile.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/fragment_update_email.xml" value="0.1962962962962963" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/include_topbar.xml" value="0.1962962962962963" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/item_search.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/item_tab_recommeded_exercise.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/raw_item_course_info.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/raw_item_exercices_info.xml" value="0.23435897435897435" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/view_dialog_success.xml" value="0.23802083333333332" />
+        <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/layout/view_popups.xml" value="0.23802083333333332" />
         <entry key="..\:/AndroidProject/ITFAQ/Projects/TropFacile/code/app/src/main/res/menu/nav_menu.xml" value="0.1962962962962963" />
         <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable-xxhdpi/bg_rounded_corner_white.xml" value="0.1" />
         <entry key="..\:/ITFAQ/TropFacile/GIT/app/src/main/res/drawable/bg_green.xml" value="0.1235" />
@@ -152,7 +163,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -83,3 +83,16 @@ fun ImageView.loadImage(context: Context, url: String) {
 fun ImageView.loadSrcImage(context: Context, src: Int) {
     Glide.with(context).load(src).into(this)
 }
+
+fun getDurationFromSeconds(seconds:Int):String{
+    return when (seconds) {
+        in 0..(60) -> {
+            (seconds).toInt().toString() + " seconds"
+        }
+        in (60)..(60 * 60) -> {
+            (seconds / (60)).toInt().toString() + " minutes"
+        }
+        else ->
+            (seconds / (60 * 60)).toInt().toString() + " hours"
+    }
+}
