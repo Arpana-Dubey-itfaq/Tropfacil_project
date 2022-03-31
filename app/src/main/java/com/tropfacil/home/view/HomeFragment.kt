@@ -221,6 +221,11 @@ class HomeFragment : BaseFragment() {
             startActivity(Intent(requireContext(), UserStatsProfileActivity::class.java))
 
         }
+        binding.incLevelInfo1.imgNext.setOnClickListener {
+
+            startActivity(Intent(requireContext(), UserStatsProfileActivity::class.java))
+
+        }
         binding.incCountine.card.setOnClickListener {
             // findNavController().navigate(HomeFragmentDirections.actionCourseperFragment())
 

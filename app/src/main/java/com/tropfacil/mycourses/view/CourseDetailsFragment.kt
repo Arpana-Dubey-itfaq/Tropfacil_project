@@ -172,11 +172,11 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCour
         binding.topbar.imgBackArrow.setOnClickListener {
             closeFragment()
         }
-        binding.btnStartCourse.setOnClickListener {
+        binding.btnStartCourse2.setOnClickListener {
             startActivity(Intent(context, RateReviewActivity::class.java))
 
         }
-        binding.btnContinueCourse.setOnClickListener {
+        binding.btnStartCourse.setOnClickListener {
             if (isForWhichCourse){
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(

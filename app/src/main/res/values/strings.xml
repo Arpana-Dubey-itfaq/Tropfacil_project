@@ -146,7 +146,7 @@
     <string name="duration">Duration</string>
     <string name="percentage">Pourcentage du cours appris</string>
     <!--Start Course-->
-    <string name="start_course">Start Course</string>
+    <string name="start_course">Continue</string>
     <string name="about_this_course">About the course</string>
     <!--What you can learn from this course-->
     <string name="what_you_can_learn">What you can learn from this course</string>
@@ -188,11 +188,10 @@
         <item>Mrs.</item>
     </string-array>
 
-<<<<<<<<< Temporary merge branch 1
+
     <string name="avancement">AVANCEMENT GLOBAL</string>
     <string name="activities">ACTIVITÉS</string>
 <string name="formations">Formations</string>
-=========
     <string name="email_updated_successfully">Email Id updated successfully!</string>
     <string name="no_data_found">No data found</string>
     <string name="time_spent">Time spent:</string>

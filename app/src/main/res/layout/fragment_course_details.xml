@@ -197,7 +197,6 @@
                     android:id="@+id/l1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="42dp"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@+id/tvcoursename1">
 
@@ -205,49 +204,39 @@
                         android:id="@+id/btnStartCourse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/rate_this_course"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_marginTop="32dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:background="@drawable/bg_green"
+                        android:fontFamily="@font/light"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@string/start_course"
                         android:textAllCaps="false"
-                        android:background="@drawable/bg_red"
-
                         android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/dim_15sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnContinueCourse"
-                        android:layout_width="0dp"
+                        android:id="@+id/btnStartCourse2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="6dp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_marginTop="32dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_green"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/continue_course"
+                        android:backgroundTint="#E83C70"
+                        android:fontFamily="@font/light"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Rate this Course"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:visibility="gone"
+                        android:textSize="@dimen/dim_15sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnRateThisCourse"
-                        android:layout_width="0dp"
-
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/bg_red"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="@string/rate_this_course"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
 
                 </LinearLayout>
 

@@ -19,6 +19,7 @@ import com.tropfacil.ui.nav.exercices.MyExerciseFragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
 import com.tropfacil.ui.nav.profile.ProfileFragment
 import com.tropfacil.util.interfaces.HomeOptionsListener
+import kotlinx.android.synthetic.main.nav_header.view.*
 
 class MainActivity : BaseActivity(), HomeOptionsListener {
     lateinit var binding: ActivityHomeBinding
@@ -30,6 +31,7 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         navigateToHomeScreen()
         homeOptionsListener = this
         initNavigationDrawer()
+        binding.navigationView.userprofile
         //  startActivity()
     }
 
