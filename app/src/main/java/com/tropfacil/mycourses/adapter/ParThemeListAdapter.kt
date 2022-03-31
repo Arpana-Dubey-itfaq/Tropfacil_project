@@ -6,25 +6,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tropfacil.R
 import com.tropfacil.data.Element
-import com.tropfacil.data.ElementX
 import com.tropfacil.databinding.*
 
 
-class SousThemeListAdapter(
-    private val sousThemeList: List<ElementX>
+class ParThemeListAdapter(
+    private val sousThemeList: List<Element>
 
-) : RecyclerView.Adapter<SousThemeListAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<ParThemeListAdapter.ViewHolder>() {
 
 
-    inner class ViewHolder(val bind: ItemCourseChildBinding) :
+    inner class ViewHolder(val bind: ItemCourseChildVideoBinding) :
         RecyclerView.ViewHolder(bind.root)
 
     lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
-        val binding: ItemCourseChildBinding =
-            ItemCourseChildBinding.inflate(
+        val binding: ItemCourseChildVideoBinding =
+            ItemCourseChildVideoBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -66,7 +65,7 @@ class SousThemeListAdapter(
         //set progress bar
         sousItem.avancement.let {
             holder.bind.progressBar.progress = it
-            holder.bind.tvProgressWithPercentage.text = "${it}%"
+            holder.bind.tvProgressWithPercentage.text = "${it}"
         }
 
         //set icon play or locked for lessons
