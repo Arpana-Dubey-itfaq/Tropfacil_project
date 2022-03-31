@@ -119,6 +119,8 @@
     <string name="lbl_type_ur_new_email">Type your new email</string>
     <string name="lbl_password">Password</string>
     <string name="lbl_type_ur_password">Type your password</string>
+    <string name="str_please_enter_valid_otp">Enter valid otp</string>
+
     <string name="str_please_enter_valid_password">Enter valid password</string>
     <string name="lbl_current_password">Current Password</string>
     <string name="lbl_type_ur_current_password">Type your current password</string>
@@ -178,11 +180,7 @@
     <string name="lbl_earn_badges">Earn badges</string>
     <string name="lbl_my_badges">My Badges</string>
     <string name="validation_input_email_invalid">"Email Id is invalid    "</string>
-    <string name="email_updated_successfully">Email Id updated successfully!</string>
-
-    <string name="no_data_found">No data found</string>
-    <string name="time_spent">Time spent:</string>
-    <string name="str_my_courses">My Courses</string>
+     <string name="str_my_courses">My Courses</string>
     <string name="str_time_spent_value">Time spent: %s</string>
     <string name="str_progression">Progression :</string>
     <string-array name="civility_code">

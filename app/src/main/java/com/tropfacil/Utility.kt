@@ -71,6 +71,16 @@ fun EditText.isValidPassword(context: Context):Boolean {
     return true
 }
 
+fun EditText.isValidPasswordotp(context: Context):Boolean {
+    val passwordPattern =
+        "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-.!;:@$!%*?&^+='])[A-Za-z\\d-.!;:@$!%*?&^+=']{6,}$"
+    val currentPassword = this.text.toString().trim()
+    if(currentPassword.isEmpty() || currentPassword.matches(passwordPattern.toRegex())){
+        this.error = context.getString(R.string.str_please_enter_valid_otp)
+        return false
+    }else this.error = null
+    return true
+}
 
 fun updateStatusBarColor(colorResource: Int, activity: Activity) {
     activity.window.statusBarColor = colorResource
