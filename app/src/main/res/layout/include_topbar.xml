@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="30dp"
     android:background="@color/headerred">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -27,6 +28,7 @@
         app:cardCornerRadius="@dimen/_30sdp"
         app:cardElevation="@dimen/_10sdp"
         app:cardMaxElevation="@dimen/_12sdp"
+        android:visibility="gone"
         app:layout_constraintLeft_toRightOf="@+id/imgUser"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -43,6 +45,7 @@
         android:id="@+id/card_notification"
         android:layout_width="@dimen/_20sdp"
         android:layout_height="@dimen/_20sdp"
+        android:visibility="gone"
         android:layout_margin="@dimen/_10sdp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/_20sdp"
@@ -62,7 +65,7 @@
     <ImageView
         android:id="@+id/imgNotification"
         style="@style/imgHeader"
-
+android:visibility="gone"
         android:src="@drawable/notification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -71,6 +74,7 @@
         android:id="@+id/imgmessage"
         style="@style/imgHeader"
         android:scaleType="fitXY"
+
         android:src="@drawable/message"
         app:layout_constraintRight_toLeftOf="@+id/imgNotification"
         app:layout_constraintTop_toTopOf="parent" />

@@ -15,12 +15,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.tropfacil.R
 import com.tropfacil.databinding.CustomTabRecommededExerciseBinding
 import androidx.lifecycle.lifecycleScope
-import com.app.leust.data.Data.Companion.header
 import com.app.leust.data.Data.Companion.nom
 import com.app.leust.data.Data.Companion.pernom
 import com.app.leust.data.Data.Companion.token
 import com.tropfacil.base.BaseActivity
-import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.data.home_response
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.home.adapter.*
@@ -31,6 +29,7 @@ import com.tropfacil.notificaions.view.NotificationsActivity
 import com.tropfacil.search.view.SearchActivity
 import com.tropfacil.userstatprofile.view.UserStatsProfileActivity
 import com.tropfacil.util.Constants
+import com.tropfacil.utils.visible
 import kotlinx.coroutines.flow.collect
 import org.koin.android.ext.android.inject
 
@@ -43,7 +42,7 @@ class HomeFragment : BaseFragment() {
     lateinit var homeCourseAdapter: HomeCourseAdapter
     lateinit var viewPagerExcerAdapter: ViewPagerAdapterEvery
     lateinit var viewPagerSchudeleCourseAdapter: ViewPagerAdapterNew
-
+    private var qty = ""
 
     companion object {
         const val TAG = "HomeFragment"
@@ -147,6 +146,9 @@ class HomeFragment : BaseFragment() {
 
         initObserver()
         initObservers()
+        token = PreferenceProvider(requireContext()).getUserToken()
+        binding.incLevelInfo.tvcoursename.setText(nom + " " + pernom)
+
         // initObserver()
     }
 
@@ -163,8 +165,25 @@ class HomeFragment : BaseFragment() {
                     }
                     is SafeApiCall.Successhome -> {
                         binding.progressBar.isVisible = false
-                        homeViewModel._syncItemsStateFlow.value
+                        qty = homeViewModel._syncItemsStateFlow.value.toString()
+                         if(homeresponse.data.themes.isEmpty())
+                         {
+                             binding.nestedscrollviewheader.visible()
+                             nom = PreferenceProvider(requireContext()).getNom()
+                             pernom = PreferenceProvider(requireContext()).getperNom()
+
+                             binding.incLevelInfo1.tvcoursename.setText(nom + " " + pernom)
+
+
+                             // binding.incLevelInfo.tvcoursename.setText(nom + " " + pernom)
+
+
+                         }else{
+                            binding.nestedscrollview.visible()
+                        }
+
                         loadBannersList(homeresponse.data)
+
 
                         //viewModel.syncGuestItems(getUUID())
                     }
@@ -198,6 +217,7 @@ class HomeFragment : BaseFragment() {
 
         }
         binding.incLevelInfo.imgNext.setOnClickListener {
+
             startActivity(Intent(requireContext(), UserStatsProfileActivity::class.java))
 
         }
@@ -262,6 +282,10 @@ class HomeFragment : BaseFragment() {
             binding.indicator.setProgress(selectingPosition, progress)
 */
         //  viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
+        nom = PreferenceProvider(requireContext()).getNom()
+        pernom = PreferenceProvider(requireContext()).getperNom()
+
+        binding.incLevelInfo.tvcoursename.setText(nom + " " + pernom)
 
 
         setData(bannersResponse)

@@ -22,11 +22,7 @@ import retrofit2.http.*
 interface ApiService {
 
 
-    @Headers("Accept: application/json")
-    @GET("get-catalogue")
-    suspend fun listUsers(
-        @Query("token") token: String,
-    ): List<Homeresponse>
+
 
     @POST("utilisateur/login")
     suspend fun login(
@@ -52,6 +48,19 @@ interface ApiService {
     suspend fun updatePassword(
         @Body updatePasswordRequest: UpdatePasswordRequest,
     ): BaseResponse
+
+
+    @POST("utilisateur/update-password")
+    suspend fun resetPassword(
+        @Query("token") authorization: String?,
+        @Query("npwd")
+        np: String,
+        @Query("code_unique")
+        cp: String,
+        @Query("login")
+        otp: String,
+    ): BaseResponse
+
 
     @POST("catalogue/get-catalogue")
     suspend fun homeData(

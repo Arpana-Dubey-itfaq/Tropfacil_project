@@ -40,30 +40,37 @@ class RegisterViewModel(
         appRepository.register(request)
             .catch { e ->
                 showLoading.value = false
+
                 showError.value = getErrorMessage(e)
                 registerStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
 
 //                registerStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
                 showLoading.value = false
-                preferenceProvider.putString(
-                    PREF_EMAIL,
-                    request.email
-                )
-                preferenceProvider.putString(
-                    PREF_PASSWORD,
-                    request.prenom
-                )
+                if (data.success.equals("true")) {
+                    preferenceProvider.putString(
+                        PREF_EMAIL,
+                        request.email
+                    )
+                    preferenceProvider.putString(
+                        PREF_PASSWORD,
+                        request.prenom
+                    )
 
-              //  registerLiveData.value = data
-                registerStateFlow.value = SafeApiCall.SuccessRegister(data)
+                    //  registerLiveData.value = data
+                    registerStateFlow.value = SafeApiCall.SuccessRegister(data)
 
+                } else {
+                    registerStateFlow.value = if (data.error != null) {
+                        SafeApiCall.Error(data.error?.message.toString())
+                    } else SafeApiCall.Error("Something went wrong. Please try after sometime!")
+                }
             }
-    }
 
 
 
-    fun savePassword(password: String) {
-        preferenceProvider.putString(PREF_PASSWORD, password)
+        fun savePassword(password: String) {
+            preferenceProvider.putString(PREF_PASSWORD, password)
+        }
     }
 }

@@ -2,6 +2,8 @@ package com.tropfacil.ui.allusertypes.auth.forgotpass
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +12,15 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.tropfacil.R
 import com.tropfacil.base.BaseActivity
 
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.ActivityForgetPasswordBinding
 import com.tropfacil.databinding.ActivityResetPasswordBinding
+import com.tropfacil.isValidPassword
+import com.tropfacil.isValidPasswordotp
+import com.tropfacil.model.ResetPasswordRequest
 import com.tropfacil.model.UpdatePasswordRequest
 import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
@@ -40,6 +46,35 @@ class FragmentResetPassword : BaseActivity() {
 
 
     private fun initListeners() {
+        binding.currentPasswordEt.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                isValidConfirmPassowrd()
+
+            }
+
+        })
+        binding.newPasswordEt.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                binding.newPasswordEt.isValidPassword(this@FragmentResetPassword)
+            }
+
+        })
         /* binding.ivClose.setOnClickListener {
              findNavController().popBackStack()
          }
@@ -48,7 +83,7 @@ class FragmentResetPassword : BaseActivity() {
             this.onBackPressed()
         }
 
-        binding.manageConfirmPassIv.setOnClickListener {
+        binding.manageNewPassIv.setOnClickListener {
             binding.newPasswordEt.apply {
                 transformationMethod =
                     if (transformationMethod is PasswordTransformationMethod)
@@ -66,42 +101,29 @@ class FragmentResetPassword : BaseActivity() {
                         PasswordTransformationMethod() //hides password
             }
         }
-
+        binding.includeLayout1.backIv.setOnClickListener {
+            this.onBackPressed()
+        }
         binding.btnCreateAccount.setOnClickListener {
-            //it.hideKeyboard()
-            if (binding.currentPasswordEt.text.toString().isEmpty()) {
-                Toast.makeText(
-                    this, "Please enter New Password",
-                    Toast.LENGTH_SHORT
-                ).show()
-                binding.currentPasswordCl.requestFocus();
-            } else if (binding.newPasswordEt.text.toString().isEmpty()) {
-                Toast.makeText(
-                    this, "Please enter Confirm password",
-                    Toast.LENGTH_SHORT
-                ).show()
-                binding.newPasswordEt.requestFocus();
-            } else if (binding.confirmNewPasswordEt.text.toString().isEmpty()) {
-                Toast.makeText(
-                    this, "Please enter OTP",
-                    Toast.LENGTH_SHORT
-                ).show()
-                binding.confirmNewPasswordEt.requestFocus();
-            } else {
-                val updatePasswordRequest = UpdatePasswordRequest()
-                updatePasswordRequest.login = "appud8787@gmail.com"
+
+            if (binding.currentPasswordEt.isValidPassword(this) &&
+                binding.newPasswordEt.isValidPassword(this) &&
+                binding.confirmNewPasswordEt.isValidPasswordotp(this)
+               // isValidConfirmPassowrd()
+            ) {
+                //call Update Password API
+                val updatePasswordRequest = ResetPasswordRequest()
+                updatePasswordRequest.login=profilename
+                updatePasswordRequest.confirmPassword= binding.newPasswordEt.text.toString()
                 updatePasswordRequest.newPassword = binding.currentPasswordEt.text.toString()
-                updatePasswordRequest.password = binding.newPasswordEt.text.toString()
-                viewModel.resetPassword(updatePasswordRequest)
-                //viewModel.updatePassword(profilename,binding.currentPasswordCl.editPassword.text.toString(),binding.newPasswordEt.editPassword.text.toString())
-                // flag = true
+                viewModel.resetPassword(binding.currentPasswordEt.text.toString(),binding.confirmNewPasswordEt.text.toString(),profilename)
             }
         }
     }
 
     private fun initObservers() {
         lifecycleScope.launchWhenStarted {
-            viewModel._updatePasswordStateFlow.collect { it ->
+            viewModel._updatePasswordStateFlow1.collect { it ->
                 when (it) {
                     is SafeApiCall.Loading -> {
                         binding.progressBar.isVisible = true
@@ -120,6 +142,16 @@ class FragmentResetPassword : BaseActivity() {
                 }
             }
         }
+    }
+    private fun isValidConfirmPassowrd(): Boolean {
+        val newPassword = binding.currentPasswordEt.text.toString().trim()
+        val confirmPassword = binding.newPasswordEt.text.toString().trim()
+        if (!newPassword.equals(confirmPassword, ignoreCase = false)) {
+            binding.newPasswordEt.error = getString(R.string.str_confirm_password_not_match)
+            return false
+        }
+
+        return true
     }
 
     private fun clickListeners() {

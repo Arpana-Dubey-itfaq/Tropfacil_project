@@ -2,6 +2,6 @@ package com.tropfacil.data
 
 data class home_response(
     val success: String,
-    val error:Error,
+    var error:Error,
     val themes: List<Theme>
 )

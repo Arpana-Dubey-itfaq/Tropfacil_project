@@ -2,7 +2,7 @@ package com.tropfacil.badge.view
 
 import android.os.Bundle
 import com.tropfacil.R
-import com.tropfacil.badge.adapter.MybadgeAdapter
+import com.tropfacil.userstatprofile.adapter.MybadgeAdapter
 import com.tropfacil.base.BaseActivity
 import com.tropfacil.databinding.*
 

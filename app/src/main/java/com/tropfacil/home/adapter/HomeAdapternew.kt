@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.tropfacil.R
 import com.tropfacil.data.Theme
 import com.tropfacil.data.Parcour
@@ -14,6 +15,16 @@ import com.tropfacil.data.Soustheme
 import com.tropfacil.databinding.ItemTabRecommededExercisenewBinding
 
 import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
+import android.graphics.drawable.Drawable
+import android.util.Log
+import android.widget.ProgressBar
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.bitmap.FitCenter
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
+import com.tropfacil.BuildConfig
+import com.tropfacil.home.adapter.RecommededExcerciseFragmentNew.Companion.TAG
 
 
 class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Boolean, private val homeToCourseDetailsListener: HomeToCourseDetailsListener
@@ -60,6 +71,7 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
         val textView: TextView = view.findViewById<TextView>(R.id.tv_name)
         val imgNext: ImageView = view.findViewById<ImageView>(R.id.imgNext)
         val bannerImage: ImageView = view.findViewById<ImageView>(R.id.imgCourse)
+        val progress: ProgressBar = view.findViewById<ProgressBar>(R.id.progressbar)
 
 
         // imgNext
@@ -86,9 +98,37 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
         }
     }
         override fun onBindViewHolder(holder: PageHolder, position: Int) {
-           if(isboolean){
+             var qty = ""
+            var requestOptions = RequestOptions()
+            requestOptions = requestOptions.transforms(FitCenter(), RoundedCorners(16))
+           if(isboolean) {
                val ItemsViewModel = theme.parcours[position]
                holder.textView.text = ItemsViewModel.libelle
+               holder.progress.progress = 56
+               //   https://rc-tropfacile.onlineformapro.com/php5/competences/themes/defaut/img/themes/bannieres/st_developper_son_efficacite_personnelle_au_quotidien.png
+           /*    Glide.with(context).setDefaultRequestOptions(RequestOptions().timeout(100000))
+                   .load("http://rc-tropfacile.onlineformapro.com/php5/competences/themes/defaut/img/themes/bannieres/th_13.png")
+                   .into(holder.bannerImage);*/
+
+               ItemsViewModel.image.let {
+                   Glide.with(context)
+                       .load(BuildConfig.LOAD_IMAGE + it)
+                       .placeholder(R.drawable.logo)
+                       .into(holder.bannerImage)
+               }
+              qty= ItemsViewModel.duree_estimee
+                // holder.bannerImage.setImageResource("https://rc-tropfacile.onlineformapro.com"+ItemsViewModel.image)
+              /* Glide.with(context)
+                   .load("https://rc-tropfacile.onlineformapro.com"+ItemsViewModel.image)
+                   .apply(requestOptions)
+                   .skipMemoryCache(true)//for caching the image url in case phone is offline
+                   .into(holder.bannerImage)
+*/
+
+
+               //var id = context.getResources().getIdentifier("https://rc-tropfacile.onlineformapro.com" + ItemsViewModel.image, null, null);
+               //holder.bannerImage.setImageResource(id);
+               //holder.imgNext.setImageResource(id)
                holder.imgNext.setOnClickListener {
 
                    homeToCourseDetailsListener.navigateToCourseDetailsScreenViaParCour(ItemsViewModel)
@@ -96,9 +136,24 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
            }else{
 
                 val Itemsnew = theme.sousthemes[position]
-              // Log.debug("valuedata",Itemsnew.toString())
+
+            
+               // Log.debug("valuedata",Itemsnew.toString())
                holder.textView.text = Itemsnew.libelle
-               holder.imgNext
+               var str = Itemsnew.icone
+               val output = str.replace("res:", "")
+
+               //  holder.bannerImage.setImageResource("https://rc-tropfacile.onlineformapro.com"+Itemsnew.icone.replace("res:",""))
+               output.let {
+                   Glide.with(context)
+                       .load(BuildConfig.LOAD_IMAGE +"/php5/competences/themes/defaut/img/themes/bannieres/"+ it.replace("res:"," "))
+                       .placeholder(R.drawable.logo)
+                       .into(holder.bannerImage)
+               }
+               /* Itemsnew.icone?.let {
+                    Glide.with(context).load("https://rc-tropfacile.onlineformapro.com/php5/competences/themes/defaut/img/themes/bannieres/").into(holder.bannerImage);
+                }*/
+                 // Glide.with(context).load("https://rc-tropfacile.onlineformapro.com/php5/competences/themes/defaut/img/themes/bannieres/st_developper_son_efficacite_personnelle_au_quotidien.png").into(holder.bannerImage);
                holder.imgNext.setOnClickListener {
 
                    homeToCourseDetailsListener.navigateToCourseDetailsScreenViaSousTheme(Itemsnew)
@@ -119,3 +174,12 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
               notifyDataSetChanged()
           }*/
     }
+
+
+private fun ImageView.setImageResource(image: String) {
+
+}
+
+private fun ImageView.setImageDrawable(image: String) {
+
+}

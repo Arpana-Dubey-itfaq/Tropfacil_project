@@ -1,6 +1,7 @@
 package com.tropfacil.mycourses.view
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.text.TextUtils
@@ -12,6 +13,7 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.tropfacil.BuildConfig
 import com.tropfacil.R
+import com.tropfacil.RateReviewActivity
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.common.interfaces.ResumeFragmentListener
@@ -19,14 +21,16 @@ import com.tropfacil.data.Element
 import com.tropfacil.data.Parcour
 import com.tropfacil.data.Soustheme
 import com.tropfacil.databinding.FragmentCourseDetailsBinding
+import com.tropfacil.main.view.MainActivity
 import com.tropfacil.model.CourseChaptersWithLessonsModel
 import com.tropfacil.mycourses.adapter.CourseExpandableListAdapter
 import com.tropfacil.mycourses.adapter.SousThemeListAdapter
+import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 import setExpandableListViewHeight
 import setListViewHeight
 
 
-class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
+class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCourseDetailsListener {
     lateinit var binding: FragmentCourseDetailsBinding
     private lateinit var parCourse: Parcour
     private lateinit var sousThemeList: Soustheme
@@ -40,6 +44,7 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
         fun newInstance(parCourseItem: Parcour, isForParCourse: Boolean) =
             CourseDetailsFragment().apply {
                 parCourse = parCourseItem
+
                 isForWhichCourse = isForParCourse
             }
 
@@ -168,7 +173,30 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
             closeFragment()
         }
         binding.btnStartCourse.setOnClickListener {
+            startActivity(Intent(context, RateReviewActivity::class.java))
 
+        }
+        binding.btnContinueCourse.setOnClickListener {
+            if (isForWhichCourse){
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.fragment_container,
+                        Course_per_chapter_Fragment.newInstance(parCourse, isForWhichCourse),
+                        Course_per_chapter_Fragment.TAG
+                    )
+                    .commit()
+        }else{
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.fragment_container,
+                        Course_per_chapter_Fragment.newInstance(sousThemeList, isForWhichCourse),
+                        Course_per_chapter_Fragment.TAG
+                    )
+                    .commit()
+        }
+         /*   val courseDetailsFragment = Course_per_chapter_Fragment.newInstance(parCourse,false)
+            (requireActivity() as BaseActivity).visitNewFragment(R.id.fragment_container, courseDetailsFragment)
+*/
         }
         binding.expChaptersAndLessonsListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
             //TODO handle the navigation to per chapter view.
@@ -288,5 +316,13 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener {
 
     override fun onFragmentResume(bundle: Bundle?) {
 
+    }
+
+    override fun navigateToCourseDetailsScreenViaParCour(parcourItem: Parcour) {
+        TODO("Not yet implemented")
+    }
+
+    override fun navigateToCourseDetailsScreenViaSousTheme(sousItem: Soustheme) {
+        TODO("Not yet implemented")
     }
 }

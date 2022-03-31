@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 /**
  * Created by Nimesh Patel on 23-03-2022.
  */
-class ProfileSettingsViewModel (
+class ProfileSettingsViewModel(
     private val preferenceProvider: PreferenceProvider,
     private val appRepository: AppRepository,
 ) : BaseViewModel() {
@@ -30,21 +30,24 @@ class ProfileSettingsViewModel (
     val _profilePictureStateFlow: StateFlow<SafeApiCall> = profilePictureStateFlow
 
     fun updateUser(
-        nom:String?,
-        prenom:String?
+        nom: String?,
+        prenom: String?
     ) = launch {
         updateUserStateFlow.value = SafeApiCall.Loading
         val id = preferenceProvider.getString(PREF_USER_IDNEW, "")
-        appRepository.updateUser(id,nom,prenom)
+        appRepository.updateUser(id, nom, prenom)
             .catch { e ->
                 updateUserStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
-                updateUserStateFlow.value = SafeApiCall.Success(data)
+                updateUserStateFlow.value = if (data.responseSuess.equals("true"))
+                    SafeApiCall.Success(data)
+                else SafeApiCall.Error("Something went wrong. Please try after sometime!")
             }
     }
+
     fun getProfilePicture() = launch {
         profilePictureStateFlow.value = SafeApiCall.Loading
-        val token =preferenceProvider.getString(PREF_USER_TOKEN, "")
+        val token = preferenceProvider.getString(PREF_USER_TOKEN, "")
         appRepository.getProfilePicture(token)
             .catch { e ->
                 profilePictureStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
