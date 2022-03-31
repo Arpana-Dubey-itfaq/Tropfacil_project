@@ -7,5 +7,8 @@ data class Parcour(
     val id: String,
     val image: String,
     val libelle: String,
-    val type: String
+    val type: String,
+    val duree_estimee: String,
+    val duree_suivi: String,
+    val verrouille: Boolean,
 )

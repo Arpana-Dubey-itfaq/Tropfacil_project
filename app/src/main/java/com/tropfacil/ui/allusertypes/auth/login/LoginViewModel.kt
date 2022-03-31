@@ -1,13 +1,12 @@
 package com.tropfacil.ui.allusertypes.auth.login
 
 
-
-
 import android.util.Log
 import com.tropfacil.base.BaseViewModel
 import com.tropfacil.data.provider.*
 import com.tropfacil.data.repository.AppRepository
 import com.tropfacil.network.request.LoginRequest
+import com.tropfacil.network.service.PREF_IS_USER_LOGGED_IN
 import com.tropfacil.network.service.SafeApiCall
 
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,8 +17,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class LoginViewModel(
-private val preferenceProvider: PreferenceProvider,
-private val appRepository: AppRepository
+    private val preferenceProvider: PreferenceProvider,
+    private val appRepository: AppRepository
 ) : BaseViewModel() {
 
     private val loginStateFlow: MutableStateFlow<SafeApiCall> = MutableStateFlow(SafeApiCall.Empty)
@@ -37,32 +36,20 @@ private val appRepository: AppRepository
             .catch { e ->
                 loginStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
             }.collect { data ->
-                data.username= loginRequest.loginName
-               preferenceProvider.saveLoginDataToPref(data)
-                loginStateFlow.value = SafeApiCall.SuccessLogin(data)
-                //loginStateFlow.value = SafeApiCall.Success(data)
+                if (data.success.equals("true")) {
+                    data.username = loginRequest.loginName
+                    preferenceProvider.saveLoginDataToPref(data)
+                    loginStateFlow.value = SafeApiCall.SuccessLogin(data)
+                    //loginStateFlow.value = SafeApiCall.Success(data)
+                } else {
+                    loginStateFlow.value =  if (data.error != null) {
+                          SafeApiCall.Error(data.error?.message.toString())
+                    } else SafeApiCall.Error("Something went wrong. Please try after sometime!")
+                }
             }
     }
 
-  /*  fun loginUsernew(
-        loginRequest: LoginRequest
-    ) {
-        showLoading.value = true
-        launch {
-            val result =
-                withContext(Dispatchers.IO) { appRepository.loginUsernew(loginRequest) }
-            showLoading.value = false
-            when (result) {
-                is SafeApiCallnew.Success -> {
-                    preferenceProvider.saveUserInfo(result.data)
-                    loginLiveData.value = result.data
-                }
-                is SafeApiCallnew.Error -> showError.value = getErrorMessage(result.exception)
-            }
-        }
-    }*/
-
-
-
-
+    fun stayLogin(isLoggedIn:Boolean) {
+        preferenceProvider.putBoolean(PREF_IS_USER_LOGGED_IN, isLoggedIn)
+    }
 }

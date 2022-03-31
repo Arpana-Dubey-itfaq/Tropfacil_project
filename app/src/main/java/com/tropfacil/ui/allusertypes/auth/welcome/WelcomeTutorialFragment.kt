@@ -1,5 +1,6 @@
 package com.tropfacil.ui.allusertypes.auth.welcome
 
+import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
@@ -21,6 +22,8 @@ import java.text.FieldPosition
 import android.graphics.drawable.Drawable
 
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.tropfacil.AuthActivity
+import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
 
 
 class WelcomeTutorialFragment : BaseFragment(), GuestAdapter.OnCourseHistoryListener {
@@ -60,11 +63,12 @@ class WelcomeTutorialFragment : BaseFragment(), GuestAdapter.OnCourseHistoryList
                     binding.viewPager.currentItem = 2
                     position = -1
                 }
-                else -> findNavController().navigate(WelcomeTutorialFragmentDirections.actionInitialFragmentToLoginFragment())
-            }
+                else ->
+                   startActivity(Intent(requireContext(),LoginFragment::class.java))
+                      }
         }
         binding.tvSkip.setOnClickListener {
-            findNavController().navigate(WelcomeTutorialFragmentDirections.actionInitialFragmentToLoginFragment())
+            startActivity(Intent(requireContext(),LoginFragment::class.java))
         }
     }
 

@@ -2,6 +2,7 @@ package com.tropfacil.network.service
 
 
 import com.example.example.Homeresponse
+import com.tropfacil.model.*
 
 import com.tropfacil.BuildConfig
 import com.tropfacil.data.home_response
@@ -11,6 +12,7 @@ import com.tropfacil.model.ForgotPasswordRes
 import com.tropfacil.model.Login_resoponse
 import com.tropfacil.model.RegisterRes
 import com.tropfacil.model.UpdatePasswordRequest
+import com.tropfacil.model.badges.BadgeListResponse
 import com.tropfacil.model.exercices.ExercicesListResponse
 import com.tropfacil.network.BaseResponse
 import okhttp3.ResponseBody
@@ -62,10 +64,9 @@ interface ApiService {
     ): Homeresponse
 
 
-    @POST("utilisateur/update-carte-de-visite")
+    @POST("utilisateur/update")
     suspend fun changeEmail(
-        @Query("nom") nom: String?, @Query("prenom") prenom: String?,
-        @Query("login") login: String?, @Query("civilite") civilite: String?,
+        @Query("id") id: String?, @Query("email") email: String?
     ): BaseResponse
 
     @POST("utilisateur/update")
@@ -88,7 +89,12 @@ interface ApiService {
     @POST("catalogue/get-exercices")
     suspend fun getExercices(
         @Field("token") token: String?
-    ):ExercicesListResponse
+    ):ExercicesListResponse  @FormUrlEncoded
+
+    @POST("utilisateur/get-badges")
+    suspend fun getBadges(
+        @Query("token") token: String?
+    ):BadgeListResponse
     /*
    *//*   @POST("Authentication/SignIn/Customer")
     suspend fun login(@Body loginReq: LoginReq): LoginRes

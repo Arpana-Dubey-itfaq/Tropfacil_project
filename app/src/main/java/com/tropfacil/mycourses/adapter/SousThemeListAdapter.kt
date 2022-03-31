@@ -65,7 +65,7 @@ class SousThemeListAdapter(
         //set progress bar
         sousItem.avancement.let {
             holder.bind.progressBar.progress = it
-            holder.bind.tvProgressWithPercentage.text = "${it}"
+            holder.bind.tvProgressWithPercentage.text = "${it}%"
         }
 
         //set icon play or locked for lessons

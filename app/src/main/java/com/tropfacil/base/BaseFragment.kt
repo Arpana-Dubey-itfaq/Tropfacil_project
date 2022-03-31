@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 import com.tropfacil.R
+import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.updateStatusBarColor
 import com.tropfacil.utils.popups.SuccessOrFailurePopup
 

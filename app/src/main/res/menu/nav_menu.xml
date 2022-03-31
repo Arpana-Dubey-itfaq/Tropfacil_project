@@ -25,7 +25,8 @@
     <item
         android:id="@+id/allcatagories"
         android:icon="@drawable/menu_categories"
-        android:title="All Catagories" />
+        android:title="All Catagories"
+        android:visible="false"/>
 
 
     <item android:title="@string/nav_account_settings">
