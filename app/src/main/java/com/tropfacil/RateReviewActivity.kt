@@ -19,8 +19,7 @@ class RateReviewActivity : BaseActivity() {
 
     fun setListner() {
         binding.cardSubmit.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-
+            finish()
         }
     }
 }
