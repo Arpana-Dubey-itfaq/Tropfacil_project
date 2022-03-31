@@ -98,7 +98,8 @@ class RegisterFragment : BaseActivity(), ResumeFragmentListener {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
-                        //showErrorMsg(it.exception)
+                        showErrorMsg(it.exception.toString())
+
                     }
                     is SafeApiCall.SuccessRegister -> {
                         binding.progressBar.isVisible = false
@@ -154,19 +155,19 @@ class RegisterFragment : BaseActivity(), ResumeFragmentListener {
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.edtemail.requestFocus();
-            } else if (binding.usename.getText().toString().trim().isEmpty()) {
+            } /*else if (binding.usename.getText().toString().trim().isEmpty()) {
                 Toast.makeText(
                     this, "Please enter username",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.usename.requestFocus();
-            } else {
+            } */else {
                 val registerReq = RegisterRequest(
                     binding.edtemail.text.toString(),
-                    binding.usename.text.toString(),
+                   qty,
                     binding.nameEt.text.toString(),
                     binding.edtpernom.text.toString(),
-                    qty,
+                    "",
                     //binding.edtPassword.text.toString(),
                 )
                 viewModel.registerUser(registerReq)

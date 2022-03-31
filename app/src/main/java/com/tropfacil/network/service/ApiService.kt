@@ -53,6 +53,19 @@ interface ApiService {
         @Body updatePasswordRequest: UpdatePasswordRequest,
     ): BaseResponse
 
+
+    @POST("utilisateur/update-password")
+    suspend fun resetPassword(
+        @Query("token") authorization: String?,
+        @Query("npwd")
+        np: String,
+        @Query("code_unique")
+        cp: String,
+        @Query("login")
+        otp: String,
+    ): BaseResponse
+
+
     @POST("catalogue/get-catalogue")
     suspend fun homeData(
         @Query("token") authorization: String?,

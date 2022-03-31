@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15ssp"
             android:padding="@dimen/_3sdp"
-            android:text="ITFAQ itfa"
             android:textColor="@color/white"
             android:textSize="@dimen/_15ssp"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +74,7 @@
             android:id="@+id/imgNext"
             style="@style/imgHeader"
             android:src="@drawable/go_arrow"
-
+android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

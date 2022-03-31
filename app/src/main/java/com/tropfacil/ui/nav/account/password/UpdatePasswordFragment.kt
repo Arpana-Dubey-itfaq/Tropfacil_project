@@ -80,7 +80,7 @@ class UpdatePasswordFragment : BaseFragment() {
 
     private fun SetUI() {
         binding.clTitleWithBack.headerTitleTv.text =
-            textCapSentences(getString(R.string.lbl_change_email))
+            textCapSentences(getString(R.string.lbl_change_password))
 
         binding.currentPasswordEt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

@@ -41,6 +41,12 @@ class AppRepository(private val apiServiceImpl: AppRepositoryImpl) {
             emit(apiServiceImpl.updatePassword(updatePasswordRequest))
         }.flowOn(Dispatchers.IO)
 
+    fun resetPassword(token: String, np: String, cp: String, otp: String): Flow<BaseResponse> =
+        flow {
+            emit(apiServiceImpl.resetPassword(token,np,cp,otp))
+        }.flowOn(Dispatchers.IO)
+
+
     fun updateUser(id: String, nom: String?, prenom: String?): Flow<BaseResponse> = flow {
         emit(apiServiceImpl.updateUser(id, nom, prenom))
     }.flowOn(Dispatchers.IO)

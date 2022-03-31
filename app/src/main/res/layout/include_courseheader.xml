@@ -43,14 +43,14 @@
             app:srcCompat="@drawable/backarrow" />
 
         <TextView
-            android:layout_centerInParent="true"
             android:id="@+id/tvCourseName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_gravity="center_vertical"
+            android:gravity="center"
             android:textColor="#ffffff"
             android:textSize="18sp"
-            android:gravity="center"
             tools:text="Course - French" />
     </RelativeLayout>
 

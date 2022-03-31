@@ -17,6 +17,7 @@ import com.tropfacil.ui.allusertypes.auth.login.LoginFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragment
 import com.tropfacil.ui.allusertypes.auth.signup.RegisterFragmentDirections
 import com.tropfacil.mycourses.view.CourseDetailsFragment
+import com.tropfacil.mycourses.view.Course_per_chapter_Fragment
 import com.tropfacil.ui.nav.account.AccountSettingsFragment
 import com.tropfacil.ui.nav.account.email.UpdateEmailFragment
 import com.tropfacil.ui.nav.account.password.UpdatePasswordFragment
@@ -105,6 +106,8 @@ open class BaseActivity : AppCompatActivity() {
                 WriteAMessageFragment::class.java.name -> supportFragmentManager.popBackStack()
                 CourseDetailsFragment::class.java.name -> supportFragmentManager.popBackStack()
                 UpdateEmailFragment::class.java.name -> supportFragmentManager.popBackStack()
+                Course_per_chapter_Fragment::class.java.name -> supportFragmentManager.popBackStack()
+
             }
         }
     }
