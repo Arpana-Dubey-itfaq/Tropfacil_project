@@ -150,6 +150,9 @@ class HomeFragment : BaseFragment() {
 
         initObserver()
         initObservers()
+        token = PreferenceProvider(requireContext()).getUserToken()
+        binding.incLevelInfo.tvcoursename.setText(nom + " " + pernom)
+
         // initObserver()
     }
 
@@ -170,6 +173,14 @@ class HomeFragment : BaseFragment() {
                          if(homeresponse.data.themes.isEmpty())
                          {
                              binding.nestedscrollviewheader.visible()
+                             nom = PreferenceProvider(requireContext()).getNom()
+                             pernom = PreferenceProvider(requireContext()).getperNom()
+
+                             binding.incLevelInfo1.tvcoursename.setText(nom + " " + pernom)
+
+
+                             // binding.incLevelInfo.tvcoursename.setText(nom + " " + pernom)
+
 
                          }else{
                             binding.nestedscrollview.visible()
@@ -274,6 +285,10 @@ class HomeFragment : BaseFragment() {
             binding.indicator.setProgress(selectingPosition, progress)
 */
         //  viewPagerSchudeleCourseAdapter = ViewPagerAdapter(requireActivity(), 5)
+        nom = PreferenceProvider(requireContext()).getNom()
+        pernom = PreferenceProvider(requireContext()).getperNom()
+
+        binding.incLevelInfo.tvcoursename.setText(nom + " " + pernom)
 
 
         setData(bannersResponse)

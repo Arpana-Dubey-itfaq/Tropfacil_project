@@ -43,7 +43,7 @@ class UpdateEmailFragment : BaseFragment() {
 
     private fun initUI() {
         binding.clTitleWithBack.headerTitleTv.text =
-            textCapSentences(getString(R.string.lbl_change_email))
+            textCapSentences(getString(R.string.lbl_change_password))
 
         binding.clTitleWithBack.backIv.setOnClickListener {
             closeFragment()

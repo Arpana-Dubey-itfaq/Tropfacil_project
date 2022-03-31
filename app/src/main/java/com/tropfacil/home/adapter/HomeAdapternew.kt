@@ -17,6 +17,7 @@ import com.tropfacil.databinding.ItemTabRecommededExercisenewBinding
 import com.tropfacil.util.interfaces.HomeToCourseDetailsListener
 import android.graphics.drawable.Drawable
 import android.util.Log
+import android.widget.ProgressBar
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -70,6 +71,7 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
         val textView: TextView = view.findViewById<TextView>(R.id.tv_name)
         val imgNext: ImageView = view.findViewById<ImageView>(R.id.imgNext)
         val bannerImage: ImageView = view.findViewById<ImageView>(R.id.imgCourse)
+        val progress: ProgressBar = view.findViewById<ProgressBar>(R.id.progressbar)
 
 
         // imgNext
@@ -102,7 +104,7 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
            if(isboolean) {
                val ItemsViewModel = theme.parcours[position]
                holder.textView.text = ItemsViewModel.libelle
-
+               holder.progress.progress = 56
                //   https://rc-tropfacile.onlineformapro.com/php5/competences/themes/defaut/img/themes/bannieres/st_developper_son_efficacite_personnelle_au_quotidien.png
            /*    Glide.with(context).setDefaultRequestOptions(RequestOptions().timeout(100000))
                    .load("http://rc-tropfacile.onlineformapro.com/php5/competences/themes/defaut/img/themes/bannieres/th_13.png")

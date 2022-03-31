@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15ssp"
             android:padding="@dimen/_3sdp"
-            android:text="ITFAQ itfa"
             android:textColor="@color/white"
             android:textSize="@dimen/_15ssp"
             app:layout_constraintStart_toStartOf="parent"

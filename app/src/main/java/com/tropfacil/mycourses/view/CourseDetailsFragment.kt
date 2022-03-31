@@ -1,6 +1,7 @@
 package com.tropfacil.mycourses.view
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.text.TextUtils
@@ -12,6 +13,7 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.tropfacil.BuildConfig
 import com.tropfacil.R
+import com.tropfacil.RateReviewActivity
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.common.interfaces.ResumeFragmentListener
@@ -19,6 +21,7 @@ import com.tropfacil.data.Element
 import com.tropfacil.data.Parcour
 import com.tropfacil.data.Soustheme
 import com.tropfacil.databinding.FragmentCourseDetailsBinding
+import com.tropfacil.main.view.MainActivity
 import com.tropfacil.model.CourseChaptersWithLessonsModel
 import com.tropfacil.mycourses.adapter.CourseExpandableListAdapter
 import com.tropfacil.mycourses.adapter.SousThemeListAdapter
@@ -170,6 +173,7 @@ class CourseDetailsFragment : BaseFragment(), ResumeFragmentListener, HomeToCour
             closeFragment()
         }
         binding.btnStartCourse.setOnClickListener {
+            startActivity(Intent(context, RateReviewActivity::class.java))
 
         }
         binding.btnContinueCourse.setOnClickListener {

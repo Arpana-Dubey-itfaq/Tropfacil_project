@@ -17,6 +17,10 @@
         <item name="android:windowTranslucentStatus">true</item>
 
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#8D8D8D</item>
+        <item name="colorControlActivated">#FFC107</item>
+    </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">#1A237E</item>
