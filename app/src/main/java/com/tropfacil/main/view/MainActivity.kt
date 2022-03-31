@@ -75,7 +75,7 @@ class MainActivity : BaseActivity(), HomeOptionsListener {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.fragment_container,
-                Course_chapter_Fragment.newInstance(),
+                MyCourseFragment.newInstance(),
                 MyCourseFragment.TAG
             )
             .commit()

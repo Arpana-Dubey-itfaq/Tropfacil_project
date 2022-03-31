@@ -34,6 +34,7 @@ class Constants {
         val MYEXERCISEFragment = 3
         var FRAGMENT = 1
         var EXERCICES_INFO_LIST ="Exercices Info List"
+        var THEME_INFO_LIST ="Theme Info List"
 
 
         private fun isIntentAvailable(ctx: Context, intent: Intent): Boolean {

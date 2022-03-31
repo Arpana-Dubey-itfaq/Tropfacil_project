@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.tropfacil.base.BaseFragment
 import com.tropfacil.databinding.FragmentExerciseInfoBinding
 import com.tropfacil.model.exercices.ExercicesInfoList
 import com.tropfacil.ui.nav.exercices.adapter.ExercicesInfoAdapter
 import com.tropfacil.util.Constants.Companion.EXERCICES_INFO_LIST
 import com.tropfacil.utils.ItemClickListener
 
-class ExerciseInfoFragment : Fragment() {
+class ExerciseInfoFragment : BaseFragment() {
     lateinit var binding: FragmentExerciseInfoBinding
     private var exercicesInfoList: ExercicesInfoList?= null
     private var exercicesInfoAdapter:ExercicesInfoAdapter? = null
