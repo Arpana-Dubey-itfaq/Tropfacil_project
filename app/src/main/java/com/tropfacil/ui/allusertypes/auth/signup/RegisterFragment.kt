@@ -98,8 +98,7 @@ class RegisterFragment : BaseActivity(), ResumeFragmentListener {
                     }
                     is SafeApiCall.Error -> {
                         binding.progressBar.isVisible = false
-                        showErrorMsg(it.exception.toString())
-
+                        showErrorMsg(it.exception)
                     }
                     is SafeApiCall.SuccessRegister -> {
                         binding.progressBar.isVisible = false

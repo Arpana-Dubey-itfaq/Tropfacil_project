@@ -190,5 +190,7 @@
         <item>Mrs.</item>
     </string-array>
 
-
+    <string name="avancement">AVANCEMENT GLOBAL</string>
+    <string name="activities">ACTIVITÉS</string>
+<string name="formations">Formations</string>
 </resources>
