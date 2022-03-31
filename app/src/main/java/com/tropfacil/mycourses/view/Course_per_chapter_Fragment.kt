@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 
 import com.tropfacil.base.BaseFragment
+import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.common.interfaces.ResumeFragmentListener
 import com.tropfacil.data.Element
 import com.tropfacil.data.Parcour
@@ -169,11 +170,14 @@ class Course_per_chapter_Fragment : BaseFragment(), ResumeFragmentListener,
         Constants.FRAGMENT= Constants.MYCOURSESFragment
 
         binding = CoursePerChapterBinding.inflate(layoutInflater, container, false)
-
+binding.inclue.imageView4.setOnClickListener { closeFragment() }
 
 
         return binding.root
 
+    }
+    private fun closeFragment() {
+        closeAndResumePrevFrag(requireActivity(), null)
     }
 
 

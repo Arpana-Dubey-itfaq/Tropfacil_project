@@ -96,6 +96,7 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
         }
     }
         override fun onBindViewHolder(holder: PageHolder, position: Int) {
+             var qty = ""
             var requestOptions = RequestOptions()
             requestOptions = requestOptions.transforms(FitCenter(), RoundedCorners(16))
            if(isboolean) {
@@ -113,9 +114,8 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
                        .placeholder(R.drawable.logo)
                        .into(holder.bannerImage)
                }
-
-
-               // holder.bannerImage.setImageResource("https://rc-tropfacile.onlineformapro.com"+ItemsViewModel.image)
+              qty= ItemsViewModel.duree_estimee
+                // holder.bannerImage.setImageResource("https://rc-tropfacile.onlineformapro.com"+ItemsViewModel.image)
               /* Glide.with(context)
                    .load("https://rc-tropfacile.onlineformapro.com"+ItemsViewModel.image)
                    .apply(requestOptions)
@@ -134,7 +134,9 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
            }else{
 
                 val Itemsnew = theme.sousthemes[position]
-              // Log.debug("valuedata",Itemsnew.toString())
+
+            
+               // Log.debug("valuedata",Itemsnew.toString())
                holder.textView.text = Itemsnew.libelle
                var str = Itemsnew.icone
                val output = str.replace("res:", "")
@@ -170,6 +172,7 @@ class HomeAdapternew(val context: Context, val theme: Theme, val isboolean: Bool
               notifyDataSetChanged()
           }*/
     }
+
 
 private fun ImageView.setImageResource(image: String) {
 
