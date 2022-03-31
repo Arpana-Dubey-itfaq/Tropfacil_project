@@ -16,11 +16,13 @@ import com.tropfacil.R
 import com.tropfacil.base.BaseFragment
 import com.tropfacil.closeAndResumePrevFrag
 import com.tropfacil.data.provider.PREF_USER_FIRST_NAME
+import com.tropfacil.data.provider.PREF_USER_LAST_NAME
 import com.tropfacil.data.provider.PREF_USER_NAME
 import com.tropfacil.data.provider.PreferenceProvider
 import com.tropfacil.databinding.FragmentProfileBinding
 import com.tropfacil.network.service.SafeApiCall
 import com.tropfacil.textCapSentences
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.coroutines.flow.collect
 import okhttp3.ResponseBody
 import org.koin.android.ext.android.inject
@@ -60,8 +62,9 @@ class ProfileFragment : BaseFragment() {
         }
 
         binding.submitCl.setOnClickListener {
-            val prenom = binding.nameEt.text.toString()
-            viewModel.updateUser(prenom)
+            val nom = binding.nameEt.text.toString().trim()
+            val prenom = binding.lastnameEt.text.toString().trim()
+            viewModel.updateUser(nom,prenom)
 
         }
         binding.spinnerTv.text = resources.getStringArray(R.array.civility_code)[0]
@@ -85,6 +88,7 @@ class ProfileFragment : BaseFragment() {
 
         binding.usernameEt.setText(preferenceProvider.getString(PREF_USER_NAME, ""))
         binding.nameEt.setText(preferenceProvider.getString(PREF_USER_FIRST_NAME, ""))
+        binding.lastnameEt.setText(preferenceProvider.getString(PREF_USER_LAST_NAME, ""))
 
     }
 
@@ -102,6 +106,8 @@ class ProfileFragment : BaseFragment() {
                     }
                     is SafeApiCall.Success -> {
                         binding.progressBar.isVisible = false
+                        preferenceProvider.getString(PREF_USER_FIRST_NAME, name_et.text.toString())
+                        preferenceProvider.getString(PREF_USER_LAST_NAME, lastname_et.text.toString())
                         closeFragment()
                     }
                     else -> {

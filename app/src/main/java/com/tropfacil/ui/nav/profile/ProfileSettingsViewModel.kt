@@ -30,11 +30,11 @@ class ProfileSettingsViewModel (
     val _profilePictureStateFlow: StateFlow<SafeApiCall> = profilePictureStateFlow
 
     fun updateUser(
+        nom:String?,
         prenom:String?
     ) = launch {
         updateUserStateFlow.value = SafeApiCall.Loading
         val id = preferenceProvider.getString(PREF_USER_IDNEW, "")
-            val nom = preferenceProvider.getString(PREF_USER_NAME, "")
         appRepository.updateUser(id,nom,prenom)
             .catch { e ->
                 updateUserStateFlow.value = getErrorMessage(e)?.let { SafeApiCall.Error(it) }!!
